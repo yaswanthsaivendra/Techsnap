@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/style/_headers/headers.css" />
+		<link rel="stylesheet" href="/style/_pages/courses.css" />
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/swiper/swiper-bundle.min.css"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+			rel="stylesheet"
+		/>
+		<title>Document</title>
+	</head>
+	<body>
+		<header>
+			<div class="sub_header">
+				<div class="Header_icon">
+					<div class="ham" onclick="slideMenu()">
+						<img
+							id="ham_icon"
+							src="https://img.icons8.com/android/96/000000/menu.png"
+						/>
+					</div>
+					<img src="/assets/icon.svg" alt="Logo" />
+				</div>
+
+				<div class="Header_Profile">
+					<div class="Icons">
+						<div class="points">
+							<p><span>🔥 </span>0</p>
+							<p><span>🎯 </span> 0</p>
+						</div>
+						<div class="score">
+							<p><span>⚡ </span> 200</p>
+							<p>
+								<span
+									><img src="/assets/coin (3).png" alt="notifiction"
+								/></span>
+								50
+							</p>
+						</div>
+					</div>
+					<img
+						src="/assets/bell.svg"
+						alt="notifiction"
+						class="notification_bell"
+					/>
+					<div class="notification_dropdown">
+						<h1>Notifications</h1>
+					</div>
+					<img
+						class="profile_pic avatar"
+						src="/assets/profile.jpg"
+						alt="avatar"
+					/>
+					<div class="profile_dropDown">
+						<a href="#" class="profile_dropDown_item">
+							<span
+								><img
+									src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-dashboard-blogger-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"
+							/></span>
+							<p>View Dashboard</p>
+						</a>
+						<a href="#" class="profile_dropDown_item">
+							<span
+								><img src="https://img.icons8.com/ios/50/000000/user.png"
+							/></span>
+							<p>View Profile</p>
+						</a>
+						<a href="#" class="profile_dropDown_item">
+							<span
+								><img
+									src="https://img.icons8.com/ios/50/000000/user-not-found.png"
+							/></span>
+							<p>Edit</p>
+						</a>
+						<a href="#" class="profile_dropDown_item">
+							<span
+								><img src="https://img.icons8.com/windows/32/000000/exit.png"
+							/></span>
+							<p>Logout</p>
+						</a>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="wholeBody">
+			<!-- //------------------------sidenav--------------------------- -->
+			<aside class="sideMenu">
+				<div class="myMenu">
+					<a href="index.html">
+						<img src="/assets/self-growth3.png" alt="progress" />
+						<p>My Progress</p>
+					</a>
+					<a href="##">
+						<img src="/assets/stage.png" alt="bookmark" />
+						<p>Competitions</p>
+					</a>
+					<a href="leaderBoard.html">
+						<img src="/assets/leaderboard.png" alt="leader" />
+						<p>Leaderboard</p>
+					</a>
+				</div>
+				<div class="myMenu">
+					<div class="title">
+						<h4>catalog</h4>
+					</div>
+					<a href="career.html">
+						<img src="/assets/career-choice.png" alt="progress" />
+						<p>Career Paths</p>
+					</a>
+					<a href="courses.html" id="active">
+						<img src="/assets/online-course2.png" alt="leader" />
+						<p>Courses</p>
+					</a>
+					<a href="projects.html">
+						<img src="/assets/project-management (2).png" alt="leader" />
+						<p>Projects</p>
+					</a>
+					<a href="##">
+						<img src="/assets/project.png" alt="leader" />
+						<p>Practice</p>
+					</a>
+					<a href="assesments.html">
+						<img src="/assets/clipboard.png" alt="leader" />
+						<p>Assessments</p>
+					</a>
+					<a href="liveEvents.html">
+						<img src="/assets/deadline.png" alt="leader" />
+						<p>Live Events</p>
+					</a>
+				</div>
+				<div class="myMenu">
+					<div class="title">
+						<h4>PROFILE</h4>
+					</div>
+					<a href="myProfile.html">
+						<img src="/assets/account (1).png" alt="progress" />
+						<p>My profile</p>
+					</a>
+					<a href="editProfile.html">
+						<img src="/assets/edit (1).png" alt="bookmark" />
+						<p>Edit profile</p>
+					</a>
+					<a href="accountSettings.html">
+						<img src="/assets/user (1).png" alt="leader" />
+						<p>Account Settings</p>
+					</a>
+					<a href="##">
+						<img src="/assets/logout (1).png" alt="leader" />
+						<p>Logout</p>
+					</a>
+				</div>
+				<button>Contact us</button>
+			</aside>
+
+			<!---------------LeaderBoard section---------------------->
+			<div class="max_width_holder">
+				<section class="course_section">
+					<div class="banner">
+						<div class="left_side_banner">
+							<div class="title">
+								<p>
+									Grow Your Skills and Elevate your Career to next Level with
+									Our Courses
+								</p>
+							</div>
+							<div class="banner_tag">
+								<p>
+									Learn the basics, or refine your skills with tutorials
+									designed to inspire from top mentors and specialist
+									organisations. Get Career Guidance and Boost Your Resume and
+									also Learn faster with real hands-on projects and quizes and
+									assesments
+								</p>
+							</div>
+							<div class="para">
+								<p>
+									Get <span>Skilled.</span> Get <span>Certified.</span> Get
+									<span>Hired.</span>
+								</p>
+							</div>
+							<div class="yellow_tag" onclick="closeYellowTag()">
+								<p>Get Personalized Recommendations by taking this test</p>
+								<div class="hide"></div>
+							</div>
+						</div>
+						<div class="right_side_banner">
+							<img src="/assets/banner_img.svg" alt="banner_pic" />
+						</div>
+					</div>
+					<div class="course_popular_card_section">
+						<div class="title">
+							<p>Popular Courses</p>
+						</div>
+						<div class="swiper mySwiper">
+						<div class="swiper-wrapper">
+							<div class="my_progess_trending_card swiper-slide">
+								<div class="my_progess_trending_card_header">
+									<img src="assets/python_logo.png" alt="course-logo" />
+									<div class="resolution">
+										<p>1250xp</p>
+									</div>
+								</div>
+								<div class="my_progess_trending_card_body">
+									<h1>Introduction to SQL</h1>
+									<div class="my_progess_trending_card_options_holder">
+										<div class="my_progess_trending_card_option">
+											<img src="./assets/time.svg" alt="time" />
+											<p>15 hours</p>
+										</div>
+										<div class="my_progess_trending_card_option">
+											<img src="./assets/lessons.svg" alt="time" />
+											<p>9 lessons</p>
+										</div>
+										<div class="my_progess_trending_card_option">
+											<img src="./assets/coin.svg" alt="time" />
+											<p>779 coins</p>
+										</div>
+									</div>
+								</div>
+								<div class="my_progress_trending_card_footer">
+									<button>Start Course</button>
+								</div>
+							</div>
+							<div class="my_progess_trending_card swiper-slide">
+								<div class="my_progess_trending_card_header">
+									<img src="assets/python_logo.png" alt="course-logo" />
+									<div class="resolution">
+										<p>1250xp</p>
+									</div>
+								</div>
+								<div class="my_progess_trending_card_body">
+									<h1>Introduction to SQL</h1>
+									<div class="my_progess_trending_card_options_holder">
+										<div class="my_progess_trending_card_option">
+											<img src="./assets/time.svg" alt="time" />
+											<p>15 hours</p>
+										</div>
+										<div class="my_progess_trending_card_option">
+											<img src="./assets/lessons.svg" alt="time" />
+											<p>9 lessons</p>
+										</div>
+										<div class="my_progess_trending_card_option">
+											<img src="./assets/coin.svg" alt="time" />
+											<p>779 coins</p>
+										</div>
+									</div>
+								</div>
+								<div class="my_progress_trending_card_footer">
+									<button>Start Course</button>
+								</div>
+							</div>
+							<div class="my_progess_trending_card swiper-slide">
+								<div class="my_progess_trending_card_header">
+									<img src="assets/python_logo.png" alt="course-logo" />
+									<div class="resolution">
+										<p>1250xp</p>
+									</div>
+								</div>
+								<div class="my_progess_trending_card_body">
+									<h1>Introduction to SQL</h1>
+									<div class="my_progess_trending_card_options_holder">
+										<div class="my_progess_trending_card_option">
+											<img src="./assets/time.svg" alt="time" />
+											<p>15 hours</p>
+										</div>
+										<div class="my_progess_trending_card_option">
+											<img src="./assets/lessons.svg" alt="time" />
+											<p>9 lessons</p>
+										</div>
+										<div class="my_progess_trending_card_option">
+											<img src="./assets/coin.svg" alt="time" />
+											<p>779 coins</p>
+										</div>
+									</div>
+								</div>
+								<div class="my_progress_trending_card_footer">
+									<button>Start Course</button>
+								</div>
+							</div>
+							<div class="my_progess_trending_card swiper-slide">
+								<div class="my_progess_trending_card_header">
+									<img src="assets/python_logo.png" alt="course-logo" />
+									<div class="resolution">
+										<p>1250xp</p>
+									</div>
+								</div>
+								<div class="my_progess_trending_card_body">
+									<h1>Introduction to SQL</h1>
+									<div class="my_progess_trending_card_options_holder">
+										<div class="my_progess_trending_card_option">
+											<img src="./assets/time.svg" alt="time" />
+											<p>15 hours</p>
+										</div>
+										<div class="my_progess_trending_card_option">
+											<img src="./assets/lessons.svg" alt="time" />
+											<p>9 lessons</p>
+										</div>
+										<div class="my_progess_trending_card_option">
+											<img src="./assets/coin.svg" alt="time" />
+											<p>779 coins</p>
+										</div>
+									</div>
+								</div>
+								<div class="my_progress_trending_card_footer">
+									<button>Start Course</button>
+								</div>
+							</div>
+							<div class="my_progess_trending_card swiper-slide">
+								<div class="my_progess_trending_card_header">
+									<img src="assets/python_logo.png" alt="course-logo" />
+									<div class="resolution">
+										<p>1250xp</p>
+									</div>
+								</div>
+								<div class="my_progess_trending_card_body">
+									<h1>Introduction to SQL</h1>
+									<div class="my_progess_trending_card_options_holder">
+										<div class="my_progess_trending_card_option">
+											<img src="./assets/time.svg" alt="time" />
+											<p>15 hours</p>
+										</div>
+										<div class="my_progess_trending_card_option">
+											<img src="./assets/lessons.svg" alt="time" />
+											<p>9 lessons</p>
+										</div>
+										<div class="my_progess_trending_card_option">
+											<img src="./assets/coin.svg" alt="time" />
+											<p>779 coins</p>
+										</div>
+									</div>
+								</div>
+								<div class="my_progress_trending_card_footer">
+									<button>Start Course</button>
+								</div>
+							</div>
+							<div class="my_progess_trending_card swiper-slide">
+								<div class="my_progess_trending_card_header">
+									<img src="assets/python_logo.png" alt="course-logo" />
+									<div class="resolution">
+										<p>1250xp</p>
+									</div>
+								</div>
+								<div class="my_progess_trending_card_body">
+									<h1>Introduction to SQL</h1>
+									<div class="my_progess_trending_card_options_holder">
+										<div class="my_progess_trending_card_option">
+											<img src="./assets/time.svg" alt="time" />
+											<p>15 hours</p>
+										</div>
+										<div class="my_progess_trending_card_option">
+											<img src="./assets/lessons.svg" alt="time" />
+											<p>9 lessons</p>
+										</div>
+										<div class="my_progess_trending_card_option">
+											<img src="./assets/coin.svg" alt="time" />
+											<p>779 coins</p>
+										</div>
+									</div>
+								</div>
+								<div class="my_progress_trending_card_footer">
+									<button>Start Course</button>
+								</div>
+							</div>
+							<div class="my_progess_trending_card swiper-slide">
+								<div class="my_progess_trending_card_header">
+									<img src="assets/python_logo.png" alt="course-logo" />
+									<div class="resolution">
+										<p>1250xp</p>
+									</div>
+								</div>
+								<div class="my_progess_trending_card_body">
+									<h1>Introduction to SQL</h1>
+									<div class="my_progess_trending_card_options_holder">
+										<div class="my_progess_trending_card_option">
+											<img src="./assets/time.svg" alt="time" />
+											<p>15 hours</p>
+										</div>
+										<div class="my_progess_trending_card_option">
+											<img src="./assets/lessons.svg" alt="time" />
+											<p>9 lessons</p>
+										</div>
+										<div class="my_progess_trending_card_option">
+											<img src="./assets/coin.svg" alt="time" />
+											<p>779 coins</p>
+										</div>
+									</div>
+								</div>
+								<div class="my_progress_trending_card_footer">
+									<button>Start Course</button>
+								</div>
+							</div>
+							<div class="my_progess_trending_card swiper-slide">
+								<div class="my_progess_trending_card_header">
+									<img src="assets/python_logo.png" alt="course-logo" />
+									<div class="resolution">
+										<p>1250xp</p>
+									</div>
+								</div>
+								<div class="my_progess_trending_card_body">
+									<h1>Introduction to SQL</h1>
+									<div class="my_progess_trending_card_options_holder">
+										<div class="my_progess_trending_card_option">
+											<img src="./assets/time.svg" alt="time" />
+											<p>15 hours</p>
+										</div>
+										<div class="my_progess_trending_card_option">
+											<img src="./assets/lessons.svg" alt="time" />
+											<p>9 lessons</p>
+										</div>
+										<div class="my_progess_trending_card_option">
+											<img src="./assets/coin.svg" alt="time" />
+											<p>779 coins</p>
+										</div>
+									</div>
+								</div>
+								<div class="my_progress_trending_card_footer">
+									<button>Start Course</button>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-button-next"></div>
+						<div class="swiper-button-prev"></div>
+						<div class="swiper-pagination"></div>
+					</div>
+					</div>
+					<div class="white_ban">
+						<div class="tabs_wrap">
+							<ul>
+								<li
+									class="slideProfileLinks"
+									id="defaultProfileLinks"
+									onclick="slideProfile(event,'Browse')"
+								>
+									<span><img src="/assets/bell.svg" alt="icon" /></span>
+									Browse
+								</li>
+								<li
+									class="slideProfileLinks"
+									onclick="slideProfile(event,'Our')"
+								>
+									<span><img src="/assets/bell.svg" alt="icon" /></span>
+									Picks
+								</li>
+								<li
+									class="slideProfileLinks"
+									onclick="slideProfile(event,'News')"
+								>
+									<span><img src="/assets/bell.svg" alt="icon" /></span>
+									News
+								</li>
+								<li
+									class="slideProfileLinks"
+									onclick="slideProfile(event,'Early')"
+								>
+									<span><img src="/assets/bell.svg" alt="icon" /></span>
+									Access
+								</li>
+								<li
+									class="slideProfileLinks"
+									onclick="slideProfile(event,'Free')"
+								>
+									<span><img src="/assets/bell.svg" alt="icon" /></span>
+									Free
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="slideProfileContent" id="Browse">
+						<div class="cards_section">
+							<div class="course_card">
+								<div class="image">
+									<img src="./assets/card_banner.svg" alt="card" />
+								</div>
+								<div class="course_body">
+									<div class="author_holder">
+										<svg
+											fill="currentColor"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 400 400"
+											height="26px"
+											class="text-logo dark:text-white"
+										>
+											<path
+												d="M333 0H67A67 67 0 000 67v266a67 67 0 0067 67h266a67 67 0 0067-67V67a67 67 0 00-67-67zm29 325a37 37 0 01-37 37H75a37 37 0 01-37-37V162h324zm0-201H38V75a37 37 0 0137-37h250a37 37 0 0137 37z"
+											></path>
+											<rect
+												x="68"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="126"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="184"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="200"
+												y="295"
+												width="114.3"
+												height="38.1"
+												rx="3.3"
+											></rect>
+											<path
+												d="M109 331a3 3 0 005 0l61-68a3 3 0 001-4l-59-69a3 3 0 00-4-1l-20 17a3 3 0 00-1 5l40 47a3 3 0 010 4l-43 47a3 3 0 001 4z"
+											></path>
+										</svg>
+										<h2>Educative</h2>
+									</div>
+									<h3>Unit testing Java Application</h3>
+								</div>
+
+								<div class="course_footer">
+									<p>Intermidate</p>
+									<button>Preview</button>
+								</div>
+							</div>
+							<div class="course_card">
+								<div class="image">
+									<img src="./assets/card_banner.svg" alt="card" />
+								</div>
+								<div class="course_body">
+									<div class="author_holder">
+										<svg
+											fill="currentColor"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 400 400"
+											height="26px"
+											class="text-logo dark:text-white"
+										>
+											<path
+												d="M333 0H67A67 67 0 000 67v266a67 67 0 0067 67h266a67 67 0 0067-67V67a67 67 0 00-67-67zm29 325a37 37 0 01-37 37H75a37 37 0 01-37-37V162h324zm0-201H38V75a37 37 0 0137-37h250a37 37 0 0137 37z"
+											></path>
+											<rect
+												x="68"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="126"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="184"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="200"
+												y="295"
+												width="114.3"
+												height="38.1"
+												rx="3.3"
+											></rect>
+											<path
+												d="M109 331a3 3 0 005 0l61-68a3 3 0 001-4l-59-69a3 3 0 00-4-1l-20 17a3 3 0 00-1 5l40 47a3 3 0 010 4l-43 47a3 3 0 001 4z"
+											></path>
+										</svg>
+										<h2>Educative</h2>
+									</div>
+									<h3>Unit testing Java Application</h3>
+								</div>
+
+								<div class="course_footer">
+									<p>Intermidate</p>
+									<button>Preview</button>
+								</div>
+							</div>
+							<div class="course_card">
+								<div class="image">
+									<img src="./assets/card_banner.svg" alt="card" />
+								</div>
+								<div class="course_body">
+									<div class="author_holder">
+										<svg
+											fill="currentColor"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 400 400"
+											height="26px"
+											class="text-logo dark:text-white"
+										>
+											<path
+												d="M333 0H67A67 67 0 000 67v266a67 67 0 0067 67h266a67 67 0 0067-67V67a67 67 0 00-67-67zm29 325a37 37 0 01-37 37H75a37 37 0 01-37-37V162h324zm0-201H38V75a37 37 0 0137-37h250a37 37 0 0137 37z"
+											></path>
+											<rect
+												x="68"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="126"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="184"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="200"
+												y="295"
+												width="114.3"
+												height="38.1"
+												rx="3.3"
+											></rect>
+											<path
+												d="M109 331a3 3 0 005 0l61-68a3 3 0 001-4l-59-69a3 3 0 00-4-1l-20 17a3 3 0 00-1 5l40 47a3 3 0 010 4l-43 47a3 3 0 001 4z"
+											></path>
+										</svg>
+										<h2>Educative</h2>
+									</div>
+									<h3>Unit testing Java Application</h3>
+								</div>
+
+								<div class="course_footer">
+									<p>Intermidate</p>
+									<button>Preview</button>
+								</div>
+							</div>
+							<div class="course_card">
+								<div class="image">
+									<img src="./assets/card_banner.svg" alt="card" />
+								</div>
+								<div class="course_body">
+									<div class="author_holder">
+										<svg
+											fill="currentColor"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 400 400"
+											height="26px"
+											class="text-logo dark:text-white"
+										>
+											<path
+												d="M333 0H67A67 67 0 000 67v266a67 67 0 0067 67h266a67 67 0 0067-67V67a67 67 0 00-67-67zm29 325a37 37 0 01-37 37H75a37 37 0 01-37-37V162h324zm0-201H38V75a37 37 0 0137-37h250a37 37 0 0137 37z"
+											></path>
+											<rect
+												x="68"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="126"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="184"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="200"
+												y="295"
+												width="114.3"
+												height="38.1"
+												rx="3.3"
+											></rect>
+											<path
+												d="M109 331a3 3 0 005 0l61-68a3 3 0 001-4l-59-69a3 3 0 00-4-1l-20 17a3 3 0 00-1 5l40 47a3 3 0 010 4l-43 47a3 3 0 001 4z"
+											></path>
+										</svg>
+										<h2>Educative</h2>
+									</div>
+									<h3>Unit testing Java Application</h3>
+								</div>
+
+								<div class="course_footer">
+									<p>Intermidate</p>
+									<button>Preview</button>
+								</div>
+							</div>
+							<div class="course_card">
+								<div class="image">
+									<img src="./assets/card_banner.svg" alt="card" />
+								</div>
+								<div class="course_body">
+									<div class="author_holder">
+										<svg
+											fill="currentColor"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 400 400"
+											height="26px"
+											class="text-logo dark:text-white"
+										>
+											<path
+												d="M333 0H67A67 67 0 000 67v266a67 67 0 0067 67h266a67 67 0 0067-67V67a67 67 0 00-67-67zm29 325a37 37 0 01-37 37H75a37 37 0 01-37-37V162h324zm0-201H38V75a37 37 0 0137-37h250a37 37 0 0137 37z"
+											></path>
+											<rect
+												x="68"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="126"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="184"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="200"
+												y="295"
+												width="114.3"
+												height="38.1"
+												rx="3.3"
+											></rect>
+											<path
+												d="M109 331a3 3 0 005 0l61-68a3 3 0 001-4l-59-69a3 3 0 00-4-1l-20 17a3 3 0 00-1 5l40 47a3 3 0 010 4l-43 47a3 3 0 001 4z"
+											></path>
+										</svg>
+										<h2>Educative</h2>
+									</div>
+									<h3>Unit testing Java Application</h3>
+								</div>
+
+								<div class="course_footer">
+									<p>Intermidate</p>
+									<button>Preview</button>
+								</div>
+							</div>
+							<div class="course_card">
+								<div class="image">
+									<img src="./assets/card_banner.svg" alt="card" />
+								</div>
+								<div class="course_body">
+									<div class="author_holder">
+										<svg
+											fill="currentColor"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 400 400"
+											height="26px"
+											class="text-logo dark:text-white"
+										>
+											<path
+												d="M333 0H67A67 67 0 000 67v266a67 67 0 0067 67h266a67 67 0 0067-67V67a67 67 0 00-67-67zm29 325a37 37 0 01-37 37H75a37 37 0 01-37-37V162h324zm0-201H38V75a37 37 0 0137-37h250a37 37 0 0137 37z"
+											></path>
+											<rect
+												x="68"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="126"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="184"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="200"
+												y="295"
+												width="114.3"
+												height="38.1"
+												rx="3.3"
+											></rect>
+											<path
+												d="M109 331a3 3 0 005 0l61-68a3 3 0 001-4l-59-69a3 3 0 00-4-1l-20 17a3 3 0 00-1 5l40 47a3 3 0 010 4l-43 47a3 3 0 001 4z"
+											></path>
+										</svg>
+										<h2>Educative</h2>
+									</div>
+									<h3>Unit testing Java Application</h3>
+								</div>
+
+								<div class="course_footer">
+									<p>Intermidate</p>
+									<button>Preview</button>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					<div class="slideProfileContent" id="Our">
+						<div class="cards_section">
+							<div class="course_card">
+								<div class="image">
+									<img src="./assets/card_banner.svg" alt="card" />
+								</div>
+								<div class="course_body">
+									<div class="author_holder">
+										<svg
+											fill="currentColor"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 400 400"
+											height="26px"
+											class="text-logo dark:text-white"
+										>
+											<path
+												d="M333 0H67A67 67 0 000 67v266a67 67 0 0067 67h266a67 67 0 0067-67V67a67 67 0 00-67-67zm29 325a37 37 0 01-37 37H75a37 37 0 01-37-37V162h324zm0-201H38V75a37 37 0 0137-37h250a37 37 0 0137 37z"
+											></path>
+											<rect
+												x="68"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="126"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="184"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="200"
+												y="295"
+												width="114.3"
+												height="38.1"
+												rx="3.3"
+											></rect>
+											<path
+												d="M109 331a3 3 0 005 0l61-68a3 3 0 001-4l-59-69a3 3 0 00-4-1l-20 17a3 3 0 00-1 5l40 47a3 3 0 010 4l-43 47a3 3 0 001 4z"
+											></path>
+										</svg>
+										<h2>Educative</h2>
+									</div>
+									<h3>Unit testing Java Application</h3>
+								</div>
+
+								<div class="course_footer">
+									<p>Intermidate</p>
+									<button>Preview</button>
+								</div>
+							</div>
+							<div class="course_card">
+								<div class="image">
+									<img src="./assets/card_banner.svg" alt="card" />
+								</div>
+								<div class="course_body">
+									<div class="author_holder">
+										<svg
+											fill="currentColor"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 400 400"
+											height="26px"
+											class="text-logo dark:text-white"
+										>
+											<path
+												d="M333 0H67A67 67 0 000 67v266a67 67 0 0067 67h266a67 67 0 0067-67V67a67 67 0 00-67-67zm29 325a37 37 0 01-37 37H75a37 37 0 01-37-37V162h324zm0-201H38V75a37 37 0 0137-37h250a37 37 0 0137 37z"
+											></path>
+											<rect
+												x="68"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="126"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="184"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="200"
+												y="295"
+												width="114.3"
+												height="38.1"
+												rx="3.3"
+											></rect>
+											<path
+												d="M109 331a3 3 0 005 0l61-68a3 3 0 001-4l-59-69a3 3 0 00-4-1l-20 17a3 3 0 00-1 5l40 47a3 3 0 010 4l-43 47a3 3 0 001 4z"
+											></path>
+										</svg>
+										<h2>Educative</h2>
+									</div>
+									<h3>Unit testing Java Application</h3>
+								</div>
+
+								<div class="course_footer">
+									<p>Intermidate</p>
+									<button>Preview</button>
+								</div>
+							</div><div class="course_card">
+								<div class="image">
+									<img src="./assets/card_banner.svg" alt="card" />
+								</div>
+								<div class="course_body">
+									<div class="author_holder">
+										<svg
+											fill="currentColor"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 400 400"
+											height="26px"
+											class="text-logo dark:text-white"
+										>
+											<path
+												d="M333 0H67A67 67 0 000 67v266a67 67 0 0067 67h266a67 67 0 0067-67V67a67 67 0 00-67-67zm29 325a37 37 0 01-37 37H75a37 37 0 01-37-37V162h324zm0-201H38V75a37 37 0 0137-37h250a37 37 0 0137 37z"
+											></path>
+											<rect
+												x="68"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="126"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="184"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="200"
+												y="295"
+												width="114.3"
+												height="38.1"
+												rx="3.3"
+											></rect>
+											<path
+												d="M109 331a3 3 0 005 0l61-68a3 3 0 001-4l-59-69a3 3 0 00-4-1l-20 17a3 3 0 00-1 5l40 47a3 3 0 010 4l-43 47a3 3 0 001 4z"
+											></path>
+										</svg>
+										<h2>Educative</h2>
+									</div>
+									<h3>Unit testing Java Application</h3>
+								</div>
+
+								<div class="course_footer">
+									<p>Intermidate</p>
+									<button>Preview</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="slideProfileContent" id="News">
+						<div class="cards_section">
+							<div class="course_card">
+								<div class="image">
+									<img src="./assets/card_banner.svg" alt="card" />
+								</div>
+								<div class="course_body">
+									<div class="author_holder">
+										<svg
+											fill="currentColor"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 400 400"
+											height="26px"
+											class="text-logo dark:text-white"
+										>
+											<path
+												d="M333 0H67A67 67 0 000 67v266a67 67 0 0067 67h266a67 67 0 0067-67V67a67 67 0 00-67-67zm29 325a37 37 0 01-37 37H75a37 37 0 01-37-37V162h324zm0-201H38V75a37 37 0 0137-37h250a37 37 0 0137 37z"
+											></path>
+											<rect
+												x="68"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="126"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="184"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="200"
+												y="295"
+												width="114.3"
+												height="38.1"
+												rx="3.3"
+											></rect>
+											<path
+												d="M109 331a3 3 0 005 0l61-68a3 3 0 001-4l-59-69a3 3 0 00-4-1l-20 17a3 3 0 00-1 5l40 47a3 3 0 010 4l-43 47a3 3 0 001 4z"
+											></path>
+										</svg>
+										<h2>Educative</h2>
+									</div>
+									<h3>Unit testing Java Application</h3>
+								</div>
+
+								<div class="course_footer">
+									<p>Intermidate</p>
+									<button>Preview</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="slideProfileContent" id="Early">
+						<div class="cards_section">
+							<div class="course_card">
+								<div class="image">
+									<img src="./assets/card_banner.svg" alt="card" />
+								</div>
+								<div class="course_body">
+									<div class="author_holder">
+										<svg
+											fill="currentColor"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 400 400"
+											height="26px"
+											class="text-logo dark:text-white"
+										>
+											<path
+												d="M333 0H67A67 67 0 000 67v266a67 67 0 0067 67h266a67 67 0 0067-67V67a67 67 0 00-67-67zm29 325a37 37 0 01-37 37H75a37 37 0 01-37-37V162h324zm0-201H38V75a37 37 0 0137-37h250a37 37 0 0137 37z"
+											></path>
+											<rect
+												x="68"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="126"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="184"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="200"
+												y="295"
+												width="114.3"
+												height="38.1"
+												rx="3.3"
+											></rect>
+											<path
+												d="M109 331a3 3 0 005 0l61-68a3 3 0 001-4l-59-69a3 3 0 00-4-1l-20 17a3 3 0 00-1 5l40 47a3 3 0 010 4l-43 47a3 3 0 001 4z"
+											></path>
+										</svg>
+										<h2>Educative</h2>
+									</div>
+									<h3>Unit testing Java Application</h3>
+								</div>
+
+								<div class="course_footer">
+									<p>Intermidate</p>
+									<button>Preview</button>
+								</div>
+							</div>
+							<div class="course_card">
+								<div class="image">
+									<img src="./assets/card_banner.svg" alt="card" />
+								</div>
+								<div class="course_body">
+									<div class="author_holder">
+										<svg
+											fill="currentColor"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 400 400"
+											height="26px"
+											class="text-logo dark:text-white"
+										>
+											<path
+												d="M333 0H67A67 67 0 000 67v266a67 67 0 0067 67h266a67 67 0 0067-67V67a67 67 0 00-67-67zm29 325a37 37 0 01-37 37H75a37 37 0 01-37-37V162h324zm0-201H38V75a37 37 0 0137-37h250a37 37 0 0137 37z"
+											></path>
+											<rect
+												x="68"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="126"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="184"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="200"
+												y="295"
+												width="114.3"
+												height="38.1"
+												rx="3.3"
+											></rect>
+											<path
+												d="M109 331a3 3 0 005 0l61-68a3 3 0 001-4l-59-69a3 3 0 00-4-1l-20 17a3 3 0 00-1 5l40 47a3 3 0 010 4l-43 47a3 3 0 001 4z"
+											></path>
+										</svg>
+										<h2>Educative</h2>
+									</div>
+									<h3>Unit testing Java Application</h3>
+								</div>
+
+								<div class="course_footer">
+									<p>Intermidate</p>
+									<button>Preview</button>
+								</div>
+							</div>
+							<div class="course_card">
+								<div class="image">
+									<img src="./assets/card_banner.svg" alt="card" />
+								</div>
+								<div class="course_body">
+									<div class="author_holder">
+										<svg
+											fill="currentColor"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 400 400"
+											height="26px"
+											class="text-logo dark:text-white"
+										>
+											<path
+												d="M333 0H67A67 67 0 000 67v266a67 67 0 0067 67h266a67 67 0 0067-67V67a67 67 0 00-67-67zm29 325a37 37 0 01-37 37H75a37 37 0 01-37-37V162h324zm0-201H38V75a37 37 0 0137-37h250a37 37 0 0137 37z"
+											></path>
+											<rect
+												x="68"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="126"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="184"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="200"
+												y="295"
+												width="114.3"
+												height="38.1"
+												rx="3.3"
+											></rect>
+											<path
+												d="M109 331a3 3 0 005 0l61-68a3 3 0 001-4l-59-69a3 3 0 00-4-1l-20 17a3 3 0 00-1 5l40 47a3 3 0 010 4l-43 47a3 3 0 001 4z"
+											></path>
+										</svg>
+										<h2>Educative</h2>
+									</div>
+									<h3>Unit testing Java Application</h3>
+								</div>
+
+								<div class="course_footer">
+									<p>Intermidate</p>
+									<button>Preview</button>
+								</div>
+							</div>
+
+						</div>
+					</div>
+					<div class="slideProfileContent" id="Free">
+						<div class="cards_section">
+							<div class="course_card">
+								<div class="image">
+									<img src="./assets/card_banner.svg" alt="card" />
+								</div>
+								<div class="course_body">
+									<div class="author_holder">
+										<svg
+											fill="currentColor"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 400 400"
+											height="26px"
+											class="text-logo dark:text-white"
+										>
+											<path
+												d="M333 0H67A67 67 0 000 67v266a67 67 0 0067 67h266a67 67 0 0067-67V67a67 67 0 00-67-67zm29 325a37 37 0 01-37 37H75a37 37 0 01-37-37V162h324zm0-201H38V75a37 37 0 0137-37h250a37 37 0 0137 37z"
+											></path>
+											<rect
+												x="68"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="126"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="184"
+												y="63"
+												width="38.1"
+												height="38.1"
+												rx="2.4"
+											></rect>
+											<rect
+												x="200"
+												y="295"
+												width="114.3"
+												height="38.1"
+												rx="3.3"
+											></rect>
+											<path
+												d="M109 331a3 3 0 005 0l61-68a3 3 0 001-4l-59-69a3 3 0 00-4-1l-20 17a3 3 0 00-1 5l40 47a3 3 0 010 4l-43 47a3 3 0 001 4z"
+											></path>
+										</svg>
+										<h2>Educative</h2>
+									</div>
+									<h3>Unit testing Java Application</h3>
+								</div>
+
+								<div class="course_footer">
+									<p>Intermidate</p>
+									<button>Preview</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+		<script src="./app.js"></script>
+
+		<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+		<script>
+			let swiper = new Swiper('.mySwiper', {
+				slidesPerView: 3,
+				spaceBetween: 30,
+				navigation: {
+					nextEl: '.swiper-button-next',
+					prevEl: '.swiper-button-prev',
+				},
+				breakpoints: {
+					300: {
+						slidesPerView: 1,
+						spaceBetween: 20,
+					},
+					400: {
+						slidesPerView: 1,
+						spaceBetween: 20,
+					},
+					580: {
+						slidesPerView: 2,
+						spaceBetween: 20,
+					},
+					680: {
+						slidesPerView: 2,
+						spaceBetween: 20,
+					},
+
+					768: {
+						slidesPerView: 2,
+						spaceBetween: 40,
+					},
+					1024: {
+						slidesPerView: 3,
+						spaceBetween: 50,
+					},
+					1240: {
+						slidesPerView: 3,
+						spaceBetween: 50,
+					},
+					1440: {
+						slidesPerView: 3,
+						spaceBetween: 50,
+					},
+					1540: {
+						slidesPerView: 3,
+						spaceBetween: 50,
+					},
+					1840: {
+						slidesPerView: 3,
+						spaceBetween: 50,
+					},
+				},
+			});
+			document.getElementById('defaultProfileLinks').click();
+
+			function slideProfile(evt, cityName) {
+				let i, tabcontent, tablinks;
+				tabcontent = document.getElementsByClassName('slideProfileContent');
+				for (i = 0; i < tabcontent.length; i++) {
+					tabcontent[i].style.display = 'none';
+				}
+				tablinks = document.getElementsByClassName('slideProfileLinks');
+				for (i = 0; i < tablinks.length; i++) {
+					tablinks[i].className = tablinks[i].className.replace(
+						'activeSlide',
+						'',
+					);
+				}
+				document.getElementById(cityName).style.display = 'flex';
+				evt.currentTarget.className += ' activeSlide';
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/style/_headers/headers.css" />
+		<link rel="stylesheet" href="/style/_pages/notification.css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+			rel="stylesheet"
+		/>
+		<title>Document</title>
+	</head>
+	<body>
+		<header>
+			<div class="sub_header">
+				<div class="Header_icon">
+					<div class="ham" onclick="slideMenu()">
+						<img
+							id="ham_icon"
+							src="https://img.icons8.com/android/96/000000/menu.png"
+						/>
+					</div>
+					<img src="/assets/icon.svg" alt="Logo" />
+				</div>
+
+				<div class="Header_Profile">
+					<div class="Icons">
+						<div class="points">
+							<p><span>🔥 </span>0</p>
+							<p><span>🎯 </span> 0</p>
+						</div>
+						<div class="score">
+							<p><span>⚡ </span> 200</p>
+							<p>
+								<span
+									><img src="/assets/coin (3).png" alt="notifiction"
+								/></span>
+								50
+							</p>
+						</div>
+					</div>
+					<img
+						src="/assets/bell.svg"
+						alt="notifiction"
+						class="notification_bell"
+					/>
+					<div class="notification_dropdown">
+						<h1>Notifications</h1>
+					</div>
+					<img
+						class="profile_pic avatar"
+						src="/assets/profile.jpg"
+						alt="avatar"
+					/>
+					<div class="profile_dropDown">
+						<a href="#" class="profile_dropDown_item">
+							<span
+								><img
+									src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-dashboard-blogger-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"
+							/></span>
+							<p>View Dashboard</p>
+						</a>
+						<a href="#" class="profile_dropDown_item">
+							<span
+								><img src="https://img.icons8.com/ios/50/000000/user.png"
+							/></span>
+							<p>View Profile</p>
+						</a>
+						<a href="#" class="profile_dropDown_item">
+							<span
+								><img
+									src="https://img.icons8.com/ios/50/000000/user-not-found.png"
+							/></span>
+							<p>Edit</p>
+						</a>
+						<a href="#" class="profile_dropDown_item">
+							<span
+								><img src="https://img.icons8.com/windows/32/000000/exit.png"
+							/></span>
+							<p>Logout</p>
+						</a>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="wholeBody">
+			<!-- //------------------------sidenav--------------------------- -->
+			<aside class="sideMenu">
+				<div class="myMenu">
+					<a href="index.html">
+						<img src="/assets/self-growth3.png" alt="progress" />
+						<p>My Progress</p>
+					</a>
+					<a href="##">
+						<img src="/assets/stage.png" alt="bookmark" />
+						<p>Competitions</p>
+					</a>
+					<a href="leaderBoard.html">
+						<img src="/assets/leaderboard.png" alt="leader" />
+						<p>Leaderboard</p>
+					</a>
+				</div>
+				<div class="myMenu">
+					<div class="title">
+						<h4>catalog</h4>
+					</div>
+					<a href="career.html">
+						<img src="/assets/career-choice.png" alt="progress" />
+						<p>Career Paths</p>
+					</a>
+					<a href="courses.html">
+						<img src="/assets/online-course2.png" alt="leader" />
+						<p>Courses</p>
+					</a>
+					<a href="projects.html">
+						<img src="/assets/project-management (2).png" alt="leader" />
+						<p>Projects</p>
+					</a>
+					<a href="##">
+						<img src="/assets/project.png" alt="leader" />
+						<p>Practice</p>
+					</a>
+					<a href="##">
+						<img src="/assets/clipboard.png" alt="leader" />
+						<p>Assessments</p>
+					</a>
+					<a href="##">
+						<img src="/assets/deadline.png" alt="leader" />
+						<p>Live Events</p>
+					</a>
+				</div>
+				<div class="myMenu">
+					<div class="title">
+						<h4>PROFILE</h4>
+					</div>
+					<a href="myProfile.html">
+						<img src="/assets/account (1).png" alt="progress" />
+						<p>My profile</p>
+					</a>
+					<a href="editProfile.html">
+						<img src="/assets/edit (1).png" alt="bookmark" />
+						<p>Edit profile</p>
+					</a>
+					<a href="accountSettings.html">
+						<img src="/assets/user (1).png" alt="leader" />
+						<p>Account Settings</p>
+					</a>
+					<a href="##">
+						<img src="/assets/logout (1).png" alt="leader" />
+						<p>Logout</p>
+					</a>
+				</div>
+				<button>Contact us</button>
+			</aside>
+
+			<!---------------LeaderBoard section---------------------->
+			<section>
+				<div class="max_width_holder">
+					<div class="page_notification_conatiner">
+						<div class="title">
+							<img
+								src="https://cdn-icons-png.flaticon.com/512/107/107822.png"
+								alt="notification"
+							/>
+							<h2>Notification Center</h2>
+						</div>
+						<div class="page_notifiction_switch">
+							<div
+								class="switch notificationTablinks"
+								id="defaultNotificationTab"
+								onclick="notificationTabHandler(event, 'recent')"
+							>
+								<h1>recent</h1>
+							</div>
+							<div
+								class="switch notificationTablinks"
+								onclick="notificationTabHandler(event, 'opened')"
+							>
+								<h1>opened</h1>
+							</div>
+							<div
+								class="switch notificationTablinks"
+								onclick="notificationTabHandler(event, 'seen')"
+							>
+								<h1>seen</h1>
+							</div>
+						</div>
+						<div
+							class="page_notifications_section notificationTabcontent"
+							id="recent"
+						>
+							<div class="page_notification_item">
+								<div class="top_holder">
+									<div class="image">
+										<img src="/assets/profile.png" alt="profile" />
+									</div>
+									<div class="notify_text">
+										<p>
+											Lorem ipsum, Lorem ipsum, dolor sit amet consecLorem
+											ipsum, dolor sit amet consecLorem ipsum, dol
+										</p>
+									</div>
+									<div class="time">
+										<p>2h</p>
+										<span class="popup">...</span>
+									</div>
+								</div>
+								<div class="popupHolder">
+									<div class="item">
+										<img
+											src="https://www.pngall.com/wp-content/uploads/5/Delete-Transparent.png"
+											alt="delete"
+										/>
+										<h1>Delete</h1>
+									</div>
+									<div class="item">
+										<img
+											src="https://cdn-icons-png.flaticon.com/512/786/786286.png"
+											alt="delete"
+										/>
+										<h1>Turn Off</h1>
+									</div>
+								</div>
+								<div class="button_zone">
+									<button>view</button>
+									<button>Delete</button>
+								</div>
+							</div>
+							<div class="page_notification_item">
+								<div class="top_holder">
+									<div class="image">
+										<img src="/assets/profile.png" alt="profile" />
+									</div>
+									<div class="notify_text">
+										<p>
+											Lorem ipsum, Lorem ipsum, dolor sit amet consecLorem
+											ipsum, dolor sit amet consecLorem ipsum, dol
+										</p>
+									</div>
+									<div class="time">
+										<p>2h</p>
+										<span class="popup">...</span>
+									</div>
+								</div>
+								<div class="popupHolder">
+									<div class="item">
+										<img
+											src="https://www.pngall.com/wp-content/uploads/5/Delete-Transparent.png"
+											alt="delete"
+										/>
+										<h1>Delete</h1>
+									</div>
+									<div class="item">
+										<img
+											src="https://cdn-icons-png.flaticon.com/512/786/786286.png"
+											alt="delete"
+										/>
+										<h1>Turn Off</h1>
+									</div>
+								</div>
+								<div class="button_zone">
+									<button>view</button>
+									<button>Delete</button>
+								</div>
+							</div>
+							<div class="page_notification_item">
+								<div class="top_holder">
+									<div class="image">
+										<img src="/assets/profile.png" alt="profile" />
+									</div>
+									<div class="notify_text">
+										<p>
+											Lorem ipsum, Lorem ipsum, dolor sit amet consecLorem
+											ipsum, dolor sit amet consecLorem ipsum, dol
+										</p>
+									</div>
+									<div class="time">
+										<p>2h</p>
+										<span class="popup">...</span>
+									</div>
+								</div>
+								<div class="popupHolder">
+									<div class="item">
+										<img
+											src="https://www.pngall.com/wp-content/uploads/5/Delete-Transparent.png"
+											alt="delete"
+										/>
+										<h1>Delete</h1>
+									</div>
+									<div class="item">
+										<img
+											src="https://cdn-icons-png.flaticon.com/512/786/786286.png"
+											alt="delete"
+										/>
+										<h1>Turn Off</h1>
+									</div>
+								</div>
+								<div class="button_zone">
+									<button>view</button>
+									<button>Delete</button>
+								</div>
+							</div>
+							<div class="page_notification_item">
+								<div class="top_holder">
+									<div class="image">
+										<img src="/assets/profile.png" alt="profile" />
+									</div>
+									<div class="notify_text">
+										<p>
+											Lorem ipsum, Lorem ipsum, dolor sit amet consecLorem
+											ipsum, dolor sit amet consecLorem ipsum, dol
+										</p>
+									</div>
+									<div class="time">
+										<p>2h</p>
+										<span class="popup">...</span>
+									</div>
+								</div>
+								<div class="popupHolder">
+									<div class="item">
+										<img
+											src="https://www.pngall.com/wp-content/uploads/5/Delete-Transparent.png"
+											alt="delete"
+										/>
+										<h1>Delete</h1>
+									</div>
+									<div class="item">
+										<img
+											src="https://cdn-icons-png.flaticon.com/512/786/786286.png"
+											alt="delete"
+										/>
+										<h1>Turn Off</h1>
+									</div>
+								</div>
+								<div class="button_zone">
+									<button>view</button>
+									<button>Delete</button>
+								</div>
+							</div>
+							<div class="page_notification_item">
+								<div class="top_holder">
+									<div class="image">
+										<img src="/assets/profile.png" alt="profile" />
+									</div>
+									<div class="notify_text">
+										<p>
+											Lorem ipsum, Lorem ipsum, dolor sit amet consecLorem
+											ipsum, dolor sit amet consecLorem ipsum, dol
+										</p>
+									</div>
+									<div class="time">
+										<p>2h</p>
+										<span class="popup">...</span>
+									</div>
+								</div>
+								<div class="popupHolder">
+									<div class="item">
+										<img
+											src="https://www.pngall.com/wp-content/uploads/5/Delete-Transparent.png"
+											alt="delete"
+										/>
+										<h1>Delete</h1>
+									</div>
+									<div class="item">
+										<img
+											src="https://cdn-icons-png.flaticon.com/512/786/786286.png"
+											alt="delete"
+										/>
+										<h1>Turn Off</h1>
+									</div>
+								</div>
+								<div class="button_zone">
+									<button>view</button>
+									<button>Delete</button>
+								</div>
+							</div>
+						</div>
+						<div
+							class="page_notifications_section notificationTabcontent"
+							id="opened"
+						>
+							<div class="page_notification_item">
+								<div class="top_holder">
+									<div class="image">
+										<img src="/assets/profile.png" alt="profile" />
+									</div>
+									<div class="notify_text">
+										<p>
+											Lorem ipsum, Lorem ipsum, dolor sit amet consecLorem
+											ipsum, dolor sit amet consecLorem ipsum, dol
+										</p>
+									</div>
+									<div class="time">
+										<p>2h</p>
+										<span class="popup">...</span>
+									</div>
+								</div>
+								<div class="popupHolder">
+									<div class="item">
+										<img
+											src="https://www.pngall.com/wp-content/uploads/5/Delete-Transparent.png"
+											alt="delete"
+										/>
+										<h1>Delete</h1>
+									</div>
+									<div class="item">
+										<img
+											src="https://cdn-icons-png.flaticon.com/512/786/786286.png"
+											alt="delete"
+										/>
+										<h1>Turn Off</h1>
+									</div>
+								</div>
+								<div class="button_zone">
+									<button>view</button>
+									<button>Delete</button>
+								</div>
+							</div>
+							<div class="page_notification_item">
+								<div class="top_holder">
+									<div class="image">
+										<img src="/assets/profile.png" alt="profile" />
+									</div>
+									<div class="notify_text">
+										<p>
+											Lorem ipsum, Lorem ipsum, dolor sit amet consecLorem
+											ipsum, dolor sit amet consecLorem ipsum, dol
+										</p>
+									</div>
+									<div class="time">
+										<p>2h</p>
+										<span class="popup">...</span>
+									</div>
+								</div>
+								<div class="popupHolder">
+									<div class="item">
+										<img
+											src="https://www.pngall.com/wp-content/uploads/5/Delete-Transparent.png"
+											alt="delete"
+										/>
+										<h1>Delete</h1>
+									</div>
+									<div class="item">
+										<img
+											src="https://cdn-icons-png.flaticon.com/512/786/786286.png"
+											alt="delete"
+										/>
+										<h1>Turn Off</h1>
+									</div>
+								</div>
+								<div class="button_zone">
+									<button>view</button>
+									<button>Delete</button>
+								</div>
+							</div>
+						</div>
+						<div
+							class="page_notifications_section notificationTabcontent"
+							id="seen"
+						>
+							<div class="page_notification_item">
+								<div class="top_holder">
+									<div class="image">
+										<img src="/assets/profile.png" alt="profile" />
+									</div>
+									<div class="notify_text">
+										<p>
+											Lorem ipsum, Lorem ipsum, dolor sit amet consecLorem
+											ipsum, dolor sit amet consecLorem ipsum, dol
+										</p>
+									</div>
+									<div class="time">
+										<p>2h</p>
+										<span class="popup">...</span>
+									</div>
+								</div>
+								<div class="popupHolder">
+									<div class="item">
+										<img
+											src="https://www.pngall.com/wp-content/uploads/5/Delete-Transparent.png"
+											alt="delete"
+										/>
+										<h1>Delete</h1>
+									</div>
+									<div class="item">
+										<img
+											src="https://cdn-icons-png.flaticon.com/512/786/786286.png"
+											alt="delete"
+										/>
+										<h1>Turn Off</h1>
+									</div>
+								</div>
+								<div class="button_zone">
+									<button>view</button>
+									<button>Delete</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<!-- <script src="./app.js"></script> -->
+		<script>
+			document.getElementById('defaultNotificationTab').click();
+			console.log();
+			function notificationTabHandler(evt, cityName) {
+				var i, tabcontent, tablinks;
+				tabcontent = document.getElementsByClassName('notificationTabcontent');
+				for (i = 0; i < tabcontent.length; i++) {
+					tabcontent[i].style.display = 'none';
+				}
+				tablinks = document.getElementsByClassName('notificationTablinks');
+				for (i = 0; i < tablinks.length; i++) {
+					tablinks[i].className = tablinks[i].className.replace(' active', '');
+				}
+				document.getElementById(cityName).style.display = 'block';
+				evt.currentTarget.className += ' active';
+			}
+			const popups = [
+				...document.getElementsByClassName('page_notification_item'),
+			];
+
+			window.addEventListener('click', ({ target }) => {
+				console.log('here');
+				const popup = target.closest('.page_notification_item');
+				const popupDots = target.closest('.popup');
+				console.log(popup);
+				const clickedOnClosedPopup =
+					popup && popupDots && !popup.classList.contains('show');
+
+				popups.forEach((p) => {
+					console.log(p);
+					p.classList.remove('show');
+				});
+
+				if (clickedOnClosedPopup) popup.classList.add('show');
+			});
+		</script>
+	</body>
+</html>

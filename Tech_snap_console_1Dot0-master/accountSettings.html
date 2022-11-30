@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+		/>
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="/style/_pages/edit_profile.css" />
+		<link rel="stylesheet" href="/style/_headers/headers.css" />
+		<link rel="stylesheet" href="/style/_pages/accountSettings.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<header>
+			<div class="sub_header">
+				<div class="Header_icon">
+					<div class="ham" onclick="slideMenu()">
+						<img
+							id="ham_icon"
+							src="https://img.icons8.com/android/96/000000/menu.png"
+						/>
+					</div>
+					<img src="/assets/icon.svg" alt="Logo" />
+				</div>
+
+				<div class="Header_Profile">
+					<div class="Icons">
+						<div class="points">
+							<p><span>🔥 </span>0</p>
+							<p><span>🎯 </span> 0</p>
+						</div>
+						<div class="score">
+							<p><span>⚡ </span> 200</p>
+							<p>
+								<span
+									><img src="/assets/coin (3).png" alt="notifiction"
+								/></span>
+								50
+							</p>
+						</div>
+					</div>
+					<img
+						src="/assets/bell.svg"
+						alt="notifiction"
+						class="notification_bell"
+					/>
+					<div class="notification_dropdown">
+						<h1>Notifications</h1>
+					</div>
+					<img
+						class="profile_pic avatar"
+						src="/assets/profile.jpg"
+						alt="avatar"
+					/>
+					<div class="profile_dropDown">
+						<a href="#" class="profile_dropDown_item">
+							<span
+								><img
+									src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-dashboard-blogger-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"
+							/></span>
+							<p>View Dashboard</p>
+						</a>
+						<a href="#" class="profile_dropDown_item">
+							<span
+								><img src="https://img.icons8.com/ios/50/000000/user.png"
+							/></span>
+							<p>View Profile</p>
+						</a>
+						<a href="#" class="profile_dropDown_item">
+							<span
+								><img
+									src="https://img.icons8.com/ios/50/000000/user-not-found.png"
+							/></span>
+							<p>Edit</p>
+						</a>
+						<a href="#" class="profile_dropDown_item">
+							<span
+								><img src="https://img.icons8.com/windows/32/000000/exit.png"
+							/></span>
+							<p>Logout</p>
+						</a>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="wholeBody">
+			<!-- //------------------------sidenav--------------------------- -->
+			<aside class="sideMenu">
+				<div class="myMenu">
+					<a href="index.html">
+						<img src="/assets/self-growth3.png" alt="progress" />
+						<p>My Progress</p>
+					</a>
+					<a href="##">
+						<img src="/assets/stage.png" alt="bookmark" />
+						<p>Competitions</p>
+					</a>
+					<a href="leaderBoard.html">
+						<img src="/assets/leaderboard.png" alt="leader" />
+						<p>Leaderboard</p>
+					</a>
+				</div>
+				<div class="myMenu">
+					<div class="title">
+						<h4>catalog</h4>
+					</div>
+					<a href="##">
+						<img src="/assets/career-choice.png" alt="progress" />
+						<p>Career Paths</p>
+					</a>
+					<a href="courses.html">
+						<img src="/assets/online-course2.png" alt="leader" />
+						<p>Courses</p>
+					</a>
+					<a href="projects.html">
+						<img src="/assets/project-management (2).png" alt="leader" />
+						<p>Projects</p>
+					</a>
+					<a href="##">
+						<img src="/assets/project.png" alt="leader" />
+						<p>Practice</p>
+					</a>
+					<a href="assesments.html">
+						<img src="/assets/clipboard.png" alt="leader" />
+						<p>Assessments</p>
+					</a>
+					<a href="##">
+						<img src="/assets/deadline.png" alt="leader" />
+						<p>Live Events</p>
+					</a>
+				</div>
+				<div class="myMenu">
+					<div class="title">
+						<h4>PROFILE</h4>
+					</div>
+					<a href="myProfile.html">
+						<img src="/assets/account (1).png" alt="progress" />
+						<p>My profile</p>
+					</a>
+					<a href="editProfile.html">
+						<img src="/assets/edit (1).png" alt="bookmark" />
+						<p>Edit profile</p>
+					</a>
+					<a href="accountSettings.html" id="active">
+						<img src="/assets/user (1).png" alt="leader" />
+						<p>Account Settings</p>
+					</a>
+					<a href="##">
+						<img src="/assets/logout (1).png" alt="leader" />
+						<p>Logout</p>
+					</a>
+				</div>
+				<button>Contact us</button>
+			</aside>
+			<div class="max_width_holder">
+				<div class="accountContainer">
+					<div class="bg-transparent shadow rounded-lg d-block d-sm-flex">
+						<div class="profile-tab-nav border-right">
+							<div class="p-4">
+								<div class="img-circle text-center mb-3">
+									<img src="/assets/profile.png" alt="Image" class="pic" />
+								</div>
+								<h4
+									class="text-center account_setting_heading no-border-bottom"
+								>
+									Account Settings
+								</h4>
+							</div>
+							<div
+								class="nav flex-column nav-pills"
+								id="v-pills-tab"
+								role="tablist"
+								aria-orientation="vertical"
+							>
+								<a
+									class="nav-link active"
+									id="account-tab"
+									data-toggle="pill"
+									href="#account"
+									role="tab"
+									aria-controls="account"
+									aria-selected="true"
+									onclick="myHash('account')"
+								>
+									<i class="fa fa-cart-plus text-center mr-1"></i>
+									Subscription
+								</a>
+								<a
+									class="nav-link"
+									id="notification-tab"
+									data-toggle="pill"
+									href="#notification"
+									role="tab"
+									aria-controls="notification"
+									aria-selected="false"
+									onclick="myHash('notification')"
+								>
+									<i class="fa fa-bell text-center mr-1"></i>
+									Notification
+								</a>
+								<a
+									class="nav-link"
+									id="password-tab"
+									data-toggle="pill"
+									href="#password"
+									role="tab"
+									aria-controls="password"
+									aria-selected="false"
+									onclick="myHash('password')"
+								>
+									<i class="fa fa-key text-center mr-1"></i>
+									Password
+								</a>
+								<a
+									class="nav-link"
+									id="security-tab"
+									data-toggle="pill"
+									href="#security"
+									role="tab"
+									aria-controls="security"
+									aria-selected="false"
+									onclick="myHash('security')"
+								>
+									<i class="fa fa-history text-center mr-1"></i>
+									History
+								</a>
+								<a
+									class="nav-link"
+									id="application-tab"
+									data-toggle="pill"
+									href="#application"
+									role="tab"
+									aria-controls="application"
+									aria-selected="false"
+									onclick="myHash('application')"
+								>
+									<i class="fa fa-trash text-center mr-1"></i>
+									Delete My Account
+								</a>
+							</div>
+						</div>
+						<div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
+							<div
+								class="tab-pane fade show active"
+								id="account"
+								role="tabpanel"
+								aria-labelledby="account-tab"
+							>
+								<h3 class="account_setting_heading">Subscription</h3>
+								<div class="my_progress_third_card">
+									<h1>
+										Please take your skill test so that we can improve your
+										recommendations and can suggest you better content or
+										projects
+									</h1>
+
+									<p class="close_banner">X</p>
+								</div>
+								<h3 class="account_setting_heading no-border-bottom">
+									Current Plan
+								</h3>
+								<div class="current_plan">
+									<div class="free_trail_holder">
+										<h1>Free Trail</h1>
+										<p>Lorem ipsum, dolor sit amet consectetur</p>
+										<p>Lorem ipsum, dolor sit amet consectetur</p>
+										<p>Lorem ipsum, dolor sit amet consectetur</p>
+									</div>
+									<div class="doller_holder">
+										<h1><span>$1000</span>/year</h1>
+										<button class="btn btn-primary">Upgrade to Pro</button>
+									</div>
+								</div>
+							</div>
+							<div
+								class="tab-pane fade"
+								id="password"
+								role="tabpanel"
+								aria-labelledby="password-tab"
+							>
+								<h3 class="mb-4 account_setting_heading">Password Settings</h3>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>Old password</label>
+											<input type="password" class="form-control" />
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>New password</label>
+											<input type="password" class="form-control" />
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>Confirm new password</label>
+											<input type="password" class="form-control" />
+										</div>
+									</div>
+								</div>
+
+								<div>
+									<button class="btn btn-primary">Change Password</button>
+								</div>
+								<h3 class="mb-4 account_setting_heading">Email</h3>
+								<p>
+									All emails addresses that are associated with your account are
+									listed below. Verified emails have a checkmark next to them
+									and are used to grant access to Groups. You can learn more
+									about Groups here.
+								</p>
+								<div class="primary_email_holder">
+									<h5>Primary Email</h5>
+									<div class="email_holder">
+										<p>akhilsv@gmail.com</p>
+										<span>Verified</span>
+									</div>
+								</div>
+								<div class="primary_email_holder">
+									<h5>Additional Email</h5>
+									<p>You don't have any additional email.</p>
+									<input type="password" class="form-control" />
+								</div>
+								<button class="btn btn-primary">Add Email</button>
+							</div>
+							<div
+								class="tab-pane fade"
+								id="security"
+								role="tabpanel"
+								aria-labelledby="security-tab"
+							>
+								<div class="history_header">
+									<h1
+										class="slideHistoryTabLinks"
+										id="defaultslideHistoryTabLinks"
+										onclick="slideHistoryTab(event,'transaction')"
+									>
+										Transaction History
+									</h1>
+									<h1
+										class="slideHistoryTabLinks"
+										onclick="slideHistoryTab(event,'login')"
+									>
+										Login History
+									</h1>
+									<h1
+										class="slideHistoryTabLinks"
+										onclick="slideHistoryTab(event,'enrollment')"
+									>
+										Enrollment History
+									</h1>
+								</div>
+								<div class="slideHistoryTabContent" id="transaction">
+									<div class="transaction_history">
+										<h1>Day - Friday, August 21,2000</h1>
+									</div>
+								</div>
+								<div class="slideHistoryTabContent" id="login">
+									<h1>Login History</h1>
+								</div>
+								<div class="slideHistoryTabContent" id="enrollment">
+									<h1>Enrollment Historyory</h1>
+								</div>
+							</div>
+							<div
+								class="tab-pane fade"
+								id="application"
+								role="tabpanel"
+								aria-labelledby="application-tab"
+							>
+								<h3 class="mb-4 account_setting_heading">Account Deletion</h3>
+								<p>
+									All your profile and learning data will be permanently
+									deleted.
+								</p>
+								<div>
+									<button class="btn btn-primary">Delete My Account</button>
+								</div>
+							</div>
+							<div
+								class="tab-pane fade"
+								id="notification"
+								role="tabpanel"
+								aria-labelledby="notification-tab"
+							>
+								<h3 class="mb-4 account_setting_heading">Notification</h3>
+								<h6>I want to recieve email about</h6>
+								<div class="notification-item">
+									<div class="content">
+										<h1>OnBoarding</h1>
+										<p>Lorem ipsum dolor sit amet consectetur adipisicing</p>
+									</div>
+
+									<label class="switch">
+										<input type="checkbox" checked />
+										<span class="slider round"></span>
+									</label>
+								</div>
+								<div class="notification-item">
+									<div class="content">
+										<h1>OnBoarding</h1>
+										<p>Lorem ipsum dolor sit amet consectetur adipisicing</p>
+									</div>
+
+									<label class="switch">
+										<input type="checkbox" />
+										<span class="slider round"></span>
+									</label>
+								</div>
+								<div class="notification-item">
+									<div class="content">
+										<h1>OnBoarding</h1>
+										<p>Lorem ipsum dolor sit amet consectetur adipisicing</p>
+									</div>
+
+									<label class="switch">
+										<input type="checkbox" />
+										<span class="slider round"></span>
+									</label>
+								</div>
+								<div class="notification-item">
+									<div class="content">
+										<h1>OnBoarding</h1>
+										<p>Lorem ipsum dolor sit amet consectetur adipisicing</p>
+									</div>
+
+									<label class="switch">
+										<input type="checkbox" />
+										<span class="slider round"></span>
+									</label>
+								</div>
+								<div class="notification-item no-emails">
+									<div class="content">
+										<h1>Don't send me any emails</h1>
+										<p>
+											You only receive necessary emails such as for password
+											reset. All the above will be turned off.
+										</p>
+									</div>
+
+									<label class="switch">
+										<input type="checkbox" />
+										<span class="slider round"></span>
+									</label>
+								</div>
+
+								<div>
+									<button class="btn btn-primary">Save All Changes</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+		<script src="./app.js"></script>
+		<script>
+			const myHash = (id) => {
+				location.hash = id;
+				let x = 'http://127.0.0.1:5502/accountSettings.html ' + location.hash;
+				localStorage.setItem('lastTab', id);
+			};
+			document.getElementById('defaultslideHistoryTabLinks').click();
+
+			function slideHistoryTab(evt, cityName) {
+				console.log(cityName);
+				let i, tabcontent, tablinks;
+				tabcontent = document.getElementsByClassName('slideHistoryTabContent');
+				for (i = 0; i < tabcontent.length; i++) {
+					tabcontent[i].style.display = 'none';
+				}
+				tablinks = document.getElementsByClassName('slideHistoryTabLinks');
+				for (i = 0; i < tablinks.length; i++) {
+					tablinks[i].className = tablinks[i].className.replace(
+						'activeSlide',
+						'',
+					);
+				}
+				document.getElementById(cityName).style.display = 'flex';
+				evt.currentTarget.className += ' activeSlide';
+			}
+			const closeBanner = document.querySelector('.close_banner');
+			const banner = document.querySelector('.my_progress_third_card');
+			closeBanner.addEventListener('click', () => {
+				banner.style.display = 'none';
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,372 @@
+.competition_section {
+  width: 100%;
+  max-width: 1400px;
+  height: 100%;
+  padding: 20px 0px;
+  position: relative;
+}
+
+@media (max-width: 1300px) {
+  .competition_section {
+    min-width: none;
+  }
+}
+
+.tab {
+  padding: 0 20px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 50px;
+  border-bottom: solid 1px #9d9d9d5c;
+  position: -webkit-sticky;
+  position: sticky;
+  top: -1px;
+  z-index: 1;
+  background-color: #f4f4f4;
+  margin: none;
+  width: 100%;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  height: 100%;
+  width: 150px;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 500px) {
+  .tab button {
+    width: 100px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  color: #ec1ee2;
+  border-bottom: 3px solid #1a1a1a;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  margin-top: 30px;
+}
+
+.cards_holder {
+  padding: 0 20px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+  .cards_holder {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+.card {
+  max-width: 300px;
+  min-width: 300px;
+  height: 350px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-radius: 20px;
+  position: relative;
+  margin: 20px 1% 10px 0px;
+}
+
+@media (max-width: 700px) {
+  .card {
+    width: 95%;
+    max-width: none;
+    min-width: none;
+  }
+}
+
+.card .bookmark {
+  position: absolute;
+  top: 45%;
+  right: 5%;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.card .card_image {
+  width: 100%;
+  height: 40%;
+}
+
+.card .card_image img {
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.card .heading {
+  padding: 10px 20px;
+}
+
+.card .heading h1 {
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.card .sub_head {
+  padding: 5px 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.card .tag {
+  padding: 5px 20px;
+  text-align: left;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.card .card_footer {
+  width: 100%;
+  height: 50px;
+  border-top: solid 1px #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 10px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.card .card_footer p {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.card .card_footer span {
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.competition_banner {
+  width: 100%;
+  height: 350px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.competition_banner .left {
+  width: 50%;
+  height: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.competition_banner .left h1 {
+  font-size: 2.5rem;
+}
+
+.competition_banner .left p {
+  width: 90%;
+  letter-spacing: 1px;
+}
+
+.competition_banner .left button {
+  width: 200px;
+  height: 40px;
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  background-color: #000;
+  font-weight: 600;
+  color: #f1f1f1;
+}
+
+.competition_banner .right {
+  width: 40%;
+  height: 80%;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.competition_banner .right img {
+  width: 70%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+@media (max-width: 500px) {
+  .competition_banner {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 220px;
+  }
+  .competition_banner .left {
+    width: 100%;
+    text-align: center;
+    height: 100%;
+  }
+  .competition_banner .left h1 {
+    font-size: 1.3rem;
+  }
+  .competition_banner .left p {
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+    color: #504c4c;
+  }
+  .competition_banner .left button {
+    margin: 0 auto;
+  }
+  .competition_banner .right {
+    display: none;
+  }
+}
+
+.popupHolder {
+  visibility: hidden;
+  position: absolute;
+  top: 177px;
+  right: 10px;
+  width: 180px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: white;
+  z-index: 555;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+          box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  border: solid 0.1px dimgray;
+  border-radius: 10px;
+}
+
+.popupHolder .item {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  height: 50px;
+}
+
+.popupHolder .item img {
+  width: 20px;
+  height: 20px;
+}
+
+.popupHolder .item h1 {
+  width: 100px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.card.show .popupHolder {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+keyframes fadeIn from {
+  opacity: 0;
+}
+
+keyframes fadeIn to {
+  opacity: 1;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/*# sourceMappingURL=competitions.css.map */

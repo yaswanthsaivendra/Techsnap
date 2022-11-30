@@ -1,0 +1,202 @@
+.color {
+  background: #3df7d8;
+}
+
+.project_card {
+  min-width: 320px;
+  width: 31%;
+  min-height: 485px;
+  -webkit-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+          box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.project_card .image {
+  width: 100%;
+  height: 200px;
+}
+
+.project_card .image img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.project_card .course_body {
+  width: 100%;
+  padding: 20px;
+}
+
+.project_card .course_body .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0;
+  height: 50px;
+}
+
+.project_card .course_body .title span {
+  color: #f736d6;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.project_card .course_body .title p {
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.project_card .course_body .icons {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 5px 0;
+}
+
+.project_card .course_body .icons .icon_item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.project_card .course_body .icons .icon_item span {
+  width: 20px;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.project_card .course_body .icons .icon_item span img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 20px;
+}
+
+.project_card .course_body .icons .icon_item p {
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-left: 5px;
+}
+
+.project_card .course_body .par {
+  width: 100%;
+  margin: 5px 0;
+}
+
+.project_card .course_body .par p {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.project_card .course_body .course_time p {
+  font-size: 0.7rem;
+  color: #7a7a7a;
+}
+
+.project_card .course_body button {
+  width: 100%;
+  height: 35px;
+  border: none;
+  outline: none;
+  margin: 10px 0;
+  background-color: #005eff;
+  color: #ffffff;
+}
+
+.author_tag {
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.author_tag p {
+  color: #757575;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.author_tag .name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 10px;
+}
+
+.author_tag .name img {
+  width: 15px;
+}
+
+.author_tag .name h3 {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.card_tags p {
+  color: #0500ff;
+  font-weight: 600;
+  font-size: 0.7rem;
+}
+
+.tags_box {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 5px 0;
+}
+
+.tags_box .tags {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  background-color: #eb99ff;
+  padding: 2px;
+  margin-left: 5px;
+}
+
+.tags_box .tags p {
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+/*# sourceMappingURL=projects.css.map */

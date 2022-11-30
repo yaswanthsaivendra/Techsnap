@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/style/_headers/headers.css" />
+		<link rel="stylesheet" href="/style/_pages/myFeed.css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+			integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+			crossorigin="anonymous"
+		/>
+		<title>Document</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<header>
+			<div class="sub_header">
+				<div class="Header_icon">
+					<div class="ham" onclick="slideMenu()">
+						<img
+							id="ham_icon"
+							src="https://img.icons8.com/android/96/000000/menu.png"
+						/>
+					</div>
+					<img src="/assets/icon.svg" alt="Logo" />
+				</div>
+
+				<div class="Header_Profile">
+					<div class="Icons">
+						<div class="points">
+							<p><span>🔥 </span>0</p>
+							<p><span>🎯 </span> 0</p>
+						</div>
+						<div class="score">
+							<p><span>⚡ </span> 200</p>
+							<p>
+								<span
+									><img src="/assets/coin (3).png" alt="notifiction"
+								/></span>
+								50
+							</p>
+						</div>
+					</div>
+					<img
+						src="/assets/bell.svg"
+						alt="notifiction"
+						class="notification_bell"
+					/>
+					<div class="notification_dropdown">
+						<h1>Notifications</h1>
+					</div>
+					<img
+						class="profile_pic avatar"
+						src="/assets/profile.jpg"
+						alt="avatar"
+					/>
+					<div class="profile_dropDown">
+						<a href="#" class="profile_dropDown_item">
+							<span
+								><img
+									src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-dashboard-blogger-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"
+							/></span>
+							<p>View Dashboard</p>
+						</a>
+						<a href="#" class="profile_dropDown_item">
+							<span
+								><img src="https://img.icons8.com/ios/50/000000/user.png"
+							/></span>
+							<p>View Profile</p>
+						</a>
+						<a href="#" class="profile_dropDown_item">
+							<span
+								><img
+									src="https://img.icons8.com/ios/50/000000/user-not-found.png"
+							/></span>
+							<p>Edit</p>
+						</a>
+						<a href="#" class="profile_dropDown_item">
+							<span
+								><img src="https://img.icons8.com/windows/32/000000/exit.png"
+							/></span>
+							<p>Logout</p>
+						</a>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="wholeBody">
+			<!-- //------------------------sidenav--------------------------- -->
+			<aside class="sideMenu">
+				<div class="myMenu">
+					<a href="index.html">
+						<img src="/assets/self-growth3.png" alt="progress" />
+						<p>My Progress</p>
+					</a>
+					<a href="myFeed.html" id="active">
+						<img src="/assets/self-growth3.png" alt="progress" />
+						<p>My Feed</p>
+					</a>
+					<a href="topics.html">
+						<img src="/assets/self-growth3.png" alt="progress" />
+						<p>Topics</p>
+					</a>
+					<a href="##">
+						<img src="/assets/stage.png" alt="bookmark" />
+						<p>Competitions</p>
+					</a>
+					<a href="leaderBoard.html">
+						<img src="/assets/leaderboard.png" alt="leader" />
+						<p>Leaderboard</p>
+					</a>
+				</div>
+				<div class="myMenu">
+					<div class="title">
+						<h4>catalog</h4>
+					</div>
+					<a href="career.html">
+						<img src="/assets/career-choice.png" alt="progress" />
+						<p>Career Paths</p>
+					</a>
+					<a href="courses.html">
+						<img src="/assets/online-course2.png" alt="leader" />
+						<p>Courses</p>
+					</a>
+					<a href="projects.html">
+						<img src="/assets/project-management (2).png" alt="leader" />
+						<p>Projects</p>
+					</a>
+					<a href="##">
+						<img src="/assets/project.png" alt="leader" />
+						<p>Practice</p>
+					</a>
+					<a href="assesments.html">
+						<img src="/assets/clipboard.png" alt="leader" />
+						<p>Assessments</p>
+					</a>
+					<a href="liveEvents.html">
+						<img src="/assets/deadline.png" alt="leader" />
+						<p>Live Events</p>
+					</a>
+				</div>
+				<div class="myMenu">
+					<div class="title">
+						<h4>PROFILE</h4>
+					</div>
+					<a href="myProfile.html">
+						<img src="/assets/account (1).png" alt="progress" />
+						<p>My profile</p>
+					</a>
+					<a href="editProfile.html">
+						<img src="/assets/edit (1).png" alt="bookmark" />
+						<p>Edit profile</p>
+					</a>
+					<a href="accountSettings.html">
+						<img src="/assets/user (1).png" alt="leader" />
+						<p>Account Settings</p>
+					</a>
+					<a href="##">
+						<img src="/assets/logout (1).png" alt="leader" />
+						<p>Logout</p>
+					</a>
+				</div>
+				<button>Contact us</button>
+			</aside>
+
+			<!---------------Topics section---------------------->
+			<div class="max_width_holder">
+				<section class="feed_section">
+					<div class="ads_holder">
+						<div class="news">
+							<div class="header">
+								<h1>Linkdin News</h1>
+							</div>
+							<div class="new_section">
+								<div class="news_holder">
+									<h1>Biden to meet refugees in Poland</h1>
+									<p>2h ago</p>
+								</div>
+								<div class="news_holder">
+									<h1>Biden to meet refugees in Poland</h1>
+									<p>2h ago</p>
+								</div>
+								<div class="news_holder">
+									<h1>Biden to meet refugees in Poland</h1>
+									<p>2h ago</p>
+								</div>
+								<div class="news_holder">
+									<h1>Biden to meet refugees in Poland</h1>
+									<p>2h ago</p>
+								</div>
+							</div>
+						</div>
+						<div class="ads">
+							<img
+								src="https://media.licdn.com/media/AAYQAgTPAAgAAQAAAAAAACeUyGWuWBhQQLyxe1gEMEaZgw.png"
+								alt="ads"
+							/>
+						</div>
+					</div>
+					<div class="feed_container">
+						<!-- <div class="title">
+						<h1>Feed section</h1>
+						<p>
+							A community of passionate Artificial Intelligence and Machine
+							Learning enthusiasts.
+						</p>
+					</div> -->
+						<div class="post_feed">
+							<div class="header">
+								<img src="/assets/profile.png" alt="profile" />
+								<div class="post_bar" onclick="showPostFeed()">
+									<h1>Start A Post</h1>
+								</div>
+							</div>
+							<div class="options_holder">
+								<div class="icon">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 24 24"
+										data-supported-dps="24x24"
+										fill="currentColor"
+										class="mercado-match"
+										width="24"
+										height="24"
+										focusable="false"
+									>
+										<path
+											d="M19 4H5a3 3 0 00-3 3v10a3 3 0 003 3h14a3 3 0 003-3V7a3 3 0 00-3-3zm1 13a1 1 0 01-.29.71L16 14l-2 2-6-6-4 4V7a1 1 0 011-1h14a1 1 0 011 1zm-2-7a2 2 0 11-2-2 2 2 0 012 2z"
+										></path>
+									</svg>
+
+									<span>Photo</span>
+								</div>
+								<div class="icon">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 24 24"
+										data-supported-dps="24x24"
+										fill="currentColor"
+										class="mercado-match"
+										width="24"
+										height="24"
+										focusable="false"
+									>
+										<path
+											d="M19 4H5a3 3 0 00-3 3v10a3 3 0 003 3h14a3 3 0 003-3V7a3 3 0 00-3-3zm-9 12V8l6 4z"
+										></path>
+									</svg>
+									<span>Video</span>
+								</div>
+								<div class="icon">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 24 24"
+										data-supported-dps="24x24"
+										fill="currentColor"
+										class="mercado-match"
+										width="24"
+										height="24"
+										focusable="false"
+									>
+										<path
+											d="M3 3v15a3 3 0 003 3h12a3 3 0 003-3V3zm13 1.75A1.25 1.25 0 1114.75 6 1.25 1.25 0 0116 4.75zm-8 0A1.25 1.25 0 116.75 6 1.25 1.25 0 018 4.75zM19 18a1 1 0 01-1 1H6a1 1 0 01-1-1V9h14zm-5.9-3a1 1 0 00-1-1H12a3.12 3.12 0 00-1 .2l-1-.2v-3h3.9v1H11v1.15a3.7 3.7 0 011.05-.15 1.89 1.89 0 012 1.78V15a1.92 1.92 0 01-1.84 2H12a1.88 1.88 0 01-2-1.75 1 1 0 010-.25h1a.89.89 0 001 1h.1a.94.94 0 001-.88z"
+										></path>
+									</svg>
+									<span>Event</span>
+								</div>
+								<div class="icon">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 24 24"
+										data-supported-dps="24x24"
+										fill="currentColor"
+										class="mercado-match"
+										width="24"
+										height="24"
+										focusable="false"
+									>
+										<path
+											d="M21 3v2H3V3zm-6 6h6V7h-6zm0 4h6v-2h-6zm0 4h6v-2h-6zM3 21h18v-2H3zM13 7H3v10h10z"
+										></path>
+									</svg>
+									<span>Write an articel</span>
+								</div>
+							</div>
+						</div>
+						<!-- //-------------------------------------------------- -->
+						<!-- //-------------------------------------------------- -->
+						<div class="post_section">
+							<div class="post_box">
+								<div class="avater_section">
+									<div class="profile">
+										<img src="/assets/profile.png" alt="profile" />
+										<div class="name">
+											<p>Alan Biju</p>
+											<span>TechSnap DevOps</span>
+										</div>
+									</div>
+									<div class="more" onclick="showMore()">...</div>
+								</div>
+								<div class="para">
+									<p>
+										Lorem ipsum dolor sit amet consectetur adipisicing elit.
+										Corrupti reprehenderit minima dolorem deleniti consequatur
+										quas, alias quis. Quam quo harum inventore, hic rerum ab.
+										Laudantium numquam inventore iste provident labore!
+									</p>
+								</div>
+								<div
+									class="photo"
+									onclick="window.location.href='postDetailsPage.html'"
+								>
+									<img src="/assets/banner.png" alt="banner" />
+								</div>
+								<div class="post_tages">
+									<div class="tags_box">
+										<div class="tags">React Js</div>
+										<div class="tags">React Js</div>
+									</div>
+									<div class="time">
+										<p>posted 3 Jan</p>
+									</div>
+								</div>
+								<div class="post_icon_conatiner">
+									<div class="post_icons">
+										<div class="icon">
+											<span id="heart">
+												<i class="far fa-heart js-heart heart"></i>
+											</span>
+											<span>Like</span>
+										</div>
+										<div class="icon comment_icon">
+											<img
+												src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/000000/external-comment-chat-flatart-icons-outline-flatarticons-2.png"
+											/>
+											<span>Comment</span>
+										</div>
+										<div class="icon">
+											<img
+												src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAflBMVEX///8AAACUlJTc3NzY2NihoaH8/Pz5+fnv7++2trbS0tLn5+f29vYrKyuYmJh1dXVPT0+8vLwjIyNBQUGMjIwRERFpaWl3d3caGhqvr69JSUnFxcXr6+vMzMzj4+NRUVFhYWGEhIQYGBgMDAwxMTGnp6cmJiZZWVllZWU3NzckRHSoAAAFEElEQVR4nO2d6XbaQAxGQwBjMEvCErOELUtp3/8FW5JzAGN5NLZmNJOe7/5tGfmyyNLYsR4eAAAAAAAAAAAAAJJemrU7PmlnaS8JZJdu54dpS4PpYb5NtfWS/kFF7sL7oa/5UQ7HC12/LxbjoZZgN4DeN58qfu1ZMMFWa7bzL7gK6Hdm5VswDyzYauV+BV9C+/3j5X8X9KoY/iv6jbcvarizxD1dP4KD0F43DHwI9kahtW4Y9TwYzkNbFZi7F2yHdrqj7dxQuZdgObgWzEIblcgcGx5DC5U4uhVMlnSYt1M+7vpknJ/e6NBLt4ZbMshipbG5kK7ofnvrNMqRCrHW6rnTNRXe7QnjiYhwchrBzImIv3cZIH0vB5hq7gwlxK7ewuVPhDpXbByuz7MhjsDl+YJINB8Ol7cg+SgfgstUQ2zOeCgMjRzLh+Byy4boDL3vCN1BvMku9xbH5eW9dGgGiO507HD5x/Ly7mt7M0Rv8+hweRgqAEMhMFQAhkJgqAAMhcBQARgKgaECMBQCQwVgKASGCsBQCAwVgKEQGCoAQyEwVACGQmCoAAyFwFABGAqBoQIwFAJDBWAoBIYKwFAIDBWAoRAYKgBDITBUAIZCYKgADIXAUAEYCoGhAjAUAkMFYCgEhgrAUAgMFYChEBgqAEMhMFQAhkJgqAAMhcBQARgKgaECMBQCQwVgKASGCvwUw/Zms2n4yh9h+Pn9VPBlkweP/gTDwa/Li3/Vf/rpDzB8lB1d9Ibp/RPBn2o+qzp2w355gVa/1gpxG/YmhGCrNakzSiVqwwHxLO4vPmoknJgNiRc3OMh4DV/JuQYX1q+W60RrSKWYIpYJJ1LDhE4xRSZWQxbiNOxUzG65Y9mxWCtKQ+JZ9RVYPD8+QsNXaq5JFU9swonP8LmG35lnZr3YDJP6syBfzAknMsNBkzl7I2OFE5ehqYoxYTrkmAxLjZI9hpYqIkO+ijFRmXCiMaxolK5wKaiqpYrFsMOkmMX2YUtMx7plRFc4kRhyVczL+QPqcR8jWeFEYcg0StcJStxsb6qlisGQq2LW17noO+69KCecCAy5FFMc8sVNpp1EZ9ihpzBemN4XLANiGt4ti7uEE9qQSzGT8jDIIfehFxNOWEO2iqF3KriEU6hwghpyKWZWNagwmzGvvEk4AQ3ZKsZ0IFyNfq1wwhlyVczUPIdxyyScS4UTzJCtYrh5s0PLCieQYcr9kGw2Q7lmZJ2GM+RSzN5uFmrGpeLnQIZJzhyY/YxJ7rueJwEMdztmu/etzpXswZt5selup27InSPs9uovsPv/xL97NmSod4H3TP3dj5CG6ybjljOupYrIsGlopTDi0FObS0k0HabCicOQaJTsYVuqCAy5KywcNa7oBDGsex8Qgf2WeQhDN5Oyba+s6huW9mKawu3hhDKsWcWYYLvqIIbSFFPEJuHoGu5t7/yx5XUfl6GbFFOETTiKhks/t7W3mf5MzzB3l2KKMC2VmqHbFFPEmHCUDGfyKsaEaa9Lx9BHiilSnXBcGnYrYlRckXZL5Z5z12GQip9DXudG7eb0Kjb1Ng5jZGQEnymmCP0OOy0yiAJj7zfFFKFaqpPTCBuvPwIbygnHfMmnNnfn3qn2H+eVbzjOXQcofE9L9xGoUHiXf7tf/3pOHOmlmCLP187Yy3k4ffxzXvtppXOOoOh1v0qcxXHH/99mpJ2OZgalGGbt1FelDwAAAAAAAAAAgIj5C2gRTvwCdGKjAAAAAElFTkSuQmCC"
+											/>
+											<span>Bookmark</span>
+										</div>
+										<div class="icon">
+											<img
+												src="https://cdn-icons-png.flaticon.com/512/25/25419.png"
+											/>
+											<span>Share</span>
+										</div>
+									</div>
+								</div>
+								<div class="comment_section">
+									<div class="comment_input">
+										<img src="/assets/profile.jpg" alt="profile" />
+										<input type="text" name="comment" id="comment" />
+									</div>
+									<button id="submit_comment">Submit</button>
+									<div class="comments_box">
+										<div class="comment">
+											<div class="main_comment">
+												<img src="/assets/profile.jpg" alt="profile" />
+												<div class="main_info">
+													<div class="comment_info">
+														<div class="comment_name">
+															<p>Alan Biju</p>
+															<span>Developer </span>
+														</div>
+														<div class="para">
+															<p>
+																Thank you Nuseir Yassin for taking us this
+																through this amazing Odyssey 💕👌😊, surreal
+																experience and Dubai has done it again a giant
+																time capsule.........Yet again millenials will
+																throng the Booking counters eager to catch a
+															</p>
+														</div>
+													</div>
+													<div class="likes">
+														<span>Like . 51 ||</span> <span class="comment_reply_btn">Reply</span>
+													</div>
+													<div class="comment_input reply">
+										<img src="/assets/profile.jpg" alt="profile" />
+										<input type="text" name="comment" id="comment" />
+									<button id="submit_comment">Submit</button>
+
+									</div>
+													
+												</div>
+											</div>
+
+											<div class="sub_comment">
+												<img src="/assets/profile.jpg" alt="profile" />
+												<div class="main_info">
+													<div class="comment_info">
+														<div class="comment_name">
+															<p>Alan Biju</p>
+															<span>Developer </span>
+														</div>
+														<div class="para">
+															<p>
+																Thank you Nuseir Yassin for taking us this
+																through this amazing Odyssey 💕👌😊, surreal
+																experience and Dubai has done it again a giant
+																time capsule.........Yet again millenials will
+																throng the Booking counters eager to catch a
+															</p>
+														</div>
+													</div>
+													<div class="likes">
+														<span>Like . 51 </span>
+													</div>
+												</div>
+											</div>
+											<div class="sub_comment">
+												<img src="/assets/profile.jpg" alt="profile" />
+												<div class="main_info">
+													<div class="comment_info">
+														<div class="comment_name">
+															<p>Alan Biju</p>
+															<span>Developer </span>
+														</div>
+														<div class="para">
+															<p>Thank you</p>
+														</div>
+													</div>
+													<div class="likes">
+														<span>Like . 51 </span>
+													</div>
+												</div>
+											</div>
+											<div class="sub_comment hidden_comment">
+												<img src="/assets/profile.jpg" alt="profile" />
+												<div class="main_info">
+													<div class="comment_info">
+														<div class="comment_name">
+															<p>Alan Biju</p>
+															<span>Developer </span>
+														</div>
+														<div class="para">
+															<p>Ur right bro</p>
+														</div>
+													</div>
+													<div class="likes">
+														<span>Like . 51 </span>
+													</div>
+												</div>
+											</div>
+
+											<!-- <button
+												onclick="ShowMoreComments()"
+												class="showmorebutton"
+											>
+												Load More
+											</button> -->
+										</div>
+										<div class="comment">
+											<div class="main_comment">
+												<img src="/assets/profile.jpg" alt="profile" />
+												<div class="main_info">
+													<div class="comment_info">
+														<div class="comment_name">
+															<p>Alan Biju</p>
+															<span>Developer </span>
+														</div>
+														<div class="para">
+															<p>
+																Thank you Nuseir Yassin for taking us this
+																through this amazing Odyssey 💕👌😊, surreal
+																experience and Dubai has done it again a giant
+																time capsule.........Yet again millenials will
+																throng the Booking counters eager to catch a
+															</p>
+														</div>
+													</div>
+													<div class="likes">
+														<span>Like . 51 ||</span> <span class="comment_reply_btn">Reply</span>
+													</div>
+													<div class="comment_input reply">
+										<img src="/assets/profile.jpg" alt="profile" />
+										<input type="text" name="comment" id="comment" />
+									<button id="submit_comment">Submit</button>
+
+									</div>
+													
+												</div>
+											</div>
+
+											<div class="sub_comment">
+												<img src="/assets/profile.jpg" alt="profile" />
+												<div class="main_info">
+													<div class="comment_info">
+														<div class="comment_name">
+															<p>Alan Biju</p>
+															<span>Developer </span>
+														</div>
+														<div class="para">
+															<p>
+																Thank you Nuseir Yassin for taking us this
+																through this amazing Odyssey 💕👌😊, surreal
+																experience and Dubai has done it again a giant
+																time capsule.........Yet again millenials will
+																throng the Booking counters eager to catch a
+															</p>
+														</div>
+													</div>
+													<div class="likes">
+														<span>Like . 51 </span>
+													</div>
+												</div>
+											</div>
+											<div class="sub_comment">
+												<img src="/assets/profile.jpg" alt="profile" />
+												<div class="main_info">
+													<div class="comment_info">
+														<div class="comment_name">
+															<p>Alan Biju</p>
+															<span>Developer </span>
+														</div>
+														<div class="para">
+															<p>Thank you</p>
+														</div>
+													</div>
+													<div class="likes">
+														<span>Like . 51 </span>
+													</div>
+												</div>
+											</div>
+											<div class="sub_comment hidden_comment">
+												<img src="/assets/profile.jpg" alt="profile" />
+												<div class="main_info">
+													<div class="comment_info">
+														<div class="comment_name">
+															<p>Alan Biju</p>
+															<span>Developer </span>
+														</div>
+														<div class="para">
+															<p>Ur right bro</p>
+														</div>
+													</div>
+													<div class="likes">
+														<span>Like . 51 </span>
+													</div>
+												</div>
+											</div>
+
+											<button
+												onclick="ShowMoreComments()"
+												class="showmorebutton"
+											>
+												Load More
+											</button>
+										</div>
+										<div class="comment hidden">
+											<div class="main_comment">
+												<img src="/assets/profile.jpg" alt="profile" />
+												<div class="main_info">
+													<div class="comment_info">
+														<div class="comment_name">
+															<p>Alan Biju</p>
+															<span>Developer </span>
+														</div>
+														<div class="para">
+															<p>
+																Thank you Nuseir Yassin for taking us this
+																through this amazing Odyssey 💕👌😊, surreal
+																experience and Dubai has done it again a giant
+																time capsule.........Yet again millenials will
+																throng the Booking counters eager to catch a
+															</p>
+														</div>
+													</div>
+													<div class="likes">
+														<span>Like . 51 ||</span> <span class="comment_reply_btn">Reply</span>
+													</div>
+													<div class="comment_input reply">
+										<img src="/assets/profile.jpg" alt="profile" />
+										<input type="text" name="comment" id="comment" />
+									<button id="submit_comment">Submit</button>
+
+									</div>
+													
+												</div>
+											</div>
+
+											<div class="sub_comment">
+												<img src="/assets/profile.jpg" alt="profile" />
+												<div class="main_info">
+													<div class="comment_info">
+														<div class="comment_name">
+															<p>Alan Biju</p>
+															<span>Developer </span>
+														</div>
+														<div class="para">
+															<p>
+																Thank you Nuseir Yassin for taking us this
+																through this amazing Odyssey 💕👌😊, surreal
+																experience and Dubai has done it again a giant
+																time capsule.........Yet again millenials will
+																throng the Booking counters eager to catch a
+															</p>
+														</div>
+													</div>
+													<div class="likes">
+														<span>Like . 51 </span>
+													</div>
+												</div>
+											</div>
+											<div class="sub_comment">
+												<img src="/assets/profile.jpg" alt="profile" />
+												<div class="main_info">
+													<div class="comment_info">
+														<div class="comment_name">
+															<p>Alan Biju</p>
+															<span>Developer </span>
+														</div>
+														<div class="para">
+															<p>Thank you</p>
+														</div>
+													</div>
+													<div class="likes">
+														<span>Like . 51 </span>
+													</div>
+												</div>
+											</div>
+											<div class="sub_comment hidden_comment">
+												<img src="/assets/profile.jpg" alt="profile" />
+												<div class="main_info">
+													<div class="comment_info">
+														<div class="comment_name">
+															<p>Alan Biju</p>
+															<span>Developer </span>
+														</div>
+														<div class="para">
+															<p>Ur right bro</p>
+														</div>
+													</div>
+													<div class="likes">
+														<span>Like . 51 </span>
+													</div>
+												</div>
+											</div>
+
+											<button
+												onclick="ShowMoreComments()"
+												class="showmorebutton"
+											>
+												Load More
+											</button>
+										</div>
+									</div>
+									<button
+
+												class="loadMorebutton"
+											>
+												Load More
+											</button>
+								</div>
+							</div>
+							<div class="post_box">
+								<div class="avater_section">
+									<div class="profile">
+										<img src="/assets/profile.png" alt="profile" />
+										<div class="name">
+											<p>Alan Biju</p>
+											<span>TechSnap DevOps</span>
+										</div>
+									</div>
+									<div class="more" onclick="showMore()">...</div>
+								</div>
+								<div class="para">
+									<p>
+										Lorem ipsum dolor sit amet consectetur adipisicing elit.
+										Corrupti reprehenderit minima dolorem deleniti consequatur
+										quas, alias quis. Quam quo harum inventore, hic rerum ab.
+										Laudantium numquam inventore iste provident labore!
+									</p>
+								</div>
+								<div
+									class="photo"
+									onclick="window.location.href='postDetailsPage.html'"
+								>
+									<img src="/assets/banner.png" alt="banner" />
+								</div>
+								<div class="post_tages">
+									<div class="tags_box">
+										<div class="tags">React Js</div>
+										<div class="tags">React Js</div>
+									</div>
+									<div class="time">
+										<p>posted 3 Jan</p>
+									</div>
+								</div>
+								<div class="post_icon_conatiner">
+									<div class="post_icons">
+										<div class="icon">
+											<span id="heart">
+												<i class="far fa-heart js-heart heart"></i>
+											</span>
+											<span>Like</span>
+										</div>
+										<div class="icon comment_icon">
+											<img
+												src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/000000/external-comment-chat-flatart-icons-outline-flatarticons-2.png"
+											/>
+											<span>Comment</span>
+										</div>
+									</div>
+								</div>
+								<div class="comment_section">
+									<div class="comment_input">
+										<img src="/assets/profile.jpg" alt="profile" />
+										<input type="text" name="comment" id="comment" />
+									</div>
+									<div class="comments_box">
+										<div class="comment">
+											<div class="main_comment">
+												<img src="/assets/profile.jpg" alt="profile" />
+												<div class="main_info">
+													<div class="comment_info">
+														<div class="comment_name">
+															<p>Alan Biju</p>
+															<span>Developer </span>
+														</div>
+														<div class="para">
+															<p>
+																Thank you Nuseir Yassin for taking us this
+																through this amazing Odyssey 💕👌😊, surreal
+																experience and Dubai has done it again a giant
+																time capsule.........Yet again millenials will
+																throng the Booking counters eager to catch a
+															</p>
+														</div>
+													</div>
+													<div class="likes">
+														<span>Like . 51 || 1 Reply</span>
+													</div>
+												</div>
+											</div>
+
+											<div class="sub_comment">
+												<img src="/assets/profile.jpg" alt="profile" />
+												<div class="main_info">
+													<div class="comment_info">
+														<div class="comment_name">
+															<p>Alan Biju</p>
+															<span>Developer </span>
+														</div>
+														<div class="para">
+															<p>
+																Thank you Nuseir Yassin for taking us this
+																through this amazing Odyssey 💕👌😊, surreal
+																experience and Dubai has done it again a giant
+																time capsule.........Yet again millenials will
+																throng the Booking counters eager to catch a
+															</p>
+														</div>
+													</div>
+													<div class="likes">
+														<span>Like . 51 || 1 Reply</span>
+													</div>
+												</div>
+											</div>
+											<div class="sub_comment">
+												<img src="/assets/profile.jpg" alt="profile" />
+												<div class="main_info">
+													<div class="comment_info">
+														<div class="comment_name">
+															<p>Alan Biju</p>
+															<span>Developer </span>
+														</div>
+														<div class="para">
+															<p>Thank you</p>
+														</div>
+													</div>
+													<div class="likes">
+														<span>Like . 51 || 1 Reply</span>
+													</div>
+												</div>
+											</div>
+											<div class="sub_comment hidden_comment">
+												<img src="/assets/profile.jpg" alt="profile" />
+												<div class="main_info">
+													<div class="comment_info">
+														<div class="comment_name">
+															<p>Alan Biju</p>
+															<span>Developer </span>
+														</div>
+														<div class="para">
+															<p>Ur right bro</p>
+														</div>
+													</div>
+													<div class="likes">
+														<span>Like . 51 || 1 Reply</span>
+													</div>
+												</div>
+											</div>
+
+											<button
+												onclick="ShowMoreComments()"
+												class="showmorebutton"
+											>
+												Load More
+											</button>
+										</div>
+										<div class="comment">
+											<div class="main_comment">
+												<img src="/assets/profile.jpg" alt="profile" />
+												<div class="main_info">
+													<div class="comment_info">
+														<div class="comment_name">
+															<p>Alan Biju</p>
+															<span>Developer </span>
+														</div>
+														<div class="para">
+															<p>
+																Thank you Nuseir Yassin for taking us this
+																through this amazing Odyssey 💕👌😊, surreal
+																experience and Dubai has done it again a giant
+																time capsule.........Yet again millenials will
+																throng the Booking counters eager to catch a
+															</p>
+														</div>
+													</div>
+													<div class="likes">
+														<span>Like . 51 || 1 Reply</span>
+													</div>
+												</div>
+											</div>
+
+											<div class="sub_comment">
+												<img src="/assets/profile.jpg" alt="profile" />
+												<div class="main_info">
+													<div class="comment_info">
+														<div class="comment_name">
+															<p>Alan Biju</p>
+															<span>Developer </span>
+														</div>
+														<div class="para">
+															<p>
+																Thank you Nuseir Yassin for taking us this
+																through this amazing Odyssey 💕👌😊, surreal
+																experience and Dubai has done it again a giant
+																time capsule.........Yet again millenials will
+																throng the Booking counters eager to catch a
+															</p>
+														</div>
+													</div>
+													<div class="likes">
+														<span>Like . 51 || 1 Reply</span>
+													</div>
+												</div>
+											</div>
+											<div class="sub_comment">
+												<img src="/assets/profile.jpg" alt="profile" />
+												<div class="main_info">
+													<div class="comment_info">
+														<div class="comment_name">
+															<p>Alan Biju</p>
+															<span>Developer </span>
+														</div>
+														<div class="para">
+															<p>Thank you</p>
+														</div>
+													</div>
+													<div class="likes">
+														<span>Like . 51 || 1 Reply</span>
+													</div>
+												</div>
+											</div>
+											<div class="sub_comment hidden_comment">
+												<img src="/assets/profile.jpg" alt="profile" />
+												<div class="main_info">
+													<div class="comment_info">
+														<div class="comment_name">
+															<p>Alan Biju</p>
+															<span>Developer </span>
+														</div>
+														<div class="para">
+															<p>Ur right bro</p>
+														</div>
+													</div>
+													<div class="likes">
+														<span>Like . 51 || 1 Reply</span>
+													</div>
+												</div>
+											</div>
+											<div class="sub_comment hidden_comment">
+												<img src="/assets/profile.jpg" alt="profile" />
+												<div class="main_info">
+													<div class="comment_info">
+														<div class="comment_name">
+															<p>Alan Biju</p>
+															<span>Developer </span>
+														</div>
+														<div class="para">
+															<p>Ur right bro</p>
+														</div>
+													</div>
+													<div class="likes">
+														<span>Like . 51 || 1 Reply</span>
+													</div>
+												</div>
+											</div>
+											<div class="sub_comment hidden_comment">
+												<img src="/assets/profile.jpg" alt="profile" />
+												<div class="main_info">
+													<div class="comment_info">
+														<div class="comment_name">
+															<p>Alan Biju</p>
+															<span>Developer </span>
+														</div>
+														<div class="para">
+															<p>Ur right bro</p>
+														</div>
+													</div>
+													<div class="likes">
+														<span>Like . 51 || 1 Reply</span>
+													</div>
+												</div>
+											</div>
+											<button class="showmorebutton">Load More</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+		<div class="more_section" id="conaitnerCheck">
+			<div class="more_container">
+				<div class="more_item" onclick="reportToBox()">
+					<p id="red">Report</p>
+				</div>
+				<div class="more_item">
+					<p id="red">unfollow</p>
+				</div>
+				<div class="more_item">
+					<p>go to post</p>
+				</div>
+				<div class="more_item">
+					<p>tagged account</p>
+				</div>
+				<div class="more_item" onclick="shareToBox()">
+					<p>share to..</p>
+				</div>
+				<div class="more_item">
+					<p>copy to</p>
+				</div>
+				<div class="more_item">
+					<p>embed</p>
+				</div>
+				<div class="more_item" onclick="moreOptionsClose()">
+					<p>cancel</p>
+				</div>
+			</div>
+		</div>
+		<div class="feed_more_section" id="feedmainconaitner">
+			<div class="more_container">
+				<div class="title">
+					<h1>Create Post</h1>
+					<h1 id="close_feed_container">X</h1>
+				</div>
+				<div class="avater_section">
+					<div class="profile">
+						<img src="/assets/profile.png" alt="profile" />
+						<div class="name">
+							<p>Alan Biju</p>
+						</div>
+					</div>
+				</div>
+				<div class="write">
+					<textarea rows="5" placeholder="Write Something here..." autofocus>
+Write Something here...
+					</textarea
+					>
+				</div>
+				<div class="footer">
+					<div class="icons">
+						<div class="icon">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 24 24"
+								data-supported-dps="24x24"
+								fill="currentColor"
+								class="mercado-match"
+								width="24"
+								height="24"
+								focusable="false"
+							>
+								<path
+									d="M19 4H5a3 3 0 00-3 3v10a3 3 0 003 3h14a3 3 0 003-3V7a3 3 0 00-3-3zm1 13a1 1 0 01-.29.71L16 14l-2 2-6-6-4 4V7a1 1 0 011-1h14a1 1 0 011 1zm-2-7a2 2 0 11-2-2 2 2 0 012 2z"
+								></path>
+							</svg>
+						</div>
+						<div class="icon">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 24 24"
+								data-supported-dps="24x24"
+								fill="currentColor"
+								class="mercado-match"
+								width="24"
+								height="24"
+								focusable="false"
+							>
+								<path
+									d="M19 4H5a3 3 0 00-3 3v10a3 3 0 003 3h14a3 3 0 003-3V7a3 3 0 00-3-3zm-9 12V8l6 4z"
+								></path>
+							</svg>
+						</div>
+						<div class="icon">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 24 24"
+								data-supported-dps="24x24"
+								fill="currentColor"
+								class="mercado-match"
+								width="24"
+								height="24"
+								focusable="false"
+							>
+								<path
+									d="M23 20v1H1v-1zM8 9H2v10h6zm7-6H9v16h6zm7 11h-6v5h6z"
+								></path>
+							</svg>
+						</div>
+						<div class="icon">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 24 24"
+								data-supported-dps="24x24"
+								fill="currentColor"
+								class="mercado-match"
+								width="24"
+								height="24"
+								focusable="false"
+							>
+								<path
+									d="M17 6V5a3 3 0 00-3-3h-4a3 3 0 00-3 3v1H2v4a3 3 0 003 3h14a3 3 0 003-3V6zM9 5a1 1 0 011-1h4a1 1 0 011 1v1H9zm10 9a4 4 0 003-1.38V17a3 3 0 01-3 3H5a3 3 0 01-3-3v-4.38A4 4 0 005 14z"
+								></path>
+							</svg>
+						</div>
+						<div class="icon">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 24 24"
+								data-supported-dps="24x24"
+								fill="currentColor"
+								class="mercado-match"
+								width="24"
+								height="24"
+								focusable="false"
+							>
+								<path
+									d="M3 3v15a3 3 0 003 3h12a3 3 0 003-3V3zm13 1.75A1.25 1.25 0 1114.75 6 1.25 1.25 0 0116 4.75zm-8 0A1.25 1.25 0 116.75 6 1.25 1.25 0 018 4.75zM19 18a1 1 0 01-1 1H6a1 1 0 01-1-1V9h14zm-5.9-3a1 1 0 00-1-1H12a3.12 3.12 0 00-1 .2l-1-.2v-3h3.9v1H11v1.15a3.7 3.7 0 011.05-.15 1.89 1.89 0 012 1.78V15a1.92 1.92 0 01-1.84 2H12a1.88 1.88 0 01-2-1.75 1 1 0 010-.25h1a.89.89 0 001 1h.1a.94.94 0 001-.88z"
+								></path>
+							</svg>
+						</div>
+						<div class="icon">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 24 24"
+								data-supported-dps="24x24"
+								fill="currentColor"
+								class="mercado-match"
+								width="24"
+								height="24"
+								focusable="false"
+							>
+								<path
+									d="M21 3v2H3V3zm-6 6h6V7h-6zm0 4h6v-2h-6zm0 4h6v-2h-6zM3 21h18v-2H3zM13 7H3v10h10z"
+								></path>
+							</svg>
+						</div>
+					</div>
+					<button>Post</button>
+				</div>
+			</div>
+		</div>
+		<div class="share_to_section" id="conaitnerCheck">
+			<div class="share_to_conatiner">
+				<div class="title">
+					<p onclick="backToMoreSection()"><</span>
+					<p>Share to ..</p>
+					<span onclick="moreOptionsClose()">X</span>
+				</div>
+				<div class="body">
+					<div class="share_item">
+						<p id="red">whatsapp</p>
+					</div>
+					<div class="share_item">
+						<p id="red">facebookt</p>
+					</div>
+					<div class="share_item">
+						<p id="red">twitter</p>
+					</div>
+					<div class="share_item">
+						<p id="red">zoom</p>
+					</div>
+					<div class="share_item">
+						<p id="red">copy link</p>
+					</div>
+					<div class="share_item" onclick="backToMoreSection()">
+						<p id="red">cancel</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="full_post_section" id="conaitnerCheck">
+			<div class="subFull_post_section">
+				<div class="image_section">
+					<img src="/assets/banner.png" alt="post" />
+				</div>
+				<div class="comment_sections">
+					<div class="comment_header">
+						<div class="profile_details">
+							<img src="/assets/profile.jpg" alt="profile" />
+							<div class="name_tag">
+								<p id="name">Alan Biju</p>
+								<p id="followers">123,789 folowers</p>
+							</div>
+						</div>
+						<div class="buttons">
+							<div class="follow"><span>+</span>Follow</div>
+							<div class="close" onclick="diplayPost()">X</div>
+						</div>
+					</div>
+					<div class="comment_body">
+						<div class="comment_input">
+							<img src="/assets/profile.jpg" alt="profile" />
+							<input type="text" name="comment" id="comment" />
+						</div>
+						<div class="comments_box">
+							<div class="comment">
+								<div class="main_comment">
+									<img src="/assets/profile.jpg" alt="profile" />
+									<div class="main_info">
+										<div class="comment_info">
+											<div class="comment_name">
+												<p>Alan Biju</p>
+												<span>Developer </span>
+											</div>
+											<div class="para">
+												<p>
+													Thank you Nuseir Yassin for taking us this through
+													this amazing Odyssey 💕👌😊, surreal experience and
+													Dubai has done it again a giant time
+													capsule.........Yet again millenials will throng the
+													Booking counters eager to catch a
+												</p>
+											</div>
+										</div>
+										<div class="likes">
+											<span>Like . 51 || 1 Reply</span>
+										</div>
+									</div>
+								</div>
+
+								<div class="sub_comment">
+									<img src="/assets/profile.jpg" alt="profile" />
+									<div class="main_info">
+										<div class="comment_info">
+											<div class="comment_name">
+												<p>Alan Biju</p>
+												<span>Developer </span>
+											</div>
+											<div class="para">
+												<p>
+													Thank you Nuseir Yassin for taking us this through
+													this amazing Odyssey 💕👌😊, surreal experience and
+													Dubai has done it again a giant time
+													capsule.........Yet again millenials will throng the
+													Booking counters eager to catch a
+												</p>
+											</div>
+										</div>
+										<div class="likes">
+											<span>Like . 51 || 1 Reply</span>
+										</div>
+									</div>
+								</div>
+								<div class="sub_comment">
+									<img src="/assets/profile.jpg" alt="profile" />
+									<div class="main_info">
+										<div class="comment_info">
+											<div class="comment_name">
+												<p>Alan Biju</p>
+												<span>Developer </span>
+											</div>
+											<div class="para">
+												<p>Thank you</p>
+											</div>
+										</div>
+										<div class="likes">
+											<span>Like . 51 || 1 Reply</span>
+										</div>
+									</div>
+								</div>
+								<div class="sub_comment hidden_comment">
+									<img src="/assets/profile.jpg" alt="profile" />
+									<div class="main_info">
+										<div class="comment_info">
+											<div class="comment_name">
+												<p>Alan Biju</p>
+												<span>Developer </span>
+											</div>
+											<div class="para">
+												<p>Ur right bro</p>
+											</div>
+										</div>
+										<div class="likes">
+											<span>Like . 51 || 1 Reply</span>
+										</div>
+									</div>
+								</div>
+
+								<button class="showmorebutton">Load More</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="report_section" id="conaitnerCheck">
+			<div class="report_conatiner">
+				<div class="title">
+					<span onclick="backToMoreSection()"><</span>
+					<p>Report</p>
+					<span onclick="moreOptionsClose()">X</span>
+				</div>
+				<div class="report_item" onclick="reportpageToBox()">
+					<p>its a spam</p>
+					<span>></span>
+				</div>
+				<div class="report_item" onclick="reportpageToBox()">
+					<p>Nudity or sexual activity</p>
+					<span>></span>
+				</div>
+				<div class="report_item" onclick="reportpageToBox()">
+					<p>Hate speech or symbols</p>
+					<span>></span>
+				</div>
+				<div class="report_item" onclick="reportpageToBox()">
+					<p>Violence or dangerous organization</p>
+					<span>></span>
+				</div>
+				<div class="report_item" onclick="reportpageToBox()">
+					<p>Sale of illegal or regulated goods</p>
+					<span>></span>
+				</div>
+				<div class="report_item" onclick="reportpageToBox()">
+					<p>Bullying or harassment</p>
+					<span>></span>
+				</div>
+				<div class="report_item" onclick="reportpageToBox()">
+					<p>Intellectual property violation</p>
+					<span>></span>
+				</div>
+				<div class="report_item" onclick="reportpageToBox()">
+					<p>Suicide or self-injury</p>
+					<span>></span>
+				</div>
+				<div class="report_item" onclick="reportpageToBox()">
+					<p>Eating disorders</p>
+					<span>></span>
+				</div>
+				<div class="report_item" onclick="reportpageToBox()">
+					<p>Eating disorders</p>
+					<span>></span>
+				</div>
+				<div class="report_item" onclick="reportpageToBox()">
+					<p>Eating disorders</p>
+					<span>></span>
+				</div>
+				<div class="report_item" onclick="reportpageToBox()">
+					<p>Eating disorders</p>
+					<span>></span>
+				</div>
+				<div class="report_item" onclick="reportpageToBox()">
+					<p>Eating disorders</p>
+					<span>></span>
+				</div>
+				<div class="report_item" onclick="backToMoreSection()">
+					<p>Back</p>
+					<span>></span>
+				</div>
+			</div>
+		</div>
+		<div class="reportconfirmPage_section" id="conaitnerCheck">
+			<div class="reportconfirmPage_contianer">
+				<div class="reportconfirmPage_detailes">
+					<div class="icons_done">
+						<img src="./assets/done.png" alt="done" />
+					</div>
+					<div class="reportconfirmPage_text">
+						<h2>Don't want to see this?</h2>
+						<p>
+							When you see something you don't like on Instagram , you can
+							report it if it doesn't follow our
+							<span>Community Guidelines</span> or you can remove the person who
+							shared it from your experince
+						</p>
+					</div>
+				</div>
+				<div class="reportconfirmPage_button">
+					<button onclick="moreOptionsClose()">close</button>
+				</div>
+			</div>
+		</div>
+		<!-- <script src="./app.js"></script> -->
+		<script>
+			///--------------------------------
+
+			///------------------------------
+			const shareToBox = () => {
+				const moreSection = document.querySelector('.more_section');
+				const shareSection = document.querySelector('.share_to_section');
+				moreSection.style.display = 'none';
+				shareSection.style.display = 'grid';
+			};
+			const reportToBox = () => {
+				const moreSection = document.querySelector('.more_section');
+				const reportSection = document.querySelector('.report_section');
+				moreSection.style.display = 'none';
+				reportSection.style.display = 'grid';
+			};
+			const reportpageToBox = () => {
+				const reportSection = document.querySelector('.report_section');
+				const reportPageSection = document.querySelector(
+					'.reportconfirmPage_section',
+				);
+				reportSection.style.display = 'none';
+				reportPageSection.style.display = 'grid';
+			};
+			const backToMoreSection = () => {
+				const moreSection = document.querySelector('.more_section');
+				const shareSection = document.querySelector('.share_to_section');
+				const reportSection = document.querySelector('.report_section');
+				moreSection.style.display = 'grid';
+				shareSection.style.display = 'none';
+				reportSection.style.display = 'none';
+			};
+			const moreOptionsClose = () => {
+				const moreSection = document.querySelector('.more_section');
+				const shareSection = document.querySelector('.share_to_section');
+				const reportSection = document.querySelector('.report_section');
+				const reportPageSection = document.querySelector(
+					'.reportconfirmPage_section',
+				);
+				reportPageSection.style.display = 'none';
+				moreSection.style.display = 'none';
+				shareSection.style.display = 'none';
+				reportSection.style.display = 'none';
+			};
+
+			////------------------------------
+			const ShowMoreComments = () => {
+				console.log('here');
+				// const ShowMoreCommentsSection =
+				// 	document.querySelector('.hidden_comment');
+				// const ShowMoreCommentsButton =
+				// 	document.querySelector('.showmorebutton');
+
+				// if (ShowMoreCommentsSection.style.display == 'flex') {
+				// 	ShowMoreCommentsSection.style.display = 'none';
+				// 	ShowMoreCommentsButton.textContent = 'Load More';
+				// } else {
+				// 	ShowMoreCommentsSection.style.display = 'flex';
+				// 	ShowMoreCommentsButton.textContent = 'Show Less';
+				// }
+			};
+			// const showmorebutton = document.querySelector('.showmorebutton').parentElement.querySelectorAll(".hidden_comment");
+			const AllmoreButton = document.querySelectorAll('.showmorebutton');
+			AllmoreButton.forEach((elt) => {
+				elt.addEventListener('click', () => {
+					const comments =
+						elt.parentElement.querySelectorAll('.hidden_comment');
+					comments.forEach((commentItem) => {
+						if (commentItem.style.display == 'flex') {
+							commentItem.style.display = 'none';
+							elt.textContent = 'Load More';
+						} else {
+							commentItem.style.display = 'flex';
+							elt.textContent = 'Show Less';
+						}
+					});
+				});
+			});
+			///--------------------------------
+			// const showComment = () => {
+			// 	const CommentSection = document.querySelector('.comment_section');
+			// 	if (CommentSection.style.display == 'block') {
+			// 		CommentSection.style.display = 'none';
+			// 	} else {
+			// 		CommentSection.style.display = 'block';
+			// 	}
+			// };
+			// const CommentIcon = document
+			// 	.querySelector('.comment_icon')
+			// 	.parentElement.parentElement.parentElement.querySelector(
+			// 		'.comment_section',
+			// 	);
+			const CommentIcon = document.querySelectorAll('.comment_icon');
+			CommentIcon.forEach((ele) => {
+				ele.addEventListener('click', () => {
+					const CommentSection =
+						ele.parentElement.parentElement.nextElementSibling;
+
+					if (CommentSection.style.display == 'block') {
+						CommentSection.style.display = 'none';
+					} else {
+						CommentSection.style.display = 'block';
+					}
+					console.log(CommentSection);
+				});
+			});
+			// console.log(CommentIcon);
+			//--------------------------------------------
+
+			const feedMoreSection = document.querySelector('.feed_more_section');
+			const closeFeedMoreSection = document.querySelector(
+				'#close_feed_container',
+			);
+			const showPostFeed = () => {
+				console.log('here');
+
+				if (feedMoreSection.style.display == 'grid') {
+					feedMoreSection.style.display = 'none';
+				} else {
+					feedMoreSection.style.display = 'grid';
+				}
+			};
+			feedMoreSection.addEventListener('click', (e) => {
+				if (e.target.id === 'feedmainconaitner') {
+					feedMoreSection.style.display = 'none';
+				}
+			});
+			closeFeedMoreSection.addEventListener('click', (e) => {
+				feedMoreSection.style.display = 'none';
+			});
+			const showMore = () => {
+				const moreSection = document.querySelector('.more_section');
+				if (moreSection.style.display == 'grid') {
+					moreSection.style.display = 'none';
+				} else {
+					moreSection.style.display = 'grid';
+				}
+			};
+			//-------------------------------------
+			const moreSection = document.querySelector('.more_section');
+			moreSection.addEventListener('click', (e) => {
+				if (e.target.id === 'conaitnerCheck') {
+					moreSection.style.display = 'none';
+				}
+			});
+			const shareSection = document.querySelector('.share_to_section');
+			const reportSection = document.querySelector('.report_section');
+			const reportPageSection = document.querySelector(
+				'.reportconfirmPage_section',
+			);
+
+			shareSection.addEventListener('click', (e) => {
+				if (e.target.id === 'conaitnerCheck') {
+					shareSection.style.display = 'none';
+				}
+			});
+			reportPageSection.addEventListener('click', (e) => {
+				if (e.target.id === 'conaitnerCheck') {
+					reportPageSection.style.display = 'none';
+				}
+			});
+			reportSection.addEventListener('click', (e) => {
+				if (e.target.id === 'conaitnerCheck') {
+					reportSection.style.display = 'none';
+				}
+			});
+			const fullpostsection = document.querySelector('.full_post_section');
+			fullpostsection.addEventListener('click', (e) => {
+				if (e.target.id === 'conaitnerCheck') {
+					fullpostsection.style.display = 'none';
+				}
+			});
+			//-------------------
+			$(document).ready(function () {
+				$('#heart').click(function () {
+					if ($('#heart').hasClass('liked')) {
+						$('#heart').html(
+							'<i class="far fa-heart js-heart heart" aria-hidden="true"></i>',
+						);
+						$('#heart').removeClass('liked');
+					} else {
+						$('#heart').html('<i class="fa fa-heart" aria-hidden="true"></i>');
+						$('#heart').addClass('liked');
+					}
+				});
+			});
+			//------------------------
+			const diplayPost = () => {
+				const full_post_section = document.querySelector('.full_post_section');
+				if (full_post_section.style.display == 'grid') {
+					full_post_section.style.display = 'none';
+				} else {
+					full_post_section.style.display = 'grid';
+				}
+			};
+			//------------------------
+			const popups = [...document.getElementsByClassName('comment')];
+
+			window.addEventListener('click', ({ target }) => {
+				console.log('here');
+				const popup = target.closest('.comment');
+				const popupDots = target.closest('.comment_reply_btn');
+				const replyHolder = target.closest('.reply');
+				console.log(replyHolder);
+				const clickedOnClosedPopup = popup && popupDots && !popup.classList.contains('show');
+				const clickedOnInsidePopup = popup && replyHolder && !popup.classList.contains('show');
+
+				popups.forEach((p) => {
+					if(clickedOnInsidePopup){
+
+						p.classList.remove('show');
+					}
+				});
+
+				if (clickedOnClosedPopup) popup.classList.add('show');
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style/_pages/edit_profile.css" />
+    <link rel="stylesheet" href="/style/_headers/headers.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <div class="sub_header">
+        <div class="Header_icon">
+          <div class="ham" onclick="slideMenu()">
+            <img
+              id="ham_icon"
+              src="https://img.icons8.com/android/96/000000/menu.png"
+            />
+          </div>
+          <img src="/assets/icon.svg" alt="Logo" />
+        </div>
+
+        <div class="Header_Profile">
+          <div class="Icons">
+            <div class="points">
+              <p><span>🔥 </span>0</p>
+              <p><span>🎯 </span> 0</p>
+            </div>
+            <div class="score">
+              <p><span>⚡ </span> 200</p>
+              <p>
+                <span
+                  ><img src="/assets/coin (3).png" alt="notifiction"
+                /></span>
+                50
+              </p>
+            </div>
+          </div>
+          <img
+            src="/assets/bell.svg"
+            alt="notifiction"
+            class="notification_bell"
+          />
+          <div class="notification_dropdown">
+            <h1>Notifications</h1>
+          </div>
+          <img
+            class="profile_pic avatar"
+            src="/assets/profile.jpg"
+            alt="avatar"
+          />
+          <div class="profile_dropDown">
+            <a href="#" class="profile_dropDown_item">
+              <span
+                ><img
+                  src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-dashboard-blogger-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"
+              /></span>
+              <p>View Dashboard</p>
+            </a>
+            <a href="#" class="profile_dropDown_item">
+              <span
+                ><img src="https://img.icons8.com/ios/50/000000/user.png"
+              /></span>
+              <p>View Profile</p>
+            </a>
+            <a href="#" class="profile_dropDown_item">
+              <span
+                ><img
+                  src="https://img.icons8.com/ios/50/000000/user-not-found.png"
+              /></span>
+              <p>Edit</p>
+            </a>
+            <a href="#" class="profile_dropDown_item">
+              <span
+                ><img src="https://img.icons8.com/windows/32/000000/exit.png"
+              /></span>
+              <p>Logout</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="wholeBody">
+      <!-- //------------------------sidenav--------------------------- -->
+      <aside class="sideMenu">
+        <div class="myMenu">
+          <a href="index.html">
+            <img src="/assets/self-growth3.png" alt="progress" />
+            <p>My Progress</p>
+          </a>
+          <a href="##">
+            <img src="/assets/stage.png" alt="bookmark" />
+            <p>Competitions</p>
+          </a>
+          <a href="leaderBoard.html">
+            <img src="/assets/leaderboard.png" alt="leader" />
+            <p>Leaderboard</p>
+          </a>
+        </div>
+        <div class="myMenu">
+          <div class="title">
+            <h4>catalog</h4>
+          </div>
+          <a href="career.html">
+            <img src="/assets/career-choice.png" alt="progress" />
+            <p>Career Paths</p>
+          </a>
+          <a href="courses.html">
+            <img src="/assets/online-course2.png" alt="leader" />
+            <p>Courses</p>
+          </a>
+          <a href="projects.html">
+            <img src="/assets/project-management (2).png" alt="leader" />
+            <p>Projects</p>
+          </a>
+          <a href="##">
+            <img src="/assets/project.png" alt="leader" />
+            <p>Practice</p>
+          </a>
+          <a href="assesments.html">
+            <img src="/assets/clipboard.png" alt="leader" />
+            <p>Assessments</p>
+          </a>
+          <a href="liveEvents.html">
+            <img src="/assets/deadline.png" alt="leader" />
+            <p>Live Events</p>
+          </a>
+        </div>
+        <div class="myMenu">
+          <div class="title">
+            <h4>PROFILE</h4>
+          </div>
+          <a href="myProfile.html">
+            <img src="/assets/account (1).png" alt="progress" />
+            <p>My profile</p>
+          </a>
+          <a href="editProfile.html" id="active">
+            <img src="/assets/edit (1).png" alt="bookmark" />
+            <p>Edit profile</p>
+          </a>
+          <a href="accountSettings.html">
+            <img src="/assets/user (1).png" alt="leader" />
+            <p>Account Settings</p>
+          </a>
+          <a href="##">
+            <img src="/assets/logout (1).png" alt="leader" />
+            <p>Logout</p>
+          </a>
+        </div>
+        <button>Contact us</button>
+      </aside>
+      <div class="max_width_holder">
+        <form class="editProfile" id="edit_profile">
+          <!-- Edit profile Header------- -->
+          <div class="editProfileHeader">
+            <div class="editProfileHeaderTabs">
+              <div
+                class="tablinks"
+                onclick="openTab(event, 'tab1')"
+                id="defaultEditTabOpen"
+              >
+                1
+              </div>
+              <p>Personal Info</p>
+            </div>
+            <div class="editProfileHeaderTabs">
+              <div class="tablinks" onclick="openTab(event, 'tab2')">2</div>
+              <p>Educational Info</p>
+            </div>
+            <div class="editProfileHeaderTabs">
+              <div class="tablinks" onclick="openTab(event, 'tab3')">3</div>
+              <p>Professional Info</p>
+            </div>
+          </div>
+
+          <!-- Edit profile tab1 body------- -->
+          <div id="tab1" class="editProfiletabcontent">
+            <div class="editProfileForm">
+              <div class="upper__section">
+                <div class="Profile_edit">
+                  <label for="profile">
+                    <img
+                      src="/assets/profile.png"
+                      alt=""
+                      srcset=""
+                      class="profile_image"
+                      onerror="this.onerror=null;this.src='/assets/profile.png';"
+                    />
+                  </label>
+                  <input
+                    type="file"
+                    name="profile"
+                    id="profile"
+                    onchange="handleChange()"
+                  />
+                  <div class="button_zone">
+                    <label id="upload" for="profile">Upload Image</label>
+                    <label id="remove" onclick="removeHandler()"
+                      >Remove Image</label
+                    >
+                  </div>
+                </div>
+                <div class="details_edit">
+                  <div class="details_edit_zone display">
+                    <div class="form__group field">
+                      <input
+                        type="input"
+                        class="form__field"
+                        placeholder="Phone Number"
+                        name="Phone Number"
+                        id="Phone Number"
+                      />
+                      <label for="Phone Number" class="form__label"
+                        >Display Name</label
+                      >
+                    </div>
+                    <div class="form__group field">
+                      <select name="gender" id="gender" class="form__field">
+                        <option value="" disabled selected hidden>
+                          Gender
+                        </option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="details_edit_zone">
+                    <div class="form__group field">
+                      <input
+                        type="input"
+                        class="form__field"
+                        placeholder="Email "
+                        name="Email "
+                        id="Email "
+                      />
+                      <label for="Email " class="form__label">Email </label>
+                    </div>
+                    <div class="form__group field">
+                      <input
+                        type="input"
+                        class="form__field"
+                        placeholder="Phone Number"
+                        name="Phone Number"
+                        id="Phone Number"
+                      />
+                      <label for="Phone Number" class="form__label"
+                        >Phone Number</label
+                      >
+                    </div>
+                  </div>
+                  <div class="details_edit_zone">
+                    <div class="form__group field">
+                      <select
+                        name="Select Country "
+                        id="gender"
+                        class="form__field"
+                      >
+                        <option value="" disabled selected hidden>
+                          Select Country
+                        </option>
+                        <option value="India">India</option>
+                        <option value="India">shimoga</option>
+                        <option value="India">shimoga</option>
+                        <option value="India">shimoga</option>
+                        <option value="India">shimoga</option>
+                        <option value="India">shimoga</option>
+                        <option value="India">shimoga</option>
+                        <option value="India">shimoga</option>
+                      </select>
+                    </div>
+                    <div class="form__group field">
+                      <select
+                        name="Select State "
+                        id="Select State "
+                        class="form__field"
+                      >
+                        <option value="" disabled selected hidden>
+                          Select State
+                        </option>
+                        <option value="Select State ">Male</option>
+                        <option value="Select State ">Female</option>
+                      </select>
+                    </div>
+                    <div class="form__group field">
+                      <input
+                        type="city"
+                        class="form__field"
+                        placeholder="city"
+                        name="city"
+                        id="city"
+                      />
+                      <label for="city" class="form__label">City</label>
+                    </div>
+                  </div>
+                  <div class="form__bio">
+                    <label for="bio">Bio</label>
+                    <input type="text" name="bio" id="bio" />
+                  </div>
+                </div>
+              </div>
+              <div class="lower__section">
+                <div class="details_edit">
+                  <div class="form__group field">
+                    <input
+                      type="input"
+                      class="form__field"
+                      placeholder="Your linkedin URl"
+                      name="Your linkedin URl"
+                      id="Your linkedin URl"
+                    />
+                    <label for="Your linkedin URl" class="form__label"
+                      >Your linkedin URl</label
+                    >
+                  </div>
+                  <div class="form__group field">
+                    <input
+                      type="input"
+                      class="form__field"
+                      placeholder="Your github URl"
+                      name="Your github URl"
+                      id="Your github URl"
+                    />
+                    <label for="Your github URl" class="form__label"
+                      >Your github URl</label
+                    >
+                  </div>
+                </div>
+                <div class="details_edit">
+                  <!-- <div class="form__group field">
+							<input
+								type="input"
+								class="form__field"
+								placeholder="Skills"
+								name="Skills"
+								id="Skills"
+								
+							/>
+							<label for="Skills" class="form__label">Skills</label>
+						</div> -->
+                  <div class="add_tags">
+                    <div class="tag-disp" id="skillsTags"></div>
+                    <div data-title="Skill's" class="form-item">
+                      <textarea
+                        class="form-textinput"
+                        id="skills"
+                        style="width: 100%"
+                        placeholder="Skills"
+                      ></textarea>
+                    </div>
+                  </div>
+                  <div class="add_tags">
+                    <div class="tag-disp" id="spokenLanguagesTags"></div>
+                    <div data-title="Spoken Language's" class="form-item">
+                      <textarea
+                        class="form-textinput"
+                        id="spokenLanguages"
+                        style="width: 100%"
+                        placeholder="Languages"
+                      ></textarea>
+                    </div>
+                  </div>
+
+                  <!-- <div class="form__group field">
+							<input
+								type="input"
+								class="form__field"
+								placeholder="Languages"
+								name="Languages"
+								id="Languages"
+								
+							/>
+							<label for="Languages" class="form__label">Languages</label>
+						</div> -->
+                </div>
+                <div class="details_edit">
+                  <div class="form__group">
+                    <input
+                      type="file"
+                      class="resume"
+                      placeholder="Skills"
+                      name="Skills"
+                      id="Skills"
+                    />
+                    <label for="Skills" class="form__label"
+                      >Upload Resume</label
+                    >
+                  </div>
+
+                  <div class="form__group field">
+                    <input
+                      type="input"
+                      class="form__field"
+                      placeholder="Default coding language"
+                      name="Default coding language"
+                      id="Default coding language"
+                    />
+                    <label for="Default coding language" class="form__label"
+                      >Default coding language</label
+                    >
+                  </div>
+                </div>
+              </div>
+              <!-- //------------spokenlanguages------ -->
+            </div>
+            <!-- //--------------------------------  -->
+            <div class="nav_buttons_container">
+              <div class="nav_buttons_box">
+                <div onclick="openTab(event, 'tab2')">Next</div>
+              </div>
+            </div>
+            <!--  -->
+          </div>
+          <div id="tab2" class="editProfiletabcontent">
+            <div class="editProfiletabcontentTwo">
+              <div class="Educational_edit" id="educationalinfoform-collection">
+                <div
+                  class="deleteButton"
+                  onclick="destroyForm('educationalinfoform-collection')"
+                  data-eduformid="educationalinfoform-collection"
+                >
+                  Remove
+                </div>
+                <div class="title">Highest Qualification Details</div>
+                <div class="form__group field">
+                  <input
+                    type="input"
+                    class="form__field"
+                    placeholder="Institution "
+                    name="Institution "
+                    id="Institution "
+                  />
+                  <label for="Email " class="form__label">Institution </label>
+                </div>
+                <div class="Educational_input_section">
+                  <div class="form__group field">
+                    <input
+                      type="number"
+                      class="form__field"
+                      placeholder="Year of Passing e.g. 2019 "
+                      name="Year of Passing "
+                      id="Year of Passing "
+                    />
+                    <label for="Year of Passing " class="form__label"
+                      >Year of Passing
+                    </label>
+                  </div>
+                  <div class="form__group field">
+                    <select
+                      name="Select State "
+                      id="Select State "
+                      class="form__field"
+                    >
+                      <option value="" disabled selected hidden>
+                        Select State
+                      </option>
+                      <option value="Select State ">Male</option>
+                      <option value="Select State ">Female</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="Educational_input_section">
+                  <div class="Educational_input_radio_buttons custom_radio">
+                    <input
+                      type="radio"
+                      id="featured-1"
+                      name="featured"
+                      checked
+                    /><label for="featured-1">Percentage</label>
+                    <input type="radio" id="featured-2" name="featured" /><label
+                      for="featured-2"
+                      >CGPA</label
+                    >
+                  </div>
+
+                  <div class="form__group field">
+                    <input
+                      type="number"
+                      class="form__field"
+                      placeholder="CGPA "
+                      name="CGPA "
+                      id="CGPA "
+                    />
+                    <label for="CGPA " class="form__label">CGPA </label>
+                  </div>
+                  <div class="form__group field">
+                    <input
+                      type="number"
+                      class="form__field"
+                      placeholder="Scale/ Out of "
+                      name="Scale/ Out of "
+                      id="Scale/ Out of "
+                    />
+                    <label for="Scale/ Out of " class="form__label"
+                      >Scale/ Out of
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- <div class="file_upload_zone">
+              <div class="add" onclick="addmoreforms()">+</div>
+            </div> -->
+
+            <!-- //--------------------------------  -->
+            <div class="nav_buttons_container">
+              <div class="nav_buttons_box">
+                <div onclick="openTab(event, 'tab1')">Previous</div>
+                <div onclick="openTab(event, 'tab3')">Next</div>
+              </div>
+            </div>
+            <!--  -->
+          </div>
+          <div id="tab3" class="editProfiletabcontent">
+            <div class="Educational_edit">
+              <div class="Educational_input_section">
+                <div class="form__group field">
+                  <input
+                    type="number"
+                    class="form__field"
+                    placeholder="Work Experience (In months)"
+                    name="Work Experience (In months) "
+                    id="Work Experience (In months) "
+                  />
+                  <label for="Work Experience (In months) " class="form__label"
+                    >Work Experience (In months)</label
+                  >
+                </div>
+                <div class="form__group field">
+                  <input
+                    type="number"
+                    class="form__field"
+                    placeholder="Notice Period (in days)"
+                    name="Notice Period (in days) "
+                    id="Notice Period (in days) "
+                  />
+                  <label for="Notice Period (in days)" class="form__label"
+                    >Notice Period (in days)</label
+                  >
+                </div>
+              </div>
+              <div class="Educational_input_section">
+                <div class="form__group field">
+                  <input
+                    type="number"
+                    class="form__field"
+                    placeholder="Current Salary (CTC in LPA) "
+                    name="Current Salary (CTC in LPA) "
+                    id="Current Salary (CTC in LPA) "
+                  />
+                  <label for="Current Salary (CTC in LPA) " class="form__label"
+                    >Current Salary (CTC in LPA)
+                  </label>
+                </div>
+                <div class="form__group field">
+                  <input
+                    type="number"
+                    class="form__field"
+                    placeholder="Expected Salary (CTC in LPA)"
+                    name="Expected Salary (CTC in LPA)"
+                    id="Expected Salary (CTC in LPA)"
+                  />
+                  <label for="Expected Salary (CTC in LPA) " class="form__label"
+                    >Expected Salary (CTC in LPA)</label
+                  >
+                </div>
+                <div class="Educational_input_radio_buttons custom_radio">
+                  Willing to Relocate
+                  <input
+                    type="radio"
+                    id="featured-11"
+                    name="featureds"
+                    checked
+                  /><label for="featured-11">Yes</label>
+                  <input type="radio" id="featured-22" name="featureds" /><label
+                    for="featured-22"
+                    >No</label
+                  >
+                </div>
+              </div>
+              <div class="Educational_input_section">
+                <div class="form__group field">
+                  <input
+                    type="input"
+                    class="form__field"
+                    placeholder="Current Company Name"
+                    name="Current Company Name"
+                    id="Current Company Name"
+                  />
+                  <label for="Current Company Name" class="form__label"
+                    >Current Company Name</label
+                  >
+                </div>
+                <div class="form__group field">
+                  <input
+                    type="input"
+                    class="form__field"
+                    placeholder="Designation"
+                    name="Designation"
+                    id="Designation"
+                  />
+                  <label for="Designation" class="form__label"
+                    >Designation</label
+                  >
+                </div>
+                <div class="form__group field">
+                  <input
+                    type="number"
+                    class="form__field"
+                    placeholder="Duration (in months)"
+                    name="Duration (in months)"
+                    id="Duration (in months)"
+                  />
+                  <label for="Duration (in months)" class="form__label"
+                    >Duration (in months)</label
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- //--------------------------------  -->
+            <div class="nav_buttons_container">
+              <div class="nav_buttons_box">
+                <div onclick="openTab(event, 'tab2')">Previous</div>
+                <button type="submit">Save</button>
+              </div>
+            </div>
+            <!--  -->
+            <div id="toast">
+              <div id="img">👍</div>
+              <div id="desc">Submitted Successfully</div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+  <!-- <script src="./app.js"></script> -->
+  <script>
+    var lastNewEducationalInfoDiv = 0;
+    let skillsArray = [];
+    let languageArray = [];
+    function createTag(parent, content) {
+      parent = parent.trim();
+      content = content.trim();
+      if (parent === "skillsTags") {
+        skillsArray.push(content);
+      } else {
+        languageArray.push(content);
+      }
+      console.log(parent);
+      document.getElementById(parent).innerHTML +=
+        "<div class='tag' onclick='destroy(\"" +
+        parent +
+        '", "' +
+        content +
+        "\")'>" +
+        content +
+        "</div>";
+    }
+
+    function destroy(parent, content) {
+      console.log(parent, content);
+
+      if (parent === "skillsTags") {
+        let index = skillsArray.indexOf(content);
+        if (index !== -1) {
+          skillsArray.splice(index, 1);
+        }
+      } else {
+        let index = languageArray.indexOf(content);
+        if (index !== -1) {
+          languageArray.splice(index, 1);
+        }
+      }
+
+      document.getElementById(parent).childNodes.forEach(function (node) {
+        if (node.textContent !== undefined) {
+          var comparetext = node.textContent.trim();
+        } else {
+          return;
+        }
+        if (comparetext === content) {
+          node.remove();
+        }
+      });
+    }
+    document.addEventListener("keydown", function (e) {
+      if (
+        (e.key === " " || e.key === "Enter") &&
+        e.target.id === "skills" &&
+        e.target.value !== undefined &&
+        e.target.value.trim() !== ""
+      ) {
+        createTag("skillsTags", e.target.value.trim().toUpperCase());
+        e.target.value = "";
+      }
+      if (
+        (e.key === " " || e.key === "Enter") &&
+        e.target.id === "spokenLanguages" &&
+        e.target.value !== undefined &&
+        e.target.value.trim() !== ""
+      ) {
+        createTag("spokenLanguagesTags", e.target.value.trim().toUpperCase());
+        e.target.value = "";
+      }
+    });
+
+    /* const destroyForm = () => {
+    	console.log(e);
+    };
+     */
+    function launch_toast() {
+      var x = document.getElementById("toast");
+      x.className = "show";
+      setTimeout(function () {
+        x.className = x.className.replace("show", "");
+      }, 5000);
+    }
+    function addmoreforms() {
+      console.log("herer");
+      lastNewEducationalInfoDiv += 1;
+      document.getElementsByClassName(
+        "editProfiletabcontentTwo"
+      )[0].innerHTML += `<div class="Educational_edit" id=educationalinfoform-collection_${lastNewEducationalInfoDiv}> <div class="deleteButton" onclick="destroyForm('educationalinfoform-collection_${lastNewEducationalInfoDiv}')\" data-eduformid=educationalinfoform-collection_${lastNewEducationalInfoDiv} >Remove</div> <div class="title">Highest Qualification Details</div> <div class="form__group field"><input type="input" class="form__field" placeholder="Institution" name="Institution" id="Institution" required /> <label for="Email" class="form__label" >Institution </label> </div> <div class="Educational_input_section" ><div class="form__group field"><input type="input" class="form__field" placeholder="YearofPassinge.g.2019" name="YearofPassing" id="YearofPassing" required /> <labelfor="YearofPassing" class="form__label">Year of Passing </label></div><div class="form__group field"> <select name="SelectState" id="SelectState" class="form__field"><option value="" disabled selected hidden >SelectState </option> <option value="SelectState"> Male </option> <option value="SelectState"> Female </option> </select> </div> </div> <div class="Educational_input_section"><div class="Educational_input_radio_buttons custom_radio"><input type="radio" id="featured-1_${lastNewEducationalInfoDiv}" name="featured_${lastNewEducationalInfoDiv}" checked><label for="featured-1_${lastNewEducationalInfoDiv}">Percentage</label><input type="radio" id="featured-2_${lastNewEducationalInfoDiv}" name="featureds_${lastNewEducationalInfoDiv}"><label for="featured-2_${lastNewEducationalInfoDiv}">CGPA </label> </div><div class="form__group field"> <input type="input" class="form__field" placeholder="CGPA" name="CGPA" id="CGPA" required/> <label for="CGPA" class="form__label"> CGPA </label> </div> <div class="form__group field"> <input type="input" class="form__field" placeholder="Scale/Outof" name="Scale/Outof" id="Scale/Outof" required/><label for="Scale/Outof" class="form__label">Scale / Out of </label> </div> </div>  </div>`;
+    }
+    function destroyForm(parent, childID) {
+      document.getElementById(parent).childNodes.forEach(function (element) {
+        if (element.classList !== undefined) {
+          if (element.getAttribute("data-eduformid")) {
+            document
+              .getElementById(element.getAttribute("data-eduformid"))
+              .remove();
+          }
+        }
+      });
+    }
+    document.getElementById("defaultEditTabOpen").click();
+    const form = document.querySelector("#edit_profile");
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      let inputs = document.querySelectorAll(".form__field");
+      let formData = {};
+
+      formData[`Skills`] = skillsArray;
+      formData[`Language`] = languageArray;
+      let loop = true;
+      let alertMessage = "";
+
+      inputs.forEach((element) => {
+        let text = element.getAttribute("name");
+        let value = element.value;
+        if (value === "") {
+          alertMessage += text + ", ";
+        }
+
+        formData[`${text}`] = value;
+      });
+      alert(`${alertMessage} fields are empty `);
+
+      console.log(alertMessage);
+    });
+
+    function openTab(evt, cityName) {
+      console.log(cityName);
+      let i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("editProfiletabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace("active", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+    //-----------------------------------------------
+    const handleChange = (e) => {
+      const img = document.querySelector("#profile").files;
+      if (img.length > 0) {
+        const src1 = URL.createObjectURL(img[0]);
+        console.log(src1);
+        const preview1 = document.querySelector(".profile_image");
+        preview1.src = src1;
+      }
+    };
+    const removeHandler = () => {
+      const preview1 = document.querySelector(".profile_image");
+      const img = document.querySelector("#profile");
+      img.value = "";
+      preview1.src = "/assets/profile.png";
+    };
+    //------------------------------------------------
+  </script>
+</html>
