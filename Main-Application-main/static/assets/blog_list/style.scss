@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&family=Nunito+Sans:wght@200;300;400;600;700;800&display=swap');
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	// font-family: 'Nunito Sans', sans-serif;
+	font-family: 'Montserrat', sans-serif;
+}
+.main_body {
+	width: 100%;
+	min-height: 100vh;
+}
+.hero_section {
+	width: 100%;
+	min-height: calc(100vh);
+	color: #000;
+	padding-top: 80px;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	padding: 30px;
+	@media (max-width: 780px) {
+		flex-direction: column;
+		margin-top: 60px;
+	}
+	.left_section {
+		width: 40%;
+		display: grid;
+		place-items: center;
+		.title {
+			width: 80%;
+			display: grid;
+			place-items: center;
+			h1 {
+				font-size: 3.5rem;
+				font-weight: 900;
+			}
+		}
+		.para {
+			margin-top: 50px;
+			width: 80%;
+		}
+	}
+	.right_section {
+		width: 60%;
+		display: grid;
+		place-items: center;
+		img {
+			object-fit: contain;
+			width: 90%;
+		}
+	}
+	@media (max-width: 780px) {
+		.left_section {
+			width: 100%;
+			.title {
+				width: 100%;
+				display: flex;
+				h1 {
+					text-align: center;
+				}
+			}
+			.para {
+				width: 100%;
+				margin-top: 25px;
+				text-align: center;
+			}
+		}
+		.right_section {
+			width: 100%;
+			margin-top: 30px;
+			img {
+				object-fit: contain;
+				width: 90%;
+			}
+		}
+	}
+	@media (max-width: 520px) {
+		.left_section {
+			.title {
+				h1 {
+					font-size: 2.5rem;
+				}
+			}
+		}
+	}
+}
+.card_section {
+	padding: 20px;
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+	grid-gap: 25px;
+	grid-auto-flow: dense;
+	@media (max-width: 880px) {
+		place-items: center;
+		width: 100%;
+	}
+	.card_conatiner {
+		width: 350px;
+		height: 350px;
+		padding: 2px;
+		box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+		.img_section {
+			width: 100%;
+			img {
+				height: 50%;
+				width: 100%;
+			}
+		}
+		.para {
+			padding: 20px 0;
+			width: 100%;
+			overflow: hidden;
+			.date {
+				p {
+					color: rgb(114, 112, 112);
+					font-size: 0.8rem;
+				}
+			}
+			.desp {
+				text-overflow: ellipsis;
+				font-size: 1.2rem;
+				margin-top: 15px;
+			}
+		}
+	}
+}

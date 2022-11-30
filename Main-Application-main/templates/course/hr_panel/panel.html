@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <nav class='w3-black w3-margin-bottom w3-container w3-padding'>
+        <h3 class='w3-left'>HR Panel</h3>
+    </nav>
+
+    <div class='w3-container w3-padding '>
+        <table class="w3-table w3-striped">
+            <tr class='w3-sans-serif w3-large'>
+                <th>Creator's Username</th>
+                <th>No. of courses</th>
+                <th>Access</th>
+            </tr>
+            {% for creator in creators %}
+                <tr class='w3-text-teal w3-large'>
+                    <td>{{creator.details.user.username}}</td>
+                    <td>{{creator.total_courses}}</td>
+                    <td>
+                        <a class='w3-button w3-small w3-teal w3-round' href="{% url 'hr-view-creator' creator.details.slug %}">
+                        Access {{creator.details.user.username}}'s courses
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,293 @@
+{% extends 'footer.html' %}
+{% load static %}
+{% load custom_tags %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{% block title %}Courses{% endblock title %}</title>
+        {% block css %}
+
+        <link href="{% static 'assets/courses/style.css'%}" rel="stylesheet" />
+        <link rel="shortcut icon" type="image/png" href="{% static 'assets/main/favicon.png'%}"/>
+        {% endblock css %}
+        {% block google_tags %}
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4D2PNVR8Z"></script>
+            <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-L4D2PNVR8Z');
+            </script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        {% endblock google_tags %}
+	</head>
+	<body>
+        {% block body %}
+		<div class="container" style="font-family: 'Nunito Sans', sans-serif !important;">
+			<div class="banner_section">
+                <div class="banner">
+					<div class="left_side_banner">
+						<div class="title">
+							<p>
+								Grow Your Skills and Elevate your Career to next Level with Our
+								Courses
+							</p>
+						</div>
+						<div class="banner_tag">
+							<p>
+								Learn the basics, or refine your skills with tutorials designed
+								to inspire from top mentors and specialist organisations. Get
+								Career Guidance and Boost Your Resume and also Learn faster with
+								real hands-on projects and quizes and assesments
+							</p>
+						</div>
+						<div class="para">
+							<p>
+								Get <span>Skilled.</span> Get <span>Certified.</span> Get
+								<span>Hired.</span>
+								<a href="{% url 'course-ash' %}" >
+								<button>Create and See Courses</button>
+								</a>
+							</p>
+						</div>
+
+					</div>
+					<div class="right_side_banner">
+                        <img src="{% static 'assets/courses/image.png'%}" alt="banner" >
+                    </div>
+				</div>
+            </div>
+
+			<div class="white_ban">
+				<div class="tabs_wrap">
+					<ul>
+						<li
+							class="slideProfileLinks"
+							id="defaultProfileLinks"
+							onclick="slideProfile(event,'Browse'); mobileDropdown('Browse all');"
+						>
+							<span><img src="{% static 'assets/courses/grid.png'%}" alt="icon" /></span>
+							Browse all
+						</li>
+						<li
+							class="slideProfileLinks"
+							onclick="slideProfile(event,'Our');  mobileDropdown('Our Picks');"
+						>
+							<span><img src="{% static 'assets/courses/log-in.png'%}" alt="icon" /></span>
+							Our Picks
+						</li>
+						<li
+							class="slideProfileLinks"
+							onclick="slideProfile(event,'News');  mobileDropdown('News');"
+						>
+							<span><img src="{% static 'assets/courses/new.png'%}" alt="icon" /></span>
+							New Releases
+						</li>
+						<li
+							class="slideProfileLinks"
+							onclick="slideProfile(event,'Early');  mobileDropdown('Early Access');"
+						>
+							<span><img src="{% static 'assets/courses/present.png'%}" alt="icon" /></span>
+							Early Access
+						</li>
+						<li
+							class="slideProfileLinks"
+							onclick="slideProfile(event,'Free');  mobileDropdown('Free');"
+						>
+							<span><img src="{% static 'assets/courses/tax-free.png'%}" alt="icon" /></span>
+							Free
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="slideProfileContent" id="Browse" style="font-family: 'Nunito Sans', sans-serif !important;">
+				<div class="cards_section">
+
+                    {% for object in object_list %}
+                    {% if object.release_status %}
+					<div class="course_card">
+						<div class="image">
+							<img src="{{object.pic.url}}" alt="card" />
+						</div>
+						<div class="course_body">
+							<h3>{{object.title}}</h3>
+                            <!--<h5>{{object.description}}</h5>-->
+                            {% if object in user.profile.courseprofile %}
+                                <p>Course progress: {{object.id|get_percentage:request.user.id }}%</p>
+                            {% endif %}
+						</div>
+						<div class="course_footer">
+							<p>{{object.level}}</p>
+
+                            {% if object in user.profile.courseprofile %}
+                                <button><a href="{{object.get_absolute_url}}">Go to Course</a></button>
+                            {% else %}
+                                <button><a href="{% url 'courses:payment' object.slug %}">Enroll</a></button>
+                            {% endif %}
+						</div>
+					</div>
+                    {% endif %}
+                    {% endfor %}
+				</div>
+			</div>
+			<div class="slideProfileContent" id="Our" style="font-family: 'Nunito Sans', sans-serif !important;">
+				<div class="cards_section">
+					{% for object in object_list %}
+                    {% if object.release_status %}
+					<div class="course_card">
+						<div class="image">
+							<img src="{{object.pic.url}}" alt="card" />
+						</div>
+						<div class="course_body">
+							<h3>{{object.title}}</h3>
+                            <!--<h5>{{object.description}}</h5>-->
+                            {% if object in user.profile.courseprofile %}
+                                <p>Course progress: {{object.id|get_percentage:request.user.id }}%</p>
+                            {% endif %}
+						</div>
+						<div class="course_footer">
+							<p>{{object.level}}</p>
+
+                            {% if object in user.profile.courseprofile %}
+                                <button><a href="{{object.get_absolute_url}}">Go to Course</a></button>
+                            {% else %}
+                                <button><a href="{% url 'courses:payment' object.slug %}">Enroll</a></button>
+                            {% endif %}
+						</div>
+					</div>
+                    {% endif %}
+                    {% endfor %}
+				</div>
+			</div>
+			<div class="slideProfileContent" id="News" style="font-family: 'Nunito Sans', sans-serif !important;">
+				<div class="cards_section">
+					{% for object in object_list %}
+                    {% if object.release_status %}
+					<div class="course_card">
+						<div class="image">
+							<img src="{{object.pic.url}}" alt="card" />
+						</div>
+						<div class="course_body">
+							<h3>{{object.title}}</h3>
+                            <!--<h5>{{object.description}}</h5>-->
+                            {% if object in user.profile.courseprofile %}
+                                <p>Course progress: {{object.id|get_percentage:request.user.id }}%</p>
+                            {% endif %}
+						</div>
+						<div class="course_footer">
+							<p>{{object.level}}</p>
+
+                            {% if object in user.profile.courseprofile %}
+                                <button><a href="{{object.get_absolute_url}}">Go to Course</a></button>
+                            {% else %}
+                                <button><a href="{% url 'courses:payment' object.slug %}">Enroll</a></button>
+                            {% endif %}
+						</div>
+					</div>
+                    {% endif %}
+                    {% endfor %}
+				</div>
+			</div>
+			<div class="slideProfileContent" id="Early">
+				<div class="cards_section">
+					{% for object in object_list %}
+                    {% if object.release_status %}
+					<div class="course_card">
+						<div class="image">
+							<img src="{{object.pic.url}}" alt="card" />
+						</div>
+						<div class="course_body">
+							<h3>{{object.title}}</h3>
+                            <!--<h5>{{object.description}}</h5>-->
+                            {% if object in user.profile.courseprofile %}
+                                <p>Course progress: {{object.id|get_percentage:request.user.id }}%</p>
+                            {% endif %}
+						</div>
+						<div class="course_footer">
+							<p>{{object.level}}</p>
+
+                            {% if object in user.profile.courseprofile %}
+                                <button><a href="{{object.get_absolute_url}}">Go to Course</a></button>
+                            {% else %}
+                                <button><a href="{% url 'courses:payment' object.slug %}">Enroll</a></button>
+                            {% endif %}
+						</div>
+					</div>
+                    {% endif %}
+                    {% endfor %}
+				</div>
+			</div>
+			<div class="slideProfileContent" id="Free">
+				<div class="cards_section">
+					{% for object in object_list %}
+                    {% if object.release_status %}
+					<div class="course_card">
+						<div class="image">
+							<img src="{{object.pic.url}}" alt="card" />
+						</div>
+						<div class="course_body">
+							<h3>{{object.title}}</h3>
+                            <!--<h5>{{object.description}}</h5>-->
+                            {% if object in user.profile.courseprofile %}
+                                <p>Course progress: {{object.id|get_percentage:request.user.id }}%</p>
+                            {% endif %}
+						</div>
+						<div class="course_footer">
+							<p>{{object.level}}</p>
+
+                            {% if object in user.profile.courseprofile %}
+                                <button><a href="{{object.get_absolute_url}}">Go to Course</a></button>
+                            {% else %}
+                                <button><a href="{% url 'courses:payment' object.slug %}">Enroll</a></button>
+                            {% endif %}
+						</div>
+					</div>
+                    {% endif %}
+                    {% endfor %}
+				</div>
+			</div>
+		</div>
+
+<!-- ------------------------------------------------------- -->
+{% endblock body %}
+</body>
+{% block script %}
+	<script>
+		document.getElementById('defaultProfileLinks').click();
+
+		function slideProfile(evt, cityName) {
+			console.log(cityName);
+			let i, tabcontent, tablinks;
+			tabcontent = document.getElementsByClassName('slideProfileContent');
+			for (i = 0; i < tabcontent.length; i++) {
+				tabcontent[i].style.display = 'none';
+			}
+			tablinks = document.getElementsByClassName('slideProfileLinks');
+			for (i = 0; i < tablinks.length; i++) {
+				tablinks[i].className = tablinks[i].className.replace(
+					'activeSlide',
+					'',
+				);
+			}
+			document.getElementById(cityName).style.display = 'flex';
+			evt.currentTarget.className += ' activeSlide';
+		}
+		const displayLogin = () => {
+			const loginPage = document.querySelector('.login_page_section');
+			if (loginPage.style.visibility === 'visible') {
+				loginPage.style.visibility = 'hidden';
+			} else {
+				loginPage.style.visibility = 'visible';
+			}
+		};
+		const hideLogin = () => {
+			const loginPage = document.querySelector('.login_page_section');
+			loginPage.style.visibility = 'hidden';
+		};
+	</script>
+    {% endblock script %}
+</html>

@@ -1,0 +1,215 @@
+{% extends './forum_base.html' %}
+{% load hitcount_tags %}
+{% block content %}
+<div class="container">
+    <!--Navigation-->
+    <div class="navigate">
+        <span>
+            <a href="{% url 'home' %}">MyForum - Forums</a>
+            >>
+            <a href="{{post.categories.all.0.get_url}}">{{post.categories.all.0}}</a>
+            >>
+            <a href="{{post.get_url}}">{{post.title}}</a>
+        </span>
+    </div>
+    <!--Topic Section-->
+    <div class="topic-container">
+        <!--Original thread-->
+        <table class="mt-5 table table-primary table-striped table-bordered border-secondary">
+            <thead>
+                <tr>
+                    <th scope="col">Author</th>
+                    <th scope="col">Topic: {{post.title}} (Read {% get_hit_count for post %} Times)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="authors">
+                            <div class="username">
+                                <a href="">{{post.user.fullname|title}}</a>
+                            </div>
+                            <div>Role</div>
+                            <img style="width:12%;" src="{{post.user.profile_pic.url}}" alt="">
+                            <div>
+                                Posts:
+                                <u>{{post.user.num_posts}}</u>
+                            </div>
+                            <div>
+                                Points:
+                                <u>{{post.user.points}}</u>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="content">
+                            {{post.content|safe}}
+                            <br>
+                            <div class="comment" style="text-align:end;">
+                                <button class="btn btn-danger" onclick="showComment()">Comment</button>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--Comment Area-->
+    {% if post.closed == True %}
+    <div class="bg-light mx-auto my-5 align-center container border border-primary"> This Topic Is Closed!</div>
+    {% else %}
+        {% if request.user.is_authenticated %}
+    <form action="." method="post">
+        {% csrf_token %}
+        <div class="comment-area visually-hidden bg-light mx-auto p-4 align-center container border border-primary" id="comment-area">
+            <textarea
+                class="form-control"
+                name="comment"
+                id=""
+                placeholder="comment here ... "
+            ></textarea>
+            <input
+                type="submit"
+                class="btn btn-primary mt-2"
+                value="submit"
+                name="comment-form"
+            >
+        </div>
+    </form>
+    {% else %}
+    <div style="background-color:#fff;color:#000;font-weight:bolder;padding:20px;width:100%;">
+        You need to
+        <a href="#">
+            <b>login</b>
+        </a>
+        to comment or reply.!
+    </div>
+    {% endif %}
+
+        {% endif %}
+    <!--Comments Section-->
+    <h5>Comments</h5>
+    {% for comment in post.comments.all %}
+    <div class="comments-container">
+        <table class="mt-5 table table-primary table-striped table-bordered border-secondary">
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="username">
+                            <a href="">{{comment.user.fullname|title}}</a>
+                        </div>
+                        <div>Role</div>
+                        <img style="width:12%;" src="{{comment.user.profile_pic.url}}" alt="">
+                        <div>
+                            Posts:
+                            <u>{{comment.user.num_posts}}</u>
+                        </div>
+                        <div>
+                            Points:
+                            <u>{{comment.user.points}}</u>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="content">
+                            {{comment.content}}
+                            <br>
+                            {% if request.user.is_authenticated %}
+                            <div class="comment" style="text-align:end;">
+                                <button class="btn btn-secondary" onclick="showReplies('comment{{comment.id}}')">Reply</button>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--Reply Area-->
+    <form action="." method="post">
+        {% csrf_token %}
+        <div class="comment-area visually-hidden bg-light mx-auto p-4 align-center container border border-primary" id="comment{{comment.id}}">
+            <textarea
+                class="form-control"
+                name="reply"
+                id=""
+                placeholder="reply here ... "
+            ></textarea>
+            <input
+                class="btn btn-primary mt-2"
+                type="submit"
+                value="submit"
+                name="reply-form"
+            >
+            <input type="hidden" name="comment-id" value="{{comment.id}}">
+        </div>
+    </form>
+    <!--Reply section-->
+    {% for reply in comment.replies.all %}
+    <div class="comments-container" style="width: 95%; margin-left:5%;">
+        <table class="mt-5 table table-primary table-striped table-bordered border-secondary">
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="authors">
+                            <div class="username">
+                                <a href="">{{reply.user.fullname|title}}</a>
+                            </div>
+                            <div>Role</div>
+                            <img src="{{reply.user.profile_pic.url}}" alt="">
+                            <div>
+                                Posts:
+                                <u>{{reply.user.num_posts}}</u>
+                            </div>
+                            <div>
+                                Points:
+                                <u>{{reply.user.points}}</u>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="content">
+                            {{reply.content}}
+                            <br>
+                        </div>
+                    </td>
+                    <td>
+                        {% if request.user.is_authenticated %}
+                        <form action="." method="post">
+                            {% csrf_token %}
+                            <div class="comment-area hide" id="comment{{comment.id}}">
+                                <textarea
+                                    class="form-control"
+                                    name="reply"
+                                    id=""
+                                    placeholder="reply here ... "
+                                ></textarea>
+                                <input
+                                    type="submit"
+                                    value="submit"
+                                    name="reply-form"
+                                    class="btn btn-primary mt-2"
+                                >
+                                <input type="hidden" name="comment-id" value="{{comment.id}}">
+                            </div>
+                        </form>
+                        {% endif %}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    {% endfor %}
+        {% endfor %}
+    <script>
+        function showComment() {
+            var commentArea = document.getElementById("comment-area");
+            commentArea.classList.remove("visually-hidden");
+        }
+
+        function showReplies(id) {
+            var replyArea = document.getElementById(id);
+            replyArea.classList.remove("visually-hidden");
+        }
+    </script>
+</div>
+{% endblock content %}

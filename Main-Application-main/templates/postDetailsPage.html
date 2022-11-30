@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static "css/style/_headers/headers.css"%}" />
+    <link rel="stylesheet" href="{% static "css/style/_pages/postDetailsPage.css"%}" />
+	  <link rel="stylesheet" href="{% static 'css/w3.css' %}" />
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+      integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="sub_header">
+        <div class="Header_icon">
+          <div class="ham" onclick="slideMenu()">
+            <img
+              id="ham_icon"
+              src="https://img.icons8.com/android/96/000000/menu.png"
+            />
+          </div>
+          <img src="{% static "images/assets/icon.svg"%}" alt="Logo" />
+        </div>
+
+        <div class="Header_Profile">
+          <div class="Icons">
+            <div class="points">
+              <p><span>🔥 </span>0</p>
+              <p><span>🎯 </span> 0</p>
+            </div>
+            <div class="score">
+              <p><span>⚡ </span> 200</p>
+              <p>
+                <span
+                  ><img src="{% static "images/assets/coin (3).png"%}" alt="notifiction"
+                /></span>
+                50
+              </p>
+            </div>
+          </div>
+          <img
+            src="{% static "images/assets/bell.svg"%}"
+            alt="notifiction"
+            class="notification_bell"
+          />
+          <div class="notification_dropdown">
+            <h1>Notifications</h1>
+          </div>
+          <img
+            class="profile_pic avatar"
+            src="{% static "images/assets/profile.jpg"%}"
+            alt="avatar"
+          />
+          <div class="profile_dropDown">
+            <a href="#" class="profile_dropDown_item">
+              <span
+                ><img
+                  src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-dashboard-blogger-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"
+              /></span>
+              <p>View Dashboard</p>
+            </a>
+            <a href="#" class="profile_dropDown_item">
+              <span
+                ><img src="https://img.icons8.com/ios/50/000000/user.png"
+              /></span>
+              <p>View Profile</p>
+            </a>
+            <a href="#" class="profile_dropDown_item">
+              <span
+                ><img
+                  src="https://img.icons8.com/ios/50/000000/user-not-found.png"
+              /></span>
+              <p>Edit</p>
+            </a>
+            <a href="#" class="profile_dropDown_item">
+              <span
+                ><img src="https://img.icons8.com/windows/32/000000/exit.png"
+              /></span>
+              <p>Logout</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="max_width_holder">
+      <!-- //------------------------sidenav--------------------------- -->
+
+      <!---------------Topics section---------------------->
+
+      <section class="feed_section">
+        <div class="ads_holder">
+          <div class="news">
+            <div class="header">
+              <h1>Linkdin News</h1>
+            </div>
+            <div class="new_section">
+              <div class="news_holder">
+                <h1>Biden to meet refugees in Poland</h1>
+                <p>2h ago</p>
+              </div>
+              <div class="news_holder">
+                <h1>Biden to meet refugees in Poland</h1>
+                <p>2h ago</p>
+              </div>
+              <div class="news_holder">
+                <h1>Biden to meet refugees in Poland</h1>
+                <p>2h ago</p>
+              </div>
+              <div class="news_holder">
+                <h1>Biden to meet refugees in Poland</h1>
+                <p>2h ago</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="feed_container">
+          <!-- <div class="title">
+						<h1>Feed section</h1>
+						<p>
+							A community of passionate Artificial Intelligence and Machine
+							Learning enthusiasts.
+						</p>
+					</div> -->
+
+          <!-- //-------------------------------------------------- -->
+          <!-- //-------------------------------------------------- -->
+
+
+
+
+					<div id="{{feed.id}}posteditform" style='display:none;' class="w3-modal">
+						<div class="w3-display-middle w3-padding" >
+							<div style="width:500px;" class="w3-container w3-white w3-padding w3-round">
+								<form action="{% url 'update-img-post' feed.slug %}" method="POST" enctype="multipart/form-data">
+									{% csrf_token %}
+									<h3>Update your Post</h3>
+									<textarea type="text" class='w3-input w3-border w3-round ' rows="4" id="desc" name="desc" placeholder="update your post text ....."></textarea><br>
+									<input class='w3-margin' type="file" name="imgs" multiple="">
+									<button style="width:49%;" class='w3-button w3-round-xxlarge w3-green' type="submit"> Update </button>
+									<button type="button" style="width:49%;" class='w3-button w3-round-xxlarge w3-right w3-red' onclick="document.getElementById('{{feed.id}}posteditform').style.display='none'" >Cancel</button>
+								</form>
+							</div>
+						</div>
+					</div>
+
+					<div id="{{feed.id}}reportform" style='display:none;' class="w3-modal">
+						<div class="w3-display-middle w3-padding" >
+							<div style="width:500px;" class="w3-container w3-white w3-padding w3-round">
+								<h3>Report "<e class='w3-medium'>{{feed.title}}</e>" by @{{feed.author.user.username}}</h3>
+								<input placeholder="Any reason ??" class='w3-input w3-margin-bottom w3-border w3-round' type="text" id="{{feed.id}}reason" />
+								<button value="{{feed.id}}" target="{% url 'post-report' feed.slug %}" onclick="postReport(this);" style="width:49%;" class='w3-button w3-round-xxlarge w3-indigo'> Report </button>
+								<button type="button" style="width:49%;" class='w3-button w3-round-xxlarge w3-right w3-red' onclick="document.getElementById('{{feed.id}}reportform').style.display='none'" >Cancel</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="post_section">
+						{% if user.username in feed.reports %}
+						<div class="post_box w3-white w3-round w3-border w3-border-red ">
+						{% else %}
+						<div class="post_box w3-white w3-round ">
+						{% endif %}
+							<div class="avater_section">
+								<div class="profile">
+									<a href="{% url 'show_profile' feed.author.slug %}">
+									{% if feed.author.profile_pic %}
+										<img src="{{feed.author.profile_pic.url}}"alt="avatar"/>
+									{% else %}
+										<img src="https://www.participate.nyc.gov/assets/decidim/default-avatar-43686fd5db4beed0141662a012321bbccd154ee1d9188b0d1f41e37b710af3cb.svg"alt="avatar"/>
+									{% endif %}
+									</a>
+									<div class="name">
+										<p class='w3-large' >
+											<a style="text-decoration:none;" href="{% url 'show_profile' feed.author.slug %}">
+											@{{feed.author.user.username}}
+											</a>
+										</p>
+										<span>{{feed.author.designations}}</span>
+									</div>
+								</div>
+								<div class='w3-right' >
+									
+									<button class="w3-large w3-right w3-button w3-round-xxlarge " value="{{feed.id}}" onclick="showMore(this)"><i class="fa fa-ellipsis-h"></i></button>
+									{% if feed.author.user.username == user.username %}
+									<a class="w3-large w3-right w3-button w3-round-xxlarge " onclick="document.getElementById({{feed.id}}+'posteditform').style.display='block';"><i class="fa fa-edit"></i></a>
+									<a href="{% url 'delete-post' feed.slug %}" class="w3-large w3-right w3-button w3-round-xxlarge " value="{{feed.id}}"><i class="fa fa-trash"></i></a>
+									{% endif %}
+									
+									{% if user.username in feed.bookmarks %}
+									<button id="{{feed.id}}bookmarked" status="True" class="w3-large w3-right w3-button w3-round-xxlarge " value="{{feed.id}}" target="{% url 'post-bookmark' feed.slug "True" %}" onclick="postBookmark(this);">
+										<i class="fa fa-bookmark w3-text-pink js-heart heart"></i>
+									</button>
+									<button id="{{feed.id}}bookmark" style="display:none;" value="{{feed.id}}" target="{% url 'post-bookmark' feed.slug "False" %}" onclick="postBookmark(this);" class="w3-large w3-right w3-button w3-round-xxlarge ">
+										<i class="fa fa-bookmark js-heart heart"></i>
+									</button>
+									{% else %}
+									<button id="{{feed.id}}bookmark" value="{{feed.id}}" target="{% url 'post-bookmark' feed.slug "False" %}" onclick="postBookmark(this);" class="w3-large w3-right w3-button w3-round-xxlarge ">
+										<i class="fa fa-bookmark js-heart heart"></i>
+									</button>
+									<button id="{{feed.id}}bookmarked" status="True" style="display:none;" value="{{feed.id}}" target="{% url 'post-bookmark' feed.slug "True" %}" onclick="postBookmark(this);" class="w3-large w3-right w3-button w3-round-xxlarge ">
+										<i class="fa fa-bookmark w3-text-pink js-heart heart"></i>
+									</button>
+									{% endif %}
+								</div>
+							</div>
+							<div class="para">
+								<h5>{{feed.title}}</h5>
+								<p>
+									{{feed.description}}
+								</p>
+							</div>
+							<div class="photo" onclick="diplayPost()">
+								{% for img in feed.images %}
+								<img style="width:49%;" class='w3-round' src="{{img}}" alt="banner" />
+								{% endfor %}
+							</div>
+							<div class="post_tages">
+								<div class="tags_box">
+									<p class='icon w3-medium w3-margin' class="icon">
+										<span id="heart">
+											<i class="far fa-heart w3-text-indigo js-heart heart"></i>
+										</span>
+										<input type="hidden" value="{{feed.no_likes}}" id="{{feed.id}}like_count" />
+										<span id="{{feed.id}}like_display" class='w3-text-indigo '>{{feed.no_likes}}  Likes</span>
+									</p>
+									<p class='icon w3-medium w3-margin' class="icon">
+										<span id="heart">
+											<i class="far fa-heart w3-text-black js-heart heart"></i>
+										</span>
+										<input type="hidden" value="{{feed.no_dislikes}}" id="{{feed.id}}dislike_count" />
+										<span id="{{feed.id}}dislike_display" class='w3-text-black '>{{feed.no_dislikes}}  Dislikes</span>
+									</p>
+									<div class=" w3-round tags"># bigdata</div>
+									<div class="w3-round tags"># ml</div>
+                                    <div class="w3-round tags"># datascience</div>
+								</div>
+								<div class="time">
+									<p>{{feed.created}}</p>
+								</div>
+							</div>
+							<div class="post_icon_conatiner">
+								<div class="w3-row">
+
+									{% if user.username in feed.likes %}
+									<button id="{{feed.id}}liked" status="True" value="{{feed.id}}" target="{% url 'post-like' feed.slug "True" %}" onclick="postLike(this);" class='w3-button w3-half w3-round-xxlarge'>
+										<span id="heart">
+											<i class="far fa-heart w3-text-pink js-heart heart"></i>
+										</span>
+										<span class='w3-text-pink'>Liked</span>
+									</button>
+									<button style="display:none;" id="{{feed.id}}like" value="{{feed.id}}" target="{% url 'post-like' feed.slug "False" %}" onclick="postLike(this);" class='icon w3-button w3-half w3-round-xxlarge' class="icon">
+										<span id="heart">
+											<i class="far fa-heart js-heart heart"></i>
+										</span>
+										<span class=''>Like</span>
+									</button>
+									{% else %}
+									<button id="{{feed.id}}like" value="{{feed.id}}" target="{% url 'post-like' feed.slug "False" %}" onclick="postLike(this);" class='icon w3-button w3-half w3-round-xxlarge' class="icon">
+										<span id="heart">
+											<i class="far fa-heart js-heart heart"></i>
+										</span>
+										<span class=''>Like</span>
+									</button>
+									<button id="{{feed.id}}liked" status="True" style="display:none;" value="{{feed.id}}" target="{% url 'post-like' feed.slug "True" %}" onclick="postLike(this);"  class='icon w3-button w3-half w3-round-xxlarge'>
+										<span id="heart">
+											<i class="far fa-heart w3-text-pink js-heart heart"></i>
+										</span>
+										<span class='w3-text-pink'>Liked</span>
+									</button>
+									{% endif %}
+
+									{% if user.username in feed.dislikes %}
+									<button id="{{feed.id}}disliked" value="{{feed.id}}" status="True" target="{% url 'post-dislike' feed.slug "True" %}" onclick="postDislike(this);" class='icon w3-button w3-half w3-round-xxlarge' class="icon">
+										<span id="heart">
+											<i class="fa fa-thumbs-down w3-text-black"></i>
+										</span>
+										<span class='w3-text-black'>Disliked</span>
+									</button>
+									<button id="{{feed.id}}dislike" style="display:none;" value="{{feed.id}}" target="{% url 'post-dislike' feed.slug "False" %}" onclick="postDislike(this);" class='icon w3-button w3-half w3-round-xxlarge' class="icon">
+										<span id="heart">
+											<i class="fa fa-thumbs-down"></i>
+										</span>
+										<span class=''>Dislike</span>
+									</button>
+									{% else %}
+									<button id="{{feed.id}}dislike" value="{{feed.id}}" target="{% url 'post-dislike' feed.slug "False" %}" onclick="postDislike(this);" class='icon w3-button w3-half w3-round-xxlarge' class="icon">
+										<span id="heart">
+											<i class="fa fa-thumbs-down"></i>
+										</span>
+										<span class=''>Dislike</span>
+									</button>
+									<button id="{{feed.id}}disliked" status="True" value="{{feed.id}}" target="{% url 'post-dislike' feed.slug "True" %}" onclick="postDislike(this);" style="display:none;" class='icon w3-button w3-half w3-round-xxlarge' class="icon">
+										<span id="heart">
+											<i class="fa fa-thumbs-down w3-text-black "></i>
+										</span>
+										<span class='w3-text-black'>Disliked</span>
+									</button>
+									{% endif %}
+								</div>
+							</div>
+							<div id="{{feed.id}}" class="comment_section">
+								<form action="{% url 'add-comment' %}" enctype="multipart/form-data" method='POST' class="comment_input">
+									{% csrf_token %}
+									{% if user.profile.profile_pic %}
+									<img src="{{user.profile.profile_pic.url}}" alt="profile" />
+									{% endif %}
+									<input style="width:75%;" type="text" name="comment" id="comment" />
+									<button type="submit" name="slug" id="slug" value="{{feed.slug}}" class='w3-button w3-right w3-round-xxlarge w3-purple'>Comment</button>
+								</form>
+								{% for comment in feed.comments %}
+								<div class="w3-row w3-margin-top">
+									<div class="w3">
+										<div class="sub_comment">
+											{% if comment.details.by.profile_pic  %}
+											<img class='w3-left w3-circle w3-margin-right' style="width:25px;" src="{{comment.details.by.profile_pic.url}}" alt="profile" />
+											{% else %}
+											<img class='w3-left w3-circle w3-margin-right' style="width:25px;" src="https://www.participate.nyc.gov/assets/decidim/default-avatar-43686fd5db4beed0141662a012321bbccd154ee1d9188b0d1f41e37b710af3cb.svg" />
+											{% endif %}
+											<div class="main_info">
+												<div class="comment_info">
+													<div class="comment_name">
+														<span class='w3-text-indigo'>@{{comment.details.by.user.username}}</span>
+														<div class="w3-right">
+															<button value="{{comment.details.id}}" onclick="reply(this);" class='w3-small w3-round-large w3-text-blue w3-button'>Reply</button>
+														</div>
+														<span>{{comment.details.by.designstion}}</span>
+													</div>
+													<div class='w3-round w3-padding'>
+														<p>
+															{{comment.details.text}}
+														</p>
+													</div>
+												</div>
+												<div id="{{comment.details.id}}replyform" style='display:none;' class="w3-modal">
+													<div class="w3-display-middle w3-padding" >
+														<div style="width:500px;" class="w3-container w3-white w3-padding w3-round">
+															<form action="{% url 'add-reply' %}" method="POST" enctype="multipart/form-data">
+																{% csrf_token %}
+																<h3>Reply to @{{comment.details.by.user.username}}'s comment</h3>
+																<textarea type="text" class='w3-input w3-border w3-round ' rows="4" id="text" name="text" placeholder="your reply goes here ....."></textarea><br>
+																<button id="id" name="id" value="{{comment.details.id}}" style="width:49%;" class='w3-button w3-round-xxlarge w3-indigo' type="submit"> Reply </button>
+																<button type="button" style="width:49%;" class='w3-button w3-round-xxlarge w3-right w3-red' onclick="document.getElementById('{{comment.details.id}}replyform').style.display='none'" >Cancel</button>
+															</form>
+														</div>
+													</div>
+												</div>
+
+											</div>
+										</div>
+
+										{% for reply in comment.replies %}
+
+										{% if reply.reply_to %}
+										<div style="margin-left:40px;" class="">
+											{% if reply.by.profile_pic %}
+											<img class='w3-left w3-circle w3-margin-right' style="width:25px;" src="{{reply.by.profile_pic.url}}" alt="profile" />
+											{% else %}
+											<img class='w3-left w3-circle w3-margin-right' style="width:25px;" src="https://www.participate.nyc.gov/assets/decidim/default-avatar-43686fd5db4beed0141662a012321bbccd154ee1d9188b0d1f41e37b710af3cb.svg" />
+											{% endif %}
+											<div class="main_info">
+												<div class="comment_info">
+													<div class="comment_name">
+														<span class='w3-text-indigo'>@{{reply.details.by.user.username}} replied to</span>
+														<span class='w3-round w3-border w3-medium w3-padding'><e class='w3-text-green'>@{{reply.reply_to.by.user.username}}'s reply</e> {{reply.reply_to.text}}</span>
+														<div class="w3-right">
+															<button value="{{reply.details.id}}" onclick="replytoreply(this);" class='w3-small w3-round-large w3-text-blue w3-button'>Reply</button>
+														</div>
+													</div>
+													<div class='w3-round w3-padding'>
+														<span>
+															{{reply.details.text}}
+														</span>
+													</div>
+												</div>
+												<div id="{{reply.details.id}}replytoreplyform" style='display:none;' class="w3-modal">
+													<div class="w3-display-middle w3-padding" >
+														<div style="width:500px;" class="w3-container w3-white w3-padding w3-round">
+															<form action="{% url 'add-reply' %}" method="POST" enctype="multipart/form-data">
+																{% csrf_token %}
+																<h3>Reply to @{{reply.details.by.user.username}}'s reply <span class='w3-round w3-medium w3-padding w3-grey w3-text-white'>{{reply.details.text}}</span></h3>
+																<textarea type="text" class='w3-input w3-border w3-round ' rows="4" id="text" name="text" placeholder="your reply goes here ....."></textarea><br>
+																<input type="hidden" id="reply_code" name="reply_code" value="{{reply.details.code}}" />
+																<button id="id" name="id" value="{{comment.details.id}}" style="width:49%;" class='w3-button w3-round-xxlarge w3-indigo' type="submit"> Reply </button>
+																<button type="button" style="width:49%;" class='w3-button w3-round-xxlarge w3-right w3-red' onclick="document.getElementById('{{reply.details.id}}replytoreplyform').style.display='none'" >Cancel</button>
+															</form>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										{% else %}
+										<div style="margin-left:40px;" class="">
+											{% if reply.by.profile_pic %}
+											<img class='w3-left w3-circle w3-margin-right' style="width:25px;" src="{{reply.by.profile_pic.url}}" alt="profile" />
+											{% else %}
+											<img class='w3-left w3-circle w3-margin-right' style="width:25px;" src="https://www.participate.nyc.gov/assets/decidim/default-avatar-43686fd5db4beed0141662a012321bbccd154ee1d9188b0d1f41e37b710af3cb.svg" />
+											{% endif %}
+											<div class="main_info">
+												<div class="comment_info">
+													<div class="comment_name">
+														<span class='w3-text-indigo'>@{{reply.by.user.username}}</span>
+														<div class="w3-right">
+															<button value="{{reply.id}}" onclick="replytoreply(this);" class='w3-small w3-round-large w3-text-blue w3-button'>Reply</button>
+														</div>
+													</div>
+													<div class='w3-round w3-padding'>
+														<p>
+															{{reply.text}}
+														</p>
+													</div>
+												</div>
+												<div id="{{reply.id}}replytoreplyform" style='display:none;' class="w3-modal">
+													<div class="w3-display-middle w3-padding" >
+														<div style="width:500px;" class="w3-container w3-white w3-padding w3-round">
+															<form action="{% url 'add-reply' %}" method="POST" enctype="multipart/form-data">
+																{% csrf_token %}
+																<h3>Reply to @{{reply.by.user.username}}'s reply <span class='w3-round w3-medium w3-padding w3-grey w3-text-white'>{{reply.text}}</span></h3>
+																<textarea type="text" class='w3-input w3-border w3-round ' rows="4" id="text" name="text" placeholder="your reply goes here ....."></textarea><br>
+																<input type="hidden" id="reply_code" name="reply_code" value="{{reply.code}}" />
+																<button id="id" name="id" value="{{comment.details.id}}" style="width:49%;" class='w3-button w3-round-xxlarge w3-indigo' type="submit"> Reply </button>
+																<button type="button" style="width:49%;" class='w3-button w3-round-xxlarge w3-right w3-red' onclick="document.getElementById('{{reply.id}}replytoreplyform').style.display='none'" >Cancel</button>
+															</form>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										{% endif %}
+										{% endfor %}
+
+										<!--<button onclick="ShowMoreComments()" class="showmorebutton">
+											Load More
+										</button>-->
+									</div>
+								</div>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+					<div id="{{feed.id}}more" style='display:none;' class="w3-modal">
+						<div class="w3-display-middle w3-padding" >
+							<div class="w3-container w3-white w3-padding w3-round">
+								{% if user.username in feed.reports %}
+									<button style="width:100%;" class="w3-button w3-border-red w3-border w3-text-red w3-round more_item">
+										<p>Reported</p>
+									</button>
+								{% else %}
+									<button 
+										id="{{feed.id}}report" 
+										style="width:100%;" 
+										onclick="document.getElementById({{feed.id}}+'reportform').style.display='block';
+												document.getElementById('{{feed.id}}'+'more').style.display='none'"  
+										class="w3-button w3-hover-red w3-text-red w3-round more_item">
+										<p>Report</p>
+									</button>
+									<button style="display:none;" id="{{feed.id}}reported" style="width:100%;" class="w3-button w3-border-red w3-border w3-text-red w3-round more_item">
+										<p>Reported</p>
+									</button>
+								{% endif %}
+								<button style="width:100%;" class="w3-button w3-hover-red w3-text-red w3-round more_item">
+									<p>unfollow</p>
+								</button>
+								<a href="{% url 'post-details' feed.slug %}" style="width:100%;" class="w3-button w3-round more_item">
+									<p>go to post</p>
+								</a>
+								<button style="width:100%;" class="w3-button w3-round more_item">
+									<p>tagged account</p>
+								</button>
+								<button style="width:100%;" class="w3-button w3-round more_item" onclick="shareToBox()">
+									<p>share to..</p>
+								</button>
+								<button style="width:100%;" class="w3-button w3-round more_item">
+									<p>copy to</p>
+								</button>
+								<button style="width:100%;" class="w3-button w3-round more_item">
+									<p>embed</p>
+								</button>
+								<button style="width:100%;" onclick="document.getElementById('{{feed.id}}'+'more').style.display='none'" class="w3-button w3-hover-red w3-text-red w3-round more_item">
+									<p>cancel</p>
+								</button>
+							</div>
+						</div>
+					</div>
+
+
+
+
+        </div>
+        <div style="min-height:70%;" class="profile_card">
+          <div class="w3-center w3-margin-top">
+            {% if feed.author.profile_pic %}
+            <img class='w3-circle' style="height:100px;width:auto;" src="{{feed.author.profile_pic.url}}" alt="profile" />
+            {% else %}
+            <img class='w3-circle' style="height:100px;width:auto;" src="{% static "images/assets/profile.png"%}" alt="profile" />
+            {% endif %}
+            <p class='w3-center w3-margin w3-text-black w3-medium'>{{feed.author.full_name}} aka @{{feed.author.user.username}}</p>
+          </div>
+          <div class="profile_description w3-container">
+            <p>
+              {{feed.author.bio}}
+            </p>
+          </div>
+
+          <a href="{% url 'show_profile' feed.author.slug %}" style="width:100%;" class=" w3-text-blue w3-padding w3-button w3-round-xxlarge " >
+            View Profile
+          </a>
+          {% if following %}
+          <button style="width:100%;" id="{{feed.id}}followed" status="True" class=" w3-black w3-padding w3-button w3-round-xxlarge "  value="{{feed.id}}" target="{% url 'post-follow' feed.slug "True" %}" onclick="postFollow(this);">
+            Unfollow
+          </button>
+          <button style="width:100%;display:none;" id="{{feed.id}}follow" value="{{feed.id}}" target="{% url 'post-follow' feed.slug "False" %}" onclick="postFollow(this);" class=" w3-padding w3-blue w3-button w3-round-xxlarge ">
+            Follow
+          </button>
+          {% else %}
+          <button style="width:100%;" id="{{feed.id}}follow" value="{{feed.id}}" target="{% url 'post-follow' feed.slug "False" %}" onclick="postFollow(this);" class=" w3-padding w3-blue w3-button w3-round-xxlarge ">
+            Follow
+          </button>
+          <button style="width:100%;display:none;" status="True" id="{{feed.id}}followed"  value="{{feed.id}}" target="{% url 'post-follow' feed.slug "True" %}" onclick="postFollow(this);" class=" w3-black w3-padding w3-button w3-round-xxlarge " >
+            Unfollow
+          </button>
+          {% endif %}
+
+         
+        </div>
+      </section>
+    </div>
+    <div class="more_section" id="mainconaitner">
+      <div class="more_container">
+        <div class="more_item">
+          <p id="red">Report</p>
+        </div>
+        <div class="more_item">
+          <p id="red">unfollow</p>
+        </div>
+        <div class="more_item">
+          <p>go to post</p>
+        </div>
+        <div class="more_item">
+          <p>tagged account</p>
+        </div>
+        <div class="more_item" onclick="shareToBox()">
+          <p>share to..</p>
+        </div>
+        <div class="more_item">
+          <p>copy to</p>
+        </div>
+        <div class="more_item">
+          <p>embed</p>
+        </div>
+        <div class="more_item">
+          <p>cancel</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="share_to_section" id="mainconaitner">
+      <div class="share_to_conatiner">
+        <div class="title">
+          <p>Share to ..</p>
+        </div>
+        <div class="body">
+          <div class="share_item">
+            <p id="red">whatsapp</p>
+          </div>
+          <div class="share_item">
+            <p id="red">facebookt</p>
+          </div>
+          <div class="share_item">
+            <p id="red">twitter</p>
+          </div>
+          <div class="share_item">
+            <p id="red">zoom</p>
+          </div>
+          <div class="share_item">
+            <p id="red">copy link</p>
+          </div>
+          <div class="share_item" onclick="backToMoreSection()">
+            <p id="red">cancel</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <script src="./app.js"></script> -->
+    <script>
+      function reply(obj){
+        var id = obj.value;
+        console.log(id);
+        document.getElementById(id+'replyform').style.display='block';
+      }
+  
+      function replytoreply(obj){
+        var id = obj.value;
+        console.log(id);
+        document.getElementById(id+'replytoreplyform').style.display='block';
+      }
+  
+      function createPDFPost(){
+        document.getElementById('create_post_feed').style.display = 'block';
+      }
+  
+      function postLike(obj){
+        var url = obj.getAttribute('target');
+        var id = obj.value;
+        var status = obj.getAttribute('status');
+        var like_count = document.getElementById(id+'like_count').value;
+        $.ajax({
+          type: 'GET',
+          url: url,
+          success: function(resp) {
+            if (status=="True"){
+              document.getElementById(id+'liked').style.display = 'none';
+              document.getElementById(id+'like').style.display = 'block';
+              document.getElementById(id+'like_display').innerHTML = parseInt(like_count)-1+" Likes";
+              document.getElementById(id+'like_count').value = parseInt(like_count)-1;
+            }
+            else {
+              document.getElementById(id+'liked').style.display = 'block';
+              document.getElementById(id+'like').style.display = 'none';
+              document.getElementById(id+'like_display').innerHTML = parseInt(like_count)+1+" Likes";
+              document.getElementById(id+'like_count').value = parseInt(like_count)+1;
+
+              document.getElementById(id+'disliked').style.display = 'none';
+              document.getElementById(id+'dislike').style.display = 'block';
+            }
+          }
+        })
+      }
+      function postDislike(obj){
+        var url = obj.getAttribute('target');
+        var id = obj.value;
+        var status = obj.getAttribute('status');
+        var dislike_count = document.getElementById(id+'dislike_count').value;
+        $.ajax({
+          type: 'GET',
+          url: url,
+          success: function(resp) {
+            if (status=="True"){
+              document.getElementById(id+'disliked').style.display = 'none';
+              document.getElementById(id+'dislike').style.display = 'block';
+              document.getElementById(id+'dislike_display').innerHTML = parseInt(dislike_count)-1+" Dislikes";
+              document.getElementById(id+'dislike_count').value = parseInt(dislike_count)-1;
+            }
+            else {
+              document.getElementById(id+'disliked').style.display = 'block';
+              document.getElementById(id+'dislike').style.display = 'none';
+              document.getElementById(id+'dislike_display').innerHTML = parseInt(dislike_count)+1+" Dislikes";
+              document.getElementById(id+'dislike_count').value = parseInt(dislike_count)+1;
+
+              document.getElementById(id+'liked').style.display = 'none';
+              document.getElementById(id+'like').style.display = 'block';
+            }
+          }
+        })
+      }
+      function postFollow(obj){
+        var url = obj.getAttribute('target');
+        var id = obj.value;
+        var status = obj.getAttribute('status');
+        $.ajax({
+          type: 'GET',
+          url: url,
+          success: function(resp) {
+            if (status=="True"){
+              document.getElementById(id+'followed').style.display = 'none';
+              document.getElementById(id+'follow').style.display = 'block';
+            }
+            else {
+              document.getElementById(id+'followed').style.display = 'block';
+              document.getElementById(id+'follow').style.display = 'none';
+            }
+          }
+        })
+      }
+      function postBookmark(obj){
+        var url = obj.getAttribute('target');
+        var id = obj.value;
+        var status = obj.getAttribute('status');
+        $.ajax({
+          type: 'GET',
+          url: url,
+          success: function(resp) {
+            if (status=="True"){
+              document.getElementById(id+'bookmarked').style.display = 'none';
+              document.getElementById(id+'bookmark').style.display = 'block';
+            }
+            else {
+              document.getElementById(id+'bookmarked').style.display = 'block';
+              document.getElementById(id+'bookmark').style.display = 'none';
+            }
+          }
+        })
+      }
+  
+      function postReport(obj){
+        var id = obj.value;
+        var url = obj.getAttribute('target')+'?reason='+document.getElementById(id+'reason').value;
+        $.ajax({
+          type: 'GET',
+          url: url,
+          success: function(resp) {
+            document.getElementById(id+'reported').style.display = 'block';
+            document.getElementById(id+'reported').style.width = '100%';
+            document.getElementById(id+'report').style.display = 'none';
+            document.getElementById(id+'reportform').style.display = 'none';
+          }
+        })
+      }
+      ///--------------------------------
+      const showMore = (obj) => {
+				var id = obj.value;
+				console.log(id+'more')
+				document.getElementById(id+'more').style.display = 'block';
+				
+			};
+      ///------------------------------
+      const shareToBox = () => {
+        const moreSection = document.querySelector(".more_section");
+        const shareSection = document.querySelector(".share_to_section");
+        moreSection.style.display = "none";
+        shareSection.style.display = "grid";
+      };
+      const reportToBox = () => {
+        const moreSection = document.querySelector(".more_section");
+        const reportSection = document.querySelector(".report_section");
+        moreSection.style.display = "none";
+        reportSection.style.display = "grid";
+      };
+      const reportpageToBox = () => {
+        const reportSection = document.querySelector(".report_section");
+        const reportPageSection = document.querySelector(
+          ".reportconfirmPage_section"
+        );
+        reportSection.style.display = "none";
+        reportPageSection.style.display = "grid";
+      };
+      const backToMoreSection = () => {
+        const moreSection = document.querySelector(".more_section");
+        const shareSection = document.querySelector(".share_to_section");
+        const reportSection = document.querySelector(".report_section");
+        moreSection.style.display = "grid";
+        shareSection.style.display = "none";
+        reportSection.style.display = "none";
+      };
+      const moreOptionsClose = () => {
+        const moreSection = document.querySelector(".more_section");
+        const shareSection = document.querySelector(".share_to_section");
+        const reportSection = document.querySelector(".report_section");
+        const reportPageSection = document.querySelector(
+          ".reportconfirmPage_section"
+        );
+        reportPageSection.style.display = "none";
+        moreSection.style.display = "none";
+        shareSection.style.display = "none";
+        reportSection.style.display = "none";
+      };
+
+      ////------------------------------
+      const ShowMoreComments = () => {
+        console.log("here");
+        // const ShowMoreCommentsSection =
+        // 	document.querySelector('.hidden_comment');
+        // const ShowMoreCommentsButton =
+        // 	document.querySelector('.showmorebutton');
+
+        // if (ShowMoreCommentsSection.style.display == 'flex') {
+        // 	ShowMoreCommentsSection.style.display = 'none';
+        // 	ShowMoreCommentsButton.textContent = 'Load More';
+        // } else {
+        // 	ShowMoreCommentsSection.style.display = 'flex';
+        // 	ShowMoreCommentsButton.textContent = 'Show Less';
+        // }
+      };
+      // const showmorebutton = document.querySelector('.showmorebutton').parentElement.querySelectorAll(".hidden_comment");
+      const AllmoreButton = document.querySelectorAll(".showmorebutton");
+      AllmoreButton.forEach((elt) => {
+        elt.addEventListener("click", () => {
+          const comments =
+            elt.parentElement.querySelectorAll(".hidden_comment");
+          comments.forEach((commentItem) => {
+            if (commentItem.style.display == "flex") {
+              commentItem.style.display = "none";
+              elt.textContent = "Load More";
+            } else {
+              commentItem.style.display = "flex";
+              elt.textContent = "Show Less";
+            }
+          });
+        });
+      });
+      ///--------------------------------
+      // const showComment = () => {
+      // 	const CommentSection = document.querySelector('.comment_section');
+      // 	if (CommentSection.style.display == 'block') {
+      // 		CommentSection.style.display = 'none';
+      // 	} else {
+      // 		CommentSection.style.display = 'block';
+      // 	}
+      // };
+      // const CommentIcon = document
+      // 	.querySelector('.comment_icon')
+      // 	.parentElement.parentElement.parentElement.querySelector(
+      // 		'.comment_section',
+      // 	);
+      // const CommentIcon = document.querySelectorAll(".comment_icon");
+      // CommentIcon.forEach((ele) => {
+      //   ele.addEventListener("click", () => {
+      //     const CommentSection =
+      //       ele.parentElement.parentElement.nextElementSibling;
+
+      //     if (CommentSection.style.display == "block") {
+      //       CommentSection.style.display = "none";
+      //     } else {
+      //       CommentSection.style.display = "block";
+      //     }
+      //     console.log(CommentSection);
+      //   });
+      // });
+      // console.log(CommentIcon);
+      //--------------------------------------------
+
+      const feedMoreSection = document.querySelector(".feed_more_section");
+      const closeFeedMoreSection = document.querySelector(
+        "#close_feed_container"
+      );
+      const showPostFeed = () => {
+        console.log("here");
+
+        if (feedMoreSection.style.display == "grid") {
+          feedMoreSection.style.display = "none";
+        } else {
+          feedMoreSection.style.display = "grid";
+        }
+      };
+      feedMoreSection.addEventListener("click", (e) => {
+        if (e.target.id === "feedmainconaitner") {
+          feedMoreSection.style.display = "none";
+        }
+      });
+      closeFeedMoreSection.addEventListener("click", (e) => {
+        feedMoreSection.style.display = "none";
+      });
+
+      //-------------------------------------
+      const moreSection = document.querySelector(".more_section");
+      moreSection.addEventListener("click", (e) => {
+        if (e.target.id === "conaitnerCheck") {
+          moreSection.style.display = "none";
+        }
+      });
+      const shareSection = document.querySelector(".share_to_section");
+      const reportSection = document.querySelector(".report_section");
+      const reportPageSection = document.querySelector(
+        ".reportconfirmPage_section"
+      );
+
+      shareSection.addEventListener("click", (e) => {
+        if (e.target.id === "conaitnerCheck") {
+          shareSection.style.display = "none";
+        }
+      });
+      reportPageSection.addEventListener("click", (e) => {
+        if (e.target.id === "conaitnerCheck") {
+          reportPageSection.style.display = "none";
+        }
+      });
+      reportSection.addEventListener("click", (e) => {
+        if (e.target.id === "conaitnerCheck") {
+          reportSection.style.display = "none";
+        }
+      });
+      const fullpostsection = document.querySelector(".full_post_section");
+      fullpostsection.addEventListener("click", (e) => {
+        if (e.target.id === "conaitnerCheck") {
+          fullpostsection.style.display = "none";
+        }
+      });
+      //-------------------
+      $(document).ready(function () {
+        $("#heart").click(function () {
+          if ($("#heart").hasClass("liked")) {
+            $("#heart").html(
+              '<i class="far fa-heart js-heart heart" aria-hidden="true"></i>'
+            );
+            $("#heart").removeClass("liked");
+          } else {
+            $("#heart").html('<i class="fa fa-heart" aria-hidden="true"></i>');
+            $("#heart").addClass("liked");
+          }
+        });
+      });
+      //------------------------
+      const diplayPost = () => {
+        const full_post_section = document.querySelector(".full_post_section");
+        if (full_post_section.style.display == "grid") {
+          full_post_section.style.display = "none";
+        } else {
+          full_post_section.style.display = "grid";
+        }
+      };
+      //------------------------
+      //------------------------
+    </script>
+  </body>
+</html>

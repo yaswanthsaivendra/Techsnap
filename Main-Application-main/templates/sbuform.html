@@ -1,0 +1,450 @@
+{% extends 'footer.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{% block title %}Ml Event{% endblock title %}</title>
+
+		{% block css %}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+        <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+		<link rel="stylesheet" href="{% static 'assets/contact/getinvolved.css' %}" />
+
+		<link rel="shortcut icon" type="image/png" href="{% static 'assets/main/favicon.png'%}"/>
+
+    {% endblock css %}
+    {% block google_tags %}
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-L4D2PNVR8Z"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-L4D2PNVR8Z');
+		</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    {% endblock google_tags %}
+	</head>
+	<body>
+	{% block body %}
+    {% include 'messages.html' %}
+    <section class="hero__section d-flex align-items-center
+      justify-content-center position-relative">
+      <div class="container">
+        <div class="row align-items-center mt-3">
+          <!-- <h3 class=" text-white" style="margin-top: -6rem;">Techsnap</h3> -->
+          <div class="col-md-6">
+            <h1 class="main__heading">
+                Artificial Intelligence & Machine Learning
+                workshop
+            </h1>
+            <p class="para">
+              At Techsnap we are grinding up
+new content, features and careerpaths
+to make your coding journey smooth.We bridge the gap between your dream career and we connect you to those who have done it before.
+            </p>
+          </div>
+          <div class="col-lg-4 offset-lg-2 col-md-6 align-self-center mt-5">
+            <h5>Fill out this form to get started.</h5>
+            <form class="row g-3 g-sm-2" method="POST" action="{% url 'mlevent' %}">
+              {% csrf_token %}
+              <div class="col-md-6">
+                <input type="input" class="form-control" name="fname" id="fname" placeholder="First Name*" required/>
+              </div>
+              <div class="col-md-6">
+                <input type="input" class="form-control" name="lname" id="lname" placeholder="Last Name*"required />
+              </div>
+              <div class="col-md-12">
+                <input type="input" class="form-control" name="email" id="email" placeholder="Email*"required />
+              </div>
+              <div class="col-md-12">
+                <input type="input" class="form-control" name="linkedin" id="linkedin" placeholder="linkedin URL*"required />
+              </div>
+              <div class="col-md-12">
+                <input type="input" class="form-control " name="how" id="how" placeholder="Interested domain*"required />
+              </div>
+              <div class="col-md-12">
+                <textarea type="input" class="form-control" name="info" id="info" placeholder="What are you expecting from this event ?"
+                  rows="3"></textarea>
+              </div>
+              <div class="col-md-12 col-12 mt-3">
+                <button type="submit" class="btn btn-primary w-100 py-2" style="background: #2b66d3;">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-----------------------------
+         CARDS SECTION STARTED -->
+    <!---------------------------->
+
+    <section class="cards">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="d-flex main-row gap-3 gap-sm-3 gap-md-2
+              justify-content-center">
+              <div class="">
+                <img src="https://cdn-icons-png.flaticon.com/128/991/991922.png" alt="" class="image" />
+              </div>
+              <div class="">
+                <h5>3</h5>
+                <p>Mentors</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="d-flex main-row gap-2 gap-sm-3 gap-md-2
+              justify-content-center">
+              <div class="">
+                <img src="https://cdn-icons-png.flaticon.com/512/1085/1085828.png" alt="" class="image" />
+              </div>
+              <div class="">
+                <h5>50</h5>
+                <p>Days Free trail</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="d-flex main-row gap-2 gap-sm-3 gap-md-2
+              justify-content-center">
+              <div class="">
+                <img src="https://cdn-icons-png.flaticon.com/512/950/950049.png" alt="" class="image" />
+              </div>
+              <div class="">
+                <h5>50+</h5>
+                <p>Project list</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="d-flex main-row gap-2 gap-sm-3 gap-md-2
+              justify-content-center">
+              <div class="">
+                <img src="https://cdn-icons-png.flaticon.com/512/470/470758.png" alt="" class="image" />
+              </div>
+              <div class="">
+                <h5>2+</h5>
+                <p>Designation</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-----------------------------
+         CARDS SECTION STARTED -->
+    <!---------------------------->
+    <section class="community-section">
+      <div class="container">
+        <div class="row" style="display: flex; justify-content: center">
+          <h2 class="text-center">How to Become a Machine Learning Engineer</h2>
+          <div style="display: flex; justify-content: center">
+            <div class="underline"></div>
+          </div>
+          <p class="para">Techsnap’s Machine Learning Engineer career guide is intended to help you take the first steps toward a lucrative career in machine learning. Read on for an overview of the machine learning skills you should learn, career paths in machine learning, how to become a Machine Learning Engineer, and more.</p>
+          <div class="col-md-4">
+            <div class="card-details">
+              <img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20190528184004/learnPython.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Learn to code with python</h5>
+                <p class="card-text">If you’re wondering how to become a Machine Learning Engineer, you’ll need to demonstrate proficiency in Python and/or C++ and their associated libraries</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card-details">
+              <img src="https://thehackernews.com/images/-FUHLQOfZuO8/Xx6QR2PQ7cI/AAAAAAAAAdQ/P84ceUYGkSkXV_G5w9KVVkijiPJvFfBBACLcBGAsYHQ/s728-e100/machine-learning-artificial-intelligence.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Start with Basic machine learning course</h5>
+                <p class="card-text">There is no shortage of highly regarded programs that allow students to gain a comprehensive understanding of machine learning in a short period of time.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card-details">
+              <img src="https://hackr.io/blog/machine-learning-projects/thumbnail/large" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Try a personal machine learning project</h5>
+                <p class="card-text">
+                    Take on a project that interests you and requires a simple AI algorithm, and build that algorithm from scratch. We will always help you with the learniong curve</p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+
+    <!-- carousel sec starts-->
+    <section class="carousel-sec">
+      <div class="container">
+        <div class="row">
+          <div class="left col-lg-6">
+            <h2 class="mb-3">Join our World-Class Guest Speakers</h2>
+            <div class="underline col-sm-4"></div>
+            <p class="text-start">Techsnap students get access to exclusive
+              guest lectures and panel discussion events led by some of the
+              world's leading subject matter experts and professionals.</p>
+          </div>
+          <div class="right col-lg-6">
+            <img src="https://www.techsnap.in/static/assets/main/bg.png" class="img-8 img-fluid">
+            <img src="https://www.techsnap.in/static/assets/main/bg.png" class="img-fluid me-md-0 rec">
+          </div>
+        </div>
+        <!--<div class="row carousel-container">
+          <h3>Recent Industry Guests</h3>
+          <div class="items">
+            <div class="d-flex flex-column gap-1">
+              <img src="https://Techsnap.io/images/v3/course-speakers/sandy-carter@2x.jpg" alt="" class="img-fluid">
+              <h3 class="g-name text-capitalize">sandy carter</h3>
+              <p class="g-role">Vice President at AWS</p>
+              <img src="IMAGES/netflix.svg" alt="" class="img-fluid g-company">
+            </div>
+            <div class="d-flex flex-column gap-1">
+              <img src="https://Techsnap.io/images/v3/course-speakers/tom-keiser@2x.jpg" alt="" class="img-fluid">
+              <h3 class="g-name text-capitalize">tom keiser</h3>
+              <p class="g-role text-capitalize">Vice President at AWS</p>
+              <img src="IMAGES/netflix.svg" alt="" class="img-fluid g-company">
+            </div>
+            <div class="d-flex flex-column gap-1">
+              <img src="https://Techsnap.io/images/v3/course-speakers/leanne-gibson@2x.jpg" alt=""
+                class="img-fluid">
+              <h3 class="g-name text-capitalize">leanne gibson</h3>
+              <p class="g-role text-capitalize">Vice President at AWS</p>
+              <img src="IMAGES/netflix.svg" alt="" class="img-fluid g-company">
+            </div>
+            <div class="d-flex flex-column gap-1">
+              <img src="https://Techsnap.io/images/v3/course-speakers/mike-giepert@2x.jpg" alt="" class="img-fluid">
+              <h3 class="g-name text-capitalize">mike giepert</h3>
+              <p class="g-role text-capitalize">Vice President at AWS</p>
+              <img src="IMAGES/netflix.svg" alt="" class="img-fluid g-company">
+            </div>
+            <div class="d-flex flex-column gap-1">
+              <img src="https://Techsnap.io/images/v3/course-speakers/alexandria-stried@2x.jpg" alt=""
+                class="img-fluid">
+              <h3 class="g-name text-capitalize">alexandria stried</h3>
+              <p class="g-role text-capitalize">Vice President at AWS</p>
+              <img src="IMAGES/netflix.svg" alt="" class="img-fluid g-company">
+            </div>
+            <div class="d-flex flex-column gap-1">
+              <img src="https://Techsnap.io/images/v3/course-speakers/kirstine-stewart@2x.jpg" alt=""
+                class="img-fluid">
+              <h3 class="g-name text-capitalize">kirstine-stewart</h3>
+              <p class="g-role text-capitalize">Vice President at AWS</p>
+              <img src="IMAGES/netflix.svg" alt="" class="img-fluid g-company">
+            </div>
+            <div class="d-flex flex-column gap-1">
+              <img src="https://Techsnap.io/images/v3/course-speakers/shimona-mehta@2x.jpg" alt=""
+                class="img-fluid">
+              <h3 class="g-name text-capitalize">shimona mehta</h3>
+              <p class="g-role text-capitalize">Vice President at AWS</p>
+              <img src="IMAGES/netflix.svg" alt="" class="img-fluid g-company">
+            </div>
+            <div class="d-flex flex-column gap-1">
+              <img src="https://Techsnap.io/images/v3/course-speakers/michael-katchen@2x.jpg" alt=""
+                class="img-fluid">
+              <h3 class="g-name text-capitalize">michael katchen</h3>
+              <p class="g-role text-capitalize">Vice President at AWS</p>
+              <img src="IMAGES/netflix.svg" alt="" class="img-fluid g-company">
+            </div>
+            <div class="d-flex flex-column gap-1">
+              <img src="https://Techsnap.io/images/v3/course-speakers/brittany-forsyth@2x.jpg" alt=""
+                class="img-fluid">
+              <h3 class="g-name text-capitalize">brittany forsyth</h3>
+              <p class="g-role text-capitalize">Vice President at AWS</p>
+              <img src="IMAGES/netflix.svg" alt="" class="img-fluid g-company">
+            </div>
+            <div class="d-flex flex-column gap-1">
+              <img src="https://Techsnap.io/images/v3/course-speakers/sukhmani-dev@2x.jpg" alt="" class="img-fluid">
+              <h3 class="g-name text-capitalize">sukhmani dev</h3>
+              <p class="g-role text-capitalize">Vice President at AWS</p>
+              <img src="IMAGES/netflix.svg" alt="" class="img-fluid g-company">
+            </div>
+          -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Carousel sec ends -->
+    <!-----------------------------
+         BECOME SECTION STARTED -->
+    <!---------------------------->
+
+    <section class="become-section">
+      <div class="container">
+        <h2 class="become">what can you expect from This workshop ?</h2>
+        <div class="underline col-sm-4"></div>
+        <div class="row ">
+          <div class="col-12 col-md-6 order-md-2">
+            <h3>Introduction to AI, ML, DS !</h3>
+            <p>
+              We give you idea about how to Gain the career-building Python skills you need to succeed in the exciting field of data science-- from data manipulation to machine learning! and you’ll learn how this versatile language allows you to import, clean, manipulate, and visualize data—all integral skills for any aspiring data professional or researcher. Through interactive exercises, you’ll get hands-on with some of the most popular Python libraries,
+            </p>
+            <h3>How to launch Carrer in AI ?</h3>
+            <p>
+                Machine learning and AI is changing the world and if you want to be a part of the ML revolution, this is a great place to start! In this workshop, you’ll learn the fundamental concepts in Machine Learning and how tro gain experience by doing real world projects.
+            </p>
+          </div>
+
+          <div class="col-12 col-md-6 order-md-1">
+            <div class="images-box d-flex flex-column">
+              <div class="im-1-card">
+                <img src="https://files.realpython.com/media/Pandas-Project-Make-a-Gradebook-With-Pandas_Watermarked.a9392abb8afa.jpg" class="img-1 img-fluid" alt="">
+              </div>
+              <div class="im-2-card">
+                <img src="https://miro.medium.com/max/1400/1*c_fiB-YgbnMl6nntYGBMHQ.jpeg" class="img-2 img-fluid" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <section class="become-frag">
+        <div class="container in-container">
+          <h2 class="become">Career tracks</h2>
+          <div class="underline col-sm-4"></div>
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <h3>Data scientist or Analyst</h3>
+              <p>
+                In this track, you’ll discover how to build an effective data architecture, streamline data processing, and maintain large-scale data systems. In addition to working with Python, you’ll also grow your language skills as you work with Shell, SQL, and Scala, to create data engineering pipelines, automate common file system tasks, and build a high-performance database.
+              </p>
+              <h3>ML engineer</h3>
+              <p>
+                Master the essential skills to land a job as a machine learning scientist! You'll augment your Python programming skill set with the toolbox to perform supervised, unsupervised, and deep learning. You'll learn how to process data for features, train your models, assess performance, and tune parameters for better performance.
+              </p>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="images-box d-flex flex-column">
+                <div class="im-1-card">
+                  <img src="https://techcommunity.microsoft.com/t5/image/serverpage/image-id/125038i774D4C80D3BDAFD3?v=v2" class="img-1 img-fluid" alt="">
+                </div>
+                <div class="im-2-card">
+                  <img src="https://d35fo82fjcw0y8.cloudfront.net/2019/01/17102218/data-science-in-marketing-post-venn-diagram.jpg" class="img-2 img-fluid" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+
+
+    <!-- contact us starts -->
+    <section class="hero__section contact_us d-flex align-items-center
+      justify-content-center">
+      <div class="container">
+        <div class="row align-items-center mt-3 mb-5">
+          <!-- <h3 class=" text-white" style="margin-top: -6rem;">Techsnap</h3> -->
+          <div class="col-md-6">
+            <h3 class="main__heading mb-3 fw-bold">
+              Enroll to the program
+            </h3>
+            <div class="underline"></div>
+            <p class="para">
+              Register today to get involved with the Techsnap community and Programs
+            </p>
+          </div>
+          <div class="col-lg-4 offset-lg-2 col-md-6 align-self-center mt-5">
+            <h5>Fill out this form to get started</h5>
+            <form class="row g-3 g-sm-2" method="POST" action="{% url 'mlevent' %}">
+              {% csrf_token %}
+              <div class="col-md-6">
+                <input type="input" class="form-control py-2" name="fname" id="fname" placeholder="First Name*" required/>
+              </div>
+              <div class="col-md-6">
+                <input type="input" class="form-control py-2" name="lname" id="lname" placeholder="Last Name*" required/>
+              </div>
+              <div class="col-md-12">
+                <input type="input" class="form-control py-2" name="email" id="email" placeholder="Email*" required/>
+              </div>
+              <div class="col-md-12">
+                <input type="input" class="form-control py-2" name="linkedin" id="linkedin" placeholder="linkedin URL*" required/>
+              </div>
+              <div class="col-md-12">
+                <input type="input" class="form-control py-2" name="how" id="how" placeholder="Interested domain*" required/>
+              </div>
+              <div class="col-md-12">
+                <textarea type="input" class="form-control py-2" name="info" id="info" placeholder="What are you expecting from this event"
+                  rows="3"></textarea>
+              </div>
+              <div class="col-md-12 col-12 mt-3">
+                <button type="submit" class="btn btn-primary w-100 py-2">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+      </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+      </script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+
+        $('.items').slick({
+          dots: false,
+          infinite: false,
+          slidesToShow: 4,
+          slidesToScroll: 4,
+          autoplay: false,
+          autoplaySpeed: 2000,
+
+          pauseOnHover: true,
+
+          responsive: [{
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              infinite: true,
+              dots: false
+            }
+          },
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2
+            }
+          },
+          {
+            breakpoint: 576,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          }
+
+          ]
+
+        });
+      });
+
+    </script>
+{% endblock body %}
+</body>
+</html>

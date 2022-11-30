@@ -1,0 +1,175 @@
+body {
+  font-family: "Montserrat", sans-serif;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.hero {
+  padding-top: 8rem;
+  padding-right: 0px;
+  padding-bottom: 5rem;
+  padding-left: 0px;
+
+}
+.tagline {
+  font-weight: 600;
+  line-height: 1.25;
+  font-size: 3rem;
+  word-spacing: 250%;
+}
+
+.sub-heading {
+  line-height: 1.6;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  margin: auto;
+  margin-top: 2rem;
+  font-weight: 500;
+  font-size: 1.25rem;
+  color: #555555;
+  max-width: 100%;
+}
+.silver-section {
+  background-color: #efefef;
+  padding: 5rem 3rem;
+  font-weight: 500;
+  font-size: 1rem;
+}
+.silver-section-content {
+  max-width: 64rem;
+}
+.silver-section h3 {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+.btn-primary {
+  color: #fff !important;
+  background-color: #ff00d6 !important;
+  border-color: #ff00d6 !important;
+}
+.btn-primary:hover,
+.btn-primary:active {
+  border-color: #ff00d6 !important;
+  background-color: transparent !important;
+  color: #ff00d6 !important;
+}
+.btn-outline-primary {
+  border-color: #ff00d6 !important;
+  color: #ff00d6 !important;
+}
+.btn-outline-primary:hover,
+.btn-outline-primary:active {
+  color: #fff !important;
+  background-color: #ff00d6 !important;
+  border-color: #ff00d6 !important;
+}
+.our-team {
+  text-decoration: underline;
+  text-decoration-color: #ff00ff;
+  text-underline-offset: 0.8vw;
+  font-weight: 600;
+  font-size: 3rem;
+  margin-top: 2rem;
+}
+.our-team-cards {
+  margin-top: 3rem;
+}
+.profile {
+  padding: 2.5rem 2rem;
+  background-color: transparent;
+}
+.profile:hover,
+.profile:active {
+  background-color: #ff00ff;
+  cursor: pointer;
+  color: white;
+}
+.image-container {
+  margin: 0 auto;
+  overflow: hidden;
+  width: 7.5rem;
+  height: 7.5rem;
+}
+.profile__img {
+  height: 100%;
+  max-width: 100%;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+.profile .content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+}
+.name {
+  margin: 1rem 0 0.5rem;
+}
+button {
+  display: inline-block;
+}
+@media screen and (max-width: 1100px) {
+  .tagline {
+    font-weight: 500;
+    line-height: 1.1;
+    font-size: 2rem;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .tagline {
+    line-height: 1;
+    font-size: 1.25rem;
+    margin: 1rem;
+    word-spacing: 105%;
+  }
+  .sub-heading {
+    line-height: 1;
+    font-size: 1rem;
+    margin: auto;
+    word-spacing: 100%;
+  }
+  .silver-section-about {
+    margin-bottom: 3rem;
+  }
+  .silver-section {
+    background-color: #efefef;
+    padding: 3rem 1rem;
+    font-weight: 500;
+    font-size: 1rem;
+  }
+  .silver-section .content {
+    max-width: 64rem;
+  }
+  .silver-section h3 {
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+  .about {
+    margin-bottom: 2rem;
+  }
+  .our-team {
+    font-weight: 400;
+    font-size: 2rem;
+  }
+
+  .our-team-cards {
+    margin-top: 1.5rem;
+  }
+  .profile {
+    padding: 1.5rem 2rem;
+    background-color: transparent;
+  }
+  .name {
+    font-size: 1rem;
+    margin: 0.5rem;
+  }
+  .designation {
+    font-size: 0.75rem;
+  }
+}

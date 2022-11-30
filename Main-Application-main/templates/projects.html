@@ -1,0 +1,642 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROJECTS</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'Learners.css' %}">
+
+    <style>
+        * {
+
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            /* font-family: "Maven Pro", sans-serif; */
+            color: var(--heading-col);
+        }
+
+        :root {
+            --heading-col: black;
+            --text-col: black;
+            --body-bg-col: white;
+            --desine-col: #ff1493;
+            --btn-bg-col: white;
+            --card-parent-bg-col: #f0f0f3;
+            /* --card-parent-bg-col: #e5e8ef; */
+            --nav-bg-col: white;
+            --footer-text-col: #232323;
+            --toggle-border-col: black;
+
+        }
+
+        .dark-mood {
+            --heading-col: white;
+            --text-col: #b7b4b4;
+            --body-bg-col: black;
+            --desine-col: #ff1493;
+            --toggle-border-col: white;
+            --btn-bg-col: black;
+            --card-parent-bg-col: #1e1e1f;
+            --nav-bg-col: #19191a;
+            --footer-text-col: rgba(245, 245, 245, 0.788);
+            transition: all .5s;
+        }
+
+        body {
+            background-color: var(--body-bg-col);
+        }
+
+        #toggle {
+            width: 3rem;
+            height: 3rem;
+            position: absolute;
+            border: 1px solid var(--toggle-border-col);
+            border-radius: 50%;
+            background-color: white;
+            right: 20px;
+            top: 30px;
+        }
+
+        .theme {
+            position: sticky;
+            top: 55px;
+            z-index: 2;
+        }
+
+        .navbar {
+            position: fixed;
+            background-color: var(--body-bg-col);
+            top: -.5px;
+            z-index: 1;
+            border-bottom: 1.4px solid var(--text-col);
+            transition: all .5s;
+        }
+
+        .navbar h1 {
+            display: flex;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--a-col);
+            padding-left: .5rem;
+            padding-right: .5rem;
+
+        }
+
+        .nav-link:hover {
+            --text-col: var(--desine-col);
+        }
+
+        .navbar-nav {
+            margin-left: auto;
+        }
+
+        a {
+            color: var(--a-col);
+            text-decoration: none;
+            padding: 5px;
+        }
+
+        a:hover {
+            color: var(--desine-col);
+        }
+
+        .pos {
+            position: relative;
+            top: 50px;
+        }
+
+        .cover {
+            background-image: url("{% static 'assets/services/photos/projects2.png' %}");
+            width: 100%;
+            height: 43vh;
+            position: relative;
+            top: 70px;
+            display: flex;
+            align-items: flex-end;
+            background-size: 100% 125%;
+            background-repeat: no-repeat;
+
+        }
+
+        .block {
+            padding-top: 20px;
+            width: 75%;
+        }
+
+        .block p {
+            font-size: 1.3rem;
+        }
+
+        h1 {
+            line-height: 1.5;
+        }
+
+        .explore {
+            padding-top: 64px;
+            width: 60%;
+        }
+
+        p {
+            color: var(--heading-col);
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        button {
+            padding: 0;
+            border-radius: 5px;
+            background-color: var(--btn-bg-col);
+        }
+
+        button:hover {
+            background-color: var(--desine-col);
+        }
+
+        h1,
+        h2,
+        h5 {
+            margin-bottom: 0;
+            font-weight: 600;
+        }
+
+        h6 {
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+
+        .contact {
+            /* margin-top: 20px; */
+            padding-bottom: 20px;
+            font-size: 13pt;
+            font-weight: 700;
+            padding-left: 20px;
+            padding-top: 10px;
+            color: var(--heading-col);
+            /* background-color: var( --contact-bg-col); */
+            border-top: 1px solid var(--text-col);
+
+        }
+
+        .socialMedia {
+            display: flex;
+            flex-wrap: wrap;
+            /* justify-content: space-between; */
+            font-weight: normal;
+            font-size: 11pt;
+        }
+
+        .socialMedia a {
+            font-weight: 500;
+            width: 216px;
+
+        }
+
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            margin-top: 29px;
+        }
+
+        .card {
+            border-radius: 7px;
+            width: 100%;
+            height: 95%;
+            display: flex;
+            justify-content: space-around;
+            border: none;
+            background-color: var(--body-bg-col);
+            /* background-image:linear-gradient(45deg,#ff1493,violet) ; */
+            margin-bottom: 20px;
+            box-shadow: 1px 1px 15px rgb(0 0 0 / 5%);
+        }
+
+        .cards a {
+            width: 33%;
+            text-decoration: none;
+            padding: 5px;
+        }
+
+        .card img {
+            width: 100%;
+            height: 15rem;
+            padding: 16px;
+            padding-bottom: 0;
+            /* border: 2px solid #ff1493; */
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            color: #ff1493;
+        }
+
+        .card-text {
+            padding: 0;
+            margin-bottom: 5px;
+        }
+
+        .status {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0px 16px 16px 16px;
+            width: 100%;
+        }
+
+        .status div {
+            padding: 1px 7px;
+            background-color: rgba(222, 8, 202, 0.24);
+            border-radius: 7px;
+            font-size: 13px;
+        }
+
+        .bgcol {
+            background: var(--card-parent-bg-col);
+            margin-top: 70px;
+            padding-bottom: 70px;
+        }
+
+        @media only screen and (max-width:1200px) {
+            .cards a {
+                width: 49%;
+            }
+        }
+
+        @media only screen and (max-width:991px) {
+            .block {
+                width: 100%;
+                margin-top: 7%;
+                padding: 0;
+                height: auto;
+            }
+
+            .explore {
+                width: 100%;
+            }
+
+            .card {
+                flex-direction: column;
+                /* align-items: center; */
+            }
+
+            p {
+                text-align: justify;
+            }
+        }
+
+        @media only screen and (max-width:767px) {
+
+            .cards a {
+                width: 90%;
+            }
+
+            .block p {
+                font-size: 1.2rem;
+            }
+
+        }
+
+        @media only screen and (max-width:577px) {
+
+            p,
+            h1 {
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+
+            nav h1 {
+                padding: 0;
+            }
+
+            .cover h1 {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            #toggle {
+                width: 2rem;
+                height: 2rem;
+                right: 10px;
+                top: 23px;
+            }
+
+            .cover {
+                height: 30vh;
+            }
+
+
+        }
+
+        @media only screen and (max-width:477px) {
+
+            p,
+            .block p {
+                font-size: 1rem;
+            }
+
+            .navbar-brand {
+                font-size: 20px;
+            }
+
+            .cards a {
+                width: 100%;
+            }
+        }
+    </style>
+
+    <link rel="shortcut icon" type="image/png" href="{% static 'assets/main/favicon.png'%}"/>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4D2PNVR8Z"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-L4D2PNVR8Z');
+    </script>
+</head>
+
+<body>
+
+    <section style="border-bottom: 1px solid black;" class="header">
+        <a href="{% url 'index' %}"><img id='logo' src="{% static 'assets/images/visible.png' %}" alt="logo"></a>
+        <div class="navItems">
+            <a href="{% url 'aboutus' %}">About Us</a>
+            <a href="{% url 'ourpeople' %}">Our People</a>
+            <a href="{% url 'community' %}">Learn</a>
+            <a href="{% url 'job_test:jobslist' %}">Jobs</a>
+            <a href="{% url 'subscribe' %}">Newsletter</a>
+        </div>
+        <div class="Ham">
+            <img style="width: 22.85px;" id="menu_img" src="{% static 'assets/services/download (1).png' %}" alt="Ham">
+        </div>
+    </section>
+    <!-- mobile menu --------------------------------------------- -->
+    <div class="dropMenu">
+        <ul>
+            <li><a href="{% url 'aboutus' %}">About Us</a></li>
+            <li><a href="{% url 'ourpeople' %}">Our People</a></li>
+            <li><a href="{% url 'community' %}">Learn</a></li>
+            <li><a href="{% url 'job_test:jobslist' %}">Jobs</a></li>
+            <li><a href="{% url 'subscribe' %}">Newsletter</a></li>
+        </ul>
+        <div class="Close">X</div>
+    </div>
+    <div class="theme">
+        <img id="toggle" src="{% static 'assets/services/photos/moon.png' %}" alt="">
+    </div>
+
+    <div class="cover">
+        <h1 class="container" style="color: white;">PROJECTS</h1>
+    </div>
+    <div class="container pos">
+        <div class="block" id="courses">
+            <p>Here, on TechSnap we provide some highly integrated projects on some core technologies.
+                Choose wisely so that it must be able to increase your chances of getting recruited.</p>
+        </div>
+        <!-- <hr> -->
+    </div>
+
+    <div class="bgcol">
+        <div class="container pos">
+            <div class="cards">
+                <a href="##">
+                    <div class="card">
+                        <img class="card-img-top"
+                            src="https://cssh.northeastern.edu/bari/wp-content/uploads/sites/30/2020/08/DATA-SCIENCE-PROJECTS.png"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title"> Data Science Projects using python</h5>
+                        </div>
+                        <div class="status">
+                            <ul style="padding-left: 16px;  margin-bottom: 0;">
+                                <li><span style="position: relative; left: -7px;font-size: 14px;">Jul 26th-Aug
+                                        31st</span></li>
+                            </ul>
+                            <div>Coming Soon</div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="##">
+                    <div class="card">
+                        <img class="card-img-top"
+                            src="https://cdn.dribbble.com/users/1571442/screenshots/6356637/dribbbble_machinelearning_4x.png"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Machine Learning real world Projects</h5>
+                        </div>
+                        <div class="status">
+                            <ul style="padding-left: 16px;  margin-bottom: 0;">
+                                <li><span style="position: relative; left: -7px;font-size: 14px;">Jul 26th-Aug
+                                        31st</span></li>
+                            </ul>
+                            <div style="background-color: #9b969b3d;">Completed</div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="##">
+                    <div class="card">
+                        <img class="card-img-top"
+                            src="https://i.pinimg.com/originals/a0/b9/7d/a0b97dd6c9600fac1714e2b7ad12f63f.png"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Web Development Projects</h5>
+                        </div>
+                        <div class="status">
+                            <ul style="padding-left: 16px;  margin-bottom: 0;">
+                                <li><span style="position: relative; left: -7px;font-size: 14px;">Jul 26th-Aug
+                                        31st</span></li>
+                            </ul>
+                            <div style="background-color: #9b969b3d;">Completed</div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="##">
+                    <div class="card">
+                        <img class="card-img-top"
+                            src="https://d112uwirao0vo9.cloudfront.net/wp-content/uploads/2019/03/AI-Reduces-Errors-.jpeg"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Artificial Intelligence Projects using python</h5>
+                        </div>
+                        <div class="status">
+                            <ul style="padding-left: 16px;  margin-bottom: 0;">
+                                <li><span style="position: relative; left: -7px;font-size: 14px;">Jul 26th-Aug
+                                        31st</span></li>
+                            </ul>
+                            <div>Coming Soon</div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="##">
+                    <div class="card">
+                        <img class="card-img-top"
+                            src="https://cdn3.iconfinder.com/data/icons/isometric-illustrations-6/350/523-512.png"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Deep Learning Projects</h5>
+                        </div>
+                        <div class="status">
+                            <ul style="padding-left: 16px;  margin-bottom: 0;">
+                                <li><span style="position: relative; left: -7px;font-size: 14px;">Jul 26th-Aug
+                                        31st</span></li>
+                            </ul>
+                            <div>Coming Soon</div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="##">
+                    <div class="card">
+                        <img class="card-img-top"
+                            src="https://mk0digitallearn7ttjx.kinstacdn.com/wp-content/uploads/2018/05/Scope-of-data-analysis-booming-in-India-1000x600.jpg"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Data Analysis Projects</h5>
+                        </div>
+                        <div class="status">
+                            <ul style="padding-left: 16px;  margin-bottom: 0;">
+                                <li><span style="position: relative; left: -7px;font-size: 14px;">Jul 26th-Aug
+                                        31st</span></li>
+                            </ul>
+                            <div style="background-color: #9b969b3d;">Completed</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <footer style="border-top: 1px solid black;" class="Footer_conatiner">
+        <div class="Footer_header">
+            <a href="{% url 'index' %}"><img src="{% static 'assets/images/logo.jpg' %}" alt="Logo"></a>
+            <br><br>
+            <p>We are here to solve your problems beacuse while pursuing your UG-CSE you might have lot many doubts
+                about trending jobs and skills required to get hired for that job, WE HELP YOU TO KNOW ABOT TRENDING
+                JOBS AND REQUIRED SKILLS</p>
+            <br>
+            <p>As well we help you to submit your projects in your degree pursuing university and we help you by free
+                tutorials in Data science,AI, ML</p>
+        </div>
+        <div class="Footer_columns_holder">
+            <div class="Footer_columns">
+                <h1>Company</h1>
+                <a href="{% url 'aboutus' %}">About us</a>
+                <a href="{% url 'learnerstories' %}">Learner stories</a>
+                <a href="{% url 'boardmembers' %}">our people</a>
+                <a href="{% url 'job_test:jobslist' %}">jobs</a>
+            </div>
+            <div class="Footer_columns">
+                <h1>Resources</h1>
+                <a href="##">Tutorials</a>
+                <a href="{% url 'careerpath' %}">Career paths</a>
+                <a href="##">Courses</a>
+                <a href="##">Blogs</a>
+            </div>
+            <div class="Footer_columns">
+                <h1>Support</h1>
+                <a href="{% url 'contact' %}">Contact us</a>
+                <a href="##">FAQ</a>
+                <a href="{% url 'any_bugs' %}">Any ideas/Bugs</a>
+                <a href="{% url 'invest' %}">Get Involved</a>
+            </div>
+            <div class="Footer_columns">
+                <h1>Services</h1>
+                <a href="##">Startup services</a>
+                <a href="##">Design services</a>
+                <a href="##">Mini Projects</a>
+                <a href="##">Mock interviews</a>
+            </div>
+        </div>
+    </footer>
+    <div class="Privacy_holder">
+        <div class="Privacy_links">
+            <a href="{% url 'privacy' %}">Privacy policy</a>
+            <a href="{% url 'cookies' %}">Cookies Notice</a>
+            <a href="{% url 'security' %}">Security</a>
+            <a href="{% url 'terms' %}">Terms of use</a>
+        </div>
+        <div class="Social-media">
+            <img src="{% static 'assets/services/twitter.svg' %}" />
+            <img src="{% static 'assets/services/facebook.svg' %}" />
+            <img src="{% static 'assets/services/instagram.svg' %}" />
+        </div>
+    </div>
+</body>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+
+
+
+    const mood = document.getElementById("toggle")
+    const menu_img = document.getElementById("menu_img")
+    mood.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mood")
+        if (document.body.classList.contains("dark-mood")) {
+            mood.src = "{% static 'assets/services/photos/sun2.jpg' %}"
+            menu_img.src = "{% static 'assets/services/menu.png' %}"
+        }
+        else {
+            mood.src = "{% static 'assets/services/photos/moon.png' %}"
+            menu_img.src = "{% static 'assets/services/download (1).png' %}"
+        }
+    })
+
+</script>
+
+<script>
+    // Animation------------------------------------
+    AOS.init({
+        duration: 900,
+        offset: 220,
+        easing: 'ease-in-out-quad'
+    });
+    //-----scroll-----------------
+    const ham = document.querySelector('.Ham');
+    const Close = document.querySelector(".Close");
+    const DropMenu = document.querySelector('.dropMenu')
+    window.addEventListener('scroll', () => {
+        const top = window.innerHeight * (10 / 100) + 300;
+        if (window.scrollY <= top) {
+            document.querySelector(".Scroll").style.display = 'none';
+
+        }
+        if (window.scrollY > top) {
+            document.querySelector(".Scroll").style.display = 'grid';
+        }
+    });
+    ham.addEventListener('click', () => {
+        DropMenu.classList.add("MenuAnimation")
+
+    })
+    Close.addEventListener('click', () => {
+        DropMenu.classList.remove('MenuAnimation')
+
+    })
+</script>
+
+
+</html>

@@ -1,0 +1,504 @@
+{% extends 'footer.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}About Us{% endblock title %}</title>
+
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'assets/aboutus/assets/style.css'%}" />
+    <link rel="stylesheet" href="{% static 'assets/aboutus/assets/glide.core.min.css'%}" />
+    <link rel="stylesheet" href="{% static 'assets/aboutus/assets/glide.theme.css'%}" />
+
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <link rel="shortcut icon" type="image/png" href="{% static 'assets/main/favicon.png'%}"/>
+    {% endblock css %}
+    {% block google_tags %}
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4D2PNVR8Z"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-L4D2PNVR8Z');
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    {% endblock google_tags %}
+</head>
+<body>
+{% block body %}
+<section class="container about-section">
+<div class="about-heading">
+    <h4>About Techsnap</h4>
+    <h1>Leader in Careerpaths</h1>
+    <p>
+        Techsnap is all inclusive Digitalized virtual platform for learning technologies, Exploring careers, Mentoring people, Sharing Project. we at techsnap constantly working to create programming resources that's accurate and easier to understand.
+    </p>
+</div>
+<img
+    src="https://miro.medium.com/max/1400/0*oZFIWYFnI-adJtCN.png"
+    alt=""
+    class="about-image"
+/>
+</section>
+
+<section class="why-section-container">
+
+
+<div class="why-section container">
+<h1>Why Techsnap</h1>
+<div class="grid-section">
+    <div class="item">
+    <div class="icon icon-1">
+        <i class="fas fa-puzzle-piece"></i>
+    </div>
+    <div class="item-content">
+        <h1>INCISIVE ROADMAPS </h1>
+        <p>Where To Start?</p>
+
+        <ol>
+        <li>1. We provide precise roadmaps that let the beginners choose their personalized career stream.</li>
+        <li>2. Curated a well-defined 15+ career paths for eminent domains</li>
+        <li>3. This well-structured learning activity makes the learning process smoother and guides in mastering the technology</li>
+        </ol>
+    </div>
+    </div>
+
+    <div class="item">
+    <div class="icon icon-2">
+        <i class="far fa-sticky-note"></i>
+    </div>
+    <div class="item-content">
+        <h1>SPICK-AND-SPAN COURSES</h1>
+        <p>What Do We Provide?</p>
+        <ol>
+        <li>
+            1. Blogs or document for those who love to read and learn
+        </li>
+        <li>
+            2. Pre-recorded videos for those who love to listen and learn at their own pace
+        </li>
+        <li>3. Live mentoring for people who love to learn in live with a great mentor</li>
+        </ol>
+    </div>
+    </div>
+
+    <div class="item">
+    <div class="icon icon-3">
+        <i class="fas fa-chart-line"></i>
+    </div>
+    <div class="item-content">
+        <h1>GRIPPING MINIPROJECT</h1>
+        <p>Want to experience hands-on learning?</p>
+        <ol>
+        <li>1. The best way to pad up your skill-set is to develop Mini Projects</li>
+        <li>2. Guides you with the constant support and feedback from the mentors</li>
+        <li>3. Providing 24*7 support for seamless experience</li>
+        </ol>
+    </div>
+    </div>
+
+    <div class="item">
+    <div class="icon icon-4">
+        <i class="far fa-clock"></i>
+    </div>
+    <div class="item-content">
+        <h1>Synergic social network:</h1>
+        <p>Do you love connecting with people?? </p>
+        <ol>
+        <li>1. Discuss about all the technical related stuff</li>
+        <li>2. Share the useful resources,cheatsheets,gifs etc.</li>
+        <li>3. Chill-out by the technical memes(What could be more interesting than this ani change chey!!!)</li>
+        </ol>
+    </div>
+    </div>
+</div>
+</div>
+</section>
+
+<section class="container mission-section">
+<div class="heading">
+    <h5>OUR MISSION & IMPACT</h5>
+    <h1>Democratise access to high quality education</h1>
+</div>
+<div class="stats">
+    <div class="stats-grid">
+    <div class="stat stat-1">
+        <h2>5k+</h2>
+        <h5>Active Learners</h5>
+    </div>
+    <div class="stat stat-2">
+        <h2>30+</h2>
+        <h5>Top Educators</h5>
+    </div>
+    <div class="stat stat-3">
+        <h2>53+</h2>
+        <h5>Careerpaths</h5>
+    </div>
+    <div class="stat stat-4">
+        <h2>10+</h2>
+        <h5>Daily Live Classes</h5>
+    </div>
+    </div>
+    <img
+    src="https://www.techsnap.in/media/storage/1-----teknoloji_-_karisik_generated-07-01_wgyBkfU.png"
+    alt=""
+    />
+</div>
+</section>
+
+<section class="container program-section">
+<h1>An Ultimate Career Acceleration Program</h1>
+<div class="program-details">
+    <img
+    src="https://www.expertrons.com/wp-content/uploads/2021/08/Group-21254-2-1.png"
+    alt=""
+    class="g-1"
+    loading="lazy"
+    />
+    <img
+    src="https://www.expertrons.com/wp-content/uploads/2021/08/Group-21282.png"
+    alt=""
+    class="g-2"
+    />
+    <img
+    src="https://www.expertrons.com/wp-content/uploads/2021/10/Blue-806x1024.png"
+    alt=""
+    class="g-3"
+    loading="lazy"
+    />
+    <img
+    src="https://www.expertrons.com/wp-content/uploads/2021/08/Group-21280.png"
+    alt=""
+    class="g-4"
+    loading="lazy"
+    />
+    <img
+    src="https://www.expertrons.com/wp-content/uploads/2021/08/Group-21462-3-1-1.png"
+    alt=""
+    class="g-5"
+    loading="lazy"
+    />
+    <img
+    src="https://www.expertrons.com/wp-content/uploads/2021/09/Group-21248.png"
+    alt=""
+    class="g-6"
+    loading="lazy"
+    />
+    <img
+    src="https://www.expertrons.com/wp-content/uploads/2021/08/4.svg"
+    alt=""
+    class="g-7"
+    loading="lazy"
+    />
+    <img
+    src="https://www.expertrons.com/wp-content/uploads/2021/09/Group-21250.png"
+    alt=""
+    class="g-8"
+    loading="lazy"
+    />
+</div>
+</section>
+
+<section class="container skills-section">
+<div class="skills-desktop">
+    <div class="skillset-desktop">
+    <h1>Picking Your Role Depending upon on your Skills</h1>
+    <p class="subtitle">
+        Each Career Path contains a curated set of lessons, quizzes, and projects that are outlined in a set of clear milestones.
+    </p>
+
+    <div class="skills-chart">
+        <div class="skills-job-family">
+        <span class="label-1 skill-content-label">JOB FAMILY</span>
+        <h2
+            id="software-eng"
+            class="skill-content skill-content-job active"
+        >
+            Software Engineering
+        </h2>
+        <h2 id="web-dev" class="skill-content skill-content-job">
+            Web Development
+        </h2>
+        <h2 id="qa" class="skill-content skill-content-job">
+            QA and Testing
+        </h2>
+        <h2 id="cloud-devops" class="skill-content skill-content-job">
+            Cloud and DevOps
+        </h2>
+        <h2 id="data-science" class="skill-content skill-content-job">
+            Data Science and ML
+        </h2>
+        <h2 id="cybersecurity" class="skill-content skill-content-job">
+            Cybersecurity
+        </h2>
+        </div>
+
+        <div class="skills-job-role">
+        <span class="skill-content-label">JOB ROLE</span>
+        <ul class="software-eng active">
+            <li class="skill-content">Software Engineer</li>
+            <li class="skill-content">Software Engineer Intern</li>
+            <li class="skill-note">
+            Can’t find the role you’re looking for? Try a different Job
+            family
+            </li>
+        </ul>
+        <ul class="web-dev">
+            <li class="skill-content">Back-End Developer</li>
+            <li class="skill-content">Front-End Developer</li>
+            <li class="skill-content">Full-Stack Developer</li>
+            <li class="skill-note">
+            Can’t find the role you’re looking for? Try a different Job
+            family
+            </li>
+        </ul>
+        <ul class="qa">
+            <li class="skill-content">QA Engineer</li>
+            <li class="skill-note">
+            Can’t find the role you’re looking for? Try a different Job
+            family
+            </li>
+        </ul>
+        <ul class="cloud-devops">
+            <li class="skill-content">Cloud Engineer</li>
+            <li class="skill-content">Site Reliability Engineer</li>
+            <li class="skill-note">
+            Can’t find the role you’re looking for? Try a different Job
+            family
+            </li>
+        </ul>
+        <ul class="data-science">
+            <li class="skill-content">Data Engineer(Java Spark)</li>
+            <li class="skill-content">Data Engineer(PySpark)</li>
+            <li class="skill-content">Data Engineer(Scala Spark)</li>
+            <li class="skill-content">Data Scientist</li>
+            <li class="skill-content">Machine Learning Engineer</li>
+            <li class="skill-note">
+            Can’t find the role you’re looking for? Try a different Job
+            family
+            </li>
+        </ul>
+        <ul class="cybersecurity">
+            <li class="skill-content">Cloud Security Engineer</li>
+            <li class="skill-content">Cybersecurity Engineer</li>
+            <li class="skill-note">
+            Can’t find the role you’re looking for? Try a different Job
+            family
+            </li>
+        </ul>
+        </div>
+
+        <div class="skills-img">
+            <img src="{% static 'assets/aboutus/assets/eng.png'%}" alt="software-eng-img" class="software-eng-img active">
+            <img src="{% static 'assets/aboutus/assets/webdev.png'%}" alt="web-dev-img" class="web-dev-img">
+            <img src="{% static 'assets/aboutus/assets/testing.png'%}" alt="qa-img" class="qa-img">
+            <img src="{% static 'assets/aboutus/assets/cloud.png'%}" alt="cloud-devops-img" class="cloud-devops-img">
+            <img src="{% static 'assets/aboutus/assets/ml.png'%}" alt="data-science-img" class="data-science-img">
+            <img src="{% static 'assets/aboutus/assets/cyber.png'%}" alt="cybersecurity-img" class="cybersecurity-img">
+        </div>
+
+    </div>
+    </div>
+</div>
+
+<div class="skills-mobile">
+    <div class="skillset-mobile">
+    <h1>Deeper developer skill assessment expertise</h1>
+    <p class="subtitle">
+        From interns to experienced hires, evaluate for any developer role
+        by sending technical challenges and/or conducting live interviews.
+    </p>
+
+    <div class="glide">
+        <div class="glide__track" data-glide-el="track">
+        <div class="glide__slides">
+            <div class="glide__slide skill-card">
+            <h2>Software Engineering</h2>
+            <div class="tags">
+                <div class="tag">Code Quality</div>
+                <div class="tag">Language Proficiency</div>
+                <div class="tag">Problem Solving</div>
+                <div class="tag">REST API</div>
+                <div class="tag">SQL</div>
+                <div class="tag">Technical Communications</div>
+            </div>
+            </div>
+
+            <div class="glide__slide skill-card">
+            <h2>Web Development</h2>
+            <div class="tags">
+                <div class="tag">Code Quality</div>
+                <div class="tag">Angular</div>
+                <div class="tag">CSS</div>
+                <div class="tag">JavaScript</div>
+                <div class="tag">Node.js</div>
+                <div class="tag">Problem Solving</div>
+                <div class="tag">REST API</div>
+                <div class="tag">SQL</div>
+                <div class="tag">Technical Communications</div>
+                <div class="tag">System Design</div>
+            </div>
+            </div>
+
+            <div class="glide__slide skill-card">
+            <h2>QA and Testing</h2>
+            <div class="tags">
+                <span class="tag">Java</span>
+                <span class="tag">Jenkins</span>
+                <span class="tag">Selenium</span>
+                <span class="tag">Technical Communications</span>
+            </div>
+            </div>
+
+            <div class="glide__slide skill-card">
+            <h2>Data Science and ML</h2>
+            <div class="tags">
+                <span class="tag">Apache Spark</span>
+                <span class="tag">Applied Math</span>
+                <span class="tag">Couchbase</span>
+                <span class="tag">Code Quality</span>
+                <span class="tag">Data Visualization</span>
+                <span class="tag">Data Modeling</span>
+                <span class="tag">Data Wrangling</span>
+                <span class="tag">Hadoop</span>
+                <span class="tag">Java</span>
+                <span class="tag">Kafka</span>
+                <span class="tag">Machine Learning</span>
+                <span class="tag">Python</span>
+                <span class="tag">PyTorch</span>
+                <span class="tag">R</span>
+                <span class="tag">Scala</span>
+                <span class="tag">SQL</span>
+                <span class="tag">Statistics</span>
+                <span class="tag">System Design</span>
+                <span class="tag">Technical Communications</span>
+                <span class="tag">TensorFlow</span>
+            </div>
+            </div>
+            <div class="glide__slide skill-card">
+            <h2>Cloud and DevOps</h2>
+            <div class="tags">
+                <span class="tag">Ansible</span>
+                <span class="tag">AWS</span>
+                <span class="tag">Code Quality</span>
+                <span class="tag">Docker</span>
+                <span class="tag">Jenkins</span>
+                <span class="tag">Kubernetes</span>
+                <span class="tag">Linux</span>
+                <span class="tag">System Design</span>
+                <span class="tag">Technical Communications</span>
+                <span class="tag">Terraform</span>
+            </div>
+            </div>
+            <div class="glide__slide skill-card">
+            <h2>Cybersecurity</h2>
+            <div class="tags">
+                <span class="tag">Application Security</span>
+                <span class="tag">AWS</span>
+                <span class="tag">Cryptography</span>
+                <span class="tag">Kubernetes Security</span>
+                <span class="tag">Linux</span>
+                <span class="tag">Network Security</span>
+            </div>
+            </div>
+        </div>
+        </div>
+        <div class="glide__bullets" data-glide-el="controls[nav]">
+        <button class="glide__bullet" data-glide-dir="=0"></button>
+        <button class="glide__bullet" data-glide-dir="=1"></button>
+        <button class="glide__bullet" data-glide-dir="=2"></button>
+        <button class="glide__bullet" data-glide-dir="=3"></button>
+        <button class="glide__bullet" data-glide-dir="=4"></button>
+        <button class="glide__bullet" data-glide-dir="=5"></button>
+        </div>
+    </div>
+    </div>
+</div>
+</section>
+
+<div class="contact-us-container" style="background-image: url(https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80);">
+    <section class="contact-us-section">
+        <div class="contact-us-left">
+<h1>
+            Achieve your career goals <span>with confidence.</span>
+        </h1>
+        <p>Create your Techsnap account →</p>
+        </div>
+        <div class="contact-us-right">
+            <div class="contact-us-form-holder">
+<h1>Create Your Free Account</h1>
+<div class="contact-us-accounts">
+<a class="contact-us-social-media-buttons" href="{% url 'social:begin' 'google-oauth2' %}?next={{request.GET.next}}">
+    <img src="{% static 'assets/main/google.svg'%}" alt="socail" />
+<p>Google</p>
+</a>
+<a class="contact-us-social-media-buttons" href="{% url 'social:begin' 'facebook' %}?next={{request.GET.next}}">
+    <img src="{% static 'assets/main/facebook.svg'%}" alt="socail" />
+<p>Facebook</p>
+</a>
+<a class="contact-us-social-media-buttons" href="{% url 'social:begin' 'linkedin-oauth2' %}?next={{request.GET.next}}">
+    <img src="{% static 'assets/main/linkedin.svg'%}" alt="socail" />
+<p>Linkedin</p>
+</a>
+</div>
+<div class="contact-us-or-line" >
+<hr></hr>
+                <p>or</p>
+</div>
+<form action="{% url 'register' %}" method="POST">
+                <label>Username</label>
+                <input type='text' placeholder='Username' name='username' required/>
+                <label>Email Address</label>
+                <input type='email' placeholder='Email' name="email" required/>
+                <label>Password</label>
+                <input type='password' placeholder='Password' name="password" required/>
+                <button type='submit'>Start Learning For Free</button>
+            </form>
+            <div class="contact-us-footer">
+                <p>
+                    Have Account ? <a href="{% url 'login' %}">Login Here</a>
+                </p>
+            </div>
+</div>
+        </div>
+    </section>
+</div>
+    {% endblock body %}
+    {% block script %}
+<script src="{% static 'assets/aboutus/style.js'%}"></script>
+<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+<script>
+    new Glide(".glide", {
+    type: "carousel",
+    }).mount();
+</script>
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        }
+        </script>
+    {% endblock script %}
+</body>
+</html>

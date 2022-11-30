@@ -1,0 +1,1199 @@
+{% load static %}
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datasnap</title>
+    <link rel="stylesheet" href="{%static 'assets/datasnap/style.css'%}">
+
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"> </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-L4D2PNVR8Z"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-L4D2PNVR8Z');
+		</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <div class="side-panel" id="side-panel">
+        <div class="logo">
+            <img src="{%static 'assets/datasnap/rsc/datasnap-logo.png'%}" alt="logo" class="logo-image">
+            <a href=""><p class="datasnap">datasnap</p></a>
+            <img src="{%static 'assets/datasnap/rsc/icons8-close-48.png'%}" alt="close" class="close">
+        </div>
+        <div class="left-side">
+            <div class="first-half">
+                <div class="first-half-item">
+                    <img src="{%static 'assets/datasnap/rsc/feed.png'%}" alt="" class="bw">
+                    <a href=""><p>My Feed</p></a>
+                </div>
+                <div class="first-half-item">
+                    <img src="{%static 'assets/datasnap/rsc/explore.png'%}" alt="" class="bw">
+                    <a href="explore-index.html"><p>Explore</p></a>
+                </div>
+                <div class="first-half-item">
+                    <img src="{%static 'assets/datasnap/rsc/draft.png'%}" alt="" class="bw">
+                    <a href="drafts-index.html"><p>Drafts</p></a>
+                </div>
+                <div class="first-half-item">
+                    <img src="{%static 'assets/datasnap/rsc/bookmark.png'%}" alt="" class="bw">
+                    <a href="bookmarks-index.html"><p>Bookmarks</p></a>
+                </div>
+                <div class="first-half-item">
+                    <img src="{%static 'assets/datasnap/rsc/search.png'%}" alt="" class="bw">
+                    <a href=""><p>Search</p></a>
+                </div>
+                <div class="first-half-item">
+                    <img src="{%static 'assets/datasnap/rsc/more.png'%}" alt="" class="bw">
+                    <a href=""><p>More</p></a>
+                </div>
+            </div>
+            <div class="footer">
+                <p class="footer-text foot">&copy; 2022 Datasnap</p>
+                <div>
+                    <div class="social-media foot">
+                        <a href=""><img src="{%static 'assets/datasnap/rsc/icons8-twitter-24.png'%}" alt="twitter"></a>
+                        <a href=""><img src="{%static 'assets/datasnap/rsc/icons8-linkedin-24.png'%}" alt="linkedin"></a>
+                        <a href=""><img src="{%static 'assets/datasnap/rsc/icons8-instagram-24.png'%}" alt="insta"></a>
+                        <a href=""><img src="{%static 'assets/datasnap/rsc/icons8-discord-bubble-24.png'%}" alt="discord"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="outer-container">
+        <div class="inner-container">
+            <div class="nav-bar-container">
+                <div class="nav-bar">
+                    <div class="nav-item logo">
+                        <img src="{%static 'assets/datasnap/rsc/menu.png'%}" alt="" class="menu-icon">
+                        <img src="{%static 'assets/datasnap/rsc/datasnap-logo.png'%}" alt="logo" class="logo-image">
+                        <a href=""><p class="datasnap">datasnap</p></a>
+                    </div>
+                    <div class="nav-item search">
+                        <img src="{%static 'assets/datasnap/rsc/icons8-search-50 (2).png'%}" alt="search-icon" class="search-icon">
+                        <input type="text" name="searchbar" id="searchbar" placeholder="Search for tags, people, articles, and many more">
+                    </div>
+                    <div class="nav-rest nav-item">
+                        <div>
+                            <a href="blog-index.html"><img src="{%static 'assets/datasnap/rsc/write.png'%}" alt="write" class="write"></a>
+                        </div>
+                        <div>
+                            <img src="{%static 'assets/datasnap/rsc/icons8-sun-48.png'%}" alt="toggle" id="toggle" class="day">
+                        </div>
+                        <div>
+                            <img src="{%static 'assets/datasnap/rsc/notification-bell.png'%}" alt="notifications" class="notifications">
+                        </div>
+                        <div>
+                            <img src="{%static 'assets/datasnap/rsc/arnold-francisca-nPhl2x4fk2s-unsplash.jpg'%}" alt="profile-image" class="profile-image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-container">
+                <div class="container">
+                    <div class="left-side-container">
+                        <div class="left-side">
+                            <div class="first-half">
+                                <div class="first-half-item">
+                                    <img src="{%static 'assets/datasnap/rsc/feed.png'%}" alt="" class="bw">
+                                    <a href=""><p>My Feed</p></a>
+                                </div>
+                                <div class="first-half-item">
+                                    <img src="{%static 'assets/datasnap/rsc/explore.png'%}" alt="" class="bw">
+                                    <a href="explore-index.html"><p>Explore</p></a>
+                                </div>
+                                <div class="first-half-item">
+                                    <img src="{%static 'assets/datasnap/rsc/draft.png'%}" alt="" class="bw">
+                                    <a href="drafts-index.html"><p>Drafts</p></a>
+                                </div>
+                                <div class="first-half-item">
+                                    <img src="{%static 'assets/datasnap/rsc/bookmark.png'%}" alt="" class="bw">
+                                    <a href="bookmarks-index.html"><p>Bookmarks</p></a>
+                                </div>
+                                <div class="first-half-item">
+                                    <img src="{%static 'assets/datasnap/rsc/more.png'%}" alt="" class="bw">
+                                    <a href=""><p>More</p></a>
+                                </div>
+                            </div>
+                            <div class="second-half">
+                                <div class="trending-tags">
+                                    <p>Trending Tags</p>
+                                    <img src="{%static 'assets/datasnap/rsc/icons8-trending-topic-25.png'%}" alt="">
+                                </div>
+                                <div class="tags">
+                                    <p class="tag"><a href=""><span class="tag-name">Javascript</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="number">+205</span></p>
+                                    <p class="tag"><a href=""><span class="tag-name">React</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="number">+93</span></p>
+                                    <p class="tag"><a href=""><span class="tag-name">CSS</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="number">+105</span></p>
+                                    <p class="tag"><a href=""><span class="tag-name">Python</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="number">+66</span></p>
+                                    <p class="tag"><a href=""><span class="tag-name">Vue</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="number">+40</span></p>
+                                    <p id="show-more" class="tag"><a href="" id="show-more">Show more</a></p>
+                                </div>
+                            </div>
+                            <div class="footer">
+                                <p class="footer-text foot">&copy; 2022 Datasnap</p>
+                                <div>
+                                    <div class="social-media foot">
+                                        <a href=""><img src="{%static 'assets/datasnap/rsc/icons8-twitter-24.png'%}" alt="twitter"></a>
+                                        <a href=""><img src="{%static 'assets/datasnap/rsc/icons8-linkedin-24.png'%}" alt="linkedin"></a>
+                                        <a href=""><img src="{%static 'assets/datasnap/rsc/icons8-instagram-24.png'%}" alt="insta"></a>
+                                        <a href=""><img src="{%static 'assets/datasnap/rsc/icons8-discord-bubble-24.png'%}" alt="discord"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="middle-container">
+                        <div id="middle">
+                            <div class="top">
+                                <!--
+                                <div class="story">
+                                    <img src="{%static 'assets/datasnap/rsc/radu-florin-4_QFycgpC4c-unsplash.jpg'%}" alt="" class = "profile-image">
+                                    <img src="{%static 'assets/datasnap/rsc/jeffrey-keenan-pUhxoSapPFA-unsplash.jpg'%}" alt="" class = "profile-image">
+                                    <img src="{%static 'assets/datasnap/rsc/joshua-earle-ICE__bo2Vws-unsplash.jpg'%}" alt="" class = "profile-image">
+                                    <img src="{%static 'assets/datasnap/rsc/arnold-francisca-nPhl2x4fk2s-unsplash.jpg'%}" alt="" class = "profile-image">
+                                    <img src="{%static 'assets/datasnap/rsc/radu-florin-4_QFycgpC4c-unsplash.jpg'%}" alt="" class = "profile-image">
+                                    <img src="{%static 'assets/datasnap/rsc/jeffrey-keenan-pUhxoSapPFA-unsplash.jpg'%}" alt="" class = "profile-image">
+                                    <img src="{%static 'assets/datasnap/rsc/joshua-earle-ICE__bo2Vws-unsplash.jpg'%}" alt="" class = "profile-image">
+                                    <img src="{%static 'assets/datasnap/rsc/arnold-francisca-nPhl2x4fk2s-unsplash.jpg'%}" alt="" class = "profile-image">
+                                    <img src="{%static 'assets/datasnap/rsc/radu-florin-4_QFycgpC4c-unsplash.jpg'%}" alt="" class = "profile-image">
+                                    <img src="{%static 'assets/datasnap/rsc/jeffrey-keenan-pUhxoSapPFA-unsplash.jpg'%}" alt="" class = "profile-image">
+                                    <img src="{%static 'assets/datasnap/rsc/joshua-earle-ICE__bo2Vws-unsplash.jpg'%}" alt="" class = "profile-image">
+                                    <img src="{%static 'assets/datasnap/rsc/arnold-francisca-nPhl2x4fk2s-unsplash.jpg'%}" alt="" class = "profile-image">
+                                    <img src="{%static 'assets/datasnap/rsc/radu-florin-4_QFycgpC4c-unsplash.jpg'%}" alt="" class = "profile-image">
+                                    <img src="{%static 'assets/datasnap/rsc/jeffrey-keenan-pUhxoSapPFA-unsplash.jpg'%}" alt="" class = "profile-image">
+                                    <img src="{%static 'assets/datasnap/rsc/joshua-earle-ICE__bo2Vws-unsplash.jpg'%}" alt="" class = "profile-image">
+                                    <img src="{%static 'assets/datasnap/rsc/arnold-francisca-nPhl2x4fk2s-unsplash.jpg'%}" alt="" class = "profile-image">
+                                    <img src="{%static 'assets/datasnap/rsc/radu-florin-4_QFycgpC4c-unsplash.jpg'%}" alt="" class = "profile-image">
+                                    <img src="{%static 'assets/datasnap/rsc/jeffrey-keenan-pUhxoSapPFA-unsplash.jpg'%}" alt="" class = "profile-image">
+                                    <img src="{%static 'assets/datasnap/rsc/joshua-earle-ICE__bo2Vws-unsplash.jpg'%}" alt="" class = "profile-image">
+                                    <img src="{%static 'assets/datasnap/rsc/arnold-francisca-nPhl2x4fk2s-unsplash.jpg'%}" alt="" class = "profile-image">
+                                    <img src="{%static 'assets/datasnap/rsc/radu-florin-4_QFycgpC4c-unsplash.jpg'%}" alt="" class = "profile-image">
+                                    <img src="{%static 'assets/datasnap/rsc/jeffrey-keenan-pUhxoSapPFA-unsplash.jpg'%}" alt="" class = "profile-image">
+                                    <img src="{%static 'assets/datasnap/rsc/joshua-earle-ICE__bo2Vws-unsplash.jpg'%}" alt="" class = "profile-image">
+                                    <img src="{%static 'assets/datasnap/rsc/arnold-francisca-nPhl2x4fk2s-unsplash.jpg'%}" alt="" class = "profile-image">
+                                    <img src="{%static 'assets/datasnap/rsc/radu-florin-4_QFycgpC4c-unsplash.jpg'%}" alt="" class = "profile-image">
+                                    <img src="{%static 'assets/datasnap/rsc/jeffrey-keenan-pUhxoSapPFA-unsplash.jpg'%}" alt="" class = "profile-image">
+                                    <img src="{%static 'assets/datasnap/rsc/joshua-earle-ICE__bo2Vws-unsplash.jpg'%}" alt="" class = "profile-image">
+                                    <img src="{%static 'assets/datasnap/rsc/arnold-francisca-nPhl2x4fk2s-unsplash.jpg'%}" alt="" class = "profile-image">
+                                    <img src="{%static 'assets/datasnap/rsc/radu-florin-4_QFycgpC4c-unsplash.jpg'%}" alt="" class = "profile-image">
+                                    <img src="{%static 'assets/datasnap/rsc/jeffrey-keenan-pUhxoSapPFA-unsplash.jpg'%}" alt="" class = "profile-image">
+                                    <img src="{%static 'assets/datasnap/rsc/joshua-earle-ICE__bo2Vws-unsplash.jpg'%}" alt="" class = "profile-image">
+                                    <img src="{%static 'assets/datasnap/rsc/arnold-francisca-nPhl2x4fk2s-unsplash.jpg'%}" alt="" class = "profile-image">
+                                    <img src="{%static 'assets/datasnap/rsc/radu-florin-4_QFycgpC4c-unsplash.jpg'%}" alt="" class = "profile-image">
+                                    <img src="{%static 'assets/datasnap/rsc/jeffrey-keenan-pUhxoSapPFA-unsplash.jpg'%}" alt="" class = "profile-image">
+                                    <img src="{%static 'assets/datasnap/rsc/joshua-earle-ICE__bo2Vws-unsplash.jpg'%}" alt="" class = "profile-image">
+                                    <img src="{%static 'assets/datasnap/rsc/arnold-francisca-nPhl2x4fk2s-unsplash.jpg'%}" alt="" class = "profile-image">
+                                </div>-->
+                                <div class="tab">
+                                    <div id="myfeed" class="tab-item">
+                                        <img src="{%static 'assets/datasnap/rsc/icons8-activity-feed-24.png'%}" alt="" id="myfeed-img">
+                                        <p id="myfeed-text">My Feed</p>
+                                    </div>
+                                    <div id="featured" class="tab-item">
+                                        <img src="{%static 'assets/datasnap/rsc/icons8-star-24.png'%}" alt="" id="featured-img">
+                                        <p id="featured-text">Featured</p>
+                                    </div>
+                                    <div id="recent" class="tab-item">
+                                        <img src="{%static 'assets/datasnap/rsc/icons8-clock-24.png'%}" alt="" id="recent-img">
+                                        <p id="recent-text">Recent</p>
+                                    </div>
+                            </div>
+                            </div>
+                            <div class="middle my-feed">
+                                <div class="articles">
+                                    {% for blogs in object_list %}
+                                    {% if blogs.status or user.is_superuser or request.user == blogs.author %}
+                                    <div class="article">
+                                        <div class="profile">
+                                            <div>
+                                                <img src="{%static 'assets/datasnap/rsc/jeffrey-keenan-pUhxoSapPFA-unsplash.jpg'%}" alt="" class="profile-image">
+                                            </div>
+                                            <div class="info">
+                                                <h4><a href="">{{blogs.author}}</a></h4>
+                                                <p class="grey-text">Released on:
+                                                    &nbsp;·&nbsp;
+                                                    {{blogs.date_published}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="article-content">
+                                            <div class="content">
+                                                <h3 class="con"><a href="{{ blogs.get_absolute_url }}">{{blogs.title}}</a></h3>
+                                            </div>
+                                            <div>
+                                                <img src="{{blogs.banner_img.url}}" alt="" class="image">
+                                            </div>
+                                        </div>
+                                        <div class="tags-used">
+                                            <div class="used-tags grey-text reaction-item">Tags :
+                                                <span class="used-tag grey-text">Javascript</span>
+                                                <span class="used-tag grey-text">Git</span>
+                                                <span class="used-tag grey-text num">+1</span>
+                                            </div>
+                                        </div>
+                                        <div class="read-reactions">
+                                            <div class="reaction">
+                                                <span class="grey-text"><img src="{%static 'assets/datasnap/rsc/like.png'%}" alt="">30</span>
+                                                <span class="grey-text"><img src="{%static 'assets/datasnap/rsc/comment.png'%}" alt="">2</span>
+                                            </div>
+                                            <div class="read-save">
+                                                <div class="read">
+                                                    <img src="{%static 'assets/datasnap/rsc/read.png'%}" alt="">
+                                                    <p class="grey-text">4 mins</p>
+                                                </div>
+                                                <div>
+                                                    <p class="save-button grey-text">Save</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="middle featured">
+                                <div class="articles">
+                                    <div class="article">
+                                        <div class="profile">
+                                            <div>
+                                                <img src="{%static 'assets/datasnap/rsc/jeffrey-keenan-pUhxoSapPFA-unsplash.jpg'%}" alt="" class="profile-image">
+                                            </div>
+                                            <div class="info">
+                                                <h4><a href="">Simon Egersand 🎈</a></h4>
+                                                <p class="grey-text">prplcode.hashnode.dev
+                                                    &nbsp;·&nbsp;
+                                                    Jul 2, 2022
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="article-content">
+                                            <div class="content">
+                                                <h3 class="con">Write Git Commit Messages That Your Colleagues Will Love</h3>
+                                                <div class="read-reactions con">
+                                                    <div class="read">
+                                                        <img src="{%static 'assets/datasnap/rsc/read.png'%}" alt="">
+                                                        <p class="grey-text">4 mins <span class="temp grey-text">read</span></p>
+                                                    </div>
+                                                    <div>
+                                                        <img src="{%static 'assets/datasnap/rsc/like.png'%}" alt="like" class="like">
+                                                        <p class="grey-text">
+                                                            23
+                                                            <span class="temp grey-text">Reactions</span>
+                                                        </p>
+                                                    </div>
+                                                    <div>
+                                                        <img src="{%static 'assets/datasnap/rsc/comment.png'%}" alt="comment" class="comment">
+                                                        <p class="grey-text">
+                                                            4
+                                                            <span class="temp grey-text">Comments</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <p class="grey-text con">Git commit messages are how we communicate to our future selves. They help you understand why a certain line of code was added to the code base. That's why knowing how to write a good Git commit messa…</p>
+                                            </div>
+                                            <div>
+                                                <img src="{%static 'assets/datasnap/rsc/image2.png'%}" alt="" class="image">
+                                            </div>
+                                        </div>
+                                        <div class="tags-used">
+                                            <p class="used-tags grey-text reaction-item">Tags :
+                                                <span class="used-tag grey-text">Javascript</span>
+                                                <span class="used-tag grey-text">Git</span>
+                                                <span class="used-tag grey-text num">+1</span>
+                                            </p>
+                                            <p class="save-button grey-text">Save post</p>
+                                        </div>
+                                    </div>
+                                    <div class="article">
+                                        <div class="profile">
+                                            <div>
+                                                <img src="{%static 'assets/datasnap/rsc/jeffrey-keenan-pUhxoSapPFA-unsplash.jpg'%}" alt="" class="profile-image">
+                                            </div>
+                                            <div class="info">
+                                                <h4><a href="">Simon Egersand 🎈</a></h4>
+                                                <p class="grey-text">prplcode.hashnode.dev
+                                                    &nbsp;·&nbsp;
+                                                    Jul 2, 2022
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="article-content">
+                                            <div class="content">
+                                                <h3 class="con">Write Git Commit Messages That Your Colleagues Will Love</h3>
+                                                <div class="read-reactions con">
+                                                    <div class="read">
+                                                        <img src="{%static 'assets/datasnap/rsc/read.png'%}" alt="">
+                                                        <p class="grey-text">4 mins <span class="temp grey-text">read</span></p>
+                                                    </div>
+                                                    <div>
+                                                        <img src="{%static 'assets/datasnap/rsc/like.png'%}" alt="like" class="like">
+                                                        <p class="grey-text">
+                                                            23
+                                                            <span class="temp grey-text">Reactions</span>
+                                                        </p>
+                                                    </div>
+                                                    <div>
+                                                        <img src="{%static 'assets/datasnap/rsc/comment.png'%}" alt="comment" class="comment">
+                                                        <p class="grey-text">
+                                                            4
+                                                            <span class="temp grey-text">Comments</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <p class="grey-text con">Git commit messages are how we communicate to our future selves. They help you understand why a certain line of code was added to the code base. That's why knowing how to write a good Git commit messa…</p>
+                                            </div>
+                                            <div>
+                                                <img src="{%static 'assets/datasnap/rsc/image2.png'%}" alt="" class="image">
+                                            </div>
+                                        </div>
+                                        <div class="tags-used">
+                                            <p class="used-tags grey-text reaction-item">Tags :
+                                                <span class="used-tag grey-text">Javascript</span>
+                                                <span class="used-tag grey-text">Git</span>
+                                                <span class="used-tag grey-text num">+1</span>
+                                            </p>
+                                            <p class="save-button grey-text">Save post</p>
+                                        </div>
+                                    </div>
+                                    <div class="article">
+                                        <div class="profile">
+                                            <div>
+                                                <img src="{%static 'assets/datasnap/rsc/jeffrey-keenan-pUhxoSapPFA-unsplash.jpg'%}" alt="" class="profile-image">
+                                            </div>
+                                            <div class="info">
+                                                <h4><a href="">Simon Egersand 🎈</a></h4>
+                                                <p class="grey-text">prplcode.hashnode.dev
+                                                    &nbsp;·&nbsp;
+                                                    Jul 2, 2022
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="article-content">
+                                            <div class="content">
+                                                <h3 class="con">Write Git Commit Messages That Your Colleagues Will Love</h3>
+                                                <div class="read-reactions con">
+                                                    <div class="read">
+                                                        <img src="{%static 'assets/datasnap/rsc/read.png'%}" alt="">
+                                                        <p class="grey-text">4 mins <span class="temp grey-text">read</span></p>
+                                                    </div>
+                                                    <div>
+                                                        <img src="{%static 'assets/datasnap/rsc/like.png'%}" alt="like" class="like">
+                                                        <p class="grey-text">
+                                                            23
+                                                            <span class="temp grey-text">Reactions</span>
+                                                        </p>
+                                                    </div>
+                                                    <div>
+                                                        <img src="{%static 'assets/datasnap/rsc/comment.png'%}" alt="comment" class="comment">
+                                                        <p class="grey-text">
+                                                            4
+                                                            <span class="temp grey-text">Comments</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <p class="grey-text con">Git commit messages are how we communicate to our future selves. They help you understand why a certain line of code was added to the code base. That's why knowing how to write a good Git commit messa…</p>
+                                            </div>
+                                            <div>
+                                                <img src="{%static 'assets/datasnap/rsc/image2.png'%}" alt="" class="image">
+                                            </div>
+                                        </div>
+                                        <div class="tags-used">
+                                            <p class="used-tags grey-text reaction-item">Tags :
+                                                <span class="used-tag grey-text">Javascript</span>
+                                                <span class="used-tag grey-text">Git</span>
+                                                <span class="used-tag grey-text num">+1</span>
+                                            </p>
+                                            <p class="save-button grey-text">Save post</p>
+                                        </div>
+                                    </div>
+                                    <div class="article">
+                                        <div class="profile">
+                                            <div>
+                                                <img src="{%static 'assets/datasnap/rsc/jeffrey-keenan-pUhxoSapPFA-unsplash.jpg'%}" alt="" class="profile-image">
+                                            </div>
+                                            <div class="info">
+                                                <h4><a href="">Simon Egersand 🎈</a></h4>
+                                                <p class="grey-text">prplcode.hashnode.dev
+                                                    &nbsp;·&nbsp;
+                                                    Jul 2, 2022
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="article-content">
+                                            <div class="content">
+                                                <h3 class="con">Write Git Commit Messages That Your Colleagues Will Love</h3>
+                                                <div class="read-reactions con">
+                                                    <div class="read">
+                                                        <img src="{%static 'assets/datasnap/rsc/read.png'%}" alt="">
+                                                        <p class="grey-text">4 mins <span class="temp grey-text">read</span></p>
+                                                    </div>
+                                                    <div>
+                                                        <img src="{%static 'assets/datasnap/rsc/like.png'%}" alt="like" class="like">
+                                                        <p class="grey-text">
+                                                            23
+                                                            <span class="temp grey-text">Reactions</span>
+                                                        </p>
+                                                    </div>
+                                                    <div>
+                                                        <img src="{%static 'assets/datasnap/rsc/comment.png'%}" alt="comment" class="comment">
+                                                        <p class="grey-text">
+                                                            4
+                                                            <span class="temp grey-text">Comments</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <p class="grey-text con">Git commit messages are how we communicate to our future selves. They help you understand why a certain line of code was added to the code base. That's why knowing how to write a good Git commit messa…</p>
+                                            </div>
+                                            <div>
+                                                <img src="{%static 'assets/datasnap/rsc/image2.png'%}" alt="" class="image">
+                                            </div>
+                                        </div>
+                                        <div class="tags-used">
+                                            <p class="used-tags grey-text reaction-item">Tags :
+                                                <span class="used-tag grey-text">Javascript</span>
+                                                <span class="used-tag grey-text">Git</span>
+                                                <span class="used-tag grey-text num">+1</span>
+                                            </p>
+                                            <p class="save-button grey-text">Save post</p>
+                                        </div>
+                                    </div>
+                                    <div class="article">
+                                        <div class="profile">
+                                            <div>
+                                                <img src="{%static 'assets/datasnap/rsc/jeffrey-keenan-pUhxoSapPFA-unsplash.jpg'%}" alt="" class="profile-image">
+                                            </div>
+                                            <div class="info">
+                                                <h4><a href="">Simon Egersand 🎈</a></h4>
+                                                <p class="grey-text">prplcode.hashnode.dev
+                                                    &nbsp;·&nbsp;
+                                                    Jul 2, 2022
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="article-content">
+                                            <div class="content">
+                                                <h3 class="con">Write Git Commit Messages That Your Colleagues Will Love</h3>
+                                                <div class="read-reactions con">
+                                                    <div class="read">
+                                                        <img src="{%static 'assets/datasnap/rsc/read.png'%}" alt="">
+                                                        <p class="grey-text">4 mins <span class="temp grey-text">read</span></p>
+                                                    </div>
+                                                    <div>
+                                                        <img src="{%static 'assets/datasnap/rsc/like.png'%}" alt="like" class="like">
+                                                        <p class="grey-text">
+                                                            23
+                                                            <span class="temp grey-text">Reactions</span>
+                                                        </p>
+                                                    </div>
+                                                    <div>
+                                                        <img src="{%static 'assets/datasnap/rsc/comment.png'%}" alt="comment" class="comment">
+                                                        <p class="grey-text">
+                                                            4
+                                                            <span class="temp grey-text">Comments</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <p class="grey-text con">Git commit messages are how we communicate to our future selves. They help you understand why a certain line of code was added to the code base. That's why knowing how to write a good Git commit messa…</p>
+                                            </div>
+                                            <div>
+                                                <img src="{%static 'assets/datasnap/rsc/image2.png'%}" alt="" class="image">
+                                            </div>
+                                        </div>
+                                        <div class="tags-used">
+                                            <p class="used-tags grey-text reaction-item">Tags :
+                                                <span class="used-tag grey-text">Javascript</span>
+                                                <span class="used-tag grey-text">Git</span>
+                                                <span class="used-tag grey-text num">+1</span>
+                                            </p>
+                                            <p class="save-button grey-text">Save post</p>
+                                        </div>
+                                    </div>
+                                    <div class="article">
+                                        <div class="profile">
+                                            <div>
+                                                <img src="{%static 'assets/datasnap/rsc/jeffrey-keenan-pUhxoSapPFA-unsplash.jpg'%}" alt="" class="profile-image">
+                                            </div>
+                                            <div class="info">
+                                                <h4><a href="">Simon Egersand 🎈</a></h4>
+                                                <p class="grey-text">prplcode.hashnode.dev
+                                                    &nbsp;·&nbsp;
+                                                    Jul 2, 2022
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="article-content">
+                                            <div class="content">
+                                                <h3 class="con">Write Git Commit Messages That Your Colleagues Will Love</h3>
+                                                <div class="read-reactions con">
+                                                    <div class="read">
+                                                        <img src="{%static 'assets/datasnap/rsc/read.png'%}" alt="">
+                                                        <p class="grey-text">4 mins <span class="temp grey-text">read</span></p>
+                                                    </div>
+                                                    <div>
+                                                        <img src="{%static 'assets/datasnap/rsc/like.png'%}" alt="like" class="like">
+                                                        <p class="grey-text">
+                                                            23
+                                                            <span class="temp grey-text">Reactions</span>
+                                                        </p>
+                                                    </div>
+                                                    <div>
+                                                        <img src="{%static 'assets/datasnap/rsc/comment.png'%}" alt="comment" class="comment">
+                                                        <p class="grey-text">
+                                                            4
+                                                            <span class="temp grey-text">Comments</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <p class="grey-text con">Git commit messages are how we communicate to our future selves. They help you understand why a certain line of code was added to the code base. That's why knowing how to write a good Git commit messa…</p>
+                                            </div>
+                                            <div>
+                                                <img src="{%static 'assets/datasnap/rsc/image2.png'%}" alt="" class="image">
+                                            </div>
+                                        </div>
+                                        <div class="tags-used">
+                                            <p class="used-tags grey-text reaction-item">Tags :
+                                                <span class="used-tag grey-text">Javascript</span>
+                                                <span class="used-tag grey-text">Git</span>
+                                                <span class="used-tag grey-text num">+1</span>
+                                            </p>
+                                            <p class="save-button grey-text">Save post</p>
+                                        </div>
+                                    </div>
+                                    <div class="article">
+                                        <div class="profile">
+                                            <div>
+                                                <img src="{%static 'assets/datasnap/rsc/jeffrey-keenan-pUhxoSapPFA-unsplash.jpg'%}" alt="" class="profile-image">
+                                            </div>
+                                            <div class="info">
+                                                <h4><a href="">Simon Egersand 🎈</a></h4>
+                                                <p class="grey-text">prplcode.hashnode.dev
+                                                    &nbsp;·&nbsp;
+                                                    Jul 2, 2022
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="article-content">
+                                            <div class="content">
+                                                <h3 class="con">Write Git Commit Messages That Your Colleagues Will Love</h3>
+                                                <div class="read-reactions con">
+                                                    <div class="read">
+                                                        <img src="{%static 'assets/datasnap/rsc/read.png'%}" alt="">
+                                                        <p class="grey-text">4 mins <span class="temp grey-text">read</span></p>
+                                                    </div>
+                                                    <div>
+                                                        <img src="{%static 'assets/datasnap/rsc/like.png'%}" alt="like" class="like">
+                                                        <p class="grey-text">
+                                                            23
+                                                            <span class="temp grey-text">Reactions</span>
+                                                        </p>
+                                                    </div>
+                                                    <div>
+                                                        <img src="{%static 'assets/datasnap/rsc/comment.png'%}" alt="comment" class="comment">
+                                                        <p class="grey-text">
+                                                            4
+                                                            <span class="temp grey-text">Comments</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <p class="grey-text con">Git commit messages are how we communicate to our future selves. They help you understand why a certain line of code was added to the code base. That's why knowing how to write a good Git commit messa…</p>
+                                            </div>
+                                            <div>
+                                                <img src="{%static 'assets/datasnap/rsc/image2.png'%}" alt="" class="image">
+                                            </div>
+                                        </div>
+                                        <div class="tags-used">
+                                            <p class="used-tags grey-text reaction-item">Tags :
+                                                <span class="used-tag grey-text">Javascript</span>
+                                                <span class="used-tag grey-text">Git</span>
+                                                <span class="used-tag grey-text num">+1</span>
+                                            </p>
+                                            <p class="save-button grey-text">Save post</p>
+                                        </div>
+                                    </div>
+                                    <div class="article">
+                                        <div class="profile">
+                                            <div>
+                                                <img src="{%static 'assets/datasnap/rsc/jeffrey-keenan-pUhxoSapPFA-unsplash.jpg'%}" alt="" class="profile-image">
+                                            </div>
+                                            <div class="info">
+                                                <h4><a href="">Simon Egersand 🎈</a></h4>
+                                                <p class="grey-text">prplcode.hashnode.dev
+                                                    &nbsp;·&nbsp;
+                                                    Jul 2, 2022
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="article-content">
+                                            <div class="content">
+                                                <h3 class="con">Write Git Commit Messages That Your Colleagues Will Love</h3>
+                                                <div class="read-reactions con">
+                                                    <div class="read">
+                                                        <img src="{%static 'assets/datasnap/rsc/read.png'%}" alt="">
+                                                        <p class="grey-text">4 mins <span class="temp grey-text">read</span></p>
+                                                    </div>
+                                                    <div>
+                                                        <img src="{%static 'assets/datasnap/rsc/like.png'%}" alt="like" class="like">
+                                                        <p class="grey-text">
+                                                            23
+                                                            <span class="temp grey-text">Reactions</span>
+                                                        </p>
+                                                    </div>
+                                                    <div>
+                                                        <img src="{%static 'assets/datasnap/rsc/comment.png'%}" alt="comment" class="comment">
+                                                        <p class="grey-text">
+                                                            4
+                                                            <span class="temp grey-text">Comments</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <p class="grey-text con">Git commit messages are how we communicate to our future selves. They help you understand why a certain line of code was added to the code base. That's why knowing how to write a good Git commit messa…</p>
+                                            </div>
+                                            <div>
+                                                <img src="{%static 'assets/datasnap/rsc/image2.png'%}" alt="" class="image">
+                                            </div>
+                                        </div>
+                                        <div class="tags-used">
+                                            <p class="used-tags grey-text reaction-item">Tags :
+                                                <span class="used-tag grey-text">Javascript</span>
+                                                <span class="used-tag grey-text">Git</span>
+                                                <span class="used-tag grey-text num">+1</span>
+                                            </p>
+                                            <p class="save-button grey-text">Save post</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="middle recent">
+                                <div class="articles">
+                                    <div class="article">
+                                        <div class="profile">
+                                            <div>
+                                                <img src="{%static 'assets/datasnap/rsc/jeffrey-keenan-pUhxoSapPFA-unsplash.jpg'%}" alt="" class="profile-image">
+                                            </div>
+                                            <div class="info">
+                                                <h4><a href="">Simon Egersand 🎈</a></h4>
+                                                <p class="grey-text">prplcode.hashnode.dev
+                                                    &nbsp;·&nbsp;
+                                                    Jul 2, 2022
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="article-content">
+                                            <div class="content">
+                                                <h3 class="con">Write Git Commit Messages That Your Colleagues Will Love</h3>
+                                                <div class="read-reactions con">
+                                                    <div class="read">
+                                                        <img src="{%static 'assets/datasnap/rsc/read.png'%}" alt="">
+                                                        <p class="grey-text">4 mins <span class="temp grey-text">read</span></p>
+                                                    </div>
+                                                    <div>
+                                                        <img src="{%static 'assets/datasnap/rsc/like.png'%}" alt="like" class="like">
+                                                        <p class="grey-text">
+                                                            23
+                                                            <span class="temp grey-text">Reactions</span>
+                                                        </p>
+                                                    </div>
+                                                    <div>
+                                                        <img src="{%static 'assets/datasnap/rsc/comment.png'%}" alt="comment" class="comment">
+                                                        <p class="grey-text">
+                                                            4
+                                                            <span class="temp grey-text">Comments</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <p class="grey-text con">Git commit messages are how we communicate to our future selves. They help you understand why a certain line of code was added to the code base. That's why knowing how to write a good Git commit messa…</p>
+                                            </div>
+                                            <div>
+                                                <img src="{%static 'assets/datasnap/rsc/image2.png'%}" alt="" class="image">
+                                            </div>
+                                        </div>
+                                        <div class="tags-used">
+                                            <p class="used-tags grey-text reaction-item">Tags :
+                                                <span class="used-tag grey-text">Javascript</span>
+                                                <span class="used-tag grey-text">Git</span>
+                                                <span class="used-tag grey-text num">+1</span>
+                                            </p>
+                                            <p class="save-button grey-text">Save post</p>
+                                        </div>
+                                    </div>
+                                    <div class="article">
+                                        <div class="profile">
+                                            <div>
+                                                <img src="{%static 'assets/datasnap/rsc/jeffrey-keenan-pUhxoSapPFA-unsplash.jpg'%}" alt="" class="profile-image">
+                                            </div>
+                                            <div class="info">
+                                                <h4><a href="">Simon Egersand 🎈</a></h4>
+                                                <p class="grey-text">prplcode.hashnode.dev
+                                                    &nbsp;·&nbsp;
+                                                    Jul 2, 2022
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="article-content">
+                                            <div class="content">
+                                                <h3 class="con">Write Git Commit Messages That Your Colleagues Will Love</h3>
+                                                <div class="read-reactions con">
+                                                    <div class="read">
+                                                        <img src="{%static 'assets/datasnap/rsc/read.png'%}" alt="">
+                                                        <p class="grey-text">4 mins <span class="temp grey-text">read</span></p>
+                                                    </div>
+                                                    <div>
+                                                        <img src="{%static 'assets/datasnap/rsc/like.png'%}" alt="like" class="like">
+                                                        <p class="grey-text">
+                                                            23
+                                                            <span class="temp grey-text">Reactions</span>
+                                                        </p>
+                                                    </div>
+                                                    <div>
+                                                        <img src="{%static 'assets/datasnap/rsc/comment.png'%}" alt="comment" class="comment">
+                                                        <p class="grey-text">
+                                                            4
+                                                            <span class="temp grey-text">Comments</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <p class="grey-text con">Git commit messages are how we communicate to our future selves. They help you understand why a certain line of code was added to the code base. That's why knowing how to write a good Git commit messa…</p>
+                                            </div>
+                                            <div>
+                                                <img src="{%static 'assets/datasnap/rsc/image2.png'%}" alt="" class="image">
+                                            </div>
+                                        </div>
+                                        <div class="tags-used">
+                                            <p class="used-tags grey-text reaction-item">Tags :
+                                                <span class="used-tag grey-text">Javascript</span>
+                                                <span class="used-tag grey-text">Git</span>
+                                                <span class="used-tag grey-text num">+1</span>
+                                            </p>
+                                            <p class="save-button grey-text">Save post</p>
+                                        </div>
+                                    </div>
+                                    <div class="article">
+                                        <div class="profile">
+                                            <div>
+                                                <img src="{%static 'assets/datasnap/rsc/jeffrey-keenan-pUhxoSapPFA-unsplash.jpg'%}" alt="" class="profile-image">
+                                            </div>
+                                            <div class="info">
+                                                <h4><a href="">Simon Egersand 🎈</a></h4>
+                                                <p class="grey-text">prplcode.hashnode.dev
+                                                    &nbsp;·&nbsp;
+                                                    Jul 2, 2022
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="article-content">
+                                            <div class="content">
+                                                <h3 class="con">Write Git Commit Messages That Your Colleagues Will Love</h3>
+                                                <div class="read-reactions con">
+                                                    <div class="read">
+                                                        <img src="{%static 'assets/datasnap/rsc/read.png'%}" alt="">
+                                                        <p class="grey-text">4 mins <span class="temp grey-text">read</span></p>
+                                                    </div>
+                                                    <div>
+                                                        <img src="{%static 'assets/datasnap/rsc/like.png'%}" alt="like" class="like">
+                                                        <p class="grey-text">
+                                                            23
+                                                            <span class="temp grey-text">Reactions</span>
+                                                        </p>
+                                                    </div>
+                                                    <div>
+                                                        <img src="{%static 'assets/datasnap/rsc/comment.png'%}" alt="comment" class="comment">
+                                                        <p class="grey-text">
+                                                            4
+                                                            <span class="temp grey-text">Comments</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <p class="grey-text con">Git commit messages are how we communicate to our future selves. They help you understand why a certain line of code was added to the code base. That's why knowing how to write a good Git commit messa…</p>
+                                            </div>
+                                            <div>
+                                                <img src="{%static 'assets/datasnap/rsc/image2.png'%}" alt="" class="image">
+                                            </div>
+                                        </div>
+                                        <div class="tags-used">
+                                            <p class="used-tags grey-text reaction-item">Tags :
+                                                <span class="used-tag grey-text">Javascript</span>
+                                                <span class="used-tag grey-text">Git</span>
+                                                <span class="used-tag grey-text num">+1</span>
+                                            </p>
+                                            <p class="save-button grey-text">Save post</p>
+                                        </div>
+                                    </div>
+                                    <div class="article">
+                                        <div class="profile">
+                                            <div>
+                                                <img src="{%static 'assets/datasnap/rsc/jeffrey-keenan-pUhxoSapPFA-unsplash.jpg'%}" alt="" class="profile-image">
+                                            </div>
+                                            <div class="info">
+                                                <h4><a href="">Simon Egersand 🎈</a></h4>
+                                                <p class="grey-text">prplcode.hashnode.dev
+                                                    &nbsp;·&nbsp;
+                                                    Jul 2, 2022
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="article-content">
+                                            <div class="content">
+                                                <h3 class="con">Write Git Commit Messages That Your Colleagues Will Love</h3>
+                                                <div class="read-reactions con">
+                                                    <div class="read">
+                                                        <img src="{%static 'assets/datasnap/rsc/read.png'%}" alt="">
+                                                        <p class="grey-text">4 mins <span class="temp grey-text">read</span></p>
+                                                    </div>
+                                                    <div>
+                                                        <img src="{%static 'assets/datasnap/rsc/like.png'%}" alt="like" class="like">
+                                                        <p class="grey-text">
+                                                            23
+                                                            <span class="temp grey-text">Reactions</span>
+                                                        </p>
+                                                    </div>
+                                                    <div>
+                                                        <img src="{%static 'assets/datasnap/rsc/comment.png'%}" alt="comment" class="comment">
+                                                        <p class="grey-text">
+                                                            4
+                                                            <span class="temp grey-text">Comments</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <p class="grey-text con">Git commit messages are how we communicate to our future selves. They help you understand why a certain line of code was added to the code base. That's why knowing how to write a good Git commit messa…</p>
+                                            </div>
+                                            <div>
+                                                <img src="{%static 'assets/datasnap/rsc/image2.png'%}" alt="" class="image">
+                                            </div>
+                                        </div>
+                                        <div class="tags-used">
+                                            <p class="used-tags grey-text reaction-item">Tags :
+                                                <span class="used-tag grey-text">Javascript</span>
+                                                <span class="used-tag grey-text">Git</span>
+                                                <span class="used-tag grey-text num">+1</span>
+                                            </p>
+                                            <p class="save-button grey-text">Save post</p>
+                                        </div>
+                                    </div>
+                                    <div class="article">
+                                        <div class="profile">
+                                            <div>
+                                                <img src="{%static 'assets/datasnap/rsc/jeffrey-keenan-pUhxoSapPFA-unsplash.jpg'%}" alt="" class="profile-image">
+                                            </div>
+                                            <div class="info">
+                                                <h4><a href="">Simon Egersand 🎈</a></h4>
+                                                <p class="grey-text">prplcode.hashnode.dev
+                                                    &nbsp;·&nbsp;
+                                                    Jul 2, 2022
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="article-content">
+                                            <div class="content">
+                                                <h3 class="con">Write Git Commit Messages That Your Colleagues Will Love</h3>
+                                                <div class="read-reactions con">
+                                                    <div class="read">
+                                                        <img src="{%static 'assets/datasnap/rsc/read.png'%}" alt="">
+                                                        <p class="grey-text">4 mins <span class="temp grey-text">read</span></p>
+                                                    </div>
+                                                    <div>
+                                                        <img src="{%static 'assets/datasnap/rsc/like.png'%}" alt="like" class="like">
+                                                        <p class="grey-text">
+                                                            23
+                                                            <span class="temp grey-text">Reactions</span>
+                                                        </p>
+                                                    </div>
+                                                    <div>
+                                                        <img src="{%static 'assets/datasnap/rsc/comment.png'%}" alt="comment" class="comment">
+                                                        <p class="grey-text">
+                                                            4
+                                                            <span class="temp grey-text">Comments</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <p class="grey-text con">Git commit messages are how we communicate to our future selves. They help you understand why a certain line of code was added to the code base. That's why knowing how to write a good Git commit messa…</p>
+                                            </div>
+                                            <div>
+                                                <img src="{%static 'assets/datasnap/rsc/image2.png'%}" alt="" class="image">
+                                            </div>
+                                        </div>
+                                        <div class="tags-used">
+                                            <p class="used-tags grey-text reaction-item">Tags :
+                                                <span class="used-tag grey-text">Javascript</span>
+                                                <span class="used-tag grey-text">Git</span>
+                                                <span class="used-tag grey-text num">+1</span>
+                                            </p>
+                                            <p class="save-button grey-text">Save post</p>
+                                        </div>
+                                    </div>
+                                    <div class="article">
+                                        <div class="profile">
+                                            <div>
+                                                <img src="{%static 'assets/datasnap/rsc/jeffrey-keenan-pUhxoSapPFA-unsplash.jpg'%}" alt="" class="profile-image">
+                                            </div>
+                                            <div class="info">
+                                                <h4><a href="">Simon Egersand 🎈</a></h4>
+                                                <p class="grey-text">prplcode.hashnode.dev
+                                                    &nbsp;·&nbsp;
+                                                    Jul 2, 2022
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="article-content">
+                                            <div class="content">
+                                                <h3 class="con">Write Git Commit Messages That Your Colleagues Will Love</h3>
+                                                <div class="read-reactions con">
+                                                    <div class="read">
+                                                        <img src="{%static 'assets/datasnap/rsc/read.png'%}" alt="">
+                                                        <p class="grey-text">4 mins <span class="temp grey-text">read</span></p>
+                                                    </div>
+                                                    <div>
+                                                        <img src="{%static 'assets/datasnap/rsc/like.png'%}" alt="like" class="like">
+                                                        <p class="grey-text">
+                                                            23
+                                                            <span class="temp grey-text">Reactions</span>
+                                                        </p>
+                                                    </div>
+                                                    <div>
+                                                        <img src="{%static 'assets/datasnap/rsc/comment.png'%}" alt="comment" class="comment">
+                                                        <p class="grey-text">
+                                                            4
+                                                            <span class="temp grey-text">Comments</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <p class="grey-text con">Git commit messages are how we communicate to our future selves. They help you understand why a certain line of code was added to the code base. That's why knowing how to write a good Git commit messa…</p>
+                                            </div>
+                                            <div>
+                                                <img src="{%static 'assets/datasnap/rsc/image2.png'%}" alt="" class="image">
+                                            </div>
+                                        </div>
+                                        <div class="tags-used">
+                                            <p class="used-tags grey-text reaction-item">Tags :
+                                                <span class="used-tag grey-text">Javascript</span>
+                                                <span class="used-tag grey-text">Git</span>
+                                                <span class="used-tag grey-text num">+1</span>
+                                            </p>
+                                            <p class="save-button grey-text">Save post</p>
+                                        </div>
+                                    </div>
+                                    <div class="article">
+                                        <div class="profile">
+                                            <div>
+                                                <img src="{%static 'assets/datasnap/rsc/jeffrey-keenan-pUhxoSapPFA-unsplash.jpg'%}" alt="" class="profile-image">
+                                            </div>
+                                            <div class="info">
+                                                <h4><a href="">Simon Egersand 🎈</a></h4>
+                                                <p class="grey-text">prplcode.hashnode.dev
+                                                    &nbsp;·&nbsp;
+                                                    Jul 2, 2022
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="article-content">
+                                            <div class="content">
+                                                <h3 class="con">Write Git Commit Messages That Your Colleagues Will Love</h3>
+                                                <div class="read-reactions con">
+                                                    <div class="read">
+                                                        <img src="{%static 'assets/datasnap/rsc/read.png'%}" alt="">
+                                                        <p class="grey-text">4 mins <span class="temp grey-text">read</span></p>
+                                                    </div>
+                                                    <div>
+                                                        <img src="{%static 'assets/datasnap/rsc/like.png'%}" alt="like" class="like">
+                                                        <p class="grey-text">
+                                                            23
+                                                            <span class="temp grey-text">Reactions</span>
+                                                        </p>
+                                                    </div>
+                                                    <div>
+                                                        <img src="{%static 'assets/datasnap/rsc/comment.png'%}" alt="comment" class="comment">
+                                                        <p class="grey-text">
+                                                            4
+                                                            <span class="temp grey-text">Comments</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <p class="grey-text con">Git commit messages are how we communicate to our future selves. They help you understand why a certain line of code was added to the code base. That's why knowing how to write a good Git commit messa…</p>
+                                            </div>
+                                            <div>
+                                                <img src="{%static 'assets/datasnap/rsc/image2.png'%}" alt="" class="image">
+                                            </div>
+                                        </div>
+                                        <div class="tags-used">
+                                            <p class="used-tags grey-text reaction-item">Tags :
+                                                <span class="used-tag grey-text">Javascript</span>
+                                                <span class="used-tag grey-text">Git</span>
+                                                <span class="used-tag grey-text num">+1</span>
+                                            </p>
+                                            <p class="save-button grey-text">Save post</p>
+                                        </div>
+                                    </div>
+                                    <div class="article">
+                                        <div class="profile">
+                                            <div>
+                                                <img src="{%static 'assets/datasnap/rsc/jeffrey-keenan-pUhxoSapPFA-unsplash.jpg'%}" alt="" class="profile-image">
+                                            </div>
+                                            <div class="info">
+                                                <h4><a href="">Simon Egersand 🎈</a></h4>
+                                                <p class="grey-text">prplcode.hashnode.dev
+                                                    &nbsp;·&nbsp;
+                                                    Jul 2, 2022
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="article-content">
+                                            <div class="content">
+                                                <h3 class="con">Write Git Commit Messages That Your Colleagues Will Love</h3>
+                                                <div class="read-reactions con">
+                                                    <div class="read">
+                                                        <img src="{%static 'assets/datasnap/rsc/read.png'%}" alt="">
+                                                        <p class="grey-text">4 mins <span class="temp grey-text">read</span></p>
+                                                    </div>
+                                                    <div>
+                                                        <img src="{%static 'assets/datasnap/rsc/like.png'%}" alt="like" class="like">
+                                                        <p class="grey-text">
+                                                            23
+                                                            <span class="temp grey-text">Reactions</span>
+                                                        </p>
+                                                    </div>
+                                                    <div>
+                                                        <img src="{%static 'assets/datasnap/rsc/comment.png'%}" alt="comment" class="comment">
+                                                        <p class="grey-text">
+                                                            4
+                                                            <span class="temp grey-text">Comments</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <p class="grey-text con">Git commit messages are how we communicate to our future selves. They help you understand why a certain line of code was added to the code base. That's why knowing how to write a good Git commit messa…</p>
+                                            </div>
+                                            <div>
+                                                <img src="{%static 'assets/datasnap/rsc/image2.png'%}" alt="" class="image">
+                                            </div>
+                                        </div>
+                                        <div class="tags-used">
+                                            <p class="used-tags grey-text reaction-item">Tags :
+                                                <span class="used-tag grey-text">Javascript</span>
+                                                <span class="used-tag grey-text">Git</span>
+                                                <span class="used-tag grey-text num">+1</span>
+                                            </p>
+                                            <p class="save-button grey-text">Save post</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right-side-container">
+                        <div class="right-side">
+                            <div class="android right-item">
+                                <div class="android-image">
+                                    <img src="{%static 'assets/datasnap/rsc/icons8-android-96.png'%}" alt="">
+                                </div>
+                                <div class="trending-tags">
+                                    <p>Datasnap for android is here !</p>
+                                </div>
+                            </div>
+                            <div class="trending right-item">
+                                <div class="trending-tags">
+                                    <p>Trending Articles</p>
+                                    <img src="{%static 'assets/datasnap/rsc/icons8-trending-topic-25.png'%}" alt="">
+                                </div>
+                                <div class="trending-articles">
+                                    <div class="trending-article">
+                                        <div>
+                                            <img src="{%static 'assets/datasnap/rsc/kristina-v-hYdikKrex4U-unsplash.jpg'%}" alt="" class="profile-image">
+                                        </div>
+                                        <div class="article-head">
+                                            <h4>Build an Open Source app with PlanetScale in July, and compete for $20,000 in cash prizes and swags! 🎉</h4>
+                                            <p class="grey-text">Eleftheria Batsou</p>
+                                            <p class="grey-text reac">
+                                                <span><img src="{%static 'assets/datasnap/rsc/like.png'%}" alt=""><span class="grey-text">98</span></span>
+                                                <span><img src="{%static 'assets/datasnap/rsc/comment.png'%}" alt=""><span class="grey-text">10</span></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="trending-article">
+                                        <div>
+                                            <img src="{%static 'assets/datasnap/rsc/radu-florin-4_QFycgpC4c-unsplash.jpg'%}" alt="" class="profile-image">
+                                        </div>
+                                        <div class="article-head">
+                                            <h4>Introducing qrate - A smart tool to curate your links the smart way.</h4>
+                                            <p class="grey-text">Somnath Mishra</p>
+                                            <p class="grey-text reac">
+                                                <span><img src="{%static 'assets/datasnap/rsc/like.png'%}" alt=""><span class="grey-text">98</span></span>
+                                                <span><img src="{%static 'assets/datasnap/rsc/comment.png'%}" alt=""><span class="grey-text">10</span></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="trending-article last">
+                                        <div>
+                                            <img src="{%static 'assets/datasnap/rsc/paul-castanie-WZB_ZOqR4dA-unsplash.jpg'%}" alt="" class="profile-image">
+                                        </div>
+                                        <div class="article-head">
+                                            <h4>Introducing Mockoops - Transform boring screen-recordings into jaw-dropping animations</h4>
+                                            <p class="grey-text">Mohit Yadav</p>
+                                            <p class="grey-text reac">
+                                                <span><img src="{%static 'assets/datasnap/rsc/like.png'%}" alt=""><span class="grey-text">98</span></span>
+                                                <span><img src="{%static 'assets/datasnap/rsc/comment.png'%}" alt=""><span class="grey-text">10</span></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <p id="show-more" class="trending-article">Show more</p>
+                                </div>
+                            </div>
+                            <div class="recently right-item">
+                                <div class="trending-tags">
+                                    <p>Recently Accessed</p>
+                                </div>
+                                <div class="trending-articles">
+                                    <div class="trending-article">
+                                        <div>
+                                            <img src="{%static 'assets/datasnap/rsc/kristina-v-hYdikKrex4U-unsplash.jpg'%}" alt="" class="profile-image">
+                                        </div>
+                                        <div class="article-head">
+                                            <h4>Build an Open Source app with PlanetScale in July, and compete for $20,000 in cash prizes and swags! 🎉</h4>
+                                            <p class="grey-text">Eleftheria Batsou</p>
+                                        </div>
+                                    </div>
+                                    <div class="trending-article">
+                                        <div>
+                                            <img src="{%static 'assets/datasnap/rsc/radu-florin-4_QFycgpC4c-unsplash.jpg'%}" alt="" class="profile-image">
+                                        </div>
+                                        <div class="article-head">
+                                            <h4>Introducing qrate - A smart tool to curate your links the smart way.</h4>
+                                            <p class="grey-text">Somnath Mishra</p>
+                                        </div>
+                                    </div>
+                                    <div class="trending-article last">
+                                        <div>
+                                            <img src="{%static 'assets/datasnap/rsc/paul-castanie-WZB_ZOqR4dA-unsplash.jpg'%}" alt="" class="profile-image">
+                                        </div>
+                                        <div class="article-head">
+                                            <h4>Introducing Mockoops - Transform boring screen-recordings into jaw-dropping animations</h4>
+                                            <p class="grey-text">Mohit Yadav</p>
+                                        </div>
+                                    </div>
+                                    <p id="show-more" class="trending-article">Show more</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="phone-footer">
+                <div>
+                    <a href=""><img src="{%static 'assets/datasnap/rsc/feed.png'%}" alt="feed"></a>
+                    <a href=""><img src="{%static 'assets/datasnap/rsc/search.png'%}" alt="search"></a>
+                    <a href="blog-index.html"><img src="{%static 'assets/datasnap/rsc/write-big.png'%}" alt="" id="write"></a>
+                    <a href="bookmarks-index.html"><img src="{%static 'assets/datasnap/rsc/bookmark.png'%}" alt="bookmark"></a>
+                    <a href=""><img src="{%static 'assets/datasnap/rsc/notification-bell.png'%}" alt="notifications" id="noti"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{%static 'assets/datasnap/script.js'%}"></script>
+    <script src="{%static 'assets/datasnap/tab.js'%}"></script>
+</body>
+</html>

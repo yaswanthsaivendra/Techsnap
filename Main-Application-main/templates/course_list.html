@@ -1,0 +1,17 @@
+<h1>Course List View Page</h1>
+{% for c in user.profile.courseprofile %}
+	{{c}}
+{% endfor%}
+<hr>
+{% for object in object_list %}
+	<img src="{{object.pic.url}}">
+	{% if object in user.profile.courseprofile %}
+	<a href="{{ object.get_absolute_url }}">{{ object }}</a>
+	{% else %}
+	<a href="{{ object.get_absolute_url }}">{{ object }}</a>
+	<form action="{% url 'courses:course_enroll' object.slug %}" method="POST">
+		{% csrf_token %}
+		<button type="submit" name="slug" value="{{object.slug}}">Enroll</button>
+	</form>
+	{% endif %}
+{% endfor %}

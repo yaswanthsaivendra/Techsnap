@@ -1,0 +1,1625 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+    <link href="{% static 'css/description/head.css'%}" rel="stylesheet" />
+    <link href="{% static 'css/description/foot.css'%}" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/description/style.css'%}" />
+    <title>Document</title>
+{% endblock %}
+
+{% block content %}
+ <div class="nav-bar-desktop">
+                <div class="desk-nav-frame">
+                    <img src="{% static 'images/logo.png'%}" alt="TechSnap Logo" srcset="" height="60px"></img>
+                    <div class="desk-dropdowns">
+                        <li class="1-dropdown">
+                            <p class="catalog-desk">Catalog ⌵</p>
+                            <div class="catalog-dropdown-desk">
+                                <div class="dropdown-main-1-card">
+                                    <div class="dropdown-main-1-main-card">
+                                        <b>Course Catalog</b><br>
+                                        <p style="margin-top: 10px;">
+                                        Career options for students after completing engineering in Computer Science
+                                        </p>
+                                    </div>
+                                    <div class="dropdown-main-1-sub-card">
+                                        <b>Developer Careers</b><br>
+                                        <ul>
+                                            <li>Frontend Developer</li>
+                                            <li>Backend Developer</li>
+                                            <li>Software Developer</li>
+                                            <li>Game Developer</li>
+                                            <li>Mobile Application Dev</li>
+                                            <li>view all >></li>
+                                        </ul>
+                                    </div>
+                                    <div class="dropdown-main-1-sub-card">
+                                        <b>Data Careers</b><br>
+                                        <ul>
+                                            <li>Data Analyst</li>
+                                            <li>Data Engineer</li>
+                                            <li>Data Scientist</li>
+                                            <li>Data Architect</li>
+                                            <li>ML Engineer</li>
+                                            <li><a>view all >><a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="dropdown-main-1-sub-card">
+                                        <b>Cloud Careers</b><br>
+                                        <ul>
+                                            <li>Cloud Architect</li>
+                                            <li>DevOps Engineer</li>
+                                            <li>Cloud Security Analyst</li>
+                                            <li>Cloud Engineer</li>
+                                            <li>IOT Developer</li>
+                                            <li><a>view all >><a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="dropdown-main-1-sub-card">
+                                        <b>Other Careers</b><br>
+                                        <ul>
+                                            <li>UI/UX Designer</li>
+                                            <li>IT Consultant</li>
+                                            <li>SEO Manager</li>
+                                            <li>Social Media Manager</li>
+                                            <li>Technical Writer</li>
+                                            <li><a>view all >><a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="dropdown-main-1-card">
+                                    <div class="dropdown-main-1-main-card">
+                                        <b>Career Catalog</b><br>
+                                        <p style="margin-top: 10px;">
+                                            Career options for students after completing engineering in Computer Science
+                                        </p>
+                                    </div>
+                                    <div class="dropdown-main-1-sub-card">
+                                        <b>Tutorials</b><br>
+                                        <ul>
+                                            <li>Python</li>
+                                            <li>C++</li>
+                                            <li>HTML</li>
+                                            <li>SQL</li>
+                                            <li><a>view all courses</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="dropdown-main-1-sub-card">
+                                        <b>Live Mentorship</b><br>
+                                        <ul>
+                                            <li>Basics of Data Science</li>
+                                            <li>Basics of python</li>
+                                            <li>Basics of machine learning</li>
+                                            <li>Basics of MySQL</li>
+                                            <li><a>view all courses</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="dropdown-main-1-sub-card">
+                                        <b>Live Mentorship</b><br>
+                                        <ul>
+                                            <li>Basics of HTML, CSS</li>
+                                            <li>Basics of GitHub</li>
+                                            <li>Basics of Deployment</li>
+                                            <li>Basics of Django</li>
+                                            <li><a>view all courses</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="dropdown-main-1-card">
+                                    <div class="dropdown-main-1-main-card">
+                                        <b>Project Catalog</b><br>
+                                        <p style="margin-top: 10px;">
+                                            Career options for students after completing engineering in Computer Science
+                                        </p>
+                                    </div>
+                                    <div class="dropdown-main-1-sub-card">
+                                        <b>Web Development</b><br>
+                                        <ul>
+                                            <li>Building clones</li>
+                                            <li>Portfolio projects</li>
+                                            <li>Real World Application</li>
+                                            <li><a>view all courses</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="dropdown-main-1-sub-card">
+                                        <b>Data Science</b><br>
+                                        <ul>
+                                            <li>Data Analysis</li>
+                                            <li>Data Cleaning</li>
+                                            <li>Data Mining</li>
+                                            <li><a>view all courses</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="dropdown-main-1-sub-card">
+                                        <b>Machine Learning</b><br>
+                                        <ul>
+                                            <li>Regression Projects</li>
+                                            <li>Classification of projects</li>
+                                            <li>OpenCV Projects</li>
+                                            <li><a>view all courses</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li  class="2-dropdown">
+                            <p class="community-desk">Community ⌵</p>
+                            <div class="community-dropdown-desk desk-dropdown">
+                                <ul>
+                                    <li>About</li>
+                                    <li>Forum</li>
+                                    <li>Our People</li>
+                                    <li>Contact</li>
+                                    <li>Learner Stories</li>
+                                    <li>Fellowship</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <a href="{% url 'course-list' %}" >
+                        <li class="carrer-desk">
+                            Career Paths
+                        </li>
+                        </a>
+                        <li class="3-dropdown">
+                            <p class="resource-desk">Resources ⌵</p>
+                            <div class="resource-dropdown-desk desk-dropdown">
+                                <ul>
+                                    <li>Cheat Sheets</li>
+                                    <li>Blogs</li>
+                                    <li>Mock Interview</li>
+                                    <li>Events</li>
+                                    <li>Webinars</li>
+                                    <li>Challenges</li>
+                                    <li>Projects</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li  class="4-dropdown">
+                            <p class="pricing-desk">Pricing ⌵</p>
+                            <div class="pricing-dropdown-desk desk-dropdown">
+                                <ul>
+                                    <li>For Individuals</li>
+                                    <li>For Students</li>
+                                    <li>For University</li>
+
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- Logout View
+                        <span>
+                            <button class="login">Login</button>
+                            <button class="register">Register</button>
+                        </span>
+                        -->
+                        <span  class="5-dropdown">
+                            <img src="https://avatars.githubusercontent.com/u/39455174?v=4" height="40px" width="40px" class="profile-avatar" style="margin-top: 8px; border-radius: 100%; object-fit: contain;"></img>
+                            <div class="profile-dropdown-desk desk-dropdown ">
+                                <ul>
+
+                                    <span style="display: flex; padding-top: 10px; padding-left:15px; padding-right:15px; padding-bottom: 15px;" class="profile-hover">
+                                        <img src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-dashboard-blogger-vitaliy-gorbachev-lineal-vitaly-gorbachev.png" height="30px" />
+                                        <li style="line-height: 8px;">View Dashboard</li>
+                                    </span>
+                                    <span style="display: flex; padding-top: 10px; padding-left:15px; padding-right:15px; padding-bottom: 15px;" class="profile-hover">
+                                        <img src="https://img.icons8.com/ios/50/000000/user.png" height="30px" />
+                                        <li style="line-height: 8px;">View Profile</li>
+                                    </span>
+                                    <span style="display: flex; padding-top: 10px; padding-left:15px; padding-right:15px; padding-bottom: 15px;" class="profile-hover">
+                                        <img src="https://img.icons8.com/ios/50/000000/user-not-found.png" height="30px" />
+                                        <li style="line-height: 8px;">Edit</li>
+                                    </span>
+                                    <span style="display: flex; padding-top: 10px; padding-left:15px; padding-right:15px; padding-bottom: 15px;" class="profile-hover">
+                                        <img src="https://img.icons8.com/windows/32/000000/exit.png" height="30px" />
+                                        <li style="line-height: 8px;">Logout</li>
+                                    </span>
+                                </ul>
+                            </div>
+                        </span>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Navigation Bar -->
+            <div class="mob-nav">
+                <div class="mob-nav-frame">
+                    <div class="mob-nav-frame-left">
+                        <img src="{% static 'images/logo.png'%}" alt="TechSnap Logo" srcset="" height="60px">
+                    </div>
+                    <div class="mob-nav-frame-right">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" onclick="showMobMainNavigationMenu()" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Pagination for Navigation Menu -->
+            <div class="nav-mainPage">
+                <div class="mob-nav-blocks">
+                    <div></div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" onclick="hideMobNavigationMenu()" fill="currentColor" class="bi bi-x-lg"viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
+                            <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="mob-nav-blocks" style="justify-content: center;">
+                    <div class="block-names">
+                        <img src="https://avatars.githubusercontent.com/u/39455174?v=4" height="100px" width="100px" style="margin-top: 8px; border-radius: 100%; object-fit: contain;"><img>
+                    </div>
+                </div>
+
+                <div class="mob-nav-blocks" style="justify-content: center;">
+                    <div class="block-names">
+                        <button style="padding: 10px; border: 3px solid #005EFF ; font-family: 'Montserrat', sans-serif; color: #005EFF; border-radius: 10px; background: #FFF; font-weight: 700; padding-left: 25px; padding-right: 25px;">View Dashboard</button>
+                    </div>
+                </div>
+
+                <div class="mob-nav-blocks" onclick="showMobCatNavigationMenu()">
+                    <div class="block-names">
+                        Catalog
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="mob-nav-blocks" onclick="showMobCommNavigationMenu()">
+                    <div class="block-names">
+                        Community
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="mob-nav-blocks">
+                    <a href="{% url 'course-list' %}" > 
+                        <div class="block-names">
+                            <b>Career Paths</b>
+                        </div>
+                    </a>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="mob-nav-blocks" onclick="showMobResNavigationMenu()">
+                    <div class="block-names">
+                        Resources
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="mob-nav-blocks" onclick="showMobPriNavigationMenu()">
+                    <div class="block-names">
+                        Pricing
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="mob-nav-blocks">
+                    <div class="block-names">
+                        <a href="">Already an user? Login</a>
+                    </div>
+                </div>
+
+                <div class="mob-nav-blocks">
+                    <div class="block-names">
+                        <a href="">Don't have account? Register</a>
+                    </div>
+                </div>
+
+                <div class="mob-nav-blocks" onclick="showMobCatNavigationMenu()">
+                    <div class="block-names">
+                        <a href="" style="text-decoration: none; color: #FF3232;">Logout</a>
+                    </div>
+                    <div>
+
+                    </div>
+                </div>
+
+
+                <div class="nav-footer">
+                    <div class="nav-footer-row-1">
+                        <ul>
+                            <li><a href="">Privacy Policy</a></li>
+                            <li><a href="">Terms & Condition</a></li>
+                            <li><a href="">Cookies</a></li>
+                        </ul>
+                    </div>
+                    Made with ❤️ in india @2021 Techsnap Education LLP
+                </div>
+            </div>
+
+            <!-- Catalog -->
+            <div class="nav-catalogPage">
+                <div class="mob-nav-blocks">
+                    <div>
+                        <svg style="transform: rotate(180deg);" xmlns="http://www.w3.org/2000/svg" width="25" height="25" onclick="showMobMainNavigationMenu()" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </div>
+                    <div class="block-title">
+                        <b>Catalog</b>
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" onclick="hideMobNavigationMenu()" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
+                            <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="mob-nav-page-top">
+                    <!-- Career Paths -->
+                    <div class="mob-nav-blocks" style="background-color: #EFEFEF; height: 40px;">
+                        <a href="{% url 'course-list' %}" > 
+                        <div class="block-names">
+                            <b>Career Paths</b>
+                        </div>
+                        </a>
+                        <div>
+                        </div>
+                    </div>
+
+                    <p class="collapsible">
+                        Developer Careers
+                        <svg style="transform: rotate(90deg);" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </p>
+                    <div class="content">
+
+                        <div class="mob-nav-sub-blocks">
+                            <div class="block-names">
+                                Frontend Developer
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="mob-nav-sub-blocks">
+                            <div class="block-names">
+                                Backend Developer
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="mob-nav-sub-blocks">
+                            <div class="block-names">
+                                Software Developer
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="mob-nav-sub-blocks">
+                            <div class="block-names">
+                                Game Developer
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="mob-nav-sub-blocks">
+                            <div class="block-names">
+                                Mobile Application Dev
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="collapsible">
+                        Data Careers
+                        <svg style="transform: rotate(90deg);" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </p>
+                    <div class="content">
+
+                        <div class="mob-nav-sub-blocks">
+                            <div class="block-names">
+                                Data Analyst
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="mob-nav-sub-blocks">
+                            <div class="block-names">
+                                Data Engineer
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="mob-nav-sub-blocks">
+                            <div class="block-names">
+                                Data Scientist
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="mob-nav-sub-blocks">
+                            <div class="block-names">
+                                Data Architect
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="mob-nav-sub-blocks">
+                            <div class="block-names">
+                                ML Engineer
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="collapsible">
+                        Cloud Careers
+                        <svg style="transform: rotate(90deg);" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </p>
+                    <div class="content">
+
+                        <div class="mob-nav-sub-blocks">
+                            <div class="block-names">
+                                Cloud Architect
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="mob-nav-sub-blocks">
+                            <div class="block-names">
+                                DevOps Engineer
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="mob-nav-sub-blocks">
+                            <div class="block-names">
+                                Cloud Security Analyst
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="mob-nav-sub-blocks">
+                            <div class="block-names">
+                                Cloud Engineer
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="mob-nav-sub-blocks">
+                            <div class="block-names">
+                                IOT Developer
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                    </div>
+                    <p class="collapsible">
+                        Other Careers
+                        <svg style="transform: rotate(90deg);" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </p>
+                    <div class="content">
+
+                        <div class="mob-nav-sub-blocks">
+                            <div class="block-names">
+                                UI/UX Designer
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="mob-nav-sub-blocks">
+                            <div class="block-names">
+                                IT Consultant
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="mob-nav-sub-blocks">
+                            <div class="block-names">
+                                SEO Manager
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="mob-nav-sub-blocks">
+                            <div class="block-names">
+                                Social Media Manager
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="mob-nav-sub-blocks">
+                            <div class="block-names">
+                                Technical Writer
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="mob-nav-blocks">
+                        <div class="block-names">
+                            See All
+                        </div>
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!--  Courses -->
+                    <div class="mob-nav-blocks" style="background-color: #EFEFEF; height: 40px; ">
+                        <div class="block-names">
+                            <b>Courses</b>
+                        </div>
+                        <div>
+                        </div>
+                    </div>
+                    <p class="collapsible">
+                        Tutorials
+                        <svg style="transform: rotate(90deg);" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+
+                    </p>
+                    <div class="content">
+
+                        <div class="mob-nav-sub-blocks">
+                            <div class="block-names">
+                                Python
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="mob-nav-sub-blocks">
+                            <div class="block-names">
+                                C++
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="mob-nav-sub-blocks">
+                            <div class="block-names">
+                                HTML
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="mob-nav-sub-blocks">
+                            <div class="block-names">
+                                SQL
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <p class="collapsible">
+                        Live Mentorship
+                        <svg style="transform: rotate(90deg);" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+
+                    </p>
+                    <div class="content">
+
+                        <div class="mob-nav-sub-blocks">
+                            <div class="block-names">
+                                Basics of Data Science
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="mob-nav-sub-blocks">
+                            <div class="block-names">
+                                Basics of Python
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="mob-nav-sub-blocks">
+                            <div class="block-names">
+                                Basics of Machine Learning
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="mob-nav-sub-blocks">
+                            <div class="block-names">
+                                Basics of MySQl
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </div>
+                        </div>
+
+
+                        <div class="mob-nav-sub-blocks">
+                            <div class="block-names">
+                                Basics of HTML, CSS
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="mob-nav-sub-blocks">
+                            <div class="block-names">
+                                Basics of Github
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="mob-nav-sub-blocks">
+                            <div class="block-names">
+                                Basics of Deployment
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="mob-nav-sub-blocks">
+                            <div class="block-names">
+                                Basics of Django
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="mob-nav-blocks">
+                        <div class="block-names">
+                            See All
+                        </div>
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <!--  Projects -->
+                    <div class="mob-nav-blocks" style="background-color: #EFEFEF; height: 40px;">
+                        <div class="block-names">
+                            <b>Projects</b>
+                        </div>
+                        <div>
+                        </div>
+                    </div>
+                    <p class="mob-nav-blocks">
+                        Free Projects
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+
+                    </p>
+
+                    <p class="mob-nav-blocks">
+                        Mini Projects
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+
+                    </p>
+                </div>
+
+
+                <div class="nav-footer">
+                    <div class="nav-footer-row-1">
+                        <ul>
+                            <li><a href="">Privacy Policy</a></li>
+                            <li><a href="">Terms & Condition</a></li>
+                            <li><a href="">Cookies</a></li>
+                        </ul>
+                    </div>
+                    Made with ❤️ in india @2021 Techsnap Education LLP
+                </div>
+            </div>
+
+            <!-- Pagination for Navigation Menu -->
+            <!-- Community-->
+
+            <div class="nav-commPage">
+                <div class="mob-nav-blocks">
+                    <div>
+                        <svg style="transform: rotate(180deg);" xmlns="http://www.w3.org/2000/svg" width="25" height="25" onclick="showMobMainNavigationMenu()" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </div>
+                    <div class="block-title">
+                        <b>Community</b>
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" onclick="hideMobNavigationMenu()" width="25" height="25" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
+                            <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="mob-nav-blocks">
+                    <div class="block-names">
+                        About
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="mob-nav-blocks">
+                    <div class="block-names">
+                        Forum
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="mob-nav-blocks">
+                    <div class="block-names">
+                        Our People
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="mob-nav-blocks">
+                    <div class="block-names">
+                        Contact Us
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="mob-nav-blocks">
+                    <div class="block-names">
+                        Learner Stories
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </div>
+                </div>
+
+
+                <div class="mob-nav-blocks">
+                    <div class="block-names">
+                        Fellowship
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="nav-footer">
+                    <div class="nav-footer-row-1">
+                        <ul>
+                            <li><a href="">Privacy Policy</a></li>
+                            <li><a href="">Terms & Condition</a></li>
+                            <li><a href="">Cookies</a></li>
+                        </ul>
+                    </div>
+                    Made with ❤️ in india @2021 Techsnap Education LLP
+                </div>
+            </div>
+
+
+            <!-- Resources -->
+
+            <div class="nav-resPage">
+                <div class="mob-nav-blocks">
+                    <div>
+                        <svg style="transform: rotate(180deg);" xmlns="http://www.w3.org/2000/svg" width="25" height="25" onclick="showMobMainNavigationMenu()" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </div>
+                    <div class="block-title">
+                        <b>Resources</b>
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" onclick="hideMobNavigationMenu()" width="25" height="25" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
+                            <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="mob-nav-blocks">
+                    <div class="block-names">
+                        Cheat Sheets
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="mob-nav-blocks">
+                    <div class="block-names">
+                        Blogs
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="mob-nav-blocks">
+                    <div class="block-names">
+                        Mock Interviews
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="mob-nav-blocks">
+                    <div class="block-names">
+                        Events
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="mob-nav-blocks">
+                    <div class="block-names">
+                        Webinars
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </div>
+                </div>
+
+
+                <div class="mob-nav-blocks">
+                    <div class="block-names">
+                        Challenges
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="mob-nav-blocks">
+                    <div class="block-names">
+                        Projects
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="nav-footer">
+                    <div class="nav-footer-row-1">
+                        <ul>
+                            <li><a href="">Privacy Policy</a></li>
+                            <li><a href="">Terms & Condition</a></li>
+                            <li><a href="">Cookies</a></li>
+                        </ul>
+                    </div>
+                    Made with ❤️ in india @2021 Techsnap Education LLP
+                </div>
+            </div>
+
+            <!-- Pricing -->
+
+            <div class="nav-priPage">
+                <div class="mob-nav-blocks">
+                    <div>
+                        <svg style="transform: rotate(180deg);" xmlns="http://www.w3.org/2000/svg" width="25" height="25" onclick="showMobMainNavigationMenu()" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </div>
+                    <div class="block-title">
+                        <b>Pricing</b>
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" onclick="hideMobNavigationMenu()" width="25" height="25" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
+                            <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="mob-nav-blocks">
+                    <div class="block-names">
+                        For Individuals
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="mob-nav-blocks">
+                    <div class="block-names">
+                        For Students
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="nav-footer">
+                    <div class="nav-footer-row-1">
+                        <ul>
+                            <li><a href="">Privacy Policy</a></li>
+                            <li><a href="">Terms & Condition</a></li>
+                            <li><a href="">Cookies</a></li>
+                        </ul>
+                    </div>
+                    Made with ❤️ in india @2021 Techsnap Education LLP
+                </div>
+            </div>
+			<script>
+                var coll = document.getElementsByClassName("collapsible");
+                var i;
+
+                for (i = 0; i < coll.length; i++) {
+                    coll[i].addEventListener("click", function() {
+                        this.classList.toggle("active");
+                        var content = this.nextElementSibling;
+                        if (content.style.display === "block") {
+                            content.style.display = "none";
+                        } else {
+                            content.style.display = "block";
+                        }
+                    });
+                }
+                </script>
+                <script>
+                    var dp1 = $(".catalog-dropdown-desk");
+                    var dp2 = $(".community-dropdown-desk");
+                    var dp3 = $(".resource-dropdown-desk");
+                    var dp4 = $(".pricing-dropdown-desk");
+                    var dp5 = $(".profile-dropdown-desk");
+
+                    dp1.hide();
+                    dp2.hide();
+                    dp3.hide();
+                    dp4.hide();
+                    dp5.hide();
+                </script>
+                <script>
+                    var dp1 = $(".catalog-dropdown-desk");
+                    var dp2 = $(".community-dropdown-desk");
+                    var dp3 = $(".resource-dropdown-desk");
+                    var dp4 = $(".pricing-dropdown-desk");
+                    var dp5 = $(".profile-dropdown-desk");
+
+                    var DP1 = $(".1-dropdown");
+                    var DP2 = $(".2-dropdown");
+                    var DP3 = $(".3-dropdown");
+                    var DP4 = $(".4-dropdown");
+                    var DP5 = $(".5-dropdown");
+
+                    $(".catalog-desk").click(function(){
+                        dp1.toggle();
+                    });
+                    $(".community-desk").click(function(){
+                        dp2.toggle();
+                    });
+                    $(".resource-desk").click(function(){
+                        dp3.toggle();
+                    });
+                    $(".pricing-desk").click(function(){
+                        console.log(dp4.is(":hidden"));
+                        dp4.toggle();
+                    });
+                    $(".profile-avatar").click(function(){
+                        dp5.toggle();
+                    });
+
+                    $(document).mouseup(function(e){
+                        if(!DP1.is(e.target) && DP1.has(e.target).length === 0){
+                            dp1.hide();
+                        }
+                        if(!DP2.is(e.target) && DP2.has(e.target).length === 0){
+                            dp2.hide();
+                        }
+                        if(!DP3.is(e.target) && DP3.has(e.target).length === 0){
+                            dp3.hide();
+                        }
+                        if(!DP4.is(e.target) && DP4.has(e.target).length === 0){
+                            dp4.hide();
+                        }
+                        if(!DP5.is(e.target) && DP5.has(e.target).length === 0){
+                            dp5.hide();
+                        }
+                    });
+                </script>
+        <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+
+
+		<div class="hero_banner_section">
+			<div class="course_zone w3-margin-top">
+				<img src="{{course.course_img.url}}" alt="course" />
+				<h2>{{course.course_title}}</h2>
+
+                {% if enrolled %}
+                <a href="{% url 'course-enrollment' course.slug %}" >
+				    <buttone class='w3-button w3-text-indigo w3-white'>Continue this course</buttone>
+                </a>
+                {% if update_available %}
+                <a href="{% url 'update-course' course.slug %}" >
+                    <buttone class='w3-button w3-indigo w3-margin'>Update Available</buttone>
+                </a>
+                {% endif %}
+                {% else %}
+                <a href="{% url 'course-payment' course.slug %}" >
+                <buttone class='w3-button w3-text-green w3-white'>Enroll now</buttone>
+                </a>
+                {% endif %}
+
+			</div>
+		</div>
+		<div class="overview_section">
+			<div class="title">
+				<div class="tab">
+					<button
+						class="tablinks"
+						onclick="openCity(event, 'London')"
+						id="defaultOpen" 
+					>
+						overview
+					</button>
+					<button class="tablinks" onclick="openCity(event, 'Paris')">
+						Syllabus
+					</button>
+				</div>
+			</div>
+			<div class="overview_zone tabcontent" id="London">
+                <div class="details_section">
+                    <div class="paragraph_section w3-border w3-round-large w3-padding ">
+					{{description.description | safe}}
+                    </div>
+				<div class="overview_card_section">
+					<div class="card">
+						<div class="card_item">
+							<span>Earn</span>
+							<p>Certificate</p>
+							<span>of completion</span>
+						</div>
+						<div class="card_item">
+							<span>Join</span>
+							<p>{{description.no_of_learners}}+</p>
+							<span>Techsnap learners</span>
+						</div>
+						<div class="card_item">
+							<span>Time to complete</span>
+							<p>{{course.course_duration}} hours+</p>
+						</div>
+						<div class="card_item">
+							<span>Prerequisites</span>
+							<p>{{description.prerequisites}}</p>
+						</div>
+					</div>
+				</div>
+            </div>
+
+            <div class="courese_list_section">
+			<div class="title">
+				<h1>{{description.title}}</h1>
+			</div>
+			<div class="list_section">
+                {% for content in contents %}
+				<div class="list">
+					<!--<div class="SI_num">
+						<h1>1</h1>
+					</div>-->
+					<div class="text_zone">
+						<div class="title">
+							<h2>{{content.unit.title}}</h2>
+						</div>
+
+						<div class="para">
+							<p>
+								{{content.unit.brief}}
+							</p>
+							<button onclick="
+                                document.getElementById('London').style.display = 'none';
+                                document.getElementById('Paris').style.display = 'block';
+                                window.location.hash='{{content.unit.id}}';
+                            " >view details</button>
+						</div>
+						<div class="icons">
+							<div class="icon">
+								<span><img src="{% static '/images/coin1.png'%}" alt="coin" /></span>
+								<p>{{content.total_xp}} xp</p>
+							</div>
+						</div>
+					</div>
+				</div>
+                {% endfor %}
+			</div>
+		    </div>
+                <div class="learn_section">
+			<div class="learn_section_title">
+				<h1>Start Learning Today</h1>
+			</div>
+			<div class="learn_details">
+				<div class="text_zone w3-round-large w3-border w3-padding w3-margin-right">
+                    {% for point in whatuget_points %}
+					    <p><span>✔</span>{{point.texts}}</p>
+                    {% endfor %}
+				</div>
+				<div class="cetificate">
+					<div class="image_section">
+						<span>Shareable on</span>
+						<img src="{{description.certificate.url}}" alt="certifcate" />
+						<span
+							>You can share your Certificate in the Certifications section of
+							your LinkedIn profile, on printed resumes, CVs, or other
+							documents.</span
+						>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="swiper">
+			<!-- Additional required wrapper -->
+			<div class="swiper-wrapper">
+				<!-- Slides -->
+                
+				<div class="swiper-slide">
+                    {% for testimonial in testimonials %}
+					<div class="Testimonials_card">
+						<p>
+							{{testimonial.thoughts}}
+						</p>
+						<div class="image_box">
+							<img src="{{testimonial.image.url}}" alt="profile" />
+							<p>{{testimonial.name}}</p>
+						</div>
+					</div>
+                    {% endfor %}
+				</div>
+			</div>
+			<!-- If we need pagination -->
+
+			<!-- If we need navigation buttons -->
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
+
+			<!-- If we need scrollbar -->
+		</div>
+
+		<div class="container">
+			<h2>Frequently Asked Questions</h2>
+			<div class="accordion">
+                {% for faq in faqs %}
+				<div class="accordion-item">
+					<button id="accordion-button-1" aria-expanded="false">
+						<span class="accordion-title"
+							>{{faq.question}}</span
+						>
+						<span class="icon" aria-hidden="true"></span>
+					</button>
+					<div class="accordion-content">
+						<p>
+							{{faq.answer}}
+						</p>
+					</div>
+				</div>
+                {% endfor %}
+			</div>
+		</div>
+    </div>
+			<div class="overview_zone tabcontent" id="Paris">
+				<div class="Syllabus_Title_section">
+					<div class="Description">
+						<h1>Course Description</h1>
+						<p>
+							{{course.course_overview}}
+						</p>
+					</div>
+					<div class="Details">
+						<h1>Details</h1>
+						<p>
+							Earn a certificate of completion {{course.course_duration}} hours to complete in total
+							Beginner
+						</p>
+					</div>
+				</div>
+				<div class="accordion">
+                    {% for content in contents %}
+					<div id="{{content.unit.id}}" class="accordion-item">
+						<button id="accordion-button-1" aria-expanded="true">
+							<span class="accordion-title">
+								<h1>{{content.unit.title}}</h1>
+								<p>{{content.length}} lessons, 1 article, 1 resource</p>
+								<span
+									>{{content.unit.brief}}</span
+								>
+							</span>
+							<span class="icon" aria-hidden="true"></span>
+						</button>
+						<div class="accordion-content">
+                            {% for lesson in content.lessons %}
+							<div class="item">
+								<div class="item_details">
+									<span><img src="{% static '/images/Group.png'%}" alt="book" /></span>
+									<p>{{lesson.0}}</p>
+								</div>
+								<div class="tag">
+									<h4>{{lesson.1}} min</h4>
+								</div>
+							</div>
+                            {% endfor %}
+						</div>
+					</div>
+                    {% endfor %}
+				</div>
+			</div>
+		</div>
+		
+		
+
+<div class="footer_MainBox">
+    <div class="Footer_page">
+        <footer class="Footer_conatiner">
+            <div class="Footer_header">
+                <a href="{% url 'index' %}"><img src="{% static 'assets/main/logo.png'%}" alt="Logo" /></a>
+                <br />
+                <p>
+                    We are here to endure your muddled stages of knowing the trends
+                    while pursuing UG-CSE.<br />we help you to know about trending
+                    jobs and required skills for achieving one particular
+                    designation
+                </p>
+                <br />
+                <p>
+                    We will succour you in submitting your university projects as
+                    well as steer you with free tutorials, online courses, live
+                    courses and career paths
+                </p>
+            </div>
+            <div class="Footer_columns_holder">
+                <div class="Footer_columns">
+                    <h1>Company</h1>
+                    <a href="#">About us</a>
+                    <a href="#">Learner stories</a>
+                    <a href="#">our people</a>
+                    <a href="#">jobs</a>
+                </div>
+                <div class="Footer_columns">
+                    <h1>Resources</h1>
+                    <a href="##">Tutorials</a>
+                    <a href="#">Career paths</a>
+                    <a href="##">Courses</a>
+                    <a href="##">Blogs</a>
+                </div>
+                <div class="Footer_columns">
+                    <h1>Support</h1>
+                    <a href="#">Contact us</a>
+                    <a href="#">FAQ</a>
+                    <a href="##">Forum</a>
+                    <a href="##">Get Involved</a>
+                </div>
+                <div class="Footer_columns">
+                    <h1>Services</h1>
+                    <a href="##">Startup services</a>
+                    <a href="##">Design services</a>
+                    <a href="##">Mini Projects</a>
+                    <a href="##">Mock interviews</a>
+                </div>
+            </div>
+            <div class="join_our desktop">
+                <p>Join our newsletter</p>
+                <form
+                    class="input_holder"
+                    method="POST"
+                    action="#"
+                >
+                    <input type="text" name="email" />
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </footer>
+        <div class="join_our responsive">
+            <p>Join our newsletter</p>
+            <form
+                class="input_holder"
+                method="POST"
+                action="#"
+            >
+                <input type="text" name="email" />
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+        <div class="Privacy_holder">
+            <div class="Privacy_links">
+                <a href="#">Privacy policy</a>
+                <a href="#">Cookies Notice</a>
+                <a href="#">Security</a>
+                <a href="#">Terms of use</a>
+            </div>
+            <div class="Social-media">
+                <div class="image_conatiner">
+                    <a href="https://www.linkedin.com/company/74741373/"
+                        ><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/768px-LinkedIn_logo_initials.png"
+                            id="link"
+                    /></a>
+
+                    <a href="#"
+                        ><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/2560px-Gmail_icon_%282020%29.svg.png"
+                            id="link"
+                    /></a>
+
+                    <a
+                        href="https://trello.com/b/SMDt9NMY/techsnap-upcoming-releases"
+                        ><img
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC-APsSZXqFUpTTg9qvGW6D5hERazjQfAMkM0Oz6b9sC3uIwU4-_fD8CatVhbAUG4hz3g&usqp=CAU"
+                            id="link"
+                    /></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyRight">
+        Made with 💗 in india © 2021 Techsnap Educations LLP. All Rights
+        Reserved.
+    </div>
+  </div>
+
+	<script>
+        
+        function scrollTo(obj) {
+            
+            console.log('hi');
+        }
+
+		document.getElementById('defaultOpen').click();
+
+		function openCity(evt, cityName) {
+			var i, tabcontent, tablinks;
+			tabcontent = document.getElementsByClassName('tabcontent');
+			for (i = 0; i < tabcontent.length; i++) {
+				tabcontent[i].style.display = 'none';
+			}
+			tablinks = document.getElementsByClassName('tablinks');
+			for (i = 0; i < tablinks.length; i++) {
+				tablinks[i].className = tablinks[i].className.replace(' active', '');
+			}
+			document.getElementById(cityName).style.display = 'block';
+			evt.currentTarget.className += ' active';
+		}
+
+		//----------------------FAQ section
+		const items = document.querySelectorAll('.accordion button');
+
+		function toggleAccordion() {
+			const itemToggle = this.getAttribute('aria-expanded');
+
+			for (i = 0; i < items.length; i++) {
+				items[i].setAttribute('aria-expanded', 'false');
+			}
+
+			if (itemToggle == 'false') {
+				this.setAttribute('aria-expanded', 'true');
+			}
+		}
+
+		items.forEach((item) => item.addEventListener('click', toggleAccordion));
+
+		//------------------------------------------------------
+	</script>
+	<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+	<script>
+		const swiper = new Swiper('.swiper', {
+			// Optional parameters
+			loop: true,
+			slidesPerView: 4,
+			slidesPerGroup: 1,
+			// If we need pagination
+			pagination: {
+				el: '.swiper-pagination',
+			},
+
+			// Navigation arrows
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+
+			breakpoints: {
+				350: {
+					slidesPerView: 1,
+					spaceBetween: 20,
+					slidesPerGroup: 1,
+				},
+				650: {
+					slidesPerView: 2,
+					spaceBetween: 20,
+					slidesPerGroup: 1,
+				},
+				940: {
+					slidesPerView: 2,
+					spaceBetween: 20,
+					slidesPerGroup: 1,
+				},
+				1024: {
+					slidesPerView: 3,
+					spaceBetween: 20,
+					slidesPerGroup: 1,
+				},
+			},
+		});
+	</script>
+{% endblock %}

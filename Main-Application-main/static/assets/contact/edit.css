@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+*
+{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+html
+{
+    scroll-behavior: smooth;
+}
+body
+{
+    background-color: rgb(249, 249, 249);
+}
+.navigation
+{
+    /* background-color: black; */
+    width: 100%;
+    /* box-shadow: rgba(0, 0, 0, 0.075) -4px 7px 20px -6px; */
+    background-color: white;
+    border: 1px solid rgb(234, 234, 234);
+    margin-top: -2%;
+    position: fixed;
+}
+.navbar
+{
+    display: flex;
+    /* padding: auto; */
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    width: 100%;
+}
+.logo
+{
+    display: flex;
+}
+.menu-icon
+{
+    width: 22px;
+    height: 22px;
+    display: none;
+}
+.tech-snap
+{
+    letter-spacing: 2px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.nav-rest
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nav-item
+{
+    padding: 20px 30px 20px 30px;
+    /* color: white; */
+    align-content: center;
+    cursor: pointer;
+}
+.nav-item:hover
+{
+    font-weight: bold;
+}
+.profile-image
+{
+    width: 34px;
+    height: 34px;
+    object-fit: cover;
+    border-radius: 100%;
+    margin-left: 50%;
+    cursor: pointer;
+}
+.content-wrapper
+{
+    display: flex;
+    margin: 2%;
+    justify-content: center;
+}
+.blog, .side-panel
+{
+    margin: 1%;
+    margin-top: 70px;
+}
+.blog
+{
+    width: 75%;
+    padding: 2%;
+    /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; */
+    border: 1px solid rgb(226, 226, 226);
+    background-color: white;
+    border-radius: 5px;
+}
+.side-panel
+{
+    width:25%;
+}
+.panel
+{
+    /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; */
+    border: 1px solid rgb(222, 222, 222);
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 6%;
+}
+.panel-inner
+{
+    padding: 18px;
+}
+button
+{
+    cursor: pointer;
+    font-weight: bold;
+    padding: 8px;
+    border-radius: 3px;
+    border: none;
+}
+.upload
+{
+    width: 100%;
+}
+.preview, .save
+{
+    background-color: rgb(240, 239, 239);;
+    color: black;
+    width: 50%;
+}
+.preview:hover, .save:hover
+{
+    background-color: rgb(56, 130, 191);
+    color: white;
+}
+.ps
+{
+    display: flex;
+    column-gap: 10%;
+}
+input[type="text"]
+{
+    /* border-radius: 5px; */
+    padding: 8px;
+    width: 100%;
+}
+.submit, .add, .upload
+{
+    width: 100%;
+    background-color: rgb(56, 130, 191);
+    color: white;
+}
+.note
+{
+    border: 1px solid grey;
+    border-radius: 3px;
+    padding: 10px;
+    background-color: rgb(250, 250, 250);
+    border-radius: 5px;
+}
+.note p
+{
+    font-size: 14px;
+}
+select
+{
+    padding: 6px;
+    width:100%;
+}
+.blog-editor
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.editor
+{
+    width:100%;
+    height: 100vh;
+    background-color:rgb(249, 249, 249);
+    border: 1px dotted black;
+}
+.editor p
+{
+    text-align: center;
+}
+@media (max-width : 800px)
+{
+    .content-wrapper
+    {
+        flex-direction: column;
+        justify-content: center;
+    }
+    .blog, .side-panel
+    {
+        width: 98%;
+    }
+    .nav-rest
+    {
+        display: none;
+    }
+    .menu-icon
+    {
+        display: block;
+        margin-right: 10%;
+    }
+    .nav-item
+    {
+        padding: 18px 18px 18px 18px;
+    }
+    .tech-snap
+    {
+        font-size: 16px;
+    }
+}
+@media (max-width : 1150px)
+{
+    .content-wrapper
+    {
+        flex-direction: column;
+        justify-content: center;
+    }
+    .blog, .side-panel
+    {
+        width: 98%;
+    }
+}
+@media (min-width: 800px) and (max-width: 1299px)
+{
+    .nav-item
+    {
+        padding: 18px 12px 18px 12px;
+    }
+    .rest p
+    {
+        font-size: 14px;
+    }
+    .tech-snap
+    {
+        font-size: 16px;
+    }
+    .profile-image
+    {
+        width:30px;
+        height: 30px;
+    }
+}
+@media (min-width: 800px) and (max-width: 1299px)
+{
+    .nav-item
+    {
+        padding: 18px 18px 18px 18px;
+    }
+    .rest p
+    {
+        font-size: 14px;
+    }
+    .tech-snap
+    {
+        font-size: 16px;
+    }
+}
+@media (min-width: 1300px) and (max-width: 1500px)
+{
+    .nav-item
+    {
+        padding: 20px 20px 20px 20px;
+    }
+}
+@media (min-width: 1501px)
+{
+    .nav-item
+    {
+        padding: 20px 40px 20px 40px;
+    }
+}

@@ -1,0 +1,157 @@
+<!--your balance = {{request.user.profile.techsnap_cash}}<br>
+course cost = {{course.cost}}
+<form action="{% url 'courses:course_enroll' course.slug %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" name="slug" value="{{course.slug}}">Enroll</button>
+</form>-->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="{% static 'assets/payment/style.css' %}"/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+			rel="stylesheet"
+		/>
+		<title>Payment</title>
+	</head>
+	<body>
+		<div class="main_conatiner">
+            <section class="order_section">
+			<div class="order_leftSectio">
+				<div class="order_details">
+					<div class="title">Order Details</div>
+					<div class="course_details">
+						<img src="{{course.pic.url}}" alt="course" />
+						<div class="descprition">
+							<div class="name">{{course.title}}</div>
+							<div class="course_descprition">
+								<div class="item">
+									<img src="{% static 'assets/payment/assets/time.svg' %}" alt="time" />
+									<p>14 hours</p>
+								</div>
+								<div class="item">
+									<img src="{% static 'assets/payment/assets/book.svg' %}" alt="time" />
+									<p>12 Lessons</p>
+								</div>
+								<div class="item">
+									<img src="{% static 'assets/payment/assets/coin.svg' %}" alt="time" />
+									<p>899 XP</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="payment_details">
+					<div class="title">Payment Method</div>
+					<!--<div class="select">
+						<div class="selectBtn" data-type="firstOption">First option</div>
+						<div class="selectDropdown">
+							<div class="option" data-type="firstOption">First option</div>
+							<div class="option" data-type="secondOption">Second option</div>
+							<div class="option" data-type="thirdOption">Third option</div>
+						</div>
+					</div>-->
+					<div class="offer">
+						<p>
+							Start your monthly PRO membership. You can cancel at any time.
+						</p>
+						<span>X</span>
+					</div>
+				</div>
+				<div class="payment_bill">
+					<div class="title">Payment</div>
+					<div class="bill_section">
+						<div class="bill_item">
+							<div class="bill_item_name">
+								Course price
+								<span id="offer">SAVE 150 with pro</span>
+							</div>
+							<div class="bill_item_price">{{course.cost}} coins</div>
+						</div>
+						<div class="bill_item">
+							<div class="bill_item_name">
+								Service charges
+								<span id="offer"></span>
+							</div>
+							<div class="bill_item_price">{{course.gst}} coin</div>
+						</div>
+						<div class="bill_item">
+							<div class="bill_item_name" id="Total">
+								Total :
+								<span id="offer"></span>
+							</div>
+							<div class="bill_item_price">{{course.total}} Coins</div>
+						</div>
+						<p>
+							Techsnap is required by law to collect applicable transaction
+							taxes for purchases made in certain tax jurisdictions. By
+							completing your purchase you agree to these Terms of Service.
+						</p>
+					</div>
+					<div class="button">
+						<form action="{% url 'courses:course_enroll' course.slug %}" method="POST">
+							{% csrf_token %}
+							<button type="submit" id="submit" name="slug" value="{{course.slug}}">Confirm Payment</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="order_rightSection">
+				<div class="close">
+					<p>X</p>
+				</div>
+				<div class="title">
+					<h1>Now convert your Xp Directly into Coins !!</h1>
+				</div>
+                <div class="image">
+                    <img src="{% static 'assets/payment/assets/pic.svg' %}" alt="pic" >
+                </div>
+                <div class="coins">
+                    <div class="coins_item">
+                        <img src="{% static 'assets/payment/assets/pot.svg' %}" alt="pot" >
+                        <p>1000 XP</p>
+                    </div>
+                    <span>=</span>
+                    <div class="coins_item">
+                        <img src="{% static 'assets/payment/assets/pot.svg' %}" alt="pot" >
+                        <p>1000 XP</p>
+                    </div>
+                </div>
+                <div class="button_redeem">
+                    <button>Redeem Now</button>
+                </div>
+			</div>
+		</section>
+        </div>
+		<script>
+			const select = document.querySelectorAll('.selectBtn');
+			const option = document.querySelectorAll('.option');
+			let index = 1;
+
+			select.forEach((a) => {
+				a.addEventListener('click', (b) => {
+					const next = b.target.nextElementSibling;
+					next.classList.toggle('toggle');
+					next.style.zIndex = index++;
+				});
+			});
+			option.forEach((a) => {
+				a.addEventListener('click', (b) => {
+					b.target.parentElement.classList.remove('toggle');
+
+					const parent = b.target.closest('.select').children[0];
+					parent.setAttribute('data-type', b.target.getAttribute('data-type'));
+					parent.innerText = b.target.innerText;
+				});
+			});
+		</script>
+	</body>
+</html>
+
+

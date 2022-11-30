@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <nav class='w3-black w3-margin-bottom w3-container w3-padding'>
+        <h3 class='w3-left'>{{obj}} in {{slug}}</h3>
+        <a href={% url 'course-desc-form' slug %}>
+        <button class='w3-button w3-black w3-border w3-right'>Back</button>
+        </a>
+    </nav>
+
+    <div id="form" style='display:none;' class="w3-row">
+        <div class="w3-padding" >
+          <button class='w3-right w3-button w3-round-large w3-red w3-padding' onclick="document.getElementById('form').style.display='none'" >&times;</button>
+          <div class="w3-margin w3-padding w3-round-large w3-border w3-white" id="content">
+            <form enctype='multipart/form-data' method='POST' action="{% url 'update-obj' slug obj static.id %}">
+                <h4 class='w3-center'>Update {{obj}}</h4>
+                {% csrf_token %}
+                {{form.media}}
+                {{ form|crispy }}
+                <button type='submit' style='width:97%' class='w3-margin w3-round-large w3-green w3-button' >Update</button>
+            </form>
+          </div>
+        </div>
+    </div>
+
+    <div class='w3-margin'>
+        {% if obj == "anouncement" %}
+        <div class='w3-container w3-padding w3-border w3-round '>
+            <h4>Course Name : {{static.course.course_title}}</h4>
+            <h4>Instructor Name : {{static.instructor.user.username}}</h4>
+            <h4 class='w3-padding w3-border w3-round'>Body : {{static.body|safe}}</h4>
+            <h4>Posted On : {{static.posted_on}}</h4>
+        </div>
+        {% elif obj == 'review' %}
+        <div class='w3-container w3-padding w3-border w3-round '>
+            <h4>Course Name : {{static.course.course_title}}</h4>
+            <h4>By : {{static.name}}</h4>
+            <h4 class='w3-padding w3-border w3-round'>Body: {{static.body}}</h4>
+            <h4> {{static.stars}} Stars</h4>
+            <h4>
+                <img class='w3-img w3-border w3-round-large w3-padding' src="{{static.img.url}}" style="width:30%" />
+            </h4>
+        </div>
+        {% elif obj == 'testimonial' %}
+        <div class='w3-container w3-padding w3-border w3-round '>
+            <h4>Course Name : {{static.course.course_title}}</h4>
+            <h4>Name : {{static.name}}</h4>
+            <h4 class='w3-padding w3-border w3-round'>Thoughts: {{static.thoughts}}</h4>
+            <h4>
+                <img class='w3-img w3-border w3-round-large w3-padding' src="{{static.image.url}}" style="width:30%" />
+            </h4>
+        </div>
+        {% elif obj == 'lesson' %}
+        <div class='w3-container w3-padding w3-border w3-round '>
+            <h4>Unit Name : {{static.unit.title}}</h4>
+            <h4>Title : {{static.title}}</h4>
+            <h4 class='w3-padding w3-border w3-round'>Body : {{static.body|safe}}</h4>
+            <h4>Order : {{static.order}}</h4>
+            <h4>Duration : {{static.duration_Minutes}} mins {{static.duration_Seconds}} secs </h4>
+            {% if static.resource %}
+            <h4 class='w3-padding w3-border w3-round'>
+                <a href="{{static.resource.url}}">
+                    <h3>{{static.resource_name}}</h3>
+                </a>
+            </h4>
+            {% endif %}
+            <h4>Overview : {{static.overview}}</h4>
+            {% if static.resource_link %}
+            <h4>Resource Link : <a href="{{static.resource_link}}" >{{static.resource_link}}</a></h4>
+            {% endif %}
+            <h4>XP : {{static.duration}} xp</h4>
+        </div>
+        {% endif %}
+    </div>
+    <button style='width:97%' id="button" onclick="showForm();" class=' w3-margin w3-round w3-button w3-blue'>
+        Update {{obj}}
+    </button>
+    </div>
+
+    <script>
+        function showForm(){
+            document.getElementById('form').style.display = "block";
+        }
+    </script>
+{% endblock %}

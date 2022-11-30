@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class='w3-padding' >
+    <header class='w3-left w3-padding'>
+        <img src="{{course.course_img.url}}" class='w3-img w3-third w3-round-large' />
+        <div class='w3-right w3-padding w3-twothird'>
+            <h2>{{description.title}}</h2>
+            <p class='w3-medium'>{{description.description}}</p>
+            <h3>Prerequisites</h3>
+            <p class='w3-medium'>{{description.prerequisites}}</p>
+            <a href="{% url 'course-enrollment' course.id %}" >
+                {% if not enrolled %}
+                    <button style="width:100%;" class="w3-button w3-round w3-large w3-teal">Enroll</button> 
+                {% else %}
+                    <button style="width:100%;" class="w3-button w3-border-teal w3-border w3-round w3-large w3-white w3-text-teal">Continue this Course</button> 
+                {% endif %}
+            </a>
+            <h2>{{course.course_price}}</h2>
+        </div>
+    </header>
+    <div class='w3-row'>
+        <h3>Units in this course!</h3>
+        {% for unit in units %}
+            <div class="w3-border w3-border-blue w3-margin w3-padding w3-round-large" >
+                <h5>{{unit.id}}</h5>
+                    <h5 class=''>{{unit.title}}</h5>
+                    <p class='w3-small'>{{unit.brief}}</p>
+            </div>
+        {% endfor %}
+    </div>
+    <div class='w3-row'>
+    <h3>Certificate</h3>
+    <img src="{{description.certificate.url}}" class='w3-img w3-border w3-quarter w3-left' />
+    </div>
+    <div>
+        <h3>What you get</h3>
+        {% for point in whatuget_points %}
+            <li>{{point.text}}</li>
+        {% endfor %}
+    </div>
+    <h3>Testimonials</h3>
+    {% for testimonial in testimonials %}
+        <div class="w3-teal w3-margin w3-quarter w3-padding w3-round-large" >
+                <h5 class='w3-center'><e class='w3-border w3-padding'>{{testimonial.user.username}}</e></h5>
+                <p class='w3-small w3-center'>{{testimonial.thoughts}}</p>
+        </div>
+    {% endfor %}
+    <div class='w3-row'>
+    <h3>Frequently Asked Questions</h3>
+    {% for faq in faqs %}
+        <div class="w3-border w3-border-teal w3-margin w3-padding w3-round-large" >
+                <h5 class=''>Question : {{faq.question}}</h5>
+                <p class='w3-small'>Answer : {{faq.answer}}</p>
+        </div>
+    {% endfor %}
+    </div>
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+        modal.style.display = 'none';
+        document.getElementByClassName("hidden").style.display = 'none';
+
+    </script>
+</div>
+{% endblock %}

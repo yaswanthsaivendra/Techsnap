@@ -1,0 +1,620 @@
+{% extends 'footer.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        {% block css %}
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{% block title %}Techsnap{% endblock title %}</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+		<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+		<link rel="stylesheet" href="{% static 'assets/main/style4.css'%}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+        <link rel="shortcut icon" type="image/png" href="{% static 'assets/main/favicon.png'%}"/>
+        {% endblock css %}
+        {% block google_tags %}
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-L4D2PNVR8Z"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-L4D2PNVR8Z');
+		</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+		<!-- Google Tag Manager -->
+		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-KJSXSDQ');</script>
+		<!-- End Google Tag Manager -->
+
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJSXSDQ"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+        {% endblock google_tags %}
+</head>
+<body>
+    {% block body %}
+        <div class="hero_container">
+            <section class="Hero_section">
+                <div class="Hero_title">
+                    <div>
+                    <h1>Choose your career &</h1>
+                    <h1>start your Project <span>Now</span></h1>
+                    </div>
+                </div>
+                <div class="Hero_img" data-aos="fade-up"></div>
+            </section>
+        </div>
+
+        <!-- //----------------------------- -->
+
+        <div class="yellow_container">
+            <section class="yellow_section">
+            <div class="yellow_left" data-aos="fade-right">
+                <div class="yellow_text_zone">
+                    <p>Want to land on Dream career? Confused what to choose ?</p>
+                <p>
+                    Want to Level up your skills? Donno what to do ???
+                </p>
+                <h1>Unsure From Where To Begin ?</h1>
+                <h2>Don’t worry. We are here to help you !!</h2>
+                </div>
+                <div class="blue-button">
+                <button><a href="#courses" class="nope">Explore All</a></button>
+                </div>
+            </div>
+            <div class="yellow_right" data-aos="fade-left"></div>
+            </section>
+        </div>
+        <div class="yellow_section_mobile_view">
+
+                    <p>Want to land on Dream career? Confused what to choose ?</p>
+                <p>
+                    Want to Level up your skills? Donno what to do ???
+                </p>
+                <h1>Unsure From Where To Begin ?</h1>
+                <h1>Don’t worry. We are here to help you !!</h1>
+                    <button><a href="#courses" class="nope">Explore All</a></button>
+
+        </div>
+        <!-- ------------------------Timeline ------------------------------>
+        <div class="Path_container">
+            <div class="Path_Box">
+            <div class="Left_section">
+                <div class="text_section" >
+                    <h1>How TechSnap</h1>
+                    <h1>Works <span>!</span></h1>
+                </div>
+            </div>
+            <div class="right_section">
+                <div class="time_line" data-aos="fade-left">
+                    <div class="timeLine_Item Pink">
+                        <div class="Image">
+                            <img src="{% static 'assets/main/carrer.svg'%}" alt="pix" />
+                        </div>
+                        <div class="textZone">
+                            <div class="title Pink"><h3>Choose Career Path »</h3></div>
+                            <div class="details">
+                                Choose your career based on your skills and interests in field
+                            </div>
+                        </div>
+                        <div class="timeline_arrow">
+                            ↓
+                        </div>
+                    </div>
+                    <!-- ---------------------------- -->
+                    <div class="timeLine_Item Blue">
+                        <div class="Image">
+                            <img src="{% static 'assets/main/courses.svg'%}" alt="pix" />
+                        </div>
+                        <div class="textZone">
+                            <div class="title"><h3>Take Courses »</h3></div>
+                            <div class="details">
+                                We provide courses in three different formats like blogs,
+                                video and live mentorship
+                            </div>
+                        </div>
+                            <div class="timeline_arrow">
+                            ↓
+                        </div>
+                    </div>
+                    <!-- ---------------------------------- -->
+                    <div class="timeLine_Item Yellow">
+                        <div class="Image">
+                            <img src="{% static 'assets/main/projects.svg'%}" alt="pix" />
+                        </div>
+                        <div class="textZone">
+                            <div class="title"><h3>Apply & Do Projects »</h3></div>
+                            <div class="details">
+                                Apply your learned skills and build some real world
+                                applications
+                            </div>
+                        </div>
+                            <div class="timeline_arrow">
+                            ↓
+                        </div>
+                    </div>
+                    <!-- //---------------------------- -->
+                    <div class="timeLine_Item Green">
+                        <div class="Image">
+                            <img src="{% static 'assets/main/achieve.svg'%}" alt="pix" />
+                        </div>
+                        <div class="textZone">
+                            <div class="title"><h3>Achieve Your Designation »</h3></div>
+                            <div class="details">
+                                Land on your dream career with experience and projects
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ---------------------------- -->
+                </div>
+            </div>
+        </div>
+</div>
+        <!-- ///----------------------------------------------------- -->
+        <div class="card_container">
+        <section class="card_section">
+                        <h1>Techsnap's Career Paths</h1>
+                        <div class="cards_holder" >
+                            <!---------------Card ---->
+                            <div class="card ">
+                                <div class="card_header card_green">
+                                    <img src="{% static 'assets/main/finger.png'%}" alt="finger" />
+                                    <h1>Data scientist</h1>
+                                </div>
+                                <div class="card_footer">
+                                    <p>A professional responsible for collecting, analyzing and interpreting extremely large amounts of data</p>
+                                    <a href="{% url 'careerpath' %}"><button class="card_green">></button></a>
+                                </div>
+                            </div>
+                            <!---------------Card ---->
+                            <div class="card">
+                                <div class="card_header card_yellow">
+                                    <img src="{% static 'assets/main/Vector.svg'%}" alt="finger" />
+                                    <h1>Frontend Developer</h1>
+                                </div>
+                                <div class="card_footer">
+                                    <p>A software engineer who implements web designs through languages like HTML CSS and JavaScript.</p>
+                                    <a href="{% url 'careerpath' %}"><button class="card_yellow">></button></a>
+                                </div>
+                            </div>
+                            <!---------------Card ---->
+                            <div class="card">
+                                <div class="card_header card_pink">
+                                    <img src="{% static 'assets/main/Vector1.svg'%}" alt="finger" />
+                                    <h1>DevOps Engineer</h1>
+                                </div>
+                                <div class="card_footer">
+                                    <p>An IT generalist who works with software developers, system operators and other production IT staff</p>
+                                    <a href="{% url 'careerpath' %}"><button class="card_pink">></button></a>
+                                </div>
+                            </div>
+
+                            <!---------------Card ---->
+                            <div class="card ">
+                                <div class="card_header card_emo1">
+                                    <img src="{% static 'assets/main/Vector4.svg'%}" alt="finger" />
+                                    <h1>Fullstack Developer</h1>
+                                </div>
+                                <div class="card_footer">
+                                    <p>A Developer who works with the Back End or server side of the application as well as the Front End or client side</p>
+                                    <a href="{% url 'careerpath' %}"><button class="card_emo1">></button></a>
+                                </div>
+                            </div>
+                            <!---------------Card ---->
+                            <div class="card">
+                                <div class="card_header card_emo2">
+                                    <img src="{% static 'assets/main/Vector2.svg'%}" alt="finger" />
+                                    <h1>Cloud Engineer</h1>
+                                </div>
+                                <div class="card_footer">
+                                    <p>An IT professional who is responsible for any tech duties associated with cloud computing</p>
+                                    <a href="{% url 'careerpath' %}"><button class="card_emo2">></button></a>
+                                </div>
+                            </div>
+                            <!---------------Card ---->
+                            <div class="card">
+                                <div class="card_header card_emo3">
+                                    <img src="{% static 'assets/main/Vector3.svg'%}" alt="finger" />
+                                    <h1>App Developer</h1>
+                                </div>
+                                <div class="card_footer">
+                                    <p>A mobile app developer designs, creates, and updates mobile applications, whether on Android or iOS.</p>
+                                    <a href="{% url 'careerpath' %}"><button class="card_emo3">></button></a>
+                                </div>
+                            </div>
+                            <!---------------Card ---->
+
+                            <div class="card_button">
+                                <a href="{% url 'careerpath' %}"><p>Explore All in Detail » </p></a>
+                            </div>
+                    </section>
+
+                    </div>
+                    <div class="free_course_contanier" id="courses">
+                        <div class="free_course">
+                            <div class="free_course_head">
+                                <h2>TechSnap Courses</h2>
+                            </div>
+                            <div class="free_course_body">
+                                <div class="free_course_Left_section">
+                                    <div class="free_course_card_section">
+                                        <a href="{% url 'community' %}" style="text-decoration: none; color: black;"><div class="free_course_card Green_card">
+                                            <h4>SQL</h4>
+                                            <h5>Visit &gt;&gt;</h5>
+                                        </div></a>
+                                                <a href="{% url 'community' %}" style="text-decoration: none; color: black;">
+                                                    <div class="free_course_card Pink_card">
+                                                        <h4>HTML</h4>
+                                                        <h5>Visit &gt;&gt;</h5>
+                                                    </div>
+                                                </a>
+                                                <a href="{% url 'community' %}" style="text-decoration: none; color: black;">
+                                                    <div class="free_course_card Blue_card">
+                                                        <h4>CSS</h4>
+                                                        <h5>Visit &gt;&gt;</h5>
+                                                    </div>
+                                                </a>
+                                                <a href="{% url 'community' %}" style="text-decoration: none; color: black;">
+                                                    <div class="free_course_card Pur_card">
+                                                        <h4>React</h4>
+                                                        <h5>Visit &gt;&gt;</h5>
+                                                    </div>
+                                                </a>
+                                                <a href="{% url 'community' %}" style="text-decoration: none; color: black;">
+                                                    <div class="free_course_card Rose_card">
+                                                        <h4>Node</h4>
+                                                        <h5>Visit &gt;&gt;</h5>
+                                                    </div>
+                                                </a>
+                                                <a href="{% url 'community' %}" style="text-decoration: none; color: black;">
+                                                    <div class="free_course_card Yellow_card">
+                                                        <h4>GitHub</h4>
+                                                        <h5>Visit &gt;&gt;</h5>
+                                                    </div>
+                                                </a>
+                                    </div>
+                                </div>
+                                <div class="free_course_Right_section">
+                                    <div class="free_course_Text_box">
+                                        <h2>Learn From Well Organized and Optimised Tutorials</h2>
+                                        <p>Start to Learn and code with our beginner-friendly tutorials and examples. Read tutorials, try examples, write programs and apply them to solve problems</p>
+                                        <button><a class="nope"
+                                            href="{% url 'community' %}">Explore</a></button>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        </div>
+           <!-- //----------------------------freeecourse--------6-cards---------------------------------------- -->
+           <div class="online_course_Container">
+            <div class="online_course">
+            <div class="online_course_body">
+                    <div class="online_course_Left_section">
+                            <div class="online_course_card_container">
+                                <div class="online_course_card">
+                                        <div class="online_course_card_tag ">
+                                            <h2>Course</h2>
+                                        <h1 class="Pro_Pink">Pro</h1>
+                                    </div>
+                                    <div class="online_course_text">
+                                        <h2>Data Sceience</h2>
+                                        <div class='online_course_card_subTitle'>
+                                            <img src="{% static 'assets/main/bars-level.png'%}" alt="bar" >
+                                            <p>Beginners  friendly</p>
+                                        </div>
+                                    </div>
+                                    <div class="online_course_card_Image">
+                                        <img src="https://assets-global.website-files.com/5deb974b5176872b2c106aba/5e3c3add630a1585791ff8a9_4dda7c5dc3564bce88dfa5114c53a774.png" alt="pix" >
+                                    </div>
+                                    <div class="Online_course_footer">
+                                        <button>Enroll now</button>
+                                    </div>
+                                    <div class="Online_course_footer_2">
+                                        <div class='online_course_card_subTitle'>
+                                        <img src="{% static 'assets/main/coin (1).png'%}" alt="coin" srcset="">	<p>1200xp</p></div>
+                                        <div class='online_course_card_subTitle'>
+                                        <img src="{% static 'assets/main/certficate.png'%}" alt="coin" srcset="">	<p>Certificate</p></div>
+
+                                    </div>
+                                </div>
+                                <div class="online_course_card">
+                                    <div class="online_course_card_tag ">
+                                            <h2>Course</h2>
+                                        <h1 class="green">Free</h1>
+                                    </div>
+                                    <div class="online_course_text">
+                                        <h2>Frontend Development</h2>
+                                        <div class='online_course_card_subTitle'>
+                                            <img src="{% static 'assets/main/bars-level.png' %}" alt="bar" >
+                                            <p>Beginners  friendly</p>
+                                        </div>
+
+                                    </div>
+                                    <div class="online_course_card_Image">
+                                        <img src="{% static 'assets/main/frontend_graphic.png' %}" alt="pix" >
+                                    </div>
+                                    <div class="Online_course_footer">
+                                        <button>Enroll now</button>
+                                    </div>
+                                    <div class="Online_course_footer_2">
+                                            <div class='online_course_card_subTitle'>
+                                        <img src="{% static 'assets/main/coin (1).png'%}" alt="coin" srcset="">	<p>1200xp</p></div>
+                                        <div class='online_course_card_subTitle'>
+                                        <img src="{% static 'assets/main/certficate.png'%}" alt="coin" srcset="">	<p>Certificate</p></div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                </div>
+                <div class="online_course_Right_section">
+                    <div class="free_course_Text_box">
+                                <h2>Learn from Live courses with best Mentors</h2>
+                                <p>Our online courses provide you with an affordable and flexible way to learn new skills and study new emerging technologies</p>
+                                <button><a class="nope" href="{% url 'community' %}">Explore</a></button>
+                            </div>
+                </div>
+            </div>
+
+            </div>
+
+        </div>
+        <!-- //----------------------------threeecard -->
+        <div class=" threecard_Container">
+
+            <div class="free_course_head threecard_title">
+                    <h2>Techsnaps live Project Trainings</h2>
+                </div>
+            <div class="online_course">
+            <div class="online_course_body ">
+                    <div class="three_card_body">
+                            <div class="three_card_body_card_conatiner">
+                                <div class="online_course_card">
+                                    <div class="online_course_card_Header online_course_card_tag"><p>Projects</p><h1 class="Pro_Pink">Pro</h1></div>
+
+                                    <div class="online_course_text">
+                                        <h2>Machine learning</h2>
+                                        <div class='online_course_card_subTitle'>
+                                            <img src="{% static 'assets/main/bars-level.png'%}" alt="bar" >
+                                            <p>Beginners  friendly</p>
+                                        </div>
+
+                                    </div>
+                                    <div class="online_course_card_Image">
+                                        <img src="https://miro.medium.com/max/1400/1*c_fiB-YgbnMl6nntYGBMHQ.jpeg" alt="pix" >
+                                    </div>
+                                    <div class="Online_course_footer">
+                                        <button>See project</button>
+                                    </div>
+                                </div>
+                                <div class="online_course_card">
+                                    <div class="online_course_card_Header online_course_card_tag"><p>Projects</p><h1 class="green">Free</h1></div>
+                                    <div class="online_course_text">
+                                        <h2>Web Development</h2>
+                                        <div class='online_course_card_subTitle'>
+                                            <img src="{% static 'assets/main/bars-level.png'%}" alt="bar" >
+                                            <p>Beginners  friendly</p>
+                                        </div>
+
+                                    </div>
+                                    <div class="online_course_card_Image">
+                                        <img src="https://svweb.in/wp-content/uploads/2020/09/Get-the-Most-Fancied-Web-Development-Services-min-scaled-1.jpg" alt="pix" >
+
+                                    </div>
+                                    <div class="Online_course_footer">
+                                        <button>See project</button>
+                                    </div>
+                                </div>
+            <div class="online_course_card">
+                                    <div class="online_course_card_Header online_course_card_tag"><p>Projects</p><h1 class="Pro_Pink">Pro</h1></div>
+
+                                    <div class="online_course_text">
+                                        <h2>Data Analytics</h2>
+                                        <div class='online_course_card_subTitle'>
+                                            <img src="{% static 'assets/main/bars-level.png'%}" alt="bar" >
+                                            <p>Beginners  friendly</p>
+                                        </div>
+
+                                    </div>
+                                    <div class="online_course_card_Image">
+                                        <img src="https://images.ctfassets.net/3viuren4us1n/46LXZuNsiE6Ub7T7eqpNLH/2c781365421543368119c06c17179a46/Data_story_-_resized.jpg" alt="pix" >
+                                    </div>
+                                    <div class="Online_course_footer">
+                                        <button>See project</button>
+                                    </div>
+                                </div>
+                            </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <section class="section-10">
+            <section class="box-10">
+                <div class="content-10">
+                    <h1>Get Involved and Contribute</h1>
+                    <h4>Join our Techsnap Community !</h4>
+                </div>
+                <div class="content-2-1">
+                    <div class="flex-box-1">
+                    <h2>Educator</h2>
+                    <a href="{% url 'contact' %}">Contact</a>
+                    </div>
+                <div class="flex-box-2">
+                    <h2>Part-time Instructor</h2>
+                    <a href="{% url 'contact' %}">Contact</a>
+                </div>
+                <div class="flex-box-3">
+                    <h2>Student</h2>
+                    <a href="{% url 'contact' %}">Contact</a>
+                </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- --------------------News_section -->
+            <div class="News_section_container ">
+                <div class="News_section_container_heading">
+                    <h1>What's Happening At Techsnap</h1>
+                </div>
+               <div class='splide'>
+                   <div class="splide__track">
+                        <div class="News_Section splide__list">
+                    <div class="News_sectionCard splide__slide">
+                        <div class="News_sectionCard_Image ">
+                            <img src="https://i.ytimg.com/vi/pHiMN_gy9mk/maxresdefault.jpg" alt="pix" >
+                        </div>
+                        <div class="News_sectionCard_Text">
+                            <div class="News_sectionCard_Text_Zone">
+                              <p>October 12,2021</p>
+                              <h3>
+                    Complete roadmap to become machine leanrning engineer will relase in the coming season
+                </h3>
+                            </div>
+                            <div class='News_sectionCard_Text_buttonZone'>
+                                <Button>Read More</Button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                     <!-- ------------------- -->
+                     <div class="News_sectionCard splide__slide">
+                        <div class="News_sectionCard_Image">
+                            <img src="{% static 'assets/were-hiring-red-banner-employee-vacancy-vector-31048179.jpg'%}" alt="pix" >
+                        </div>
+                        <div class="News_sectionCard_Text">
+                            <div class="News_sectionCard_Text_Zone">
+                              <p>October 27,2021</p>
+                              <h3>
+                        We are about to hire interns from next month for various roles</h3>
+                            </div>
+                            <div class='News_sectionCard_Text_buttonZone'>
+                                <Button>Apply</Button>
+                            </div>
+                        </div>
+
+                    </div>
+                      <!-- ------------------- -->
+        <!-- ------------------- -->
+                     <div class="News_sectionCard splide__slide">
+                        <div class="News_sectionCard_Image">
+                            <img src="https://www.freecodecamp.org/news/content/images/2021/01/Blue-and-Ivory-Photo-Musician-Influencer-Digital-Brutalism-YouTube-Thumbnail-Set.png" alt="pix" >
+                        </div>
+                        <div class="News_sectionCard_Text">
+                            <div class="News_sectionCard_Text_Zone">
+                              <p>October 12,2021</p>
+                              <h3>
+                Complete roadmap to become Data scientist will relase in the coming season</h3>
+                            </div>
+                            <div class='News_sectionCard_Text_buttonZone'>
+                                <Button>Read More</Button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- ------------------- -->
+                     <div class="News_sectionCard splide__slide">
+                        <div class="News_sectionCard_Image">
+                            <img src="https://media.nature.com/lw800/magazine-assets/d41586-018-01414-6/d41586-018-01414-6_15417538.jpg" alt="pix" >
+                        </div>
+                        <div class="News_sectionCard_Text">
+                            <div class="News_sectionCard_Text_Zone">
+                              <p>September 30,2021</p>
+                              <h3>
+                Techsnap Dev Blogs,We keep you at top of your game,releasing soon</h3>
+                            </div>
+                            <div class='News_sectionCard_Text_buttonZone'>
+                                <Button>Read More</Button>
+                            </div>
+                        </div>
+
+                    </div>  <!-- ------------------- -->
+                     <div class="News_sectionCard splide__slide">
+                        <div class="News_sectionCard_Image">
+                            <img src="https://s30131.pcdn.co/wp-content/uploads/25-Brilliant-Employee-Newsletter-Designs-to-Inspire-You-03.png" alt="pix" >
+                        </div>
+                        <div class="News_sectionCard_Text">
+                            <div class="News_sectionCard_Text_Zone">
+                              <p>November 2,2021</p>
+                              <h3>
+                Subscribe to our newsletter and never miss update from us</h3>
+                            </div>
+                            <div class='News_sectionCard_Text_buttonZone'>
+                                <Button>subscribe</Button>
+                            </div>
+                        </div>
+
+                    </div>
+            </div>
+                   </div>
+               </div>
+            </div>
+
+        <!-----------------------------------contact-us-------------- -->
+        <div class="contact-us-container" style="background-image: url(https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80);">
+            <section class="contact-us-section">
+                <div class="contact-us-left">
+        <h1>
+                    Achieve your career goals <span>with confidence.</span>
+                </h1>
+                <p>Create your Techsnap account →</p>
+                </div>
+                <div class="contact-us-right">
+                    <div class="contact-us-form-holder">
+        <h1>Create Your Free Account</h1>
+        <div class="contact-us-accounts">
+        <a class="contact-us-social-media-buttons" href="">
+            <img src="{% static 'assets/main/google.svg'%}" alt="socail" />
+        <p>Google</p>
+        </a>
+        <a class="contact-us-social-media-buttons" href="">
+            <img src="{% static 'assets/main/facebook.svg'%}" alt="socail" />
+        <p>Facebook</p>
+        </a>
+        <a class="contact-us-social-media-buttons" href="">
+            <img src="{% static 'assets/main/linkedin.svg'%}" alt="socail" />
+        <p>Linkedin</p>
+        </a>
+        </div>
+        <div class="contact-us-or-line" >
+        <hr></hr>
+                        <p>or</p>
+        </div>
+        <form action="{% url 'register' %}" method="POST">
+                        <label>Username</label>
+                        <input type='text' placeholder='Username' name='username' required/>
+                        <label>Email Address</label>
+                        <input type='email' placeholder='Email' name="email" required/>
+                        <label>Password</label>
+                        <input type='password' placeholder='Password' name="password" required/>
+                        <button type='submit'>Start Learning For Free</button>
+                    </form>
+                    <div class="contact-us-footer">
+                        <p>
+                            Have Account ? <a href="{% url 'login' %}">Login Here</a>
+                        </p>
+                    </div>
+        </div>
+                </div>
+            </section>
+        </div>
+        <!-- ----------------------------------------------------- -->
+        {% endblock body %}
+</html>

@@ -1,0 +1,300 @@
+{% extends 'footer.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{% block title %}faq{% endblock title %}</title>
+
+        {% block css %}
+		<scipt src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+		<script src="{% static 'assets/faq/app.js'%}"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<link href="{% static 'assets/faq/style.css'%}" rel="stylesheet" />
+		<link
+		rel="stylesheet"
+		type="text/css"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	/>
+	<link
+		rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	/>
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+		rel="stylesheet"
+	/>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link rel="shortcut icon" type="image/png" href="{% static 'assets/main/favicon.png'%}"/>
+    {% endblock css %}
+    {% block google_tags %}
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-L4D2PNVR8Z"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-L4D2PNVR8Z');
+		</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    {% endblock google_tags %}
+	</head>
+
+	<body>
+        {% block body %}
+			<div class="banner_section">
+				<div class="right_section">
+					<!-- <img src="./assets/faq_banner.png" alt="banner" /> -->
+				</div>
+			<div class="left_section">
+				<h1>We're here to help.</h1>
+				<p>Below You'll Find Answers To The Questions We Get Asked The Most About Techsnap Courses, Live Mentorship, Career Paths Etc.. If You Havea Question That You Can't Find The Answer To, Please Use The Contact Us Page</p>
+				<div class="button_zone">
+
+					<button>Contact US</button>
+					<button>Forum</button>
+				</div>
+			</div>
+
+		</div>
+
+<div class="accountContainer">
+				<div class="bg-transparent  rounded-lg d-block d-sm-flex">
+					<div class="profile-tab-nav ">
+
+						<div
+							class="nav flex-column nav-pills"
+							id="v-pills-tab"
+							role="tablist"
+							aria-orientation="vertical"
+						>
+							<a
+								class="nav-link active"
+								id="account-tab"
+								data-toggle="pill"
+								href="#account"
+								role="tab"
+								aria-controls="account"
+								aria-selected="true"
+								onclick="myHash('account')"
+							>
+								<i class="fa fa-cart-plus text-center mr-1"></i>
+								Account
+							</a>
+
+							<a
+								class="nav-link"
+								id="password-tab"
+								data-toggle="pill"
+								href="#password"
+								role="tab"
+								aria-controls="password"
+								aria-selected="false"
+								onclick="myHash('password')"
+							>
+								<i class="fa fa-key text-center mr-1"></i>
+								Enrollment
+							</a>
+							<a
+								class="nav-link"
+								id="security-tab"
+								data-toggle="pill"
+								href="#security"
+								role="tab"
+								aria-controls="security"
+								aria-selected="false"
+								onclick="myHash('security')"
+							>
+								<i class="fa fa-history text-center mr-1"></i>
+								Communication
+							</a>
+							<a
+								class="nav-link"
+								id="application-tab"
+								data-toggle="pill"
+								href="#application"
+								role="tab"
+								aria-controls="application"
+								aria-selected="false"
+								onclick="myHash('application')"
+							>
+								<i class="fa fa-trash text-center mr-1"></i>
+								Certification
+							</a>
+						</div>
+					</div>
+					<div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
+						<div
+							class="tab-pane fade show active"
+							id="account"
+							role="tabpanel"
+							aria-labelledby="account-tab"
+						>
+							<h3>Accounts</h3>
+
+<p class="accordion">Q1. What currency is the course charged in?</p>
+<div class="panel">A. The course is charged in Australian dollars.</div>
+
+<p class="accordion">Q2. What if the course doesn’t help me?</p>
+<div class="panel">A. If it doesn't help you I'll refund the purchase price in full.</div>
+
+<p class="accordion">Q3. When will the webinars take place?</p>
+<div class="panel">A. Depending on the mix of countries and time zones for people attending the webinars, I will pick a time that works best for most participants. All webinars will be recorded so you can listen to them again. The private Facebook group will obviously be available 24/7 and I’ll be monitoring and contributing to the discussion regularly.</div>
+
+<p class="accordion">Q4. What is the self-directed mentoring program?</p>
+<div class="panel">A. The self-directed mentoring program is designed to help you set-up and run an effective mentee-mentor relationship as part of the course.</div>
+						</div>
+						<div
+							class="tab-pane fade"
+							id="password"
+							role="tabpanel"
+							aria-labelledby="password-tab"
+						>
+							<h3>Enrollment</h3>
+
+<p class="accordion">Q1. What currency is the course charged in?</p>
+<div class="panel">A. The course is charged in Australian dollars.</div>
+
+<p class="accordion">Q2. What if the course doesn’t help me?</p>
+<div class="panel">A. If it doesn't help you I'll refund the purchase price in full.</div>
+
+<p class="accordion">Q3. When will the webinars take place?</p>
+<div class="panel">A. Depending on the mix of countries and time zones for people attending the webinars, I will pick a time that works best for most participants. All webinars will be recorded so you can listen to them again. The private Facebook group will obviously be available 24/7 and I’ll be monitoring and contributing to the discussion regularly.</div>
+
+
+
+						</div>
+
+
+						<div
+							class="tab-pane fade"
+							id="security"
+							role="tabpanel"
+							aria-labelledby="security-tab"
+						>
+							<h3>Communication</h3>
+
+<p class="accordion">Q1. What currency is the course charged in?</p>
+<div class="panel">A. The course is charged in Australian dollars.</div>
+
+<p class="accordion">Q2. What if the course doesn’t help me?</p>
+<div class="panel">A. If it doesn't help you I'll refund the purchase price in full.</div>
+
+<p class="accordion">Q3. When will the webinars take place?</p>
+<div class="panel">A. Depending on the mix of countries and time zones for people attending the webinars, I will pick a time that works best for most participants. All webinars will be recorded so you can listen to them again. The private Facebook group will obviously be available 24/7 and I’ll be monitoring and contributing to the discussion regularly.</div>
+						</div>
+
+
+						<div
+							class="tab-pane fade"
+							id="application"
+							role="tabpanel"
+							aria-labelledby="application-tab"
+						>
+							<h3>Certification</h3>
+
+<p class="accordion">Q1. What currency is the course charged in?</p>
+<div class="panel">A. The course is charged in Australian dollars.</div>
+
+<p class="accordion">Q2. What if the course doesn’t help me?</p>
+<div class="panel">A. If it doesn't help you I'll refund the purchase price in full.</div>
+
+<p class="accordion">Q3. When will the webinars take place?</p>
+<div class="panel">A. Depending on the mix of countries and time zones for people attending the webinars, I will pick a time that works best for most participants. All webinars will be recorded so you can listen to them again. The private Facebook group will obviously be available 24/7 and I’ll be monitoring and contributing to the discussion regularly.</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+{% endblock body %}
+</body>
+{% block script %}
+<script>
+	var coll = document.getElementsByClassName("collapsible");
+	var i;
+
+	for (i = 0; i < coll.length; i++) {
+		coll[i].addEventListener("click", function() {
+			this.classList.toggle("active");
+			var content = this.nextElementSibling;
+			if (content.style.display === "block") {
+				content.style.display = "none";
+			} else {
+				content.style.display = "block";
+			}
+		});
+	}
+	</script>
+	<script>
+		var dp1 = $(".catalog-dropdown-desk");
+		var dp2 = $(".community-dropdown-desk");
+		var dp3 = $(".resource-dropdown-desk");
+		var dp4 = $(".pricing-dropdown-desk");
+		var dp5 = $(".profile-dropdown-desk");
+
+		dp1.hide();
+		dp2.hide();
+		dp3.hide();
+		dp4.hide();
+		dp5.hide();
+	</script>
+	<script>
+		var dp1 = $(".catalog-dropdown-desk");
+		var dp2 = $(".community-dropdown-desk");
+		var dp3 = $(".resource-dropdown-desk");
+		var dp4 = $(".pricing-dropdown-desk");
+		var dp5 = $(".profile-dropdown-desk");
+
+		var DP1 = $(".1-dropdown");
+		var DP2 = $(".2-dropdown");
+		var DP3 = $(".3-dropdown");
+		var DP4 = $(".4-dropdown");
+		var DP5 = $(".5-dropdown");
+
+		$(".catalog-desk").click(function(){
+			dp1.toggle();
+		});
+		$(".community-desk").click(function(){
+			dp2.toggle();
+		});
+		$(".resource-desk").click(function(){
+			dp3.toggle();
+		});
+		$(".pricing-desk").click(function(){
+			console.log(dp4.is(":hidden"));
+			dp4.toggle();
+		});
+		$(".profile-avatar").click(function(){
+			dp5.toggle();
+		});
+
+		$(document).mouseup(function(e){
+			if(!DP1.is(e.target) && DP1.has(e.target).length === 0){
+				dp1.hide();
+			}
+			if(!DP2.is(e.target) && DP2.has(e.target).length === 0){
+				dp2.hide();
+			}
+			if(!DP3.is(e.target) && DP3.has(e.target).length === 0){
+				dp3.hide();
+			}
+			if(!DP4.is(e.target) && DP4.has(e.target).length === 0){
+				dp4.hide();
+			}
+			if(!DP5.is(e.target) && DP5.has(e.target).length === 0){
+				dp5.hide();
+			}
+		});
+	</script>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+{% endblock script %}
+</html>

@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Blog</title>
+    <link rel="stylesheet" href="{% static 'assets/contact/edit.css' %}">
+</head>
+<body>
+    <div class="outer-container">
+        <div class="inner-container">
+            <div class="navigation">
+                <div class="navbar">
+                    <div class="nav-logo">
+                        <div class="logo nav-item">
+                            <img src="rsc/icons8-menu-24.png" alt="" class="menu-icon">
+                            <p class="tech-snap">TECHSNAP</p>
+                        </div>
+                    </div>
+                    <div class="nav-rest">
+                        <div class="rest">
+                            <p class="nav-item">Catalog</p>
+                        </div>
+                        <div class="rest">
+                            <p class="nav-item">Community</p>
+                        </div>
+                        <div class="rest">
+                            <p class="nav-item">Career Paths</p>
+                        </div>
+                        <div class="rest">
+                            <p class="nav-item">Resources</p>
+                        </div>
+                        <div class="rest">
+                            <p class="nav-item">Pricing</p>
+                        </div>
+                        <div class="rest">
+                            <img src="rsc/content-pixie-wnaNPxM6bn8-unsplash.jpg" alt="" class="profile-image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="content-wrapper">
+                    <div class="blog">
+                        <div class="create-blog">
+                            <div class="blog-title blog-item">
+                                <h4>Blog title</h4> <br>
+                                <form method="POST" enctype="multipart/form-data" id="mainform">
+                                    {% csrf_token %}
+                                    <input name="title" type="text" placeholder="Enter Title" class="p-2 title-input mb-3" required>
+                            </div> <br>
+                            <div class="blog-banner blog-item">
+                                <h4>Banner Image</h4>
+                                <br>
+                    <input name="banner_img" type="file" value="banner img" class="p-2 title-input mb-3" accept="image/png, image/gif, image/jpeg" required>
+                            </div> <br>
+                            <div class="blog-editor blog-item">
+                                <div class="editor">
+                                    {{form.as_p}}
+                                    {{form.media}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-panel">
+                        <div class="panel">
+                            <div class="post-details panel-inner">
+                                <h3>Post Details</h3> <br>
+                                <div class="ps">
+                                    <button class="save" onclick="saveDraft()">Save as Draft</button>
+                                    <input type="submit" style="display: none;" id="submitbutton">
+                                    <button onclick="preview()" class="preview">Preview</button>
+                                </div>
+                                <br>
+                                <p>Status: <span class="status">{{status}}</span></p><br>
+                                <button class="submit" onclick="submitForReview()">Submit for Review</button>
+                            </div>
+                        </div>
+                            </form>
+
+                        <div class="panel">
+                            <div class="category panel-inner">
+                                <h3>Categories</h3> <br>
+                                <div class="note">
+                                    <h4>Please select a category</h4>
+                                    <p>Selecting atleast one category will help fast-track reviewing process.</p>
+                                </div> <br>
+                                <select name="categories" id="categories">
+                                    <option value="" disabled selected>Select category</option>
+                                    <option value="java">Java</option>
+                                    <option value="php">PHP</option>
+                                    <option value="javascript">JavaScript</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="tags panel-inner">
+                                <h3>Tags</h3> <br>
+                                <select name="categories" id="categories">
+                                    <option value="" disabled selected>Add tags</option>
+                                    <option value="java">Java</option>
+                                    <option value="php">PHP</option>
+                                    <option value="javascript">JavaScript</option>
+                                </select> <br> <br>
+                                <button class="add">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        function submitForReview() {
+            document.getElementById("mainform").action="{% url 'blogs:blogcreate' %}?status=review";
+            document.getElementById("submitbutton").click;
+        }
+
+        function saveDraft() {
+          document.getElementById("mainform").action="{% url 'blogs:blogcreate' %}?status=draft";
+          document.getElementById("submitbutton").click;
+        }
+
+        function preview() {
+          document.getElementById("mainform").action="{% url 'blogs:blogcreate' %}?status=preview";
+          document.getElementById("mainform").target="_blank";
+          document.getElementById("submitbutton").click;
+        }
+    </script>
+</body>
+</html>

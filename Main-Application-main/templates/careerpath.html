@@ -1,0 +1,128 @@
+{% extends 'footer.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{% block title %}Careerpaths{% endblock title %}</title>
+
+        {% block css %}
+		<link rel="stylesheet" href="{% static 'assets/careerpath/style.css' %}">
+
+        <link rel="shortcut icon" type="image/png" href="{% static 'assets/main/favicon.png'%}"/>
+        {% endblock css %}
+        {% block google_tags %}
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-L4D2PNVR8Z"></script>
+		<script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-L4D2PNVR8Z');
+            </script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+            <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+        {% endblock google_tags %}
+	</head>
+<body>
+{% block body %}
+<!-- -------------------------------------------------------------- -->
+<div class="max_width_section">
+    <div class="hero_section">
+			<div class="shape">
+				<img src="{% static 'assets/careerpath/img/hero_shape.svg'%}" alt="thug" />
+			</div>
+			<div class="text_zone">
+				<div class="title">
+					<h1>Launch Your Career With Our Road-Maps</h1>
+				</div>
+				<div class="sub_title">
+					<h3>What's Career Path?</h3>
+					<p>
+						We provide you clean information about the Designations & skills
+						required with a clean Road Map to launch in that particular Carrer
+						by providing courses, Hands-on projects,tasks etc.. and lot many
+						things.
+					</p>
+					<button>Explore all</button>
+				</div>
+			</div>
+			<div class="img_zone">
+				<img src="{% static 'assets/careerpath/img/heroImg.svg'%}" alt="flower" />
+			</div>
+		</div>
+</div>
+        <div class="max_width_section banner_color">
+		<div class="banner_section">
+			<div class="title">
+				<h1>Treding Career Paths</h1>
+			</div>
+			<div class="cards_section">
+				<div class="card">
+					<h2>Data Scientist</h2>
+					<p>An Anlytical Expert</p>
+					<button>View</button>
+				</div>
+				<div class="card">
+					<h2>FullStack Dveloper</h2>
+					<p>Frontend + Backend</p>
+					<button>View</button>
+				</div>
+				<div class="card">
+					<h2>Cloud Engineer</h2>
+					<p>Design, Build ,Maintain</p>
+					<button>View</button>
+				</div>
+				<div class="card">
+					<h2>UI -UX Designer</h2>
+					<p>Creating Path Flow</p>
+					<button>View</button>
+				</div>
+			</div>
+		</div>
+        </div>
+        <div class="max_width_section">
+<div class="Cards_section">
+			<div class="title">
+				<h1>Career Paths</h1>
+			</div>
+			<div class="cards_conatiner">
+
+                {% for careers in object_list %}
+				<div class="cards">
+					<h1>{{careers.title}}</h1>
+					<div class="icons_zone">
+						<div class="icon">
+							<span><img src="{% static 'assets/careerpath/img/eye.svg'%}" alt="eye" /></span>
+							<p>5.6k views</p>
+						</div>
+						<div class="icon">
+							<span><img src="{% static 'assets/careerpath/img/book.svg'%}" alt="book" /></span>
+							<p>Blog Included</p>
+						</div>
+						<div class="icon">
+							<span><img src="{% static 'assets/careerpath/img/people.svg'%}" alt="book" /></span>
+							<p>13 courses</p>
+						</div>
+					</div>
+					<div class="img_card_zone">
+						<img src="{% static 'assets/careerpath/img/card_img.svg'%}" alt="img" />
+					</div>
+					<div class="tags_zone">
+						<div class="tags">Alan</div>
+						<div class="tags">Akhil</div>
+						<div class="tags">AA</div>
+					</div>
+					<button class="view"><a style="text-decoration: none;" href="{{careers.get_absolute_url}}">View Roadmap</a></button>
+				</div>
+                {% endfor %}
+			</div>
+		</div>
+        </div>
+        <!---------------------------------------------------------------------------------------------->
+{% endblock body %}
+</body>
+</html>

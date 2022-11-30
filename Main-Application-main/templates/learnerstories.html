@@ -1,0 +1,220 @@
+{% extends 'footer.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+	<title>{% block title %}Learner stories{% endblock title %}</title>
+
+	{% block css %}
+	<link rel="stylesheet" href="{% static 'assets/learnerstories/learnerstories.css' %}">
+
+	<link rel="shortcut icon" type="image/png" href="{% static 'assets/main/favicon.png'%}"/>
+    {% endblock css %}
+    {% block google_tags %}
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-L4D2PNVR8Z"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-L4D2PNVR8Z');
+		</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    {% endblock google_tags %}
+	</head>
+	<body>
+		{% block body %}
+		<div class="Hero_section" id='top'>
+			<div class="Hero_details" data-aos="fade-right" >
+				<p>READ THEIR STORIES</p>
+				<h1>Meet 100+<br> Techsnap learners</h1>
+			</div>
+			<img
+				id="Learners_img"
+				src="{%static 'assets/learnerstories/images/Learning.svg' %}"
+				alt="Learners"
+				data-aos="fade-left"
+				 offset: 180
+			/>
+		</div>
+		<!-- Main Conatiner ------------------------------------------------------------------------------------------------ -->
+		<div class="mainCard_Section">
+			<div class="card_Container">
+				<!-- card region------------------------------------------ -->
+				<div class="card" data-aos="fade-up-right">
+					<img id="card_Avatar" src="{%static 'assets/learnerstories/images/sampreeth1.jpg' %}" alt="Avatar" />
+					<div class="card_Title">
+					<h1>“I would say Techsnap is better than any other platform for learning”</h1>
+					</div>
+					<div class="card_Details">
+						<div class="card_Edu">
+							<p>It's so proud for me to be part of this compnay and giving servies to many new tech newbies thriving for help !</p>
+						</div>
+						<div class="card_More">
+							<h3>Read Sampreeth's Story</h3>
+							<img src="{%static 'assets/learnerstories/images/next.png' %}" alt="Arrow" >
+						</div>
+					</div>
+				</div>
+				<!-- card region------------------------------------------ -->
+				<div class="card" data-aos="fade-up">
+					<img id="card_Avatar" src="{%static 'assets/learnerstories/images/akhil.jpg' %}" alt="Avatar" />
+					<div class="card_Title">
+					<h1>	“Techsnap is beyond the imagination for every code geek out there ! ”</h1>
+					</div>
+					<div class="card_Details">
+						<div class="card_Edu">
+							<p>Technap has some good team and always had mentors helping people and also motivating Them</p>
+						</div>
+						<div class="card_More">
+							<h3>Read Akhil's Story</h3>
+							<img src="{%static 'assets/learnerstories/images/next.png' %}" alt="Arrow" >
+						</div>
+					</div>
+				</div>
+				<!-- card region------------------------------------------ -->
+				<div class="card" data-aos="fade-up-left">
+					<img id="card_Avatar" src="{%static 'assets/learnerstories/images/saketh.jpg' %}" alt="Avatar" />
+					<div class="card_Title">
+					<h1>	“I am glad to have found this amazing opportunity from TechSnap”</h1>
+					</div>
+					<div class="card_Details">
+						<div class="card_Edu">
+							<p>TechSnap provides good opportunity and also mentor to develop your technical and softskills
+as well. </p>
+						</div>
+						<div class="card_More">
+							<h3>Read Antonraj's Story</h3>
+							<img src="{%static 'assets/learnerstories/images/next.png' %}" alt="Arrow" >
+						</div>
+					</div>
+				</div>
+				<!-------------------------------------------- -->
+
+				<div class="text_box">
+					<h3>“we are here to challenge you to do the best work of your life
+and pave your path toward the future of technology.”</h3>
+				</div>
+			</div>
+		</div>
+		<!-- Main Conatiner ------------------------------------------------------------------------------------------------ -->
+<div class="mainCard_Section">
+			<div class="card_Container">
+				<div class="card" data-aos="fade-up-right">
+					<img id="card_Avatar" src="{%static 'assets/learnerstories/images/lavanya1.jpg' %}" alt="Avatar" />
+					<div class="card_Title">
+					<h1>	“TechSnap made me view courses and tutorials in a unique
+perspective”</h1>
+					</div>
+					<div class="card_Details">
+						<div class="card_Edu">
+							<p>As a beginner it was hard to cope up for me but my mentors were
+super understanding and helped in every way possible.</p>
+						</div>
+						<div class="card_More">
+							<h3>Read Lavanya's Story</h3>
+							<img src="{%static 'assets/learnerstories/images/next.png' %}" alt="Arrow" >
+						</div>
+					</div>
+				</div>
+				<div class="card" data-aos="fade-up">
+					<img id="card_Avatar" src="{%static 'assets/learnerstories/images/sampath1.jpg' %}" alt="Avatar" />
+					<div class="card_Title">
+					<h1>	“I loved being a part of Techsnap and I enjoyed every minute of learning”</h1>
+					</div>
+					<div class="card_Details">
+						<div class="card_Edu">
+							<p>Technap has some great team ,always had mentors helping me with all concepts and projects</p>
+						</div>
+						<div class="card_More">
+							<h3>Read Sampath'sStory</h3>
+							<img src="{%static 'assets/learnerstories/images/next.png' %}" alt="Arrow" >
+						</div>
+					</div>
+				</div>
+				<div class="card" data-aos="fade-up-left">
+					<img id="card_Avatar" src="{%static 'assets/learnerstories/images/atreya.jpg' %}" alt="Avatar" />
+					<div class="card_Title">
+					<h1>	“Finally I found myself a worthy internship after trying many”</h1>
+					</div>
+					<div class="card_Details">
+						<div class="card_Edu">
+							<p>Right from day one I had so much fun learning and being a part of
+the crew. It was just a wonderful journey.</p>
+						</div>
+						<div class="card_More">
+							<h3>Read Atreya's Story</h3>
+							<img src="{%static 'assets/learnerstories/images/next.png' %}" alt="Arrow" >
+						</div>
+					</div>
+				</div>
+
+				<div class="text_box">
+					<h3>“Techsnap is a good option to if anyone with or without experience is
+looking for internship and courses”</h3>
+				</div>
+			</div>
+		</div>
+		<!-- Main Conatiner ------------------------------------------------------------------------------------------------ -->
+<div class="mainCard_Section">
+			<div class="card_Container">
+				<div class="card" data-aos="fade-up-right">
+					<img id="card_Avatar" src="{%static 'assets/learnerstories/images/yogi.jpeg' %}" alt="Avatar" />
+					<div class="card_Title">
+					<h1>“Techsnap has helped me to improve my technical and softskills.”</h1>
+					</div>
+					<div class="card_Details">
+						<div class="card_Edu">
+							<p>Techsnap has amazing opportunities to offer and i had a wonderful experience being a part of it.</p>
+						</div>
+						<div class="card_More">
+							<h3>Read Yogi's Story</h3>
+							<img src="{%static 'assets/learnerstories/images/next.png' %}" alt="Arrow" >
+						</div>
+					</div>
+				</div>
+				<div class="card" data-aos="fade-up">
+					<img id="card_Avatar" src="{%static 'assets/learnerstories/images/murali1.jpg' %}" alt="Avatar" />
+					<div class="card_Title">
+					<h1>	“I am impressed by how much this internship has improved my skills.”</h1>
+					</div>
+					<div class="card_Details">
+						<div class="card_Edu">
+							<p>It was a good experience being a part of it. I had a
+great time learning and connecting with more people</p>
+						</div>
+						<div class="card_More">
+							<h3>Read Murali'sStory</h3>
+							<img src="{%static 'assets/learnerstories/images/next.png' %}" alt="Arrow" >
+						</div>
+					</div>
+				</div>
+				<div class="card" data-aos="fade-up-left">
+					<img id="card_Avatar" src="{%static 'assets/learnerstories/images/aaditi.jpg' %}" alt="Avatar" />
+					<div class="card_Title">
+					<h1>	“the mentors were very kind towards us and It was simply wonderful journey”</h1>
+					</div>
+					<div class="card_Details">
+						<div class="card_Edu">
+							<p>They really have good mentors with great knowledge and they know what
+to be done and what not be done.</p>
+						</div>
+						<div class="card_More">
+							<h3>Read Aaditi's Story</h3>
+							<img src="{%static 'assets/learnerstories/images/next.png' %}" alt="Arrow" >
+						</div>
+					</div>
+				</div>
+
+				<div class="text_box">
+					<h3>“It was a good experience being a part of it. I had a
+great time learning and connecting with more people”</h3>
+				</div>
+			</div>
+		</div>
+{% endblock body %}
+</body>
+</html>

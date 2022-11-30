@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <nav class='w3-black w3-margin-bottom w3-container w3-padding'>
+        <h3 class='w3-left'>Courses Settings >>>>> Course Information</h3>
+        <h3 class='w3-right' >{{creator.username}}</h3>
+        <a href={% url 'course-desc-form' slug %}>
+            <button class='w3-button w3-black w3-border w3-right'>Back</button>
+        </a>
+    </nav>
+    
+    <div class='w3-margin w3-round-large w3-padding w3-border' >
+        <h3>Anouncements</h3>
+        <button onclick='showCourseForm();' class='w3-button w3-blue w3-round-large' >Add another Unit</button>
+        <div id="course_form" style='display:none;' class="w3-container">
+            <div class=" w3-center w3-padding" >
+              <button class='w3-right w3-button w3-round-large w3-red w3-padding' onclick="document.getElementById('course_form').style.display='none'" >&times;</button>
+              <div class="w3-margin w3-padding w3-round-large w3-border w3-white" id="content">
+                <form enctype='multipart/form-data' method='POST' action="{% url 'create-obj' slug 'anouncement' %}">
+                    <h4 class='w3-center'>Create New Anouncement</h4>
+                    {% csrf_token %}
+                    {{form.media}}
+                    {{ form|crispy }}
+                    <button type='submit' style='width:97%' class='w3-margin w3-round-large w3-green w3-button' >Create</button>
+                </form>
+              </div>
+            </div>
+        </div>
+            {% for anouncement in anouncements %}
+                <div class='w3-row' >
+                        <h5 class='w3-left w3-margin-right' >
+                            Anouncement by 
+                            <a class='w3-text-blue' href="{% url 'update-obj' slug 'anouncement' anouncement.id %}">
+                            {{anouncement.instructor.user.username}}
+                            </a>
+                        </h5>
+                    <a href="{% url 'delete-anouncement' anouncement.id %}">
+                        <button class=' w3-button w3-right w3-round w3-red'>Delete</button>
+                    </a>
+                </div>
+            {% endfor %}
+    </div>
+
+    <div class='w3-margin w3-round-large w3-padding w3-border' >
+        <h3>Frequesntly Asked Questions</h3>
+        <button onclick='showFAQForm();' class='w3-button w3-blue w3-round-large' >Add another FAQ</button>
+        <div id="faq_form" style='display:none;' class="w3-modal">
+            <div class="w3-display-middle w3-padding" >
+              <button class='w3-right w3-button w3-round-large w3-red w3-padding' onclick="document.getElementById('faq_form').style.display='none'" >&times;</button>
+              <div class="w3-margin w3-padding w3-round-large w3-border w3-white" id="content">
+                <form enctype='multipart/form-data' method='POST' action="{% url 'create-obj' slug 'faq' %}">
+                    <h4 class='w3-center'>Add new Frequesntly Asked Question</h4>
+                    {% csrf_token %}
+                    {{faq_form.media}}
+                    {{ faq_form|crispy }}
+                    <button type='submit' style='width:97%' class='w3-margin w3-round-large w3-green w3-button' >Create</button>
+                </form>
+              </div>
+            </div>
+        </div>
+            {% for faq in faqs %}
+                <div class='w3-row w3-border w3-margin w3-padding w3-round' >
+                        <div class='w3-left w3-margin-right' >
+                            <h5>
+                                Question > {{faq.question}}
+                            </h5>
+                            <h5>
+                                Answer > {{faq.answer}}
+                            </h5>
+                        </div>
+                    <a href="{% url 'delete-faq' faq.id %}">
+                        <button class=' w3-button w3-right w3-round w3-red'>Delete</button>
+                    </a>
+                </div>
+            {% endfor %}
+    </div>
+    
+    <script>
+        function showCourseForm(){document.getElementById('course_form').style.display = "block";}
+        function showFAQForm(){document.getElementById('faq_form').style.display = "block";}
+    </script>
+{% endblock %}

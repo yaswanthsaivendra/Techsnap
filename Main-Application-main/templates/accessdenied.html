@@ -1,0 +1,42 @@
+{% extends 'footer.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{% block title %}Accessdenied{% endblock title %}</title>
+
+		{% block css %}
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+		<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+		<link rel="stylesheet" href="{% static 'assets/error/access1.css'%}" />
+		<link rel="stylesheet" href="{% static 'assets/error/access.css'%}" />
+
+		<link rel="shortcut icon" type="image/png" href="{% static 'assets/main/favicon.png'%}"/>
+    {% endblock css %}
+    {% block google_tags %}
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-L4D2PNVR8Z"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-L4D2PNVR8Z');
+		</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    {% endblock google_tags %}
+
+	</head>
+	<body>
+		{% block body %}	<!-- ----------------------------------------------------- -->
+			<!-- //----------------------------- -->
+			<div class="error">
+				<img src="https://cdn.dribbble.com/users/1278681/screenshots/6596207/frame_4.png"/>
+				<h1>Sorry, You don't have access to this page</h1>
+				<p>Contact your Respective Project Manager for access <a href="{% url 'contact' %}">Here</a></p>
+			</div>
+			{% endblock body %}
+		</body>
+</html>

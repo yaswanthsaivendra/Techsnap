@@ -1,0 +1,318 @@
+body{
+    justify-content: center;
+    overflow: unset;
+    position: relative;
+    overflow-x: hidden;
+  }
+  #banner, .cards, #steps, .team, .jobs, .perks, #position{
+    max-width: 1200px;
+  }
+  /* banner-section */
+  #banner-section{
+    position: relative;
+    background: no-repeat center center;
+    background-size: cover;
+    background-image: url(https://www.sage.com/en-us/blog/wp-content/uploads/sites/2/2018/04/peoplecenteredworklplace.jpg);
+    height: 450px;
+    background-position-x: left;
+    background-position-y: top;
+  }
+  #banner div{
+    padding-top:75px;
+    padding-bottom:48px;
+  }
+  #banner p{
+    font-size: 70px;
+    padding-top: 48px;
+    padding-bottom:48px;
+    color:black;
+  }
+  .color{
+    color: #0045ad;
+  }
+  /* consider-section*/
+  #consider .div1{
+    padding-top:66px;
+    padding-bottom:66px;
+  }
+  #consider .div1 p{
+    margin-bottom: 30px;
+  }
+  .consider-content ul{
+    padding-left: 40px;
+  }
+  .consider-content li{
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .consider-content ul , ul {
+    list-style: none;
+  }
+
+  .consider-content ul li:before {
+    content: '✓ ';
+    font-weight: 600;
+    padding-right: 5px;
+    font-size: 20px;
+  }
+  /* step-section */
+  #steps .div1{
+    padding-top:50px;
+    padding-bottom:20px;
+  }
+  #steps .div1 .div2{
+    margin-top: 70px;
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+  .subpart{
+    flex: 1 0;
+    margin: 5px;
+    height: 100%;
+    margin-bottom: 20px;
+  }
+  .subpart-p{
+    padding: 5px 20px;
+    display: inline-block;
+    border-radius: 50%;
+    border: 1px solid;
+    margin-bottom: 15px;
+    font-size: 35px;
+    font-weight: 500;
+  }
+  .subpart h4{
+    font-weight: 600;
+    line-height: 1.2;
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+  .subpart p{
+    color: #00b2b2;
+    font-size: 14px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  /*--card-section*/
+  #cards-section{
+    padding-top:80px;
+  }
+  .owl-item .item {
+     transform: translate3d(0, 0, 0);
+    margin: 40px 55px;
+    text-align: center;
+   }
+  .cards-slider{
+    margin-top:80px;
+  }
+  .cards-slider .owl-item .item{
+    opacity: 0.8;
+    background-color: #f8f9fa;
+      width: 18rem;
+      -webkit-transition: 0.3s;
+      -webkit-box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+      box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+      -o-transition: 0.3s;
+      transition: 0.3s;
+      -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+      transform: scale(1.05);
+      transition: background-color 2s;
+      border: 0;
+  }
+  .cards-slider .owl-item .item .card-body a{
+    border-radius: 25px;
+    font-size: small;
+    padding: 4px 12px;
+  }
+  .cards-slider .owl-item .item .card-body h5{
+    margin-bottom: 70px;
+  }
+
+  .cards-slider .owl-item.center .item{
+    opacity: 1;
+      -webkit-transform: scale(1.25);
+      -ms-transform: scale(1.25);
+      transform: scale(1.25);
+      background-color: rgb(223, 255, 231);
+  }
+
+  .cards-slider .owl-nav {
+    margin: 24px 0px;
+      text-align: center;
+  }
+
+  .cards-slider .owl-nav button {
+      font-size: 30px !important;
+      margin: 0px 10px;
+      color: #198754 !important;
+  }
+  /*jobs-section*/
+  #job-section .jobs{
+    padding-top:35px;
+    padding-bottom: 35px;
+  }
+  #job-section .jobs .div1{
+    width: 50%;
+    margin:auto;
+  }
+  #job-section .jobs h1{
+    font-size: 42px;
+  }
+  #job-section .jobs p{
+    font-size: 1.17rem;
+    padding-bottom: 48px;
+  }
+  #job-section .jobs .job-button{
+  }
+  /* perk-section */
+  #perk-section{
+    background-color: #0045ad;
+    padding-top:60px;
+    padding-bottom:60px;
+  }
+  .perk-img{
+    height: 300px; width: 100%;
+  }
+  .perks ul{
+    padding-left: 0;
+  }
+  .perks ul li{
+    padding-bottom: 12px;
+  }
+  .perks ul li:before{
+    content: '✓ ';
+    padding-right: 5px;
+    font-size: 22px;
+  }
+  /*team-section*/
+  #team-section{
+    margin-top: 70px;
+    margin-bottom: 70px;
+  }
+  .team-heading{
+    margin-bottom: 60px;
+  }
+  .team-data{
+    padding: 48px 0px 0px 48px;
+  }
+  .team-data1{
+    position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 4px;
+  }
+  .team-data1 .div-img{
+    width: 100%;
+    height: 200px;
+  }
+  .team-data1 img{
+    padding: 5px;
+    box-shadow: 1px 0 4px 4px rgb(0 0 0 / 10%);
+    height: 100%;
+    width: auto;
+    max-width: none;
+  }
+  .team-data1 .div-content{
+    padding: 24px 48px;
+  }
+  .team-data1 .team-button{
+      margin-top: 2px;
+      width: 100%;
+  }
+  .team-data1 .team-button .btn{
+    padding: 0.5rem  1rem;
+      font-size: 1.25rem;
+      border-radius: 0.5rem;
+  }
+  @media screen and (min-width: 1200px) {
+    body, #banner,.cards, #steps, .team, .jobs, .perks, #position{
+      text-align: auto;
+      margin-left: auto;
+      margin-right: auto;
+      justify-content: center;
+    }
+  }
+  @media (max-width:1010px) {
+    #banner-section{
+      margin-top: 50px;
+    }
+  }
+  @media (max-width:580px){
+    #banner p{
+      font-size: 40px;
+      padding-bottom: 70px;
+    }
+    #steps .div1{
+      padding-bottom: 50px;
+    }
+    #steps .div1 .div2{
+      margin-top: 50px;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+    .subpart{
+      flex: auto;
+    }
+    .subpart p{
+      padding-right: 0px;
+      padding-left: 0px;
+    }
+    .cards-slider{
+      margin-top:40px !important;
+    }
+    #perk-section{
+      padding-bottom: 30px;
+    }
+    .perks-heading{
+      margin-top: 40px;
+    }
+    .team-data{
+      padding-top: 20px;
+      padding-left: 0;
+    }
+    .team-data1 .div-img{
+      width: 100%;
+      height: 90px;
+    }
+    .team-data1 .div-content{
+      padding: 15px 10px;
+    }
+    .team-data1 .team-button .btn{
+      padding: 6px 12px;
+      font-size: 1rem;
+      border-radius: 0.375rem;
+    }
+    #job-section .jobs{
+      padding-top:60px;
+      padding-bottom: 60px;
+    }
+    #job-section .jobs .div1{
+      width: 80%;
+    }
+    #job-section .jobs h1{
+      font-size: 29px;
+    }
+    #job-section .jobs p{
+      font-size: 17px;
+      padding-bottom: 20px;
+    }
+    #job-section .jobs .job-button{
+      padding-top: 25px;
+    }
+  }
+  @media (max-width:370px) {
+    #job-section .jobs .div1{
+      width: 80%;
+    }
+    #job-section .jobs h1{
+      font-size: 22px;
+    }
+    #job-section .jobs p{
+      font-size: 15px;
+    }
+  }
+  @media (max-width:1024px){
+    .cards-slider .owl-item .item{
+      width: auto !important;
+    }
+  }

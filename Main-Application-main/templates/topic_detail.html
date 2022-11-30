@@ -1,0 +1,18 @@
+{% if user.is_authenticated %}
+{% if object.course in request.user.profile.courseprofile %}
+{% if object is not None %}
+	<li><a href="{{ object.course.get_absolute_url }}">{{ object.course.title }}</a></li>
+	<li>{{ object.title }}</li>
+{% endif %}
+<h1>Topic Detail View</h1>
+{% if object is not None %}
+{% for lesson in object.get_topic_lessons %}
+	<li><a href="{{lesson.get_absolute_url }}">{{ lesson.title }}</a></li>
+{% endfor %}
+{% endif %}
+{% else %}
+please enroll to this course to viw this lesson
+{% endif %}
+{% else %}
+please login
+{% endif %}

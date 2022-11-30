@@ -1,0 +1,924 @@
+{% extends 'footer.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{% block title %}Course Description{% endblock title %}</title>
+
+        {% block css %}
+		<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+		<link rel="stylesheet" href="{% static 'assets/coursedescription/style.css' %}" />
+
+        <link rel="shortcut icon" type="image/png" href="{% static 'assets/main/favicon.png'%}"/>
+        {% endblock css %}
+        {% block google_tags %}
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4D2PNVR8Z"></script>
+            <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-L4D2PNVR8Z');
+            </script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        {% endblock google_tags %}
+
+	</head>
+	<body>
+        {% block body %}
+		<div class="hero_banner_section">
+			<div class="course_zone">
+				<img src="/assets/python.png" alt="course" />
+				<h2>Learn Python</h2>
+				<button>Enroll now</button>
+			</div>
+		</div>
+		<div class="overview_section">
+			<div class="title">
+				<div class="tab">
+					<button
+						class="tablinks"
+						onclick="openCity(event, 'London')"
+						id="defaultOpen"
+					>
+						overview
+					</button>
+					<button class="tablinks" onclick="openCity(event, 'Paris')">
+						Syllabus
+					</button>
+				</div>
+			</div>
+			<div class="overview_zone tabcontent" id="London">
+                <div class="details_section">
+				<div class="paragraph_section">
+					<div class="paragraph">
+						<div class="title">
+							<h2>Why Learn Python?</h2>
+						</div>
+						<p>
+							Python is a general-purpose, versatile and popular programming
+							language. It’s great as a first language because it is concise and
+							easy to read, and it is also a good language to have in any
+							programmer’s stack as it can be used for everything from web
+							development to software development and data science applications.
+						</p>
+					</div>
+					<div class="paragraph">
+						<div class="title">
+							<h2>Take-Away Skills</h2>
+						</div>
+						<p>
+							This course is a great introduction to both fundamental
+							programming concepts and the Python programming language. Python 3
+							is the most up-to-date version of the language with many
+							improvements made to increase the efficiency and simplicity of the
+							code that you write.
+						</p>
+					</div>
+					<div class="paragraph">
+						<div class="title">
+							<h2>Why Learn Python?</h2>
+						</div>
+						<p>
+							Python is a general-purpose, versatile and popular programming
+							language. It’s great as a first language because it is concise and
+							easy to read, and it is also a good language to have in any
+							programmer’s stack as it can be used for everything from web
+							development to software development and data science applications.
+						</p>
+					</div>
+					<div class="paragraph">
+						<div class="title">
+							<h2>Take-Away Skills</h2>
+						</div>
+						<p>
+							This course is a great introduction to both fundamental
+							programming concepts and the Python programming language. Python 3
+							is the most up-to-date version of the language with many
+							improvements made to increase the efficiency and simplicity of the
+							code that you write.
+						</p>
+					</div>
+					<div class="paragraph">
+						<div class="title">
+							<h2>Why Learn Python?</h2>
+						</div>
+						<p>
+							Python is a general-purpose, versatile and popular programming
+							language. It’s great as a first language because it is concise and
+							easy to read, and it is also a good language to have in any
+							programmer’s stack as it can be used for everything from web
+							development to software development and data science applications.
+						</p>
+					</div>
+					<div class="paragraph">
+						<div class="title">
+							<h2>Take-Away Skills</h2>
+						</div>
+						<p>
+							This course is a great introduction to both fundamental
+							programming concepts and the Python programming language. Python 3
+							is the most up-to-date version of the language with many
+							improvements made to increase the efficiency and simplicity of the
+							code that you write.
+						</p>
+					</div>
+				</div>
+				<div class="overview_card_section">
+					<div class="card">
+						<div class="card_item">
+							<span>Earn</span>
+							<p>Certificate</p>
+							<span>of completion</span>
+						</div>
+						<div class="card_item">
+							<span>Join</span>
+							<p>45,000,000+</p>
+							<span>Techsnap learners</span>
+						</div>
+						<div class="card_item">
+							<span>Time to complete</span>
+							<p>25 Hours+</p>
+						</div>
+						<div class="card_item">
+							<span>Prerequisites</span>
+							<p>None</p>
+						</div>
+					</div>
+				</div>
+                </div>
+                <div class="courese_list_section">
+			<div class="title">
+				<h1>Python Basics Course List</h1>
+			</div>
+			<div class="list_section">
+				<div class="list">
+					<div class="SI_num">
+						<h1>1</h1>
+					</div>
+					<div class="text_zone">
+						<div class="title">
+							<h2>Hello world</h2>
+						</div>
+
+						<div class="para">
+							<p>
+								Get started with Python syntax in this lesson and then create a
+								point of sale system for a furniture store!
+							</p>
+							<button>view details</button>
+						</div>
+						<div class="icons">
+							<div class="icon">
+								<span><img src="/assets/coin1.png" alt="coin" /></span>
+								<p>12xp</p>
+							</div>
+							<div class="icon">
+								<span><img src="/assets/Group.png" alt="coin" /></span>
+								<p>12xp</p>
+							</div>
+							<div class="icon">
+								<span><img src="/assets/money.png" alt="coin" /></span>
+								<p>12xp</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="list">
+					<div class="SI_num">
+						<h1>2</h1>
+					</div>
+					<div class="text_zone">
+						<div class="title">
+							<h2>Hello world</h2>
+						</div>
+
+						<div class="para">
+							<p>
+								Get started with Python syntax in this lesson and then create a
+								point of sale system for a furniture store!
+							</p>
+							<button>view details</button>
+						</div>
+						<div class="icons">
+							<div class="icon">
+								<span><img src="/assets/coin1.png" alt="coin" /></span>
+								<p>12xp</p>
+							</div>
+							<div class="icon">
+								<span><img src="/assets/Group.png" alt="coin" /></span>
+								<p>12xp</p>
+							</div>
+							<div class="icon">
+								<span><img src="/assets/money.png" alt="coin" /></span>
+								<p>12xp</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="list">
+					<div class="SI_num">
+						<h1>3</h1>
+					</div>
+					<div class="text_zone">
+						<div class="title">
+							<h2>Hello world</h2>
+						</div>
+
+						<div class="para">
+							<p>
+								Get started with Python syntax in this lesson and then create a
+								point of sale system for a furniture store!
+							</p>
+							<button>view details</button>
+						</div>
+						<div class="icons">
+							<div class="icon">
+								<span><img src="/assets/coin1.png" alt="coin" /></span>
+								<p>12xp</p>
+							</div>
+							<div class="icon">
+								<span><img src="/assets/Group.png" alt="coin" /></span>
+								<p>12xp</p>
+							</div>
+							<div class="icon">
+								<span><img src="/assets/money.png" alt="coin" /></span>
+								<p>12xp</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="list">
+					<div class="SI_num">
+						<h1>4</h1>
+					</div>
+					<div class="text_zone">
+						<div class="title">
+							<h2>Hello world</h2>
+						</div>
+
+						<div class="para">
+							<p>
+								Get started with Python syntax in this lesson and then create a
+								point of sale system for a furniture store!
+							</p>
+							<button>view details</button>
+						</div>
+						<div class="icons">
+							<div class="icon">
+								<span><img src="/assets/coin1.png" alt="coin" /></span>
+								<p>12xp</p>
+							</div>
+							<div class="icon">
+								<span><img src="/assets/Group.png" alt="coin" /></span>
+								<p>12xp</p>
+							</div>
+							<div class="icon">
+								<span><img src="/assets/money.png" alt="coin" /></span>
+								<p>12xp</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="list">
+					<div class="SI_num">
+						<h1>5</h1>
+					</div>
+					<div class="text_zone">
+						<div class="title">
+							<h2>Hello world</h2>
+						</div>
+
+						<div class="para">
+							<p>
+								Get started with Python syntax in this lesson and then create a
+								point of sale system for a furniture store!
+							</p>
+							<button>view details</button>
+						</div>
+						<div class="icons">
+							<div class="icon">
+								<span><img src="/assets/coin1.png" alt="coin" /></span>
+								<p>12xp</p>
+							</div>
+							<div class="icon">
+								<span><img src="/assets/Group.png" alt="coin" /></span>
+								<p>12xp</p>
+							</div>
+							<div class="icon">
+								<span><img src="/assets/money.png" alt="coin" /></span>
+								<p>12xp</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+                <div class="learn_section">
+			<div class="learn_section_title">
+				<h1>Start Learning Today</h1>
+			</div>
+			<div class="learn_details">
+				<div class="text_zone">
+					<p><span>✔</span>Taught by top companies and universities</p>
+					<p><span>✔</span>Affordable programs</p>
+					<p><span>✔</span>Apply your skills with hands-on projects</p>
+					<p><span>✔</span>Taught by top companies and universities</p>
+					<p><span>✔</span>Graded quizzes and assignments</p>
+					<p><span>✔</span>Taught by top companies and universities</p>
+					<p><span>✔</span>Shareable Certificate upon completion</p>
+				</div>
+				<div class="cetificate">
+					<div class="image_section">
+						<span>Shareable on</span>
+						<img src="/assets/certifcate.png" alt="certifcate" />
+						<span
+							>You can share your Certificate in the Certifications section of
+							your LinkedIn profile, on printed resumes, CVs, or other
+							documents.</span
+						>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ---------------------Testimonials---------->
+
+		<div class="swiper">
+			<!-- Additional required wrapper -->
+			<div class="swiper-wrapper">
+				<!-- Slides -->
+
+				<div class="swiper-slide">
+					<div class="Testimonials_card">
+						<p>
+							I know from first-hand experience that you can go in knowing zero,
+							nothing, and just get a grasp on everything as you go and start
+							building right away.
+						</p>
+						<div class="image_box">
+							<img src="/assets/python.png" alt="profile" />
+							<p>Alan Bjiu</p>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="Testimonials_card">
+						<p>
+							I know from first-hand experience that you can go in knowing zero,
+							nothing, and just get a grasp on everything as you go and start
+							building right away.
+						</p>
+						<div class="image_box">
+							<img src="/assets/python.png" alt="profile" />
+							<p>Alan Bjiu</p>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="Testimonials_card">
+						<p>
+							I know from first-hand experience that you can go in knowing zero,
+							nothing, and just get a grasp on everything as you go and start
+							building right away.
+						</p>
+						<div class="image_box">
+							<img src="/assets/python.png" alt="profile" />
+							<p>Alan Bjiu</p>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="Testimonials_card">
+						<p>
+							I know from first-hand experience that you can go in knowing zero,
+							nothing, and just get a grasp on everything as you go and start
+							building right away.
+						</p>
+						<div class="image_box">
+							<img src="/assets/python.png" alt="profile" />
+							<p>Alan Bjiu</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- If we need pagination -->
+
+			<!-- If we need navigation buttons -->
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
+
+			<!-- If we need scrollbar -->
+		</div>
+
+
+		<div class="container">
+			<h2>Frequently Asked Questions</h2>
+			<div class="accordion">
+				<div class="accordion-item">
+					<button id="accordion-button-1" aria-expanded="false">
+						<span class="accordion-title"
+							>Why is the moon sometimes out during the day?</span
+						>
+						<span class="icon" aria-hidden="true"></span>
+					</button>
+					<div class="accordion-content">
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+							eiusmod tempor incididunt ut labore et dolore magna aliqua.
+							Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra
+							suspendisse potenti.
+						</p>
+					</div>
+				</div>
+				<div class="accordion-item">
+					<button id="accordion-button-2" aria-expanded="false">
+						<span class="accordion-title">Why is the sky blue?</span>
+						<span class="icon" aria-hidden="true"></span>
+					</button>
+					<div class="accordion-content">
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+							eiusmod tempor incididunt ut labore et dolore magna aliqua.
+							Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra
+							suspendisse potenti.
+						</p>
+					</div>
+				</div>
+				<div class="accordion-item">
+					<button id="accordion-button-3" aria-expanded="false">
+						<span class="accordion-title">Will we ever discover aliens?</span>
+						<span class="icon" aria-hidden="true"></span>
+					</button>
+					<div class="accordion-content">
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+							eiusmod tempor incididunt ut labore et dolore magna aliqua.
+							Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra
+							suspendisse potenti.
+						</p>
+					</div>
+				</div>
+				<div class="accordion-item">
+					<button id="accordion-button-4" aria-expanded="false">
+						<span class="accordion-title">How much does the Earth weigh?</span>
+						<span class="icon" aria-hidden="true"></span>
+					</button>
+					<div class="accordion-content">
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+							eiusmod tempor incididunt ut labore et dolore magna aliqua.
+							Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra
+							suspendisse potenti.
+						</p>
+					</div>
+				</div>
+				<div class="accordion-item">
+					<button id="accordion-button-5" aria-expanded="false">
+						<span class="accordion-title">How do airplanes stay up?</span>
+						<span class="icon" aria-hidden="true"></span>
+					</button>
+					<div class="accordion-content">
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+							eiusmod tempor incididunt ut labore et dolore magna aliqua.
+							Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra
+							suspendisse potenti.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!----------------------------------- -->
+			</div>
+			<div class="overview_zone tabcontent" id="Paris">
+				<div class="Syllabus_Title_section">
+					<div class="Description">
+						<h1>Course Description</h1>
+						<p>
+							Learn Python 3, the latest and greatest version of the most
+							popular programming language in the world!
+						</p>
+					</div>
+					<div class="Details">
+						<h1>Details</h1>
+						<p>
+							Earn a certificate of completion 25 hours to complete in total
+							Beginner
+						</p>
+					</div>
+				</div>
+				<div class="accordion">
+					<div class="accordion-item">
+						<button id="accordion-button-1" aria-expanded="false">
+							<span class="accordion-title">
+								<h1>Hello World</h1>
+								<p>1 lesson, 1 quiz, 2 projects, 1 article</p>
+								<span
+									>Get started with Python syntax in this lesson and then create
+									a point of sale system for a furniture store!</span
+								>
+							</span>
+							<span class="icon" aria-hidden="true"></span>
+						</button>
+						<div class="accordion-content">
+							<div class="item">
+								<div class="item_details">
+									<span><img src="/assets/Group.png" alt="book" /></span>
+									<p>Lesson</p>
+									<p>Hello world</p>
+								</div>
+								<div class="tag">
+									<img src="/assets/coin1.png" alt="pro" />
+								</div>
+							</div>
+							<div class="item">
+								<div class="item_details">
+									<span><img src="/assets/Group.png" alt="book" /></span>
+									<p>Lesson</p>
+									<p>Hello world</p>
+								</div>
+								<div class="tag">
+									<img src="/assets/coin1.png" alt="pro" />
+								</div>
+							</div>
+							<div class="item">
+								<div class="item_details">
+									<span><img src="/assets/Group.png" alt="book" /></span>
+									<p>Lesson</p>
+									<p>Hello world</p>
+								</div>
+								<div class="tag">
+									<img src="/assets/coin1.png" alt="pro" />
+								</div>
+							</div>
+							<div class="item">
+								<div class="item_details">
+									<span><img src="/assets/Group.png" alt="book" /></span>
+									<p>Lesson</p>
+									<p>Hello world</p>
+								</div>
+								<div class="tag">
+									<img src="/assets/coin1.png" alt="pro" />
+								</div>
+							</div>
+							<div class="item">
+								<div class="item_details">
+									<span><img src="/assets/Group.png" alt="book" /></span>
+									<p>Lesson</p>
+									<p>Hello world</p>
+								</div>
+								<div class="tag">
+									<img src="/assets/coin1.png" alt="pro" />
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item">
+						<button id="accordion-button-2" aria-expanded="false">
+							<span class="accordion-title">
+								<h1>Hello World</h1>
+								<p>1 lesson, 1 quiz, 2 projects, 1 article</p>
+								<span
+									>Get started with Python syntax in this lesson and then create
+									a point of sale system for a furniture store!</span
+								>
+							</span>
+							<span class="icon" aria-hidden="true"></span>
+						</button>
+						<div class="accordion-content">
+							<div class="item">
+								<div class="item_details">
+									<span><img src="/assets/Group.png" alt="book" /></span>
+									<p>Lesson</p>
+									<p>Hello world</p>
+								</div>
+								<div class="tag">
+									<img src="/assets/coin1.png" alt="pro" />
+								</div>
+							</div>
+							<div class="item">
+								<div class="item_details">
+									<span><img src="/assets/Group.png" alt="book" /></span>
+									<p>Lesson</p>
+									<p>Hello world</p>
+								</div>
+								<div class="tag">
+									<img src="/assets/coin1.png" alt="pro" />
+								</div>
+							</div>
+							<div class="item">
+								<div class="item_details">
+									<span><img src="/assets/Group.png" alt="book" /></span>
+									<p>Lesson</p>
+									<p>Hello world</p>
+								</div>
+								<div class="tag">
+									<img src="/assets/coin1.png" alt="pro" />
+								</div>
+							</div>
+							<div class="item">
+								<div class="item_details">
+									<span><img src="/assets/Group.png" alt="book" /></span>
+									<p>Lesson</p>
+									<p>Hello world</p>
+								</div>
+								<div class="tag">
+									<img src="/assets/coin1.png" alt="pro" />
+								</div>
+							</div>
+							<div class="item">
+								<div class="item_details">
+									<span><img src="/assets/Group.png" alt="book" /></span>
+									<p>Lesson</p>
+									<p>Hello world</p>
+								</div>
+								<div class="tag">
+									<img src="/assets/coin1.png" alt="pro" />
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item">
+						<button id="accordion-button-3" aria-expanded="false">
+							<span class="accordion-title">
+								<h1>Hello World</h1>
+								<p>1 lesson, 1 quiz, 2 projects, 1 article</p>
+								<span
+									>Get started with Python syntax in this lesson and then create
+									a point of sale system for a furniture store!</span
+								>
+							</span>
+							<span class="icon" aria-hidden="true"></span>
+						</button>
+						<div class="accordion-content">
+							<div class="item">
+								<div class="item_details">
+									<span><img src="/assets/Group.png" alt="book" /></span>
+									<p>Lesson</p>
+									<p>Hello world</p>
+								</div>
+								<div class="tag">
+									<img src="/assets/coin1.png" alt="pro" />
+								</div>
+							</div>
+							<div class="item">
+								<div class="item_details">
+									<span><img src="/assets/Group.png" alt="book" /></span>
+									<p>Lesson</p>
+									<p>Hello world</p>
+								</div>
+								<div class="tag">
+									<img src="/assets/coin1.png" alt="pro" />
+								</div>
+							</div>
+							<div class="item">
+								<div class="item_details">
+									<span><img src="/assets/Group.png" alt="book" /></span>
+									<p>Lesson</p>
+									<p>Hello world</p>
+								</div>
+								<div class="tag">
+									<img src="/assets/coin1.png" alt="pro" />
+								</div>
+							</div>
+							<div class="item">
+								<div class="item_details">
+									<span><img src="/assets/Group.png" alt="book" /></span>
+									<p>Lesson</p>
+									<p>Hello world</p>
+								</div>
+								<div class="tag">
+									<img src="/assets/coin1.png" alt="pro" />
+								</div>
+							</div>
+							<div class="item">
+								<div class="item_details">
+									<span><img src="/assets/Group.png" alt="book" /></span>
+									<p>Lesson</p>
+									<p>Hello world</p>
+								</div>
+								<div class="tag">
+									<img src="/assets/coin1.png" alt="pro" />
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item">
+						<button id="accordion-button-4" aria-expanded="false">
+							<span class="accordion-title">
+								<h1>Hello World</h1>
+								<p>1 lesson, 1 quiz, 2 projects, 1 article</p>
+								<span
+									>Get started with Python syntax in this lesson and then create
+									a point of sale system for a furniture store!</span
+								>
+							</span>
+							<span class="icon" aria-hidden="true"></span>
+						</button>
+						<div class="accordion-content">
+							<div class="item">
+								<div class="item_details">
+									<span><img src="/assets/Group.png" alt="book" /></span>
+									<p>Lesson</p>
+									<p>Hello world</p>
+								</div>
+								<div class="tag">
+									<img src="/assets/coin1.png" alt="pro" />
+								</div>
+							</div>
+							<div class="item">
+								<div class="item_details">
+									<span><img src="/assets/Group.png" alt="book" /></span>
+									<p>Lesson</p>
+									<p>Hello world</p>
+								</div>
+								<div class="tag">
+									<img src="/assets/coin1.png" alt="pro" />
+								</div>
+							</div>
+							<div class="item">
+								<div class="item_details">
+									<span><img src="/assets/Group.png" alt="book" /></span>
+									<p>Lesson</p>
+									<p>Hello world</p>
+								</div>
+								<div class="tag">
+									<img src="/assets/coin1.png" alt="pro" />
+								</div>
+							</div>
+							<div class="item">
+								<div class="item_details">
+									<span><img src="/assets/Group.png" alt="book" /></span>
+									<p>Lesson</p>
+									<p>Hello world</p>
+								</div>
+								<div class="tag">
+									<img src="/assets/coin1.png" alt="pro" />
+								</div>
+							</div>
+							<div class="item">
+								<div class="item_details">
+									<span><img src="/assets/Group.png" alt="book" /></span>
+									<p>Lesson</p>
+									<p>Hello world</p>
+								</div>
+								<div class="tag">
+									<img src="/assets/coin1.png" alt="pro" />
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item">
+						<button id="accordion-button-5" aria-expanded="false">
+							<span class="accordion-title">
+								<h1>Hello World</h1>
+								<p>1 lesson, 1 quiz, 2 projects, 1 article</p>
+								<span
+									>Get started with Python syntax in this lesson and then create
+									a point of sale system for a furniture store!</span
+								>
+							</span>
+							<span class="icon" aria-hidden="true"></span>
+						</button>
+						<div class="accordion-content">
+							<div class="item">
+								<div class="item_details">
+									<span><img src="/assets/Group.png" alt="book" /></span>
+									<p>Lesson</p>
+									<p>Hello world</p>
+								</div>
+								<div class="tag">
+									<img src="/assets/coin1.png" alt="pro" />
+								</div>
+							</div>
+							<div class="item">
+								<div class="item_details">
+									<span><img src="/assets/Group.png" alt="book" /></span>
+									<p>Lesson</p>
+									<p>Hello world</p>
+								</div>
+								<div class="tag">
+									<img src="/assets/coin1.png" alt="pro" />
+								</div>
+							</div>
+							<div class="item">
+								<div class="item_details">
+									<span><img src="/assets/Group.png" alt="book" /></span>
+									<p>Lesson</p>
+									<p>Hello world</p>
+								</div>
+								<div class="tag">
+									<img src="/assets/coin1.png" alt="pro" />
+								</div>
+							</div>
+							<div class="item">
+								<div class="item_details">
+									<span><img src="/assets/Group.png" alt="book" /></span>
+									<p>Lesson</p>
+									<p>Hello world</p>
+								</div>
+								<div class="tag">
+									<img src="/assets/coin1.png" alt="pro" />
+								</div>
+							</div>
+							<div class="item">
+								<div class="item_details">
+									<span><img src="/assets/Group.png" alt="book" /></span>
+									<p>Lesson</p>
+									<p>Hello world</p>
+								</div>
+								<div class="tag">
+									<img src="/assets/coin1.png" alt="pro" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+        {% endblock body %}
+	</body>
+	{% block script %}
+	<script>
+		document.getElementById('defaultOpen').click();
+
+		function openCity(evt, cityName) {
+			var i, tabcontent, tablinks;
+			tabcontent = document.getElementsByClassName('tabcontent');
+			for (i = 0; i < tabcontent.length; i++) {
+				tabcontent[i].style.display = 'none';
+			}
+			tablinks = document.getElementsByClassName('tablinks');
+			for (i = 0; i < tablinks.length; i++) {
+				tablinks[i].className = tablinks[i].className.replace(' active', '');
+			}
+			document.getElementById(cityName).style.display = 'block';
+			evt.currentTarget.className += ' active';
+		}
+
+		//----------------------FAQ section
+		const items = document.querySelectorAll('.accordion button');
+
+		function toggleAccordion() {
+			const itemToggle = this.getAttribute('aria-expanded');
+
+			for (i = 0; i < items.length; i++) {
+				items[i].setAttribute('aria-expanded', 'false');
+			}
+
+			if (itemToggle == 'false') {
+				this.setAttribute('aria-expanded', 'true');
+			}
+		}
+
+		items.forEach((item) => item.addEventListener('click', toggleAccordion));
+
+		//------------------------------------------------------
+	</script>
+	<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+	<script>
+		const swiper = new Swiper('.swiper', {
+			// Optional parameters
+			loop: true,
+			slidesPerView: 4,
+			slidesPerGroup: 1,
+			// If we need pagination
+			pagination: {
+				el: '.swiper-pagination',
+			},
+
+			// Navigation arrows
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+
+			breakpoints: {
+				350: {
+					slidesPerView: 1,
+					spaceBetween: 20,
+					slidesPerGroup: 1,
+				},
+				650: {
+					slidesPerView: 2,
+					spaceBetween: 20,
+					slidesPerGroup: 1,
+				},
+				940: {
+					slidesPerView: 2,
+					spaceBetween: 20,
+					slidesPerGroup: 1,
+				},
+				1024: {
+					slidesPerView: 3,
+					spaceBetween: 20,
+					slidesPerGroup: 1,
+				},
+			},
+		});
+	</script>
+    {% endblock script %}
+</html>

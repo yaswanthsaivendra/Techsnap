@@ -1,0 +1,299 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Terms</title>
+		<link rel="shortcut icon" type="image/png" href="logo1.png"/>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+		<link href="{% static 'footerterms.css' %}" rel="stylesheet" />
+		<link rel="shortcut icon" type="image/png" href="{% static 'assets/main/favicon.png'%}"/>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-L4D2PNVR8Z"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-L4D2PNVR8Z');
+	</script>
+
+
+</head>
+
+<body>
+<div class="dropMenu">
+	<ul>
+		<li><a href="##">Catalog » </a></li>
+		<li><a href="##">Products » </a></li>
+		<li><a href="##">Career paths » </a></li>
+		<li><a href="##">Resources » </a></li>
+		<li><a href="##">For Business » </a></li>
+		<div class="mob1">
+		{% if user.is_authenticated %}
+							<p>Hi, {{user.username}}</p>
+							<a href="{% url 'logout' %}"><button class="btn" id='logout'>LogOut</button></a>
+							{% else %}
+							<a href="{% url 'login' %}"><button class="btn" id="login">LogIn</button></a>
+							</div>
+							<a href="{% url 'register' %}"><button class="btn1" id="btn1">Register</button></a>
+							{% endif %}
+
+	</ul>
+	<div class="Close">X</div>
+</div>
+			<!-- //---------------------------------- -->
+			<div class="header">
+				<div class="sub_header">
+					<div class="logo">
+						<img src="{% static 'assets/main/logo.png'%}" alt="logo" />
+					</div>
+					<div class="menu_item">
+						<ul>
+							<li>
+								<a href="##" class="nav_item">Catalog</a
+								><span class="nav_item">⌵</span>
+							</li>
+							<li>
+								<a href="##" class="nav_item">Products</a
+								><span class="nav_item">⌵</span>
+							</li>
+							<li>
+								<a href="##" class="nav_item">Career paths</a
+								><span class="nav_item">⌵</span>
+							</li>
+							<li>
+								<a href="##" class="nav_item">Resources</a
+								><span class="nav_item">⌵</span>
+							</li>
+							<li>
+								<a href="##" class="nav_item">For Business</a
+								><span class="nav_item">⌵</span>
+							</li>
+
+						</ul>
+						<div class="buttons">
+							{% if user.is_authenticated %}
+							<p>Hi, {{user.username}}</p>
+							<a href="{% url 'logout' %}"><button id='logout'>LogOut</button></a>
+							{% else %}
+							<a href="{% url 'login' %}"><button id="login">LogIn</button></a>
+							<a href="{% url 'register' %}"><button id="register">Register</button></a>
+							{% endif %}
+						</div>
+					</div>
+					<div class="ham">
+						<img src="{% static 'assets/main/menu.png'%}" alt="menu" />
+					</div>
+				</div>
+			</div>
+
+
+<div class="grandparent">
+<div class="parent1"> </div>
+	<div class="parent2">
+		<center><h1 class="h1top">Tech Snap Terms Of Service</h1></center>
+		<h2 class="h2top">Use of our website and its service</h2>
+		<p class="space ptop">Techsnap provides an online platform for learning You may use the Website only for its intended purpose and solely in accordance with these Website Terms of Use. you may view, download and print the materials we make available on this Website, solely for your own personal, non-commercial use, provided that none of the content is modified and any and all of TechSnap legal legends are retained.You may not sublicense these rights. You may not “mirror” any content contained within this Website without our express prior written consent.</p>
+
+		<h2 class="h2top">Eligibility</h2>
+		<p class="space">This is a contract between you and Codecademy. You must read and agree to these terms before using the TechSnap Service. If you do like to register to use any part of the Services, please ask your parent or legal guardian to review and agree to these terms before you use any part of the Services, or ask them to complete the purchase or registration on your behalf.Any supplemental terms and conditions are in addition to these terms and, in the event of a conflict, prevail over these terms. The Service is not available to any Users previously removed from the Service by TechSnap.
+		The Service is always evolving, and the form and nature of the Service may change from time to time without prior notice to you. In addition, TechSnap may stop (permanently or temporarily) providing the Service (or any features within the Service) to you or to users generally and may not be able to provide you with prior notice. TechSnap also retains the right to create limits on use, storage, and features at its sole discretion at any time without prior notice to you.</p>
+
+		<h2 class="h2top">Indemnity</h2>
+		<p class="space">You agree to defend, indemnify, and hold TechSnap, its officers, directors, employees and agents, harmless from and against any claims, way connected with Your Content or your violation of these Website Terms of Use.</p>
+
+		<h2 class="h2top">TechSnap accounts</h2>
+		<p class="space">Your TechSnap account gives you access to the services and functionality that we may establish and maintain from time to time and in our sole discretion. By connecting to TechSnap with a third-party service (for example, Google or LinkedIn), you give us permission to access and use your information from that service as permitted by that service, and to store your log-in credentials for that service. You confirm that you are the owner of any such third-party account and that you are entitled to disclose your third-party account login available on or through the third-party account consistent with your applicable settings and instructions.</p>
+
+		<h2 class="h2top">Paid Services</h2>
+		<p class="space">Billing Policies - Certain aspects of the Service may be provided for a fee or other charge. If you elect to use paid aspects of the Service, you agree to the pricing and payment terms, as we may update them from time to time. TechSnap may add new services for additional fees and charges, or amend fees and charges for existing services, at any time in its sole discretion. Any change to our pricing or payment terms shall become effective in the billing cycle following notice of such change to you as provided in this Agreement or otherwise.
+		No Refunds - You may cancel your TechSnap account at any time; however, there are no partial or pro-rata refunds for cancellation. If you cancel your subscription, cancellation will be effective at the end of the current monthly or annual billing period; you will havecontinued access to your subscription for the remainder of that period, but you will not receive a refund. TechSnap may offer partial, pro rata refunds for TechSnap's early suspension, termination, or cancellation of a paid program, where the pricing and payment terms for the specific Techsnap program expressly state that such refunds are available in such scenarios and/or as required by law. In the event that you cancel your account or TechSnap suspends or terminates your account under this Agreement for your breach of this Agreement, you understand and agree that you shall receive no refund or exchange for any TechSnap Indicators, any unused time on a subscription, any license or subscription fees for any portion of the Service, any content or data associated with your account, or for anything else.
+
+		<h2 class="h2top"></h2>
+		<p class="space"></p>
+
+		<h2 class="h2top">General</h2>
+		<p class="space">This agreement may not be modified, supplemented, qualified, or interpreted by any trade usage or prior course of dealing not made a part ofthe agreement by its express terms. The invalidity or unenforceability of any provision of this agreement shall not affect the validity of this agreement as a whole and any such provision should be enforced by authorities, and reconstructed if need be, to apply to the maximum extent allowable under applicable law. The failure by either party to enforce at any time any of the provisions of this agreement, to exercise any election or option provided herein, or to require at any time the performance of the other of any of the provisions herein will not in any way be construed as a waiver of such provisions.  Reasonable attorneys’ fees and costs will be awarded to the prevailing party in the event of litigation involving the enforcement or interpretation of this agreement. The section headings used herein are for convenience only and shall not be given any legal import.
+
+		<h2 class="h2top">Contacting TechSnap</h2>
+		<p class="space">For questions, comments or concerns regarding these Website Terms of Use, please contact us at snapthetechqueries@gmail.com</p>
+
+</div> <br>
+<div class="footer_MainBox">
+			<div class="Footer_page">
+				<footer class="Footer_conatiner">
+					<div class="Footer_header">
+						<img src="{% static 'assets/main/logo.png'%}"alt="Logo" />
+						<br /><br />
+						<p>We are here to endure your muddled stages of knowing the trends while pursuing UG-CSE.</br>we help you to know about trending jobs and required skills for achieving one particular designation</p>
+						<br>
+						<p>We will succour you in submitting your university projects as well as steer you with free tutorials, online courses, live courses and career paths</p>
+					</div>
+					<div class="Footer_columns_holder">
+						<div class="Footer_columns">
+							<h1>Company</h1>
+							<a href="{% url 'aboutus' %}">About us</a>
+							<a href="{% url 'learnerstories' %}">Learner stories</a>
+							<a href="">our people</a>
+							<a href="{% url 'job_test:jobslist' %}">jobs</a>
+						</div>
+						<div class="Footer_columns">
+							<h1>Resources</h1>
+							<a href="##">Tutorials</a>
+							<a href="{% url 'careerpath' %}">Career paths</a>
+							<a href="##">Courses</a>
+							<a href="##">Blogs</a>
+						</div>
+						<div class="Footer_columns">
+							<h1>Support</h1>
+							<a href="{% url 'contact' %}">Contact us</a>
+							<a href="##">FAQ</a>
+							<a href="">Any ideas/Bugs</a>
+							<a href="">Get Involved</a>
+						</div>
+						<div class="Footer_columns">
+							<h1>Services</h1>
+							<a href="##">Startup services</a>
+							<a href="##">Design services</a>
+							<a href="##">Mini Projects</a>
+							<a href="##">Mock interviews</a>
+						</div>
+					</div>
+					<div class="join_our desktop">
+						<p>Join our newsletter</p>
+						<form class="input_holder">
+							<input type="text" />
+							<button type="submit">Subscribe</button>
+						</form>
+					</div>
+				</footer>
+				<div class="join_our responsive">
+					<p>Join our newsletter</p>
+					<form class="input_holder">
+						<input type="text" />
+						<button type="submit">Subscribe</button>
+					</form>
+				</div>
+				<div class="Privacy_holder">
+					<div class="Privacy_links">
+						<a href="{% url 'privacy' %}">Privacy policy</a>
+						<a href="{% url 'cookies' %}">Cookies Notice</a>
+						<a href="{% url 'security' %}">Security</a>
+						<a href="{% url 'terms' %}">Terms of use</a>
+					</div>
+					<div class="Social-media">
+						<div class="image_conatiner">
+							<a href="https://www.linkedin.com/company/74741373/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/768px-LinkedIn_logo_initials.png" id="link" /></a>
+
+							<a href="{% url 'contact' %}"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/2560px-Gmail_icon_%282020%29.svg.png" id="link" /></a>
+
+							<a href="https://trello.com/b/SMDt9NMY/techsnap-upcoming-releases"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC-APsSZXqFUpTTg9qvGW6D5hERazjQfAMkM0Oz6b9sC3uIwU4-_fD8CatVhbAUG4hz3g&usqp=CAU" id="link" /></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="copyRight">
+				Made with 💗 in india © 2021 Techsnap Educations LLP. All Rights
+				Reserved.
+			</div>
+		</div>
+</div>
+<div class="Scroll">
+ <a href="#top" class="back-to-top-link" aria-label="Scroll to Top">&#9757</a>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+<script>
+new Splide( '.splide', {
+	type   : 'loop',
+	autoplay: true,
+	pagination : false,
+	arrows     : false,
+	perPage    : 2,
+	perMove    : 1,
+	focus  : 'center',
+	autoplay: true,
+	gap    : '1rem',
+	breakpoints : {
+		'600': {
+	perPage : 1,
+	gap    : '1rem'
+		}
+	},
+} ).mount();
+</script>
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+	<script>
+		AOS.init({
+			duration: 900,
+			offset: 220,
+			easing: 'ease-in-out-quad',
+		});
+
+		const header = document.querySelector('.header');
+		const navLink = document.querySelectorAll('.nav_item');
+		const ham = document.querySelector('.ham');
+
+		window.addEventListener('scroll', () => {
+			const top = window.innerHeight * (15 / 100);
+			if (window.scrollY <= top) {
+				header.style.background = 'rgb(26, 25, 29)';
+				ham.style.background ="transparent";
+
+				header.style.height = '60px';
+				navLink.forEach((i) => {
+					i.style.color = '#fff';
+				});
+			}
+			if (window.scrollY > top) {
+				header.style.background = '#black';
+				ham.style.background ="#black";
+				header.style.height = '55px';
+				navLink.forEach((i) => {
+					i.style.color = '#fff';
+				});
+			}
+		});
+		window.addEventListener('scroll', () => {
+		const top = window.innerHeight * (10 / 100)+300;
+		if (window.scrollY <= top) {
+			document.querySelector(".Scroll").style.display='none';
+
+		}
+		if (window.scrollY > top) {
+				document.querySelector(".Scroll").style.display='grid';
+		}
+	});
+		ham.addEventListener('click',() => {
+			DropMenu.classList.add("MenuAnimation")
+
+		})
+		Close.addEventListener('click',() => {
+			DropMenu.classList.remove('MenuAnimation')
+
+		})
+
+	</script>
+	<script>
+			//----------------------------
+
+		  const Close=document.querySelector(".Close");
+		    const DropMenu =document.querySelector('.dropMenu')
+		  ham.addEventListener('click',() => {
+			DropMenu.classList.add("MenuAnimation")
+			console.log('sdsd');
+
+		})
+		Close.addEventListener('click',() => {
+			DropMenu.classList.remove('MenuAnimation')
+
+		})
+
+	//-------
+	</script>
+
+</body>
+</html>

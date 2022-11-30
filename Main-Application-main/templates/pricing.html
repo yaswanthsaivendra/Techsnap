@@ -1,0 +1,964 @@
+{% extends 'footer.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{% block title %}Pricing{% endblock title %}</title>
+        {% block css %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> <link href="https://fonts.googleapis.com/css?family=Merriweather:400,900,900i"rel="stylesheet"/> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
+
+    <link rel="stylesheet" href="{% static 'assets/contact/pricing.css'%}" />
+    <link rel="stylesheet" href="{% static 'css/w3.css'%}" />
+    <link rel="shortcut icon" type="image/png" href="{% static 'assets/main/favicon.png'%}"/>
+        {% endblock css %}
+        {% block google_tags %}
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4D2PNVR8Z"></script>
+            <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-L4D2PNVR8Z');
+            </script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        {% endblock google_tags %}
+  </head>
+
+  <body>
+    {% block body %}
+  <section class="main w3-margin-top" >
+    <div class="container mt-5">
+      <div class="row">
+        <h3 class='w3-margin-bottom' ></h3>
+        <h2 class=" w3-margin-top text-center main-text mb-3">Pricing Plans</h2>
+        <div class="page-content page-container" id="page-content">
+          <div class="padding">
+            <div
+              class="row container main-container d-flex justify-content-center"
+            >
+              <div class="col-lg-4 col-12">
+                <div class="mb-3 wrapper  main-header" >
+                  <ul class="nav nav-pills" id="myTab" role="tablist">
+                    <li class="nav-item">
+                      <a
+                        class="nav-link active"
+                        id="home-tab"
+                        data-toggle="tab"
+                        href="#home2"
+                        role="tab"
+                        aria-controls="home"
+                        aria-selected="true"
+                        >Monthly</a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a
+                        class="nav-link"
+                        id="profile-tab"
+                        data-toggle="tab"
+                        href="#profile2"
+                        role="tab"
+                        aria-controls="profile"
+                        aria-selected="false"
+                        >Half Yearly ✨
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a
+                        class="nav-link"
+                        id="contact-tab"
+                        data-toggle="tab"
+                        href="#contact2"
+                        role="tab"
+                        aria-controls="contact"
+                        aria-selected="false"
+                        >Yearly</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- tab content -->
+    <div class="container mt-5 mb-5" style="width: 100%; display: grid; overflow-x: auto; align-items: center; place-items: center;">
+      <div class="row" >
+        <div class="tab-content mb-4">
+          <!-- monthly tab data started -->
+          <div
+            class="tab-pane fade show active"
+            id="home2"
+            role="tabpanel"
+            aria-labelledby="home-tab"
+
+          >
+            <div class="container">
+              <div class="row main-row"  style=" flex: 1;
+              display: flex;
+              justify-content: center;
+              overflow-x: auto;">
+              {% for plan in monthly %}
+                <div class="col-sm-4 col-4 align-items-center mb-3" >
+                  <div class="cards main-cards" style="flex: auto;
+                  flex-shrink: 0;
+                  width: 350px;height:100%;">
+                    <div class="card-body">
+                      <p class="card-title">{{plan.title}}</p>
+                      <h5 class="card-subtitle">Rs. {{plan.price}}</h5>
+                      <p class="card-text">Free access to basic courses</p>
+                      <a href="{% url 'upgrade-to' plan.slug %}" class="card-link mt-2"
+                        >Upgrade to {{plan.title}} Plan</a
+                      >
+                      <hr />
+                      <h6 class="mb-4">WHAT'S INCLUDED</h6>
+                      <div>
+                        {{plan.description}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+
+              </div>
+            </div>
+          </div>
+          <!-- monthly tab data ended -->
+          <!-- Half Hearly data started -->
+          <div
+            class="tab-pane fade show active"
+            id="profile2"
+            role="tabpanel"
+            aria-labelledby="home-tab"
+
+          >
+            <div class="container">
+              <div class="row main-row"  style=" flex: 1;
+              display: flex;
+              justify-content: center;
+              overflow-x: auto;">
+              {% for plan in half_yearly %}
+                <div class="col-sm-4 col-4 align-items-center mb-3" >
+                  <div class="cards main-cards" style="flex: auto;
+                  flex-shrink: 0;
+                  width: 350px;height:100%;">
+                    <div class="card-body">
+                      <p class="card-title">{{plan.title}}</p>
+                      <h5 class="card-subtitle">Rs. {{plan.price}}</h5>
+                      <p class="card-text">Free access to basic courses</p>
+                      <a href="{% url 'upgrade-to' plan.slug %}" class="card-link mt-2"
+                        >Upgrade to {{plan.title}} Plan</a
+                      >
+                      <hr />
+                      <h6 class="mb-4">WHAT'S INCLUDED</h6>
+                      <div>
+                        {{plan.description}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+
+              </div>
+            </div>
+          </div>
+          <!-- half yearly data ended -->
+          <!-- yealy data tab started -->
+          <div
+            class="tab-pane fade show active"
+            id="contact2"
+            role="tabpanel"
+            aria-labelledby="home-tab"
+
+          >
+            <div class="container">
+              <div class="row main-row"  style=" flex: 1;
+              display: flex;
+              justify-content: center;
+              overflow-x: auto;">
+              {% for plan in yearly %}
+                <div class="col-sm-4 col-4 align-items-center mb-3" >
+                  <div class="cards main-cards" style="flex: auto;
+                  flex-shrink: 0;
+                  width: 350px;height:100%;">
+                    <div class="card-body">
+                      <p class="card-title">{{plan.title}}</p>
+                      <h5 class="card-subtitle">Rs. {{plan.price}}</h5>
+                      <p class="card-text">Free access to basic courses</p>
+                      <a href="{% url 'upgrade-to' plan.slug %}" class="card-link mt-2"
+                        >Upgrade to {{plan.title}} Plan</a
+                      >
+                      <hr />
+                      <h6 class="mb-4">WHAT'S INCLUDED</h6>
+                      <div>
+                        {{plan.description}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+
+              </div>
+            </div>
+          </div>
+  </section>
+          <!-- yealy data tab ended -->
+        </div>
+        <div class="question text-center mt-4">
+          <a href="#">Have a coupon?</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- pricing plan comparsion section started -->
+    <div class="container mt-5">
+      <div class="row">
+        <h2 class="text-center main-text mb-3">Pricing Plan comparison</h2>
+        <div class="page-content page-container" id="page-content">
+          <div class="padding">
+            <div class="row container d-flex justify-content-center">
+              <div class="col-lg-4 col-12">
+                <div class="mb-3 wrapper main-header">
+                  <ul class="nav nav-pills" id="myTab" role="tablist">
+                    <li class="nav-item">
+                      <a
+                        class="nav-link active"
+                        id="home-tab"
+                        data-toggle="tab"
+                        href="#basic"
+                        role="tab"
+                        aria-controls="home"
+                        aria-selected="true"
+                        >Monthly</a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a
+                        class="nav-link"
+                        id="profile-tab"
+                        data-toggle="tab"
+                        href="#pro"
+                        role="tab"
+                        aria-controls="profile"
+                        aria-selected="false"
+                        >Half Yearly ✨
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a
+                        class="nav-link"
+                        id="contact-tab"
+                        data-toggle="tab"
+                        href="#premium"
+                        role="tab"
+                        aria-controls="contact"
+                        aria-selected="false"
+                        >Yearly</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Pricing Plan comparison content started -->
+    <div class="container mb-5 mt-5">
+      <div class="row">
+        <div class="tab-content mb-4">
+          <div
+            class="tab-pane fade show active"
+            id="basic"
+            role="tabpanel"
+            aria-labelledby="home-tab"
+          >
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12 col-12 table-main">
+                  <table class="table tableborderless">
+                    <thead>
+                      <tr>
+                        <th scope="col"></th>
+                        <th scope="col" width="25%">Basic</th>
+                        <th scope="col" width="25%">Pro</th>
+                        <th scope="col" width="25%">Premium</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row"></th>
+                        <td style="font-weight: bold">₹0/mo</td>
+                        <td style="font-weight: bold">₹999/mo</td>
+                        <td style="font-weight: bold">₹1499/mo</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Pricening</th>
+                        <td>
+                          Basic access to course practice and projects interface
+                        </td>
+                        <td>
+                          Best for getting started with real world programming
+                          learning
+                        </td>
+                        <td>
+                          Best for getting started with real world programming
+                          learning
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row"></th>
+                        <td class="table-button">
+                          <a href="#" class="card-link mt-2">Free Forever</a>
+                        </td>
+                        <td class="table-button">
+                          <a href="#" class="card-link mt-2"
+                            >Subscribe To Pro</a
+                          >
+                        </td>
+                        <td class="table-button">
+                          <a href="#" class="card-link mt-2"
+                            >Subscribe To Premium</a
+                          >
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <table class="table table-second">
+                  <thead>
+                    <tr>
+                      <th scope="col">Features</th>
+                      <th scope="col" width="25%"></th>
+                      <th scope="col" width="25%"></th>
+                      <th scope="col" width="25%"></th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-buttons">
+                    <tr>
+                      <th scope="row" style="font-weight: 100">
+                        Unlimited access to all interactive courses
+                      </th>
+                      <td style="text-align: center">
+                        <img
+                          src="./assets/cross.svg"
+                          width="28px"
+                          height="28px"
+                          alt=""
+                        />
+                      </td>
+                      <td style="text-align: center">
+                        <img
+                          src="./assets/correct.svg"
+                          width="28px"
+                          height="28px"
+                          alt=""
+                        />
+                      </td>
+                      <td style="text-align: center">
+                        <img
+                          src="./assets/correct.svg"
+                          width="28px"
+                          height="28px"
+                          alt=""
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row" style="font-weight: 100">
+                        Unlimited practice time included
+                      </th>
+                      <td style="text-align: center">
+                        <img
+                          src="./assets/cross.svg"
+                          width="28px"
+                          height="28px"
+                          alt=""
+                        />
+                      </td>
+                      <td style="text-align: center">
+                        <img
+                          src="./assets/correct.svg"
+                          width="28px"
+                          height="28px"
+                          alt=""
+                        />
+                      </td>
+                      <td style="text-align: center">
+                        <img
+                          src="./assets/correct.svg"
+                          width="28px"
+                          height="28px"
+                          alt=""
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row" style="font-weight: 100">
+                        Course completion certificate
+                      </th>
+                      <td style="text-align: center">
+                        <img
+                          src="./assets/cross.svg"
+                          width="28px"
+                          height="28px"
+                          alt=""
+                        />
+                      </td>
+                      <td style="text-align: center">
+                        <img
+                          src="./assets/cross.svg"
+                          width="28px"
+                          height="28px"
+                          alt=""
+                        />
+                      </td>
+                      <td style="text-align: center">
+                        <img
+                          src="./assets/correct.svg"
+                          width="28px"
+                          height="28px"
+                          alt=""
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row" style="font-weight: 100">
+                        Learning Path Certification Exam
+                      </th>
+                      <td style="text-align: center">
+                        <img
+                          src="./assets/correct.svg"
+                          width="28px"
+                          height="28px"
+                          alt=""
+                        />
+                      </td>
+                      <td style="text-align: center">
+                        <img
+                          src="./assets/cross.svg"
+                          width="28px"
+                          height="28px"
+                          alt=""
+                        />
+                      </td>
+                      <td style="text-align: center">
+                        <img
+                          src="./assets/correct.svg"
+                          width="28px"
+                          height="28px"
+                          alt=""
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row"></th>
+                      <td>
+                        <a href="#" class="card-link mt-2">Free Forever</a>
+                      </td>
+                      <td>
+                        <a href="#" class="card-link mt-2">Subscribe To Pro</a>
+                      </td>
+                      <td>
+                        <a href="#" class="card-link mt-2"
+                          >Subscribe To Premium</a
+                        >
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- procontent -->
+          <div
+            class="tab-pane fade show"
+            id="pro"
+            role="tabpanel"
+            aria-labelledby="home-tab"
+          >
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12 col-12 table-main">
+                  <table class="table tableborderless">
+                    <thead>
+                      <tr>
+                        <th scope="col"></th>
+                        <th scope="col" width="25%">Basic</th>
+                        <th scope="col" width="25%">Pro</th>
+                        <th scope="col" width="25%">Premium</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row"></th>
+                        <td style="font-weight: bold">₹0/mo</td>
+                        <td style="font-weight: bold">₹999/mo</td>
+                        <td style="font-weight: bold">₹1499/mo</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Pricening</th>
+                        <td>
+                          Basic access to course practice and projects interface
+                        </td>
+                        <td>
+                          Best for getting started with real world programming
+                          learning
+                        </td>
+                        <td>
+                          Best for getting started with real world programming
+                          learning
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row"></th>
+                        <td class="table-button">
+                          <a href="#" class="card-link mt-2">Free Forever</a>
+                        </td>
+                        <td class="table-button">
+                          <a href="#" class="card-link mt-2"
+                            >Subscribe To Pro</a
+                          >
+                        </td>
+                        <td class="table-button">
+                          <a href="#" class="card-link mt-2"
+                            >Subscribe To Premium</a
+                          >
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <table class="table table-second">
+                  <thead>
+                    <tr>
+                      <th scope="col">Features</th>
+                      <th scope="col" width="25%"></th>
+                      <th scope="col" width="25%"></th>
+                      <th scope="col" width="25%"></th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-buttons">
+                    <tr>
+                      <th scope="row" style="font-weight: 100">
+                        Unlimited access to all interactive courses
+                      </th>
+                      <td style="text-align: center">
+                        <img
+                          src="./assets/cross.svg"
+                          width="28px"
+                          height="28px"
+                          alt=""
+                        />
+                      </td>
+                      <td style="text-align: center">
+                        <img
+                          src="./assets/correct.svg"
+                          width="28px"
+                          height="28px"
+                          alt=""
+                        />
+                      </td>
+                      <td style="text-align: center">
+                        <img
+                          src="./assets/correct.svg"
+                          width="28px"
+                          height="28px"
+                          alt=""
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row" style="font-weight: 100">
+                        Unlimited practice time included
+                      </th>
+                      <td style="text-align: center">
+                        <img
+                          src="./assets/cross.svg"
+                          width="28px"
+                          height="28px"
+                          alt=""
+                        />
+                      </td>
+                      <td style="text-align: center">
+                        <img
+                          src="./assets/correct.svg"
+                          width="28px"
+                          height="28px"
+                          alt=""
+                        />
+                      </td>
+                      <td style="text-align: center">
+                        <img
+                          src="./assets/correct.svg"
+                          width="28px"
+                          height="28px"
+                          alt=""
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row" style="font-weight: 100">
+                        Course completion certificate
+                      </th>
+                      <td style="text-align: center">
+                        <img
+                          src="./assets/cross.svg"
+                          width="28px"
+                          height="28px"
+                          alt=""
+                        />
+                      </td>
+                      <td style="text-align: center">
+                        <img
+                          src="./assets/cross.svg"
+                          width="28px"
+                          height="28px"
+                          alt=""
+                        />
+                      </td>
+                      <td style="text-align: center">
+                        <img
+                          src="./assets/correct.svg"
+                          width="28px"
+                          height="28px"
+                          alt=""
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row" style="font-weight: 100">
+                        Learning Path Certification Exam
+                      </th>
+                      <td style="text-align: center">
+                        <img
+                          src="./assets/correct.svg"
+                          width="28px"
+                          height="28px"
+                          alt=""
+                        />
+                      </td>
+                      <td style="text-align: center">
+                        <img
+                          src="./assets/cross.svg"
+                          width="28px"
+                          height="28px"
+                          alt=""
+                        />
+                      </td>
+                      <td style="text-align: center">
+                        <img
+                          src="./assets/correct.svg"
+                          width="28px"
+                          height="28px"
+                          alt=""
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row"></th>
+                      <td>
+                        <a href="#" class="card-link mt-2">Free Forever</a>
+                      </td>
+                      <td>
+                        <a href="#" class="card-link mt-2">Subscribe To Pro</a>
+                      </td>
+                      <td>
+                        <a href="#" class="card-link mt-2"
+                          >Subscribe To Premium</a
+                        >
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- premier content -->
+          <div
+            class="tab-pane fade show"
+            id="premium"
+            role="tabpanel"
+            aria-labelledby="home-tab"
+          >
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12 col-12 table-main">
+                  <table class="table tableborderless">
+                    <thead>
+                      <tr>
+                        <th scope="col"></th>
+                        <th scope="col" width="25%">Basic</th>
+                        <th scope="col" width="25%">Pro</th>
+                        <th scope="col" width="25%">Premium</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row"></th>
+                        <td style="font-weight: bold">₹0/mo</td>
+                        <td style="font-weight: bold">₹999/mo</td>
+                        <td style="font-weight: bold">₹1499/mo</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Pricening</th>
+                        <td>
+                          Basic access to course practice and projects interface
+                        </td>
+                        <td>
+                          Best for getting started with real world programming
+                          learning
+                        </td>
+                        <td>
+                          Best for getting started with real world programming
+                          learning
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row"></th>
+                        <td class="table-button">
+                          <a href="#" class="card-link mt-2">Free Forever</a>
+                        </td>
+                        <td class="table-button">
+                          <a href="#" class="card-link mt-2"
+                            >Subscribe To Pro</a
+                          >
+                        </td>
+                        <td class="table-button">
+                          <a href="#" class="card-link mt-2"
+                            >Subscribe To Premium</a
+                          >
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <table class="table table-second">
+                  <thead>
+                    <tr>
+                      <th scope="col">Features</th>
+                      <th scope="col" width="25%"></th>
+                      <th scope="col" width="25%"></th>
+                      <th scope="col" width="25%"></th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-buttons">
+                    <tr>
+                      <th scope="row" style="font-weight: 100">
+                        Unlimited access to all interactive courses
+                      </th>
+                      <td style="text-align: center">
+                        <img
+                          src="./assets/cross.svg"
+                          width="28px"
+                          height="28px"
+                          alt=""
+                        />
+                      </td>
+                      <td style="text-align: center">
+                        <img
+                          src="./assets/correct.svg"
+                          width="28px"
+                          height="28px"
+                          alt=""
+                        />
+                      </td>
+                      <td style="text-align: center">
+                        <img
+                          src="./assets/correct.svg"
+                          width="28px"
+                          height="28px"
+                          alt=""
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row" style="font-weight: 100">
+                        Unlimited practice time included
+                      </th>
+                      <td style="text-align: center">
+                        <img
+                          src="./assets/cross.svg"
+                          width="28px"
+                          height="28px"
+                          alt=""
+                        />
+                      </td>
+                      <td style="text-align: center">
+                        <img
+                          src="./assets/correct.svg"
+                          width="28px"
+                          height="28px"
+                          alt=""
+                        />
+                      </td>
+                      <td style="text-align: center">
+                        <img
+                          src="./assets/correct.svg"
+                          width="28px"
+                          height="28px"
+                          alt=""
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row" style="font-weight: 100">
+                        Course completion certificate
+                      </th>
+                      <td style="text-align: center">
+                        <img
+                          src="./assets/cross.svg"
+                          width="28px"
+                          height="28px"
+                          alt=""
+                        />
+                      </td>
+                      <td style="text-align: center">
+                        <img
+                          src="./assets/cross.svg"
+                          width="28px"
+                          height="28px"
+                          alt=""
+                        />
+                      </td>
+                      <td style="text-align: center">
+                        <img
+                          src="./assets/correct.svg"
+                          width="28px"
+                          height="28px"
+                          alt=""
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row" style="font-weight: 100">
+                        Learning Path Certification Exam
+                      </th>
+                      <td style="text-align: center">
+                        <img
+                          src="./assets/correct.svg"
+                          width="28px"
+                          height="28px"
+                          alt=""
+                        />
+                      </td>
+                      <td style="text-align: center">
+                        <img
+                          src="./assets/cross.svg"
+                          width="28px"
+                          height="28px"
+                          alt=""
+                        />
+                      </td>
+                      <td style="text-align: center">
+                        <img
+                          src="./assets/correct.svg"
+                          width="28px"
+                          height="28px"
+                          alt=""
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row"></th>
+                      <td>
+                        <a href="#" class="card-link mt-2">Free Forever</a>
+                      </td>
+                      <td>
+                        <a href="#" class="card-link mt-2">Subscribe To Pro</a>
+                      </td>
+                      <td>
+                        <a href="#" class="card-link mt-2"
+                          >Subscribe To Premium</a
+                        >
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- FAQ SECTION STARTED -->
+    <div class="container">
+      <div class="row">
+        <h3 class="mb-5">Frequently Asked Questions</h3>
+        <div class="col-md-6 mt-3">
+             <div class="question">
+              <h2 class="main-heading">
+                What is the difference between Basic and Pro?
+              </h2>
+             </div>
+            <div class="paragraph">
+              <div class="data mt-3" style="line-height: 25px;">
+                Codecademy Pro contains everything in Basic, plus all the
+                advanced tools and content that you need to make your learning
+                faster and more efficient. Pro provides you with hundreds of
+                additional exercises, practice packs, and quizzes to help you
+                sharpen your coding skills. Pro also contains real-world
+                projects that train you to apply the skills you are learning
+                in realistic scenarios.
+              </div>
+            </div>
+        </div>
+        <div class="col-md-6 mt-3">
+         <div class="questions">
+          <h2 class="main-heading">
+          Do I need to know how to code before signing up?
+        </h2>
+         </div>
+              <div class="paragraph">
+                <div class="data mt-3"  style="line-height: 25px;">
+                  No, most of our users have zero experience when they sign up.
+                  Our curriculum is designed to teach anyone to learn to code..
+                </div>
+              </div>
+      </div>
+      <div class="row mb-5">
+        <div class="col-md-6 mt-3">
+      <div class="questions">
+        <h2 class="main-heading" >
+          What is a Path?
+      </h2>
+      </div>
+             <div class="paragraph">
+              <div class="data mt-3"  style="line-height: 25px;">
+                Paths are structured curriculum roadmaps that show you exactly
+                where to start and what to learn next. Paths contain
+                everything you need to accomplish a specific task or goal.
+              </div>
+             </div>
+        </div>
+        <div class="col-md-6 mt-3">
+            <div class="questions">
+              <h2 class="main-heading">
+                Why should I upgrade to Codecademy Pro?
+            </h2>
+            </div>
+            <div class="paragraph">
+              <div class="data mt-3"  style="line-height: 25px;">
+                We built Codecademy Pro based on the lessons we’ve learned
+                from teaching over 45 million people to code since 2011. If
+                you’re ready to accelerate your learning and apply those
+                skills to real-world scenarios, the Codecademy Pro is for you.
+                Pro not only teaches you coding skills, but how to use those
+                skills.
+              </div>
+            </div>
+        </div>
+      </div>
+      {% endblock body %}
+    </body>
+    {% block script %}
+<script src="./JS/code.js"></script> <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous" ></script> <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous" ></script> <script src="https://unpkg.com/aos@next/dist/aos.js"></script> <script> AOS.init(); </script> <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+{% endblock script %}
+</html>

@@ -1,0 +1,247 @@
+.feed_section {
+	width: 100%;
+	max-height: calc(100vh - 60px);
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	overflow: scroll;
+	margin: 0 auto;
+	@media (max-width: 700px) {
+		max-height: 100%;
+	}
+}
+.feed_container {
+	width: 80%;
+	height: 100%;
+	margin-top: 20px;
+	@media (max-width: 700px) {
+		width: 100%;
+	}
+	.title {
+		width: 100%;
+		padding: 0 10px;
+		margin-bottom: 20px;
+		p {
+			font-size: 0.8rem;
+			color: rgb(99, 95, 95);
+		}
+	}
+	.feed_input_conatiner {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		padding: 10px;
+		box-sizing: border-box;
+		height: 280px;
+		@media (max-width: 700px) {
+			width: 90%;
+			margin: 0 auto;
+		}
+		.profile {
+			height: 100%;
+			width: 50px;
+			img {
+				width: 35px;
+				object-fit: cover;
+				height: 35px;
+				border-radius: 50%;
+			}
+		}
+		.feed_input_box {
+			width: 100%;
+			background-color: aliceblue;
+			height: 100%;
+			box-shadow: rgba(70, 71, 71, 0.3) 0px 0px 0px 3px;
+			border-radius: 5px;
+			.feed_title {
+				display: flex;
+				align-items: center;
+				padding: 5px 10px;
+				span {
+					color: rgb(151, 150, 150);
+					font-size: 0.9rem;
+				}
+				.title_name {
+					padding: 0 3px;
+					p {
+						height: 18px;
+						width: 140px;
+						padding: 0;
+						overflow: hidden;
+						position: relative;
+						display: inline-block;
+						margin: 0 5px 0 5px;
+						text-align: center;
+						text-decoration: none;
+						text-overflow: ellipsis;
+						white-space: nowrap;
+						color: #000;
+						font-weight: 600;
+					}
+				}
+			}
+		}
+	}
+}
+.add_tags {
+	display: flex;
+	align-items: center;
+	width: 50%;
+	overflow: hidden;
+	.tag-disp {
+		display: flex;
+		.tag {
+			min-width: 40px;
+			height: 30px;
+			margin-right: 2px;
+			border: 2px solid #cc39ac;
+			font-size: 0.7rem;
+			padding: 5px;
+			display: grid;
+			place-items: center;
+			cursor: pointer;
+			color: #cc39ac;
+		}
+	}
+	input {
+		border: none;
+		width: 200px;
+		height: 30px;
+		outline: none;
+		display: flex;
+		align-items: center;
+	}
+}
+.feed_textarea {
+	width: 100%;
+	padding: 10px;
+	overflow: hidden;
+	textarea {
+		width: 100%;
+		height: 150px;
+		border: none;
+		outline: none;
+		padding: 5px;
+	}
+}
+.post_feed {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 10px;
+	.icons {
+		width: 150px;
+		img {
+			object-fit: contain;
+			width: 30px;
+			cursor: pointer;
+		}
+	}
+	button {
+		width: 80px;
+		height: 35px;
+		background-color: #e95bca;
+		border: none;
+		outline: none;
+		border-radius: 5px;
+		color: #fff;
+		&:hover {
+			background-color: #cc39ac;
+			cursor: pointer;
+		}
+	}
+}
+.post_section {
+	width: 100%;
+	margin-top: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-direction: column;
+	.post_box {
+		width: 80%;
+		box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+		min-height: 300px;
+		padding: 20px;
+		border-radius: 8px;
+		margin-bottom: 15px;
+		@media (max-width: 700px) {
+			width: 100%;
+		}
+		&:hover {
+			box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+		}
+		.avater_section {
+			width: 100%;
+			.profile {
+				display: flex;
+				align-items: center;
+				img {
+					width: 40px;
+					border-radius: 50%;
+					height: 40px;
+				}
+				.name {
+					margin-left: 15px;
+					p {
+						font-weight: 600;
+						font-size: 0.9rem;
+					}
+					span {
+						font-size: 0.7rem;
+					}
+				}
+			}
+		}
+		.para {
+			width: 100%;
+			margin-top: 10px;
+			font-size: 0.85rem;
+			color: #333;
+		}
+		.photo {
+			width: 100%;
+			margin: 10px 0;
+			img {
+				width: 100%;
+				object-fit: contain;
+			}
+		}
+	}
+}
+.post_tages {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	.tags_box {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		.tags {
+			margin-right: 5px;
+			font-size: 0.8rem;
+			font-weight: 600;
+			border: 1px solid #e95bca;
+			padding: 4px;
+			color: #cc39ac;
+		}
+	}
+	.time {
+		p {
+			font-size: 0.8rem;
+			color: #333;
+		}
+	}
+}
+.post_icons {
+	margin-top: 20px;
+	width: 70px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	img {
+		width: 25px;
+		object-fit: contain;
+	}
+}

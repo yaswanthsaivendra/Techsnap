@@ -1,0 +1,464 @@
+{% extends 'footer.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+	<title>{% block title %}Career{% endblock title %}</title>
+
+    {% block css %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+        crossorigin="anonymous"
+    />
+    <link
+        rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+        crossorigin="anonymous"
+    />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'assets/jobs/styles.css'%}" />
+
+    <link rel="shortcut icon" type="image/png" href="{% static 'assets/main/favicon.png'%}"/>
+    {% endblock css %}
+    {% block google_tags %}
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-L4D2PNVR8Z"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-L4D2PNVR8Z');
+		</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    {% endblock google_tags %}
+</head>
+<body>
+    {% block body %}
+<!-- <main style="width: 100%">
+    <div class="container" style="padding-top: 8rem">
+    <div class="row gx-5">
+        <div
+        class="col-sm-6 pt-5"
+        style="display: flex; flex-direction: column; align-items: center"
+        >
+        <div class="hero-content mb-5">
+            <h1 class="jobs__heading">Grow your career with Techsnap</h1>
+            <p class="jobs__desc">
+            Begin your career journey with us and discover how your talents
+            and skills can help change the world
+            </p>
+        </div>
+        <a href="" class="apply-now-button"
+            >Apply now <i class="fas fa-arrow-right"></i
+        ></a>
+        </div>
+        <div class="col-sm-6">
+        <img
+            src="{% static 'assets/jobs/images/hero.png'%}"
+            alt=""
+            class="jobs__hero-img"
+            width="100%"
+        />
+        </div>
+    </div>
+    </div>
+    <div
+    style="
+        background-color: #f2f2f2;
+        margin-top: -100px;
+        padding-top: 35px;
+        padding-bottom: 35px;
+    "
+    >
+    <div class="container">
+        <div class="row" style="text-align: center">
+        <h2 class="mb-5 jobs__page-heading" style="text-align: left">
+            Career Stats
+        </h2>
+        <div class="col-sm">
+            <div class="py-2 px-3">
+            <img src="{% static 'assets/jobs/images/internship.svg'%}" alt="" height="100px" />
+            <p class="mt-3 mb-1" style="font-weight: 600; font-size: 1.5rem">
+                1000+
+            </p>
+            <p style="font-weight: 600; font-size: 1.5rem">Applications</p>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="py-2 px-3">
+            <img src="{% static 'assets/jobs/images/sharing.svg'%}" alt="" height="100px" />
+            <p class="mt-3 mb-1" style="font-weight: 600; font-size: 1.5rem">
+                10+
+            </p>
+            <p style="font-weight: 600; font-size: 1.5rem">Designations</p>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="py-2 px-3">
+            <img src="{% static 'assets/jobs/images/suitcase.svg'%}" alt="" height="100px" />
+            <p class="mt-3 mb-1" style="font-weight: 600; font-size: 1.5rem">
+                150+
+            </p>
+            <p style="font-weight: 600; font-size: 1.5rem">Candidates</p>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="py-2 px-3">
+            <img src="{% static 'assets/jobs/images/analysis.svg'%}" alt="" height="100px" />
+            <p class="mt-3 mb-1" style="font-weight: 600; font-size: 1.5rem">
+                120+
+            </p>
+            <p style="font-weight: 600; font-size: 1.5rem">Projects</p>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="container py-3">
+    <h2 class="mb-5 jobs__page-heading">Explore Jobs & Join us...</h2>
+    <div class="row g-5">
+        {% for jobs in object_list %}
+        <div class="col-sm-12 col-md-6 col-lg-4 my-3">
+            <div class="px-3 py-4"
+                style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);border: 1px solid #000000;
+                border-left: 5px solid #ff00d6;">
+                <a href="{{jobs.get_absolute_url}}"><h2 style="font-weight: 800">{{jobs.desg}}</h></a>
+                <p>{{jobs.company}} | {{jobs.location}}</p>
+                <p>
+                <span style="font-weight: bold">Skills Required:</span> Good
+                Communication skills recruitment process....
+                </p>
+                <p>
+                <span style="font-weight: 600">Business Area</span> Operation
+                </p>
+                <p style="font-size:15px">Posted{{jobs.published_date}}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    </div>
+
+    <div class="mt-3 py-5" style="background-color: #f2f2f2">
+    <div class="container">
+        <h2
+        class="mb-5 jobs__page-heading"
+        style="font-weight: 600; font-size: 2.5rem"
+        >
+        Stay connected
+        </h2>
+        <div class="row g-5">
+        <div
+            class="col-sm-12 col-md-6 col-lg-4 my-3"
+            style="position: relative"
+        >
+            <div
+            class="px-3 py-4"
+            style="
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                border: 1px solid #000000;
+            "
+            >
+            <img src="{% static 'assets/jobs/images/team.svg'%}" alt="" class="mb-3" />
+            <h4 style="font-weight: 700">Join Our Team</h4>
+            <p>
+                Search Open position that mach your skills and interest. We
+                look for passionate curious, creative and solution-drive team
+                players
+            </p>
+            <button
+                style="
+                background-color: transparent;
+                border: none;
+                color: #ff00d6;
+                font-weight: 600;
+                "
+            >
+                Search Techsnap Jobs
+                <i class="fas fa-long-arrow-alt-right"></i>
+            </button>
+            </div>
+        </div>
+        <div
+            class="col-sm-12 col-md-6 col-lg-4 my-3"
+            style="position: relative"
+        >
+            <div
+            class="px-3 py-4"
+            style="
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                border: 1px solid #000000;
+            "
+            >
+            <img src="{% static 'assets/jobs/images/refresh.svg'%}" alt="" class="mb-3" />
+            <h4 style="font-weight: 700">Join Our Team</h4>
+            <p>
+                Search Open position that mach your skills and interest. We
+                look for passionate curious, creative and solution-drive team
+                players
+            </p>
+            <button
+                style="
+                background-color: transparent;
+                border: none;
+                color: #ff00d6;
+                font-weight: 600;
+                "
+            >
+                Search Techsnap Jobs
+                <i class="fas fa-long-arrow-alt-right"></i>
+            </button>
+            </div>
+        </div>
+        <div
+            class="col-sm-12 col-md-6 col-lg-4 my-3"
+            style="position: relative"
+        >
+            <div
+            class="px-3 py-4"
+            style="
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                border: 1px solid #000000;
+            "
+            >
+            <img src="{% static 'assets/jobs/images/email.svg'%}" alt="" class="mb-3" />
+            <h4 style="font-weight: 700">Join Our Team</h4>
+            <p>
+                Search Open position that mach your skills and interest. We
+                look for passionate curious, creative and solution-drive team
+                players
+            </p>
+            <button
+                style="
+                background-color: transparent;
+                border: none;
+                color: #ff00d6;
+                font-weight: 600;
+                "
+            >
+                Search Techsnap Jobs
+                <i class="fas fa-long-arrow-alt-right"></i>
+            </button>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</main>-->
+<main style="width: 100%">
+    <div class="container" style="padding-top: 8rem">
+      <div class="row gx-5">
+        <div
+          class="col-sm-6 pt-5"
+          style="display: flex; flex-direction: column; align-items: center"
+        >
+          <div class="hero-content mb-5">
+            <h1 class="jobs__heading">Grow your career with Techsnap</h1>
+            <p class="jobs__desc">
+              Begin your career journey with us and discover how your talents
+              and skills can help change the world
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <img
+            src="https://miro.medium.com/max/1200/0*V1ZBWikrpqBgO0U_.png"
+            alt=""
+            class="jobs__hero-img"
+            width="100%"
+          />
+        </div>
+      </div>
+    </div>
+    <div style="background-color: #f2f2f2">
+      <div class="container">
+        <div class="row" style="text-align: center">
+          <h2 class="mb-5 jobs__page-heading" style="text-align: left">
+            Career Stats
+          </h2>
+          <div class="col-sm">
+            <div class="py-2 px-3">
+              <img src="{% static 'assets/jobs/images/internship.svg'%}" alt="" height="100px" />
+              <p
+                class="mt-3 mb-1"
+                style="font-weight: 600; font-size: 1.5rem"
+              >
+                1000+
+              </p>
+              <p style="font-weight: 600; font-size: 1.5rem">Applications</p>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="py-2 px-3">
+              <img src="{% static 'assets/jobs/images/sharing.svg'%}" alt="" height="100px" />
+              <p
+                class="mt-3 mb-1"
+                style="font-weight: 600; font-size: 1.5rem"
+              >
+                10+
+              </p>
+              <p style="font-weight: 600; font-size: 1.5rem">Designations</p>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="py-2 px-3">
+              <img src="{% static 'assets/jobs/images/suitcase.svg'%}" alt="" height="100px" />
+              <p
+                class="mt-3 mb-1"
+                style="font-weight: 600; font-size: 1.5rem"
+              >
+                150+
+              </p>
+              <p style="font-weight: 600; font-size: 1.5rem">Candidates</p>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="py-2 px-3">
+              <img src="{% static 'assets/jobs/images/analysis.svg'%}" alt="" height="100px" />
+              <p
+                class="mt-3 mb-1"
+                style="font-weight: 600; font-size: 1.5rem"
+              >
+                120+
+              </p>
+              <p style="font-weight: 600; font-size: 1.5rem">Projects</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container py-3">
+    <h2 class="mb-5 jobs__page-heading" style="padding-bottom:30px;">Explore Jobs & Join us...</h2>
+    <div class="row g-5">
+        {% for jobs in object_list %}
+        <div class="col-sm-12 col-md-6 col-lg-4 my-3">
+            <div class="px-3 py-4" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);border: 1px solid #000000;border-left: 5px solid #ff00d6;">
+            <h3 style="font-weight: 700;font-size: 1.5625rem;line-height: 1.2em;    display: block;">{{jobs.desg}}</h3>
+            <p>{{jobs.company}} | {{jobs.location}}</p>
+            <p><span style="font-weight: bold">Job Description: </span> {{jobs.jd|slice:"75"}}...
+            </p>
+            <p><span style="font-weight: 600">Job Type: </span> {{jobs.job_type}}</p>
+            <p style="font-size: 15px">Posted {{jobs.published_date}}</p>
+            <a href="{{jobs.get_absolute_url}}" target="_blank" style="font-weight: 500; text-decoration: none">Apply Now</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    </div>
+
+    <div class="mt-3 py-5" style="background-color: #f2f2f2">
+      <div class="container">
+        <h2
+          class="mb-5 jobs__page-heading"
+          style="font-weight: 600; font-size: 2.5rem"
+        >
+          Stay connected
+        </h2>
+        <div class="row g-5">
+          <div
+            class="col-sm-12 col-md-6 col-lg-4 my-3"
+            style="position: relative"
+          >
+            <div
+              class="px-3 py-4"
+              style="
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                border: 1px solid #000000;
+              "
+            >
+              <img src="{% static 'assets/jobs/images/team.svg'%}" alt="" class="mb-3" />
+              <h4 style="font-weight: 700">Join Our Community</h4>
+              <p>
+                know About New Trending technologies that mach your skills and interest. We
+              help you with exciting courses and resources.
+              </p>
+              <button
+                style="
+                  background-color: transparent;
+                  border: none;
+                  color: #ff00d6;
+                  font-weight: 600;
+                "
+              >
+                Community Place
+                <i class="fas fa-long-arrow-alt-right"></i>
+              </button>
+            </div>
+          </div>
+          <div
+            class="col-sm-12 col-md-6 col-lg-4 my-3"
+            style="position: relative"
+          >
+            <div
+              class="px-3 py-4"
+              style="
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                border: 1px solid #000000;
+              "
+            >
+              <img src="{% static 'assets/jobs/images/refresh.svg'%}" alt="" class="mb-3" />
+              <h4 style="font-weight: 700">Keep Up to Date</h4>
+              <p>
+                Stay ahead with careers tips, insider perspectives, and industry-leading insights you can put to use today–all from the people who work here.
+              </p>
+              <button
+                style="
+                  background-color: transparent;
+                  border: none;
+                  color: #ff00d6;
+                  font-weight: 600;
+                "
+              >
+                Watch techsnap Posts
+                <i class="fas fa-long-arrow-alt-right"></i>
+              </button>
+            </div>
+          </div>
+          <div
+            class="col-sm-12 col-md-6 col-lg-4 my-3"
+            style="position: relative"
+          >
+            <div
+              class="px-3 py-4"
+              style="
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                border: 1px solid #000000;
+              "
+            >
+              <img src="{% static 'assets/jobs/images/email.svg'%}" alt="" class="mb-3" />
+              <h4 style="font-weight: 700">Job Alert Emails</h4>
+              <p>
+                Personalize your subscription to receive job alerts, latest news and insider tips tailored to your preferences.
+              </p>
+              <button
+                style="
+                  background-color: transparent;
+                  border: none;
+                  color: #ff00d6;
+                  font-weight: 600;
+                "
+              >
+                Subscribe to Newsletter
+                <i class="fas fa-long-arrow-alt-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock body %}
+</body>
+</html>

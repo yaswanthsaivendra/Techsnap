@@ -1,0 +1,597 @@
+{% load static %}
+{% load custom_tags %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="{% static 'assets/dashboard/style/_headers/headers.css'%}" />
+<link rel="stylesheet" href="{% static 'assets/dashboard/style/_pages/liveEvents.css'%}" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+        <div class="sub_header">
+            <div class="Header_icon">
+                <div class="ham" onclick="slideMenu()">
+                    <img
+                        id="ham_icon"
+                        src="https://img.icons8.com/android/96/000000/menu.png"
+                    />
+                </div>
+                <img src="{% static 'assets/dashboard/assets/icon.svg'%}" alt="Logo" />
+            </div>
+
+            <div class="Header_Profile">
+                <div class="Icons">
+                    <div class="points" onclick="goalsDrop()">
+                        <p><span>🔥 </span>0</p>
+                        <p><span>🎯 </span> 0</p>
+                    </div>
+                    <div class="score">
+                        <p class="shock" onclick="powerhandler()"><span>⚡ </span>{{profile_page.xp}}</p>
+                        <p class="coin" onclick="Coinhandler()">
+                            <span>
+                                <img src="{% static 'assets/dashboard/assets/coin (3).png'%}" alt="notifiction"
+                            /></span>
+                            {{profile_page.techsnap_cash}}
+                        </p>
+                    </div>
+                </div>
+
+                <img
+                    src="{% static 'assets/dashboard/assets/bell.svg'%}"
+                    alt="notifiction"
+                    class="notification_bell"
+                />{% if request.user|exclude:False != None %}{{request.user|exclude:False}}{% endif %}
+
+                <div class="notification_dropdown">
+                    {% for notification in user.profile.user_notifications.all|dictsortreversed:'notified_time' %}
+                    <div class="notification_item">
+                        <div class="notification_item_icon">
+                            <div class="icon_holder" style="background:black;!important">
+                                <img src="{{notification.image.url}}" alt="prifle" />
+                            </div>
+                        </div>
+                        <div class="notification_content">
+                            <p>
+                                {{notification.body}}
+                            </p>
+                            {% if notification.url %}
+                            <a href="{{notification.url}}" target="_blank"><button>{{notification.url_name}}</button></a>
+                            {% endif %}
+                        </div>
+                        <div class="time">
+                            <p></p>
+                            <h1 class="notification_dots">...</h1>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <div class="see_all_notifications">
+                        <a href="{% url 'notifications' user.profile.slug %}"><p>See all notifications</p></a>
+                    </div>
+                </div>
+                {% if user.profile.profile_pic %}
+                <img class="profile_pic avatar" src="{{user.profile.profile_pic.url}}"alt="avatar"/>
+                {% else %}
+                <img class="profile_pic avatar" src="https://www.participate.nyc.gov/assets/decidim/default-avatar-43686fd5db4beed0141662a012321bbccd154ee1d9188b0d1f41e37b710af3cb.svg"alt="avatar"/>
+                {% endif %}
+                <div class="profile_dropDown">
+                    <a href="#" class="profile_dropDown_item">
+                        <span
+                            ><img
+                                src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-dashboard-blogger-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"
+                        /></span>
+                        <p>Community</p>
+                    </a>
+                    <a href="#" class="profile_dropDown_item">
+                        <span
+                            ><img src="https://img.icons8.com/ios/50/000000/user.png"
+                        /></span>
+                        <p>Resources</p>
+                    </a>
+                    <a href="#" class="profile_dropDown_item">
+                        <span
+                            ><img
+                                src="https://img.icons8.com/ios/50/000000/user-not-found.png"
+                        /></span>
+                        <p>Forum</p>
+                    </a>
+                    <a href="{% url 'logout' %}" class="profile_dropDown_item">
+                        <span
+                            ><img src="https://img.icons8.com/windows/32/000000/exit.png"
+                        /></span>
+                        <p>Logout</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="goals_DropDown">
+            <div class="title">
+                <h2>Daily Goals</h2>
+                <p>Edit Goals</p>
+            </div>
+            <div class="info_text">
+                <p>How does streak work , know more obout here</p>
+                <span onclick="closeInfo()">X</span>
+            </div>
+            <div class="goals_section">
+                <div class="left_section">
+                    <div class="total_streak_day">
+                        <div class="title">
+                            <p>Total Streak</p>
+                            <img
+                                src="https://img.icons8.com/color/48/000000/share--v1.png"
+                            />
+                        </div>
+                        <div class="streak_body">
+                            <img
+                                src="https://img.icons8.com/external-vitaliy-gorbachev-flat-vitaly-gorbachev/58/000000/external-fire-blogger-vitaliy-gorbachev-flat-vitaly-gorbachev.png"
+                            />
+                            <div class="body_details">
+                                <p>0</p>
+                                <span>Day Streak</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="total_streak_freeeze">
+                        <div class="streak_body">
+                            <img
+                                src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/64/000000/external-fire-kitchen-kiranshastry-lineal-color-kiranshastry.png"
+                            />
+                            <div class="body_details">
+                                <p>0</p>
+                                <span>Streak Freeze</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right_section">
+                    <div class="right_box">
+                        <div class="title">
+                            <p>Daily Goal</p>
+                            <div class="time_box">
+                                <span>11:34:13</span>
+                            </div>
+                            <div class="streak_body">
+                                <img
+                                    src="data:image/png;base64,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"
+                                />
+                                <div class="body_details">
+                                    <p>10/200</p>
+                                    <span>Points</span>
+                                </div>
+                            </div>
+                            <div class="progress_streak">
+                                <div class="progress_bar">
+                                    <div class="bar" style="width: 10%"></div>
+                                </div>
+                                <button>Achieve Score</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="power_dropDown">
+            <div class="power_item">
+                <p>Highest xp : 100</p>
+            </div>
+                <div class="power_item">
+                <p>Curent xp :{{profile_page.xp}}</p>
+            </div>
+            <div class="buttons">
+                <button>Reedem</button>
+            </div>
+        </div>
+        <div class="coin_dropDown">
+                <div class="coin_item">
+                <p>Highest coins : 999</p>
+            </div>
+                <div class="coin_item">
+                <p>Curent coins : {{profile_page.techsnap_cash}}</p>
+            </div>
+            <div class="buttons">
+                <button>Reedem</button>
+            </div>
+        </div>
+    </header>
+    <div class="wholeBody">
+        <!-- //------------------------sidenav--------------------------- -->
+        <aside class="sideMenu">
+            <div class="myMenu">
+                <a href="{% url 'dashboard' user.profile.slug %}" id="active">
+                    <img src="{% static 'assets/dashboard/assets/self-growth3.png'%}" alt="progress" />
+                    <p>My Progress</p>
+                </a>
+                <a href="{% url 'feed' user.profile.slug %}">
+                    <img src="{% static 'assets/dashboard/assets/feed.png'%}" alt="progress" />
+                    <p>My Feed</p>
+                </a>
+                <a href="{% url 'topics' user.profile.slug %}">
+                    <img src="{% static 'assets/dashboard/assets/hashtag.png'%}" alt="progress" />
+                    <p>Topics</p>
+                </a>
+
+                <a href="">
+                    <img src="{% static 'assets/dashboard/assets/stage.png'%}" alt="bookmark" />
+                    <p>Competitions</p>
+                </a>
+                <a href="{% url 'leaderboard' user.profile.slug %}">
+                    <img src="{% static 'assets/dashboard/assets/leaderboard.png'%}" alt="leader" />
+                    <p>Leaderboard</p>
+                </a>
+            </div>
+            <div class="myMenu">
+                <div class="title">
+                    <h4>catalog</h4>
+                </div>
+                <a href="{% url 'dashcareerpaths' user.profile.slug %}">
+                    <img src="{% static 'assets/dashboard/assets/career-choice.png'%}" alt="progress" />
+                    <p>Career Paths</p>
+                </a>
+                <a href="{% url 'dashcourses' user.profile.slug %}">
+                    <img src="{% static 'assets/dashboard/assets/online-course2.png'%}" alt="leader" />
+                    <p>Courses</p>
+                </a>
+                <a href="{% url 'dashprojects' user.profile.slug %}">
+                    <img src="{% static 'assets/dashboard/assets/project-management (2).png'%}" alt="leader" />
+                    <p>Projects</p>
+                </a>
+                <a href="##">
+                    <img src="{% static 'assets/dashboard/assets/project.png'%}" alt="leader" />
+                    <p>Practice</p>
+                </a>
+                <a href="{% url 'dashassesments' user.profile.slug %}">
+                    <img src="{% static 'assets/dashboard/assets/clipboard.png'%}" alt="leader" />
+                    <p>Assessments</p>
+                </a>
+                <a href="{% url 'events' user.profile.slug %}">
+                    <img src="{% static 'assets/dashboard/assets/deadline.png'%}" alt="leader" />
+                    <p>Live Events</p>
+                </a>
+            </div>
+            <div class="myMenu">
+                <div class="title">
+                    <h4>PROFILE</h4>
+                </div>
+                <a href="{% url 'show_profile' user.profile.slug%}">
+                    <img src="{% static 'assets/dashboard/assets/account (1).png'%}" alt="progress" />
+                    <p>My profile</p>
+                </a>
+                <a href="{% url 'update' user.profile.slug%}">
+                    <img src="{% static 'assets/dashboard/assets/edit (1).png'%}" alt="bookmark" />
+                    <p>Edit profile</p>
+                </a>
+                <a href="{% url 'accountsettings' user.profile.slug%}">
+                    <img src="{% static 'assets/dashboard/assets/user (1).png'%}" alt="leader" />
+                    <p>Account Settings</p>
+                </a>
+                <a href="{% url 'logout' %}">
+                    <img src="{% static 'assets/dashboard/assets/logout (1).png'%}" alt="leader" />
+                    <p>Logout</p>
+                </a>
+            </div>
+            <button>Contact us</button>
+        </aside>
+
+      <!---------------Topics section---------------------->
+      <div class="max_width_holder">
+        <section class="live_event_section">
+          <div class="heading_holder">
+            <h1>Upcoming Events For You</h1>
+            <p>
+              Be a part of a Global Community<span>join now</span>
+            </p>
+          </div>
+          <div class="upcoming_cards_holder">
+            <div class="upcoming_cards">
+              <div class="card_poster_holder">
+                <img
+                  src="https://hackr.io/blog/how-to-learn-machine-learning/thumbnail/large"
+                  alt=""
+                />
+              </div>
+              <div class="card_body">
+                <h1>Why Data science and machine Learning ?</h1>
+                <p>MLsnap</p>
+                <p>Jul 21,2022 8.00am</p>
+              </div>
+            </div>
+            <div class="upcoming_cards">
+              <div class="card_poster_holder">
+                <img
+                  src="https://orangematter.solarwinds.com/wp-content/uploads/2022/03/DevOps-lifecycle-capabilities-1024x621.png"
+                  alt=""
+                />
+              </div>
+              <div class="card_body">
+                <h1>Azure DevOps Services</h1>
+                <p>Techsnap</p>
+                <p>Jul 23,2022 6.00pm</p>
+              </div>
+            </div>
+            <div class="upcoming_cards">
+              <div class="card_poster_holder">
+                <img
+                  src="https://www.bluelearn.in/_next/image?url=https%3A%2F%2Fi.ytimg.com%2Fvi%2FHwkNhlRnHMM%2Fhqdefault.jpg&w=3840&q=60"
+                  alt=""
+                />
+              </div>
+              <div class="card_body">
+                <h1>How to freelance and types</h1>
+                <p>Ratoo.in</p>
+                <p>Jul 24,2022 7.00pm</p>
+              </div>
+            </div>
+            <div class="upcoming_cards">
+              <div class="card_poster_holder">
+                <img
+                  src="https://soshace.com/wp-content/uploads/2019/10/Flask-vs.-Django.-Lets-Choose-the-Right-Framework-for-the-Job-blog-cover-image.jpg"
+                  alt=""
+                />
+              </div>
+              <div class="card_body">
+                <h1>Python Frameworks</h1>
+                <p>Techsnap</p>
+                <p>Jul 27,2022 12.00pm</p>
+              </div>
+            </div>
+            <div class="upcoming_cards">
+              <div class="card_poster_holder">
+                <img
+                  src="https://img-cdn.inc.com/image/upload/images/panoramic/figma_502659_ld7k1e.jpg"
+                  alt=""
+                />
+              </div>
+              <div class="card_body">
+                <h1>Getting started wuth figma and Adobe products</h1>
+                <p>Techsnap</p>
+                <p>Jul 27,2022 10.00am</p>
+              </div>
+            </div>
+          </div>
+          <div class="heading_holder sticky">
+            <h1>If you missed something, access it right here</h1>
+            <div class="tab">
+              <button
+                class="tablinks"
+                onclick="openCity(event, 'Active')"
+                id="defaultOpen"
+              >
+                Active
+              </button>
+              <button class="tablinks" onclick="openCity(event, 'Closed')">
+                Closed
+              </button>
+              <button class="tablinks" onclick="openCity(event, 'Upcoming')">
+                Upcoming
+              </button>
+            </div>
+          </div>
+          <div id="Active" class="tabcontent">
+            <div class="upcoming_cards_holder">
+              <div class="missing_cards">
+                <div class="card_poster_holder">
+                  <img
+                    src="https://www.bluelearn.in/_next/image?url=https%3A%2F%2Ffiles.bluelearn.in%2FEVENT_IMAGE%2F303%2F2022-07-08T16%253A27%253A53%252B00%253A00-blob&w=1920&q=60"
+                    alt=""
+                  />
+                </div>
+                <div class="card_body">
+                  <h1>Lorem, ipsum dolor sit ame dolor sit ame</h1>
+                  <button type="button" data-bs-toggle="modal" data-bs-target="#myModal" onclick="document.getElementById('main-content').style.overflowY = 'hidden'">Watch Now</button>
+                  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-body p-0">
+                          <div class="container-fluid">
+                            <div class="row">
+                              <div class="col rounded-left text-white p-lg-4" style="background-color: #233d4c;">
+                                <div class="text-end mt-3 me-2 close-button1">
+                                </div>
+                                <h1 class="flex-fill mt-md-3 pb-md-5" style="font-size: 40px;">Artificial Intelligence & Machine Learning workshop</h1>
+                                <p class="fst-italic">Join the live event and get to know about machine learning and data science
+                                </p>
+                                <span type="button" class="btn btn-warning"><a href={%url 'mlevent'%}>Register now</a></span>
+                              </div>
+                              <div class="col right-window">
+                                <div class="text-end mt-3 me-2 close-button2">
+                                  <span type="button" class="btn btn-white text-right btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="document.getElementById('main-content').style.overflowY = 'unset'"></span>
+                                </div>
+                                <div class="text-center p-lg-4 pt-lg-0 pt-2">
+                                  <div style="height: 80px; width: 350px;">
+                                    <img src="https://www.techsnap.in/media/storage/logo_pink_ZEQOygt.png"  style="height: 60px; width: 200px;">
+                                  </div>
+                                  <div>
+                                    <h6>Terms and Conditions</h6>
+                                    <p class="text-start" style="font-size: 14px;">Following are the terms that shall be applicable to the Contest:</p>
+                                    <ul class="text-start" style="font-size: 14px;">
+                                      <li>The Contest is open only to Indian citizens, residing in India. Citizens and/or residents of
+                                        countries other than India are not eligible to participate.</li>
+                                      <li>The Participants must be adults having attained the age of eighteen (18) years to participate in
+                                        the Contest as on the date of the Contest.</li>
+                                      <li>Contest shall be open for participation as per the timelines specified in the T&Cs for Contest.</li>
+                                      <li>Employees, agents and promoters</li>
+                                    </ul>
+                                  </div>
+                                  <div class="row mt-4">
+                                    <div class="col text-end">
+                                      <span type="button" class="btn btn-outline-success modal-btn disabled">watch now</span>
+                                    </div>
+                                    <div class="col text-start">
+                                      <p class="mb-0" style="font-size: 13px;">Sorry,Upgrade to pro to watch the previous programs</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="missing_cards">
+                <div class="card_poster_holder">
+                  <img
+                    src="https://www.bluelearn.in/_next/image?url=https%3A%2F%2Ffiles.bluelearn.in%2FEVENT_IMAGE%2F303%2F2022-07-08T16%253A27%253A53%252B00%253A00-blob&w=1920&q=60"
+                    alt=""
+                  />
+                </div>
+                <div class="card_body">
+                  <h1>Lorem, ipsum dolor sit ame dolor sit ame</h1>
+                  <button class="btn btn-color">Watch Now</button>
+                </div>
+              </div>
+              <div class="missing_cards">
+                <div class="card_poster_holder">
+                  <img
+                    src="https://www.bluelearn.in/_next/image?url=https%3A%2F%2Ffiles.bluelearn.in%2FEVENT_IMAGE%2F303%2F2022-07-08T16%253A27%253A53%252B00%253A00-blob&w=1920&q=60"
+                    alt=""
+                  />
+                </div>
+                <div class="card_body">
+                  <h1>Lorem, ipsum dolor sit ame dolor sit ame</h1>
+                  <button>Watch Now</button>
+                </div>
+              </div>
+              <div class="missing_cards">
+                <div class="card_poster_holder">
+                  <img
+                    src="https://www.bluelearn.in/_next/image?url=https%3A%2F%2Ffiles.bluelearn.in%2FEVENT_IMAGE%2F303%2F2022-07-08T16%253A27%253A53%252B00%253A00-blob&w=1920&q=60"
+                    alt=""
+                  />
+                </div>
+                <div class="card_body">
+                  <h1>Lorem, ipsum dolor sit ame dolor sit ame</h1>
+                  <button>Watch Now</button>
+                </div>
+              </div>
+              <div class="missing_cards">
+                <div class="card_poster_holder">
+                  <img
+                    src="https://www.bluelearn.in/_next/image?url=https%3A%2F%2Ffiles.bluelearn.in%2FEVENT_IMAGE%2F303%2F2022-07-08T16%253A27%253A53%252B00%253A00-blob&w=1920&q=60"
+                    alt=""
+                  />
+                </div>
+                <div class="card_body">
+                  <h1>Lorem, ipsum dolor sit ame dolor sit ame</h1>
+                  <button>Watch Now</button>
+                </div>
+              </div>
+              <div class="missing_cards">
+                <div class="card_poster_holder">
+                  <img
+                    src="https://www.bluelearn.in/_next/image?url=https%3A%2F%2Ffiles.bluelearn.in%2FEVENT_IMAGE%2F303%2F2022-07-08T16%253A27%253A53%252B00%253A00-blob&w=1920&q=60"
+                    alt=""
+                  />
+                </div>
+                <div class="card_body">
+                  <h1>Lorem, ipsum dolor sit ame dolor sit ame</h1>
+                  <button>Watch Now</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="Closed" class="tabcontent">
+            <div class="upcoming_cards_holder">
+              <div class="missing_cards">
+                <div class="card_poster_holder">
+                  <img
+                    src="https://www.bluelearn.in/_next/image?url=https%3A%2F%2Ffiles.bluelearn.in%2FEVENT_IMAGE%2F303%2F2022-07-08T16%253A27%253A53%252B00%253A00-blob&w=1920&q=60"
+                    alt=""
+                  />
+                </div>
+                <div class="card_body">
+                  <h1>Lorem, ipsum dolor sit ame dolor sit ame</h1>
+                  <button>Watch Now</button>
+                </div>
+              </div>
+              <div class="missing_cards">
+                <div class="card_poster_holder">
+                  <img
+                    src="https://www.bluelearn.in/_next/image?url=https%3A%2F%2Ffiles.bluelearn.in%2FEVENT_IMAGE%2F303%2F2022-07-08T16%253A27%253A53%252B00%253A00-blob&w=1920&q=60"
+                    alt=""
+                  />
+                </div>
+                <div class="card_body">
+                  <h1>Lorem, ipsum dolor sit ame dolor sit ame</h1>
+                  <button>Watch Now</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="Upcoming" class="tabcontent">
+            <div class="upcoming_cards_holder">
+              <div class="missing_cards">
+                <div class="card_poster_holder">
+                  <img
+                    src="https://www.bluelearn.in/_next/image?url=https%3A%2F%2Ffiles.bluelearn.in%2FEVENT_IMAGE%2F303%2F2022-07-08T16%253A27%253A53%252B00%253A00-blob&w=1920&q=60"
+                    alt=""
+                  />
+                </div>
+                <div class="card_body">
+                  <h1>Lorem, ipsum dolor sit ame dolor sit ame</h1>
+                  <button>Watch Now</button>
+                </div>
+              </div>
+              <div class="missing_cards">
+                <div class="card_poster_holder">
+                  <img
+                    src="https://www.bluelearn.in/_next/image?url=https%3A%2F%2Ffiles.bluelearn.in%2FEVENT_IMAGE%2F303%2F2022-07-08T16%253A27%253A53%252B00%253A00-blob&w=1920&q=60"
+                    alt=""
+                  />
+                </div>
+                <div class="card_body">
+                  <h1>Lorem, ipsum dolor sit ame dolor sit ame</h1>
+                  <button>Watch Now</button>
+                </div>
+              </div>
+
+              <div class="missing_cards">
+                <div class="card_poster_holder">
+                  <img
+                    src="https://www.bluelearn.in/_next/image?url=https%3A%2F%2Ffiles.bluelearn.in%2FEVENT_IMAGE%2F303%2F2022-07-08T16%253A27%253A53%252B00%253A00-blob&w=1920&q=60"
+                    alt=""
+                  />
+                </div>
+                <div class="card_body">
+                  <h1>Lorem, ipsum dolor sit ame dolor sit ame</h1>
+                  <button>Watch Now</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <script src="./app.js"></script>
+    <script>
+      document.getElementById("defaultOpen").click();
+      function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+    </script>
+  </body>
+</html>

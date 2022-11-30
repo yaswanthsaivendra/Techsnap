@@ -1,0 +1,404 @@
+{% extends 'footer.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block css %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="{% static 'assets\jobs\styles1.css' %}">
+    <title>{% block title %}Careers{% endblock title %}</title>
+
+    <link rel="shortcut icon" type="image/png" href="{% static 'assets/main/favicon.png'%}"/>
+    {% endblock css %}
+    {% block google_tags %}
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-L4D2PNVR8Z"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-L4D2PNVR8Z');
+		</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    {% endblock google_tags %}
+
+</head>
+
+<body>
+    {% block body %}
+<section class="container-fluid banner-section">
+    <div class="row added">
+        <div class="col-12 col-sm-12 col-md-8">
+            <div class="d-flex flex-column gap-4 fw-bold">
+                <a href="" class="text-decoration-none">{{jobs.published_date}}</a>
+                <h3 class="job-name  mb-0 fw-bold">{{jobs.desg}}</h3>
+                <div class="d-flex text-uppercase">
+                    <div class="location">{{jobs.location}}</div>
+                    <div class="job-num">{{jobs.state}}</div>
+                    <div class="job-num">{{jobs.job_type}}</div>
+                </div>
+                <div class="d-block d-lg-flex py-2 gap-3">
+                    {% if jobs.opened %}
+            <a href="{% url 'job_test:apply' jobs.slug jobs.u_code %}"> <button class="btn btn-dark text-uppercase fw-bold py-2 apply-now"
+                title="Click to open the Job application">apply now</button></a>
+            {% else %}
+            <a href="#"> <button class="btn btn-dark text-uppercase fw-bold py-2 apply-now"
+                title="job closed">Closed</button></a>
+            {% endif %}
+                    <div class="d-block d-md-flex  gap-3">
+                        <div class="d-flex gap-2 align-items-center register">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <a href="" class="text-uppercase text-decoration-none">register for job alerts</a>
+                        </div>
+                        <div class="d-flex gap-2 align-items-center share">
+                            <i class="fa-solid fa-share-nodes"></i>
+                            <a href="" class="text-decoration-none">SHARE</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>
+        <div class="d-none d-md-block  col-md-4 ts-logo-container">
+            <img class="ts-logo col-12" src="https://www.techsnap.in/media/storage/logo_pink.png">
+        </div>
+    </div>
+</section>
+<!-- banner sec ends -->
+
+<!-- kinda main section -->
+<section class="container-fluid main-sec">
+    <div class="row ">
+        <div class="col-md-12 col-lg-8">
+            <div class="job-desc col-12">
+                <h2 class="job-desc-title fw-bold mb-3">Job Description</h2>
+                <div class="about-ts">
+                    <b>About Techsnap : </b>Established in 2021, Originated from the idea that there is no particular Information guide to beginners about the Technologies when they start to learn and there exists a class of beginners who are stuck Half way. So Here we are to provide you clean information about the technologies and Path to learn and master the technology with upskilled instructors, Innovative Roadmaps,Tutorials, Hands-on practice projects and lot many things.At Techsnap we are gridning up
+                    new content, features and careerpaths
+                    to make your coding journey smooth.
+                    We bridge the gap between you dream career and connect you to those who have done it before.
+                    <a href="technap.in">visit us at techsnap.in</a>
+                </div>
+                <div class="about-job about-whole">
+                    <ul>
+                        <li><b>Project Role :</b>{{jobs.desg}}</li>
+                        <li><b>Project Role Description :</b>Design, build and configure applications to meet business process and application requirements.</li>
+                        <li><b>Vacancies :</b>{{jobs.vacancies}}</li>
+                        <li><b>Work Experience :</b>{{jobs.experience_min}}-{{jobs.experience_max}} {{jobs.experience_in}}</li>
+                        <li><b>Work location :</b>{{jobs.location}}</li>
+                        <li><b>Must Have Skills :</b></li>
+                        <li><b>Good To Have Skills :</b></li>
+                        <li><b>Job Requirements :</b>
+                            <div class="about-job">
+                            <ul>
+                                <li><b>Key Responsibilities :</b>
+                                    {% for res in jobs.get_responsibilites %}
+                                        {{res.res}}<br>
+                                    {% endfor %}</li>
+                                <li><b>Technical Experience :</b>
+                                    {% for req in jobs.get_requirments %}
+                                        {{req.req}}<br>
+                                    {% endfor %}</li>
+                                <li><b>Professional Attributes : </b>Should have excellent communication and presentation skills
+                                    <br> Should be a good team player</li>
+                                <li><b>Educational Qualification : </b>BE/BTech/MTech</li>
+                            </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="d-flex gap-2 align-items-center show-less show-less-func fw-bold">
+                    <a>SHOW LESS</a><i class="fa-solid fa-arrow-right"></i>
+                </div>
+                <div class="d-flex gap-2 align-items-center show-more show-more-func fw-bold d-none">
+                    <a>SHOW MORE</a><i class="fa-solid fa-arrow-up"></i>
+                </div>
+            </div>
+
+            <script>
+                const less=document.querySelector('.show-less-func')
+                const more=document.querySelector('.show-more-func')
+                const truncate=document.querySelector('.about-whole')
+                less.addEventListener('click',function(){
+                    less.classList.toggle('d-none')
+                    more.classList.toggle('d-none')
+                    truncate.classList.toggle('line-clamp')
+                })
+                more.addEventListener('click',function(){
+                    less.classList.toggle('d-none')
+                    more.classList.toggle('d-none')
+                    truncate.classList.toggle('line-clamp')
+                })
+            </script>
+            <hr>
+            <div class="qualifications col-12">
+                <h2 class="qualification fw-bold mb-3">Key Notes</h2>
+                <!--<div>
+                    15 years of full time education
+                </div>-->
+                <div class="accordion">
+                    <div class="imp-not-acc acc-1">
+                        <div class="d-flex justify-content-between acc-head">
+                            <div>Important Notice</div>
+                            <i class="fa-solid fa-angle-down downs"></i>
+                            <i class="fa-solid fa-angle-up ups d-none"></i>
+                        </div>
+                        <div class="acc-body d-none">
+                            We have been alerted to the existence of fraudulent messages asking job seekers to set up payment to cover various costs associated with establishing employment at Techsnap. No one is ever required to pay for employment at techsnap. If you are contacted by someone asking for payment, please do not respond, and contact us at snapthequeries@techsnap.in immediately.
+                        </div>
+                    </div>
+                    <div class="acc-2">
+                        <div class="d-flex justify-content-between acc-head">
+                            <div>Equal Employment Opportunity Statement</div>
+                            <i class="fa-solid fa-angle-down downs"></i>
+                            <i class="fa-solid fa-angle-up ups d-none"></i>
+                        </div>
+                        <div class="acc-body d-none">
+                            All employment decisions shall be made without regard to age, race, creed, color, religion, sex, national origin,
+                            ancestry, disability status, veteran status, sexual orientation, gender identity or expression, genetic information,
+                            marital status, citizenship status or any other basis as protected by federal, state, or local law.
+
+                            Job candidates will not be obligated to disclose sealed or expunged records of conviction or arrest as part of the
+                            hiring process.
+
+                            Techsnap is committed to providing veteran employment opportunities to our service men and women.
+                        </div>
+                    </div>
+                    <div class="acc-2">
+                        <div class="d-flex justify-content-between acc-head">
+                            <div>How you’ll grow</div>
+                            <i class="fa-solid fa-angle-down downs"></i>
+                            <i class="fa-solid fa-angle-up ups d-none"></i>
+                        </div>
+                        <div class="acc-body d-none">
+                            At techsnap, our professional development plan focuses on helping people at every level of their career to identify and use their strengths to do their best work every day. From entry-level
+
+employees to senior leaders, we believe there’s always room to learn. We offer opportunities to help build world-class skills in addition to hands-on experience in the global, fast-changing business world. From on-the-job learning experiences to formal development programs at techsnap University, our professionals have a variety of opportunities to continue to grow throughout their career. Explore techsnap University, The Leadership Center..
+
+You’ll benefit from our network of global communities and collaborative culture that will help you build technical and functional skills and capabilities. And because we serve more than 40 industries globally, you’ll have the opportunity to develop valuable industry-specific expertise.
+o The scale of our capabilities and client engagements—and the unique way we innovate, operate and deliver value—will give you the opportunity to deepen your existing skills even as you help create the latest technology trends.
+o You’ll have access to leading-edge technology.
+                        </div>
+                    </div>
+                    <div class="acc-2">
+                        <div class="d-flex justify-content-between acc-head">
+                            <div>What impact will you make?</div>
+                            <i class="fa-solid fa-angle-down downs"></i>
+                            <i class="fa-solid fa-angle-up ups d-none"></i>
+                        </div>
+                        <div class="acc-body d-none">
+                            Every day, your work will make an impact that matters, while you thrive in a dynamic culture of inclusion, collaboration and high performance. As the undisputed leader in professional services, techsnap is where you’ll find unrivaled opportunities to succeed and realize your full potential
+
+
+
+                            techsnap is where you’ll find unrivaled opportunities to succeed and realize your full potential.
+                        </div>
+                    </div>
+                    <div class="acc-2">
+                        <div class="d-flex justify-content-between acc-head">
+                            <div>CALL TO ACTION:</div>
+                            <i class="fa-solid fa-angle-down downs"></i>
+                            <i class="fa-solid fa-angle-up ups d-none"></i>
+                        </div>
+                        <div class="acc-body d-none">
+                            If you have a desire to help the world’s leading companies and governments, now’s the time to join the world’s largest and most diversified group of technology, business process and consulting professionals. Be part of a dynamic team of collaborative experts, and help us improve the way the world works and lives.
+                        </div>
+                    </div>
+                    <div class="acc-2">
+                        <div class="d-flex justify-content-between acc-head">
+                            <div>Recruitment Process</div>
+                            <i class="fa-solid fa-angle-down downs"></i>
+                            <i class="fa-solid fa-angle-up ups d-none"></i>
+                        </div>
+                        <div class="acc-body d-none">
+                            We want job seekers exploring opportunities at techsnap to feel prepared and confident. To help you with your interview, we suggest that you do your research: know some background about the organization and the business area you’re applying to.
+                        </div>
+                    </div>
+                </div>
+                <div class="d-block d-md-flex py-2 gap-3 align-items-md-center">
+                    <button class="btn btn-dark text-uppercase fw-bold py-2 apply-now"
+                        title="Click to open the Job application">apply now</button>
+
+                        <div class="d-flex gap-2 align-items-center register">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <a href="" class="text-uppercase text-decoration-none">register for job alerts</a>
+                        </div>
+                </div>
+
+            </div>
+
+            <script>
+                const headOpen=document.querySelectorAll('.acc-head')
+                const bodyOpen=document.querySelectorAll('.acc-body')
+                const downsy=document.querySelectorAll('.downs')
+                const upsy=document.querySelectorAll('.ups')
+                for (let i=0;i<headOpen.length;i++){
+                headOpen[i].addEventListener('click',function(){
+                    downsy[i].classList.toggle('d-none')
+                    upsy[i].classList.toggle('d-none')
+                    bodyOpen[i].classList.toggle('d-none')
+
+                    })}
+            </script>
+        </div>
+        <div class="col-md-12 col-lg-4">
+            <div class="row  justify-content-between pt-0">
+                <h2 class="text-capitalize">related jobs</h2>
+                <div class="col-sm-12 col-md-6 col-lg-12 ">
+                    <div class="d-flex flex-column gap-2 related-jobs-card">
+                        <h4 class="text-capitalize">Human Resources</h4>
+                        <div class="d-flex text-uppercase fw-bold">
+                            <div class="location">Mysore</div>
+                            <div class="location-deep">karnataka</div>
+                        </div>
+
+                            <div class="business-area text-capitalize">Operation</div>
+
+                        <!--<div>
+                            Posted <i class="posted-on">5 days</i> ago
+                        </div>-->
+                        <a href="" class="text-decoration-none">Apply Now</a>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-12">
+                    <div class="d-flex flex-column gap-2 related-jobs-card">
+                        <h4 class="text-capitalize">Python- Django Developer</h4>
+                        <div class="d-flex text-uppercase fw-bold">
+                            <div class="location">Hyderabad</div>
+                            <div class="location-deep">Telangana</div>
+                        </div>
+
+                            <div class="business-area text-capitalize">Technology</div>
+
+                        <!--<div>
+                            Posted <i class="posted-on">4 days</i> ago
+                        </div>-->
+                        <a href="" class="text-decoration-none">Apply Now</a>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-12 ">
+                    <div class="d-flex flex-column gap-2 related-jobs-card">
+                        <h4 class="text-capitalize">Machine Learning Engineer</h4>
+                        <div class="d-flex text-uppercase fw-bold">
+                            <div class="location">Hyderabad</div>
+                            <div class="location-deep">Telangana</div>
+                        </div>
+
+                            <div class="business-area text-capitalize">Technology</div>
+
+                        <!--<div>
+                            Posted <i class="posted-on">3 days</i> ago
+                        </div>-->
+                        <a href="" class="text-decoration-none">Apply Now</a>
+                    </div>
+                </div>
+                <div class="view-more-jobs ps-3 d-flex align-items-center gap-2 show-less">
+                    <a href="" class="text-decoration-none fw-bold ms-lg-auto">VIEW MORE JOBS</a><i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- kinda main sec ends -->
+
+<section class="container-fluid brag-sec">
+    <div class="row">
+    <h2>What people are saying about us</h2>
+    <div class="container brag-card d-flex flex-column gap-2 gap-md-3 gap-lg-4 justify-content-center">
+        <h2 class="review">"Best Company to work with"</h2>
+        <div class="rating">⭐⭐⭐⭐⭐<b>Current Employee - Software Test Engineer in Bangalore</b></div>
+        <div class="pros"><b>Pros :</b> best work place, flexible timing, work from home</div>
+        <div class="cons"><b>Cons :</b>Work life balance depends upon the project. <a href="" class="text-black"> Full Review</a></div>
+        <div class="d-flex gap-2 align-items-center show-less fw-bold">
+            <a>MORE Techsnap INDIA RATINGS & REVIEWS</a><i class="fa-solid fa-arrow-right"></i>
+        </div>
+    </div>
+    </div>
+
+</section>
+
+<section class="container-fluid life-at">
+    <div class="row">
+        <h1 class="fw-bold">Life at Techsnap</h1>
+        <p class="about-life-at mb-4">Work where you're inspired to explore your passions and where your talents are nurtured and cultivated. Innovate with leading-edge technologies on some of the coolest projects you can imagine.</p>
+
+        <div class="col-12 col-md-6">
+        <div class="d-flex flex-column gap-md-3 life-at-1">
+            <div>
+                <img class="img-fluid img-stat" src="https://www.Techsnap.com/t20190415T112950Z__w__/in-en/_acnmedia/Techsnap/Redesign-Assets/Careers/Images/Icons/1/Techsnap-Workplace-Flexibility-150x150.png">
+            </div>
+            <h3>Training and Development</h3>
+            <p>Take time away to learn and learn all the time in our regional learning hubs, connected classrooms,
+                online courses and learning boards.</p>
+            <div class="d-flex gap-2 align-items-center show-less fw-bold">
+                <a>LEARN MORE</a><i class="fa-solid fa-arrow-right"></i>
+            </div>
+        </div>
+        </div>
+        <div class="col-12 col-md-6">
+        <div class="d-flex flex-column gap-md-3 life-at-1">
+            <div>
+                <img class="img-fluid img-stat" src="https://www.Techsnap.com/t20190422T092402Z__w__/in-en/_acnmedia/Techsnap/Redesign-Assets/Careers/Images/Icons/1/Techsnap-Environment-150x150.png">
+            </div>
+            <h3>Work Environment</h3>
+            <p>Be your best every day in a work environment that helps drive innovation in everything you do.</p>
+            <div class="d-flex gap-2 align-items-center show-less fw-bold">
+                <a>LEARN MORE</a><i class="fa-solid fa-arrow-right"></i>
+            </div>
+        </div></div>
+
+        </div>
+    </div>
+
+</section>
+
+
+
+<section class="container-fluid stay-connected-sec">
+    <div class="row">
+        <h1 class="fw-bold pb-2 mb-5">Stay Connected</h1>
+    </div>
+
+</section>
+
+        <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+
+        <script>
+            new Splide('.splide', {
+                type: 'loop',
+                autoplay: true,
+                pagination: false,
+                arrows: false,
+                perPage: 2,
+                perMove: 1,
+                focus: 'center',
+                autoplay: true,
+                gap: '1rem',
+                breakpoints: {
+                    '600': {
+                        perPage: 1,
+                        gap: '1rem'
+                    }
+                },
+            }).mount();
+        </script>
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+{% endblock body %}
+</body>
+</html>

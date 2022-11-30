@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <header class='w3-center w3-xlarge w3-margin'>
+        Enter number
+    </header>
+    <form class='w3-margin' method='POST' action="{% url 'find-prime' %}" >
+        {% csrf_token %}
+        <input name='n' id='n' type='number' />
+        <button type='submit' >Submit</button>
+    </form>
+    <h3 class='w3-margin'>{{prime}}</h3>
+{% endblock %}

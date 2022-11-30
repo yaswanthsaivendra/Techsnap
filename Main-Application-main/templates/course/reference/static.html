@@ -1,0 +1,255 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="{% static 'css/style.css' %}" rel="stylesheet" />
+		<link href="{% static 'css/foot.css' %}" rel="stylesheet" />
+		<link href="{% static 'css/head.css' %}" rel="stylesheet" />
+		<link href="{% static 'css/Time_line.css' %}" rel="stylesheet" />
+        <link href="{% static 'css/w3.css' %}" rel="stylesheet" />
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css"
+		/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+		/>
+
+		<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    </head>
+    <body>
+		<div class="page_body">
+			<!-- -------------1)Hero-section--------------- -->
+            <div id="myModal" class="w3-modal">
+                <div class="w3-display-middle w3-padding" >
+                  <button class='w3-right w3-button w3-round-large w3-red w3-padding' onclick="document.getElementById('myModal').style.display='none'" >&times;</button>
+                  <div class="w3-margin w3-padding w3-round-large w3-black" id="content">
+        
+                  </div>
+                </div>
+            </div>
+			<div class="hero_section">
+				<div class="hero_body">
+					<h1>Become a Data Scientist</h1>
+					<p class="details">
+						The responsibilities and duties of a Data Scientist include
+						designing data modeling processes, create algorithms and predictive
+						models to extract the data the business needs, and help analyze the
+						data. The Data scientists collaborate with product management and
+						engineering departments to understands what the company needs and
+						devise possible solutions
+					</p>
+					<div class="hero_cards_holder">
+						<div class="hero_card">
+							<img
+								src="https://d1vwxdpzbgdqj.cloudfront.net/assets/enterprise/icons/like-green-8ed902b99c01ef31ef9f89ac4a7239c4133db92269eabd88c9c7688b7e75061f.svg"
+								alt=""
+								style="text-align: center"
+							/>
+							<div class="card_details">
+								<h2>93.5K+</h2>
+								<p>Job in India</p>
+							</div>
+						</div>
+						<div class="hero_card">
+							<img
+								src="https://d1vwxdpzbgdqj.cloudfront.net/assets/enterprise/icons/circle-purple-8891d0bd436ee5cd6f7e09710b3abdaf75ed5ab11e40357f6992ac8cacdd02e0.svg"
+								alt=""
+								style="text-align: center"
+								class=""
+							/>
+							<div class="card_details">
+								<h2>93.5K+</h2>
+								<p>Learners enrolled already</p>
+							</div>
+						</div>
+						<div class="hero_card">
+							<img
+								src="https://d1vwxdpzbgdqj.cloudfront.net/assets/enterprise/icons/circle-purple-8891d0bd436ee5cd6f7e09710b3abdaf75ed5ab11e40357f6992ac8cacdd02e0.svg"
+								alt=""
+								style="text-align: center"
+								class=""
+							/>
+							<div class="card_details">
+								<h2>93.5K+</h2>
+								<p>Learners enrolled already</p>
+							</div>
+						</div>
+					</div>
+					<div class="hero_footer">
+						<p>Companies looking for Data Scientist</p>
+						<div class="path-companies">
+							<img
+								src="https://d1vwxdpzbgdqj.cloudfront.net/assets/enterprise/icons/google-img-e68b70f7846dd1dce090c07f38677633f729fbcc9765115dd4833d9b34915027.svg"
+								alt=""
+								style="text-align: center"
+								class=""
+							/>
+
+							<img
+								src="https://d1vwxdpzbgdqj.cloudfront.net/assets/enterprise/icons/visa-img-f19767755056d245f030e0870b5a70f56a275bc5dbea0ae14717e79b63d55522.svg"
+								alt=""
+								style="text-align: center"
+							/>
+
+							<img
+								src="https://d1vwxdpzbgdqj.cloudfront.net/assets/enterprise/icons/microsoft-img-554cc9cab382796335e3b414990519a83bf4dc1c2e6ee402329d96e9217350b4.svg"
+								alt=""
+								style="text-align: center"
+							/>
+
+							<img
+								src="https://d1vwxdpzbgdqj.cloudfront.net/assets/enterprise/icons/amazon-img-e8e0043a399bf8340f350ec7ba8af89e33292742a93fb5a22730972527c5b75a.svg"
+								alt=""
+								style="text-align: center"
+							/>
+
+							<img
+								src="https://d1vwxdpzbgdqj.cloudfront.net/assets/enterprise/icons/youtube-img-868bb311d8e0802d990c24ca9bdc4a981899dc3630aef399771e7307d86fd8d8.svg"
+								alt=""
+								style="text-align: center"
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="faq_title timeline_title">
+				<div class="center">
+					<h2>START YOUR JOURNEY</h2>
+				</div>
+			</div>
+			<div class="container">
+				<div class="timeline">
+					<div class="timeline-container primary" data-aos="fade-up">
+						<div class="timeline-icon">
+							<i class="fab fa-html5"></i>
+						</div>
+                        {% for path in paths %}
+						<div class="timeline-body">
+							<h4 class="timeline-title">
+								<span class="badge">{{path.path_name}}</span> - Full Stack
+							</h4>
+							<p>
+								{{path.path_description}}
+							</p>
+							<p class="timeline-subtitle">{{path.path_updated}}</p>
+							<button class="timeline-button" onclick="
+                                document.getElementById('myModal').style.display='block';
+                                document.getElementById('content').innerHTML='{{path.test}}'
+                            ">
+								view details
+							</button>
+						</div>
+                        {% endfor %}
+					</div>
+                    
+					<div class="timeline-container completed" data-aos="fade-up">
+						<div class="timeline-icon completed_icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M572.1 82.38C569.5 71.59 559.8 64 548.7 64h-100.8c.2422-12.45 .1078-23.7-.1559-33.02C447.3 13.63 433.2 0 415.8 0H160.2C142.8 0 128.7 13.63 128.2 30.98C127.1 40.3 127.8 51.55 128.1 64H27.26C16.16 64 6.537 71.59 3.912 82.38C3.1 85.78-15.71 167.2 37.07 245.9c37.44 55.82 100.6 95.03 187.5 117.4c18.7 4.805 31.41 22.06 31.41 41.37C256 428.5 236.5 448 212.6 448H208c-26.51 0-47.99 21.49-47.99 48c0 8.836 7.163 16 15.1 16h223.1c8.836 0 15.1-7.164 15.1-16c0-26.51-21.48-48-47.99-48h-4.644c-23.86 0-43.36-19.5-43.36-43.35c0-19.31 12.71-36.57 31.41-41.37c86.96-22.34 150.1-61.55 187.5-117.4C591.7 167.2 572.9 85.78 572.1 82.38zM77.41 219.8C49.47 178.6 47.01 135.7 48.38 112h80.39c5.359 59.62 20.35 131.1 57.67 189.1C137.4 281.6 100.9 254.4 77.41 219.8zM498.6 219.8c-23.44 34.6-59.94 61.75-109 81.22C426.9 243.1 441.9 171.6 447.2 112h80.39C528.1 135.7 526.5 178.7 498.6 219.8z"/></svg>
+						</div>
+						<img
+							src="https://cdn-icons-png.flaticon.com/512/2618/2618179.png"
+							alt=""
+						/>
+						<h1>Completed</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	{% block script %} {% endblock script %}
+	<!-- -------------------End-------------- -->
+
+	<script src="{% static 'js/app.js' %}"></script>
+
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+	<script>
+		AOS.init();
+	</script>
+	<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+	<script
+		type="text/javascript"
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"
+	></script>
+
+	<script>
+		//-------------- View Details Popup function
+
+		const body = document.querySelector('body');
+
+		const showDetailsPopUp = (data_html) => {
+			const moreSection = document.querySelector('.more_section');
+			if (moreSection.style.display == 'grid') {
+				moreSection.style.display = 'none';
+				body.style.overflow = 'auto';
+			} else {
+				moreSection.style.display = 'grid';
+				body.style.overflow = 'hidden';
+			}
+		};
+		const swiper = new Swiper('.swiper', {
+			// Optional parameters
+			direction: 'horizontal',
+			slidesPerView: 2,
+			spaceBetween: 30,
+			slidesPerGroup: 2,
+			keyboard: {
+				enabled: true,
+			},
+			// If we need pagination
+			pagination: {
+				el: '.swiper-pagination',
+			},
+			breakpoints: {
+				350: {
+					slidesPerView: 1,
+					spaceBetween: 20,
+					slidesPerGroup: 1,
+				},
+				640: {
+					slidesPerView: 1,
+					spaceBetween: 20,
+					slidesPerGroup: 1,
+				},
+				1024: {
+					slidesPerView: 2,
+					spaceBetween: 20,
+				},
+			},
+			// Navigation arrows
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+		});
+
+		var splide = new Splide('.splide', {
+			drag: 'free',
+			perPage: 6,
+			pagination: false,
+			breakpoints: {
+				1024: {
+					perPage: 3,
+				},
+				767: {
+					perPage: 2,
+				},
+				640: {
+					perPage: 1,
+				},
+				440: {
+					perPage: 1,
+				},
+			},
+		});
+
+		splide.mount();
+	</script>
+	<script src="{% static 'assets/main/nav-dropdown.js'%}"></script>
+</html>

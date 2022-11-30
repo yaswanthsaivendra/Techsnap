@@ -1,0 +1,102 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    font-size: 1.2vw;
+    font-family: sans-serif;
+}
+*{
+    margin: 0px;
+}
+.banner-section{
+    text-align: center;
+    background-color: #05192d;
+    color: white;
+    padding: 6vw 22px;
+    box-sizing: border-box;
+}
+.banner-image-section{
+    border-radius: 100%;
+    width: fit-content;
+    margin: auto;
+}
+.banner-image-section img{
+    border-radius: 100%;
+    width: 10vw;
+    height: auto;
+}
+.banner-section h1{
+    font-size: 4vw;
+    margin: 2.5vw 0;
+    margin-top: 0px;
+}
+.banner-section h3{
+    font-size: 2vw;
+}
+
+/*body-section*/
+
+.body-section h3{
+    font-size: 2.4vw;
+}
+.body-section p{
+    margin-top: 2vw;
+	font-size: 1.4vw;
+    line-height: 1.9vw;
+}
+.body-section div{
+    width: 60%;
+    margin: auto;
+}
+.somethng-about-ofentswe,
+.something-about-background,
+.experiance,
+.why-like-datacamp,
+.why-data-important,
+.how-learn-datacamp,
+.solution-like-datacamp,
+.datacamp-compare,
+.why-skill-job{
+    padding-bottom: 3vw;
+}
+.somethng-about-ofentswe{
+    padding-top: 7vw;
+}
+.somethng-about-ofentswe p{
+    font-size: 1.8vw;
+    margin-top: 0px;
+    line-height: 2.3vw;
+}
+
+div.yellow-statement,
+div.green-statement{
+    text-align: center;
+    padding: 6vw 0vw;
+    width: 100%;
+    padding-right: 2vw;
+    padding-left: 2vw;
+    box-sizing: border-box;
+}
+div.yellow-statement{
+    background-color: #fcce0d;
+}
+.yellow-statement h3,
+.green-statement h3{
+    font-size: 2.9vw;
+}
+div.green-statement{
+    background-color: #03ef62;
+}
+
+.why-data-important,
+.how-learn-datacamp{
+    padding-top: 3vw;
+}
+.solution-like-datacamp p a{
+    color: #009bd8;
+    text-decoration: white;
+    font-family: sans-serif;
+    display: inline-block;
+}
+.solution-like-datacamp p a:hover{
+    text-decoration:  underline;
+}

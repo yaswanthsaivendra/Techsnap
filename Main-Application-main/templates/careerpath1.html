@@ -1,0 +1,140 @@
+{% extends 'footer.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Careerpaths{% endblock title %}</title>
+
+    {% block css %}
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+   	<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+   />
+  	<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet">
+    <a href="https://icons8.com/icon/87492/level-1"></a>
+    <link rel="stylesheet" href="{% static 'assets/careerpath/style.css' %}">
+
+    <link rel="shortcut icon" type="image/png" href="{% static 'assets/main/favicon.png'%}"/>
+    {% endblock css %}
+    {% block google_tags %}
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-L4D2PNVR8Z"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-L4D2PNVR8Z');
+		</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    {% endblock google_tags %}
+
+</head>
+<body>
+{% block body %}
+<section class="home-section">
+  <div class="home-container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="mb-5 text-center">
+
+          <h1>Launch Your Career<br> With Our Road-Maps</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="career">
+<div class="container-fluid">
+  <h1>What's Career Path?</h1>
+  <p>We provide you clean information about the Designations & skills required with a clean Road Map to launch in that particular Carrer by providing courses, Hands-on projects,tasks etc.. and lot many things.</p>
+  <button class="btn">Start Learning For Free</button>
+</div>
+</section>
+<section id="skills" style="background-color:black;padding-top:100px;padding-bottom:50px;">
+  <div class="container">
+  <div class="rectangle-transparent-1"></div>
+  <div class="rectangle-transparent-2"></div>
+  <div class="row data">
+    <div class="col-md-6 data">
+      <h1>Increase your depth of knowledge every day.</h1>
+     <br>
+     <div class="row">
+     <div class="box"></div>
+     <p>Unleash your potential in a place where everyone <br> strives to be at their best.</p>
+    </div>
+  </div>
+    <div class="col-md-6 col">
+      <div class="row">
+        <div class="i" >
+          <img src="https://img.icons8.com/material-outlined/35/ffffff/1-circle-c.png"/>
+        </div>
+      <div>
+
+        <h4>Sign Up for a free account</h4>
+        <p>Get access to hundreds of free lessons and practice problems</p>
+        </div><br>
+      </div>
+      <div class="row">
+        <div class="i" >
+          <img src="https://img.icons8.com/ios-glyphs/37/ffffff/2-circle.png"/>
+        </div>
+        <div>
+          <h4>Choose your topic</h4>
+          <p>Start anywhere, from beginner topics to advanced concepts</p>
+        </div><br>
+      </div>
+      <div class="row">
+        <div class="i" >
+          <img src="https://img.icons8.com/material/35/ffffff/3-circle.png"/>
+      </div>
+      <div>
+        <h4>Start coding</h4>
+        <p>Get the technical experience you need as you learn</p>
+        </div><br>
+      </div>
+      <div class="row">
+        <div class="i" >
+          <img src="https://img.icons8.com/material-outlined/35/ffffff/ok--v1.png"/>
+      </div>
+      <div>
+        <h4>Apply your skills</h1>
+        <p>Create projects, level up your work, build your resume.</p>
+        </div><br>
+      </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+<section id="path">
+  <div class="container">
+
+      <h1>Trending Learning Paths</h1>
+
+    <div class="row">
+      {% for careers in object_list %}
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{careers.title}}</h5>
+            <p class="card-text">{{careers.description}}</p>
+          </div>
+        <a href="{{careers.get_absolute_url}}"><div class="card-footer">View Path</div></a>
+        </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock body %}
+</body>
+</html>

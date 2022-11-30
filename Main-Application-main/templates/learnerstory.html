@@ -1,0 +1,141 @@
+{% extends 'footer.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+<title>{% block title %}Learner stories{% endblock title %}</title>
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'assets/learnerstories/styles.css' %}">
+<link rel="stylesheet" href="{% static 'assets/learnerstories/responsive.css' %}">
+
+<link rel="shortcut icon" type="image/png" href="{% static 'assets/main/favicon.png'%}"/>
+{% endblock css %}
+{% block google_tags %}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4D2PNVR8Z"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L4D2PNVR8Z');
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{% endblock google_tags %}
+</head>
+<body>
+    {% block body %}
+    <section>
+        <div class="banner-section">
+            <div class="banner-image-section">
+                <img src="{%static 'assets/learnerstories/images/atreya.jpg' %}">
+            </div>
+            <h1>Katnam Atreya</h1>
+            <h3>
+                “On DataCamp, you learn from the experts. As you are<br>
+                taking courses, you are really learning from the best<br>
+                instructors in the world.”
+            </h3>
+        </div>
+        <div class="body-section">
+            <div class="somethng-about-ofentswe">
+                <p>
+                    Ofentswe is a data scientist in South Africa interested in advanced machine learning techniques.
+                    He has worked for both government research groups and tech startups.
+                    He uses DataCamp to help him learn to write even more efficient code.
+                </p>
+            </div>
+            <div class="something-about-background">
+                <h3>Tell us a little about your background.</h3>
+                <p>
+                    I am a Data Scientist at the Council for Scientific and Industrial Research (CSIR) and a Back-End Developer at the startup iTechHub. My background is in artificial intelligence and machine learning, and I've done work on pattern recognition,
+                    anomaly detection, and text analysis.
+                </p>
+            </div>
+            <div class="experiance">
+                <h3>What was your experience with data science before you started your education with DataCamp?</h3>
+                <p>
+                    I had an advanced understanding of data science before I started taking courses on DataCamp. I already knew Python, R and packages like scikit-learn, data.table and others.
+                </p>
+                <p>
+                    That being said, I've learnt many techniques from DataCamp. I often found out the way I was doing things could be improved, and constantly updated myself on new techniques and packages from courses on DataCamp. On DataCamp, you learn from the experts.
+                    As you are taking courses, you are really learning from the best instructors in the world.
+                </p>
+            </div>
+            <div class="yellow-statement">
+                <h3>
+                    “DataCamp provides the
+                    best experience<br> because you learn by doing, which gives you<br> time to try the methods on your own.”
+                </h3>
+            </div>
+            <div class="why-data-important">
+                <h3>
+                    What drew you to data science? Why is learning data science important to you?
+                </h3>
+                <p>
+                    My dream was to find work related to artificial intelligence, and data science was the work I was looking for. Through my work I've learnt so much about implementing dynamic models,
+                    machine learning for predictive analysis, and making data-driven decisions.
+                </p>
+            </div>
+            <div class="why-like-datacamp">
+                <h3>What do you like about DataCamp?</h3>
+                <p>
+                    I like the hands-on courses where I learn by doing rather than watching many videos that consume a lot of time. I learnt new ways of solving problems, especially implementing models in an efficient way,
+                    using more parameters, and measuring model performance.
+                </p>
+                <p>
+                    I have learnt a lot through DataCamp—the courses on DataCamp are straight to the point and they are hands-on courses. DataCamp is a great platform for anyone who needs to learn data science.
+                    I have already advised many people to try DataCamp and they found it interesting as I do.
+                </p>
+            </div>
+            <div class="green-statement">
+                <h3>
+                    “I think DataCamp is the best platform for<br>
+                    learning data science and I use it everyday.”
+                </h3>
+            </div>
+            <div class="how-learn-datacamp">
+                <h3>
+                    Can you give us some examples of how you've used skills you've learned from DataCamp?
+                </h3>
+                <p>
+                    I used to have to write a lot of code to solve problems, but now I've been using some of the implementation style I absorbed form DataCamp,
+                    and it has sped up my whole process.
+                </p>
+            </div>
+            <div class="solution-like-datacamp">
+                <h3>
+                    What were the challenges or pain points that prompted you to look for a solution like DataCamp?
+                </h3>
+                <p>
+                    I was going through the <a href="#" title="">Kaggle Python Machine Learning Tutorial</a>, and I found it rewarding. So I tried DataCamp, not thinking it was too advanced. Now, I think it is the best platform for learning data science and I use it everyday for my work.
+                </p>
+            </div>
+            <div class="datacamp-compare">
+                <h3>
+                    How does DataCamp compare to other online learning platforms you've tried?
+                </h3>
+                <p>
+                    Other platforms consumes time where you have to sit down and watch many long videos and then later do practicals. DataCamp provides the best experience because you learn by doing, which gives you time to try the methods on your own.
+                </p>
+            </div>
+            <div class="why-skill-job">
+                <h3>
+                    What skills, topics, and languages do you use regularly in your job?
+                </h3>
+                <p>
+                    In my everyday job, I use Python and R, for pattern recognition, text analysis, anomaly detection, and data visualization.
+                </p>
+                <i><p>
+                    Update from the DataCamp team: Ofentswe has switched jobs and now works for SASFIN Bank. Congrats, Ofentswe!
+                </p>
+                </i>
+            </div>
+        </div>
+    </section>
+{% endblock body %}
+</body>
+</html>

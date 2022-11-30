@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <nav class='w3-black w3-margin-bottom w3-container w3-padding'>
+        <h3 class='w3-left'>Courses</h3>
+        <h3 class='w3-left w3-margin-left w3-text-pink'><a href="{% url "get-archives" %}" >Archives</a></h3>
+        <h3 class='w3-right' >{{creator.username}}</h3>
+    </nav>
+    <div class='w3-padding'>
+    <div class='w3-container w3-half'>
+        {% for course in courses %}
+            <div class='w3-row w3-border-bottom w3-margin' >
+                <h5 class='w3-left w3-text-blue w3-margin-right' >
+                    <a href="{% url 'course-desc-form' course.slug %}">
+                    {{course.course_title}}
+                    </a>
+                </h5>
+                <a>
+                    <h6 class='w3-margin-left w3-right'>Version {{course.version}}</h6>
+                </a>
+                {% if course.updates_pre == course.updates_post %}
+                    <a>
+                        <h6 class='w3-margin-left w3-right w3-text-green'>Updated</h6>
+                    </a>
+                {% else %}
+                    <a href="{% url 'release-course' course.slug %}">
+                        <button class=' w3-button w3-margin-left w3-right w3-round w3-green'>Update</button>
+                    </a>
+                {% endif %}
+
+                {% if course.released %}
+                    <a>
+                        <h6 class='w3-margin-left w3-right w3-text-indigo'>Released</h6>
+                    </a>
+                {% else %}
+                    <a href="{% url 'release-to-all-course' course.slug %}">
+                        <button class=' w3-button w3-margin-left w3-right w3-round w3-indigo'>Release to all</button>
+                    </a>
+                {% endif %}
+
+                <a href="{% url 'delete-course' course.slug %}">
+                    <button class=' w3-button w3-right w3-round w3-red'>Delete</button>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+    <div class='w3-container w3-padding w3-round w3-half w3-border'>
+        <button id="button" onclick="showForm();" class=' w3-round w3-button w3-blue'>
+            Create new Course
+        </button>
+        <form id="course_form" style="display:none;" enctype='multipart/form-data' method='POST' action="{% url 'admin-panel' creator.slug %}">
+            <h5 class='w3-center'>Create New Course</h5>
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button style='width:100%;' type='submit' class='w3-margin w3-round w3-green w3-button' >Create</button>
+        </form>
+    </div>
+    </div>
+
+    <script>
+        function showForm(){
+            document.getElementById('course_form').style.display = "block";
+            document.getElementById('button').style.display = "none";
+        }
+    </script>
+{% endblock %}

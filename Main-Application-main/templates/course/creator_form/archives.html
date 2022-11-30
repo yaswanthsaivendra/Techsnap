@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <nav class='w3-black w3-margin-bottom w3-container w3-padding'>
+        <h3 class='w3-left'>Archive Courses</h3>
+        <h3 class='w3-right' >{{creator.username}}</h3>
+    </nav>
+    <div class='w3-padding'>
+    <div class='w3-container w3-half'>
+        {% for course in courses %}
+            <div class='w3-row w3-border-bottom w3-margin' >
+                <h5 class='w3-left w3-text-blue w3-margin-right' >
+                    <a href="{% url 'course-desc-form' course.slug %}">
+                    {{course.course_title}}
+                    </a>
+                </h5>
+                <a href="{% url 'restore' course.slug %}">
+                    <button class=' w3-button w3-right w3-round w3-indigo'>Restore</button>
+                </a>
+                <a>
+                    <h6 class='w3-margin-right w3-right'>Version {{course.version}}</h6>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+    </div>
+{% endblock %}

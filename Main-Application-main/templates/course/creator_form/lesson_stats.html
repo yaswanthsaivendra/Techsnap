@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class='w3-margin w3-padding'>
+    <a href={% url 'course-desc-form' lesson.unit.course.slug %}>
+        <button class='w3-button w3-black w3-border w3-right'>Back to Course</button>
+    </a>
+    <h3>Students who have COMPLETED <e class='w3-text-teal' >{{lesson.title}}</e> </h3>
+    <div class=' w3-row w3-padding w3-border w3-round'>
+        {% for username in completed %}
+        <p>{{username}}</p>
+        {% endfor %}
+    </div>
+    <h3>Students who have NOT COMPLETED <e class='w3-text-teal' >{{lesson.title}}</e> </h3>
+    <div class=' w3-row w3-padding w3-border w3-round'>
+        {% for username in not_completed %}
+        <p>{{username}}</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

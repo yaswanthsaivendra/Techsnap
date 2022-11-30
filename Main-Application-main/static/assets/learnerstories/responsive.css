@@ -1,0 +1,97 @@
+@media screen and (max-width:1240px) {
+
+    .banner-image-section img{
+        width: 120px;
+    }
+    .banner-section h1{
+        font-size: 48px;
+        margin-bottom: 25px;
+    }
+    .banner-section h3{
+        font-size: 24px;
+    }
+    .body-section h3{
+        font-size: 30px;
+    }
+    p{
+        font-size: 16px;
+        line-height: 22px;
+    }
+    .somethng-about-ofentswe p{
+        font-size: 22px;
+        line-height: 28px;
+    }
+    .body-section p{
+        margin-top: 24px;
+    }
+    .somethng-about-ofentswe,
+    .something-about-background,
+    .experiance,
+    .why-like-datacamp,
+    .why-data-important,
+    .how-learn-datacamp,
+    .solution-like-datacamp,
+    .datacamp-compare,
+    .why-skill-job{
+        padding-bottom: 36px;
+    }
+    .why-data-important,
+    .how-learn-datacamp{
+        padding-top: 36px;
+    }
+    div.yellow-statement,
+    div.green-statement{
+        padding: 72px 0vw;
+        padding-right: 22px;
+        padding-left: 22px;
+    }
+}
+@media screen and (max-width:768px) {
+    .body-section div{
+        width: 80%;
+    }
+    .banner-image-section img{
+        width: 120px;
+    }
+    .banner-section{
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+    .banner-section h1{
+        font-size: 35px;
+    }
+    .banner-section h3{
+        font-size: 22px;
+    }
+    .body-section h3{
+        font-size: 22px;
+    }
+    div.yellow-statement,
+    div.green-statement{
+        width: 100%;
+    }
+    .somethng-about-ofentswe p{
+        font-size: 20px;
+        line-height: 28px;
+    }
+}
+@media screen and (max-width:576px) {
+    .body-section div{
+        width: 90%;
+    }
+    div.yellow-statement,
+    div.green-statement{
+        width: 100%;
+    }
+}
+@media screen and (max-width:675px) {
+    div.green-statement h3 br{
+        display: none;
+    }
+    div.yellow-statement h3 br{
+        display: none;
+    }
+    .banner-section h3 br{
+        display: none;
+    }
+}

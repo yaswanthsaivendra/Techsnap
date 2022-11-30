@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="Techsnap QR code Generator" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.techsnap.in/qrcodegenerator" />
+    <meta property="og:image" content="https://www.techsnap.in/static/assets/main/bg.png" />
+    <meta property="og:site_name" content="Techsnap QR code Generator" />
+    <meta itemprop="name" content="QR Code Generator" />
+    <meta itemprop="description" content="Generates QR Codes from URLs, free text, vCards, SMS or Phone Numbers.">
+    <meta name="theme-color" content="#000" />
+    <title>QR Code Generator</title>
+    <link href="{% static 'assets/qrcode/style.css' %}" rel="stylesheet" />
+    <link rel="shortcut icon" type="image/png" href="{% static 'assets/main/favicon.png'%}"/>
+</head>
+
+<body>
+    <div class="container">
+        <div class="sub-content"><br>
+            <br>
+            <br>
+            <div class="qr-code-generator">
+                <h1>QR Code Generator</h1>
+                <br>
+                <center>
+                    <input type="text" class="qr-url" placeholder="URL or Text">
+                    <input type="number" class="qr-size" value="250" min="20" max="500" required>
+                    <button class="generate-qr-code">Generate</button>
+                    <br><br>
+                    <div id="qrcode"></div>
+                    <button class="generate-qr-code" id="download" style="display: none;" onclick="downloadQR()">Download QR Code</button>
+                    <br><br><br>
+                </center>
+            </div>
+        </div>
+    </div>
+    <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+    <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/130527/qrcode.js'></script>
+    <script src='https://html2canvas.hertzen.com/dist/html2canvas.min.js'></script>
+    <script src="{% static 'assets/qrcode/script.js' %}"></script>
+</body>
+</html>

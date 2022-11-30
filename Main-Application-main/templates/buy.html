@@ -1,0 +1,6 @@
+your balance = {{request.user.profile.techsnap_cash}}<br>
+<form method="POST" action="{% url 'courses:buy_techsnap_cash' request.user.profile.slug %}">
+    {% csrf_token %}
+    <input type='text' name='amount' >
+    <input type='submit'>
+</form>

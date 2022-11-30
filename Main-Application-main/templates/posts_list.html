@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <title>Techsnap Posts</title>
+    <link rel="stylesheet" href="{% static 'css/w3.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="{% static 'posts/main.css' %}">
+</head>
+
+<body>
+    <div class="topbar w3-margin w3-padding">
+        <div class="topbar-logo">TechSnap Posts</div>
+        <input type="text" class="topbar-searchbox" id="topbarSearchbox" placeholder="Search">
+    </div>
+    <br><br>
+    <div id="uploadImg">
+        <form action="{% url 'add_imgs' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text" name="title" placeholder="Post Title"><br><br>
+            <input type="text" name="desc" placeholder="Post Description"><br><br>
+            <input type="file" name="imgs" multiple=""><br><br>
+            <input type="submit">
+        </form>
+    </div>
+    <div id="uploadPdf">
+        <form action="{% url 'add_pdf' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text" class='w3-input' name="title" placeholder="Post Title"><br><br>
+            <input type="text" class='w3-input' name="desc" placeholder="Post Description"><br><br>
+            <input type="file" class='w3-input' name="pdfs" multiple="" accept=".pdf"><br><br>
+            <input class='w3-button' type="submit">
+        </form>
+    </div>
+    <div id="FloatingPostMenu">
+        <div class="FloatingPostMenu-button" onclick="showPostImages()">Create Post from Pictures</div>
+        <div class="FloatingPostMenu-button" onclick="showPostPdfs()">Create Post from PDF</div>
+    </div>
+    <div id="addFloater" onclick="TogglePostOptions()">+</div>
+    <center>
+        <div id="postDisplay">
+
+        </div>
+    </center>
+
+</body>
+
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+<!--<script src="{% static 'posts/main.js' %}"></script>-->
+<script>
+    count = 0;
+
+function refreshSwipers(count) {
+    [...Array(count + 1).keys()].forEach(function(c) {
+        swp1 = new Swiper('.swiper' + c, { direction: 'horizontal', loop: false, navigation: { nextEl: '.swipperNext' + c, prevEl: '.swipperPrev' + c } })
+    })
+}
+
+function openPost(postid) {
+    console.log(postid);
+}
+
+function displayPost(postid, authorname, authorpfp, createdOn, images, title, description) {
+    out = "<div class='post w3-padding w3-round'><div class='author'><img src='" + authorpfp + "' class='author-pfp'><div class='author-text'><div class='author-name'>" + authorname + "</div><div class='author-postedon'>" + createdOn + "</div></div></div><div class='swiper swiper" + count + "'><div class='swiper-wrapper'>";
+    images.forEach(function(imagelink) {
+        out += "<div class='swiper-slide'><img onclick='openPost(\"" + postid + "\")' src='" + imagelink + "' loading='lazy'></div>";
+    })
+    out += "</div><div class='swiper-button-prev swipperPrev" + count + "'></div><div class='swiper-button-next swipperNext" + count + "'></div></div><div class='postTitle'>" + title + "</div><div class='postDesc'>" + description + "</div></div>";
+    document.getElementById("postDisplay").innerHTML += out;
+    refreshSwipers(count);
+    count += 1;
+}
+
+fetch("{% url 'all_posts' %}").then(response => response.json()).then(data => {
+    Object.keys(data).forEach(function(key) {
+        displayPost(key, data[key]['author'], data[key]['authorPfp'], data[key]['createdOn'], data[key]['images'], data[key]['title'], data[key]['description'])
+    })
+})
+
+function showPostImages() {
+    if (document.getElementById("uploadImg").style.display === 'block') {
+        document.getElementById("uploadImg").style.display = 'none';
+    } else { document.getElementById("uploadImg").style.display = 'block'; }
+}
+
+function showPostPdfs() {
+    if (document.getElementById("uploadPdf").style.display === 'block') {
+        document.getElementById("uploadPdf").style.display = 'none';
+    } else { document.getElementById("uploadPdf").style.display = 'block'; }
+}
+
+function TogglePostOptions() {
+    if (document.getElementById("FloatingPostMenu").style.display === 'block') {
+        document.getElementById("FloatingPostMenu").style.display = 'none';
+    } else { document.getElementById("FloatingPostMenu").style.display = 'block'; }
+}
+</script>
+</html>

@@ -1,0 +1,1316 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="{% static 'assets/dashboard/style/_headers/headers.css' %}" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'assets/dashboard/style/_pages/mFeed.css' %}" />
+	<link rel="stylesheet" href="{% static 'css/w3.css' %}" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link
+			href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+			integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+			crossorigin="anonymous"
+		/>
+		<title>Document</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	</head>
+	<body>
+		<header>
+            <div class="sub_header">
+                <div class="Header_icon">
+                    <div class="ham" onclick="slideMenu()">
+                        <img
+                            id="ham_icon"
+                            src="https://img.icons8.com/android/96/000000/menu.png"
+                        />
+                    </div>
+                    <img src="{% static 'assets/dashboard/assets/icon.svg'%}" alt="Logo" />
+                </div>
+
+                <div class="Header_Profile">
+                    <div class="Icons">
+                        <div class="points" onclick="goalsDrop()">
+                            <p><span>🔥 </span>0</p>
+                            <p><span>🎯 </span> 0</p>
+                        </div>
+                        <div class="score">
+                            <p class="shock" onclick="powerhandler()"><span>⚡ {{user.profile.xp}}</span></p>
+                            <p class="coin" onclick="Coinhandler()">
+                                <span>
+                                    <img src="{% static 'assets/dashboard/assets/coin (3).png'%}" alt="notifiction"
+                                /></span>
+                                {{user.profile.techsnap_cash}}
+                            </p>
+                        </div>
+                    </div>
+
+                    <img
+                        src="{% static 'assets/dashboard/assets/bell.svg'%}"
+                        alt="notifiction"
+                        class="notification_bell"
+                    />
+
+                    <div class="notification_dropdown">
+                        <div class="notification_item">
+                            <div class="notification_item_icon">
+                                <div class="icon_holder" style="background:black;!important">
+                                    <img src="{% static 'assets/notify1.jpg'%}" alt="prifle" />
+                                </div>
+                            </div>
+                            <div class="notification_content">
+                                <p>
+                                    Welcome to techsnap, take test and get better suggestions and recommendations
+                                </p>
+                                <button>Tale test</button>
+                            </div>
+                            <div class="time">
+                                <p>2h</p>
+                                <h1 class="notification_dots">...</h1>
+                            </div>
+                        </div>
+                        <div class="notification_item">
+                            <div class="notification_item_icon">
+                                <div class="icon_holder" style="background:black;!important">
+                                    <img src="{% static 'assets/notify2.jpg'%}" alt="prifle" />
+                                </div>
+                            </div>
+                            <div class="notification_content">
+                                <p>
+                                    Improve your coding skills with our tutorials and also get certified
+                                </p>
+                                <button>Explore all</button>
+                            </div>
+                            <div class="time">
+                                <p>2h</p>
+                                <h1 class="notification_dots">...</h1>
+                            </div>
+                        </div>
+                        <div class="notification_item">
+                            <div class="notification_item_icon">
+                                <div class="icon_holder" style="background:black;!important">
+                                    <img src="{% static 'assets/coin (4).png'%}" alt="prifle" />
+                                </div>
+                            </div>
+                            <div class="notification_content">
+                                <p>
+                                    Now can convert your XP to coins and Enjoy all your free courses,projects etc.
+                                </p>
+                                <button>Redeem now</button>
+                            </div>
+                            <div class="time">
+                                <p>2h</p>
+                                <h1 class="notification_dots">...</h1>
+                            </div>
+                        </div>
+                        <div class="see_all_notifications">
+                            <a href="{% url 'notifications' user.profile.slug %}"><p>See all notifications</p></a>
+                        </div>
+                    </div>
+                    {% if user.profile.profile_pic %}
+                    <img class="profile_pic avatar" src="{{user.profile.profile_pic.url}}"alt="avatar"/>
+                    {% else %}
+                    <img class="profile_pic avatar" src="https://www.participate.nyc.gov/assets/decidim/default-avatar-43686fd5db4beed0141662a012321bbccd154ee1d9188b0d1f41e37b710af3cb.svg"alt="avatar"/>
+                    {% endif %}
+                    <div class="profile_dropDown">
+                        <a href="#" class="profile_dropDown_item">
+                            <span
+                                ><img
+                                    src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-dashboard-blogger-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"
+                            /></span>
+                            <p>Community</p>
+                        </a>
+                        <a href="#" class="profile_dropDown_item">
+                            <span
+                                ><img src="https://img.icons8.com/ios/50/000000/user.png"
+                            /></span>
+                            <p>Resources</p>
+                        </a>
+                        <a href="#" class="profile_dropDown_item">
+                            <span
+                                ><img
+                                    src="https://img.icons8.com/ios/50/000000/user-not-found.png"
+                            /></span>
+                            <p>Forum</p>
+                        </a>
+                        <a href="{% url 'logout' %}" class="profile_dropDown_item">
+                            <span
+                                ><img src="https://img.icons8.com/windows/32/000000/exit.png"
+                            /></span>
+                            <p>Logout</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="goals_DropDown">
+                <div class="title">
+                    <h2>Daily Goals</h2>
+                    <p>Edit Goals</p>
+                </div>
+                <div class="info_text">
+                    <p>How does streak work , know more obout here</p>
+                    <span onclick="closeInfo()">X</span>
+                </div>
+                <div class="goals_section">
+                    <div class="left_section">
+                        <div class="total_streak_day">
+                            <div class="title">
+                                <p>Total Streak</p>
+                                <img
+                                    src="https://img.icons8.com/color/48/000000/share--v1.png"
+                                />
+                            </div>
+                            <div class="streak_body">
+                                <img
+                                    src="https://img.icons8.com/external-vitaliy-gorbachev-flat-vitaly-gorbachev/58/000000/external-fire-blogger-vitaliy-gorbachev-flat-vitaly-gorbachev.png"
+                                />
+                                <div class="body_details">
+                                    <p>0</p>
+                                    <span>Day Streak</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="total_streak_freeeze">
+                            <div class="streak_body">
+                                <img
+                                    src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/64/000000/external-fire-kitchen-kiranshastry-lineal-color-kiranshastry.png"
+                                />
+                                <div class="body_details">
+                                    <p>0</p>
+                                    <span>Streak Freeze</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right_section">
+                        <div class="right_box">
+                            <div class="title">
+                                <p>Daily Goal</p>
+                                <div class="time_box">
+                                    <span>11:34:13</span>
+                                </div>
+                                <div class="streak_body">
+                                    <img
+                                        src="data:image/png;base64,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"
+                                    />
+                                    <div class="body_details">
+                                        <p>10/200</p>
+                                        <span>Points</span>
+                                    </div>
+                                </div>
+                                <div class="progress_streak">
+                                    <div class="progress_bar">
+                                        <div class="bar" style="width: 10%"></div>
+                                    </div>
+                                    <button>Achieve Score</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="power_dropDown">
+                <div class="power_item">
+                    <p>Highest xp : 100</p>
+                </div>
+                    <div class="power_item">
+                    <p>Curent xp :{{user.profile.xp}}</p>
+                </div>
+                <div class="buttons">
+                    <button>Reedem</button>
+                </div>
+            </div>
+            <div class="coin_dropDown">
+                <div class="coin_item">
+                    <p>Highest coins : 999</p>
+                </div>
+                <div class="coin_item">
+                    <p>Curent coins :{{user.profile.techsnap_cash}}</p>
+                </div>
+                <div class="buttons">
+                    <button>History</button>
+                </div>
+            </div>
+        </header>
+        <div class="wholeBody">
+            <!-- //------------------------sidenav--------------------------- -->
+            <aside class="sideMenu">
+                <div class="myMenu">
+                    <a href="{% url 'dashboard' user.profile.slug %}">
+                        <img src="{% static 'assets/dashboard/assets/self-growth3.png'%}" alt="progress" />
+                        <p>My Progress</p>
+                    </a>
+                    <a href="{% url 'feed' user.profile.slug %}" id="active">
+                        <img src="{% static 'assets/dashboard/assets/feed.png'%}" alt="progress" />
+                        <p>My Feed</p>
+                    </a>
+                    <a href="{% url 'topics' user.profile.slug %}">
+                        <img src="{% static 'assets/dashboard/assets/hashtag.png'%}" alt="progress" />
+                        <p>Topics</p>
+                    </a>
+
+                    <a href="##">
+                        <img src="{% static 'assets/dashboard/assets/stage.png'%}" alt="bookmark" />
+                        <p>Competitions</p>
+                    </a>
+                    <a href="{% url 'leaderboard' user.profile.slug %}">
+                        <img src="{% static 'assets/dashboard/assets/leaderboard.png'%}" alt="leader" />
+                        <p>Leaderboard</p>
+                    </a>
+                </div>
+                <div class="myMenu">
+                    <div class="title">
+                        <h4>catalog</h4>
+                    </div>
+                    <a href="{% url 'dashcareerpaths' user.profile.slug %}">
+                        <img src="{% static 'assets/dashboard/assets/career-choice.png'%}" alt="progress" />
+                        <p>Career Paths</p>
+                    </a>
+                    <a href="{% url 'dashcourses' user.profile.slug %}">
+                        <img src="{% static 'assets/dashboard/assets/online-course2.png'%}" alt="leader" />
+                        <p>Courses</p>
+                    </a>
+                    <a href="{% url 'dashprojects' user.profile.slug %}">
+                        <img src="{% static 'assets/dashboard/assets/project-management (2).png'%}" alt="leader" />
+                        <p>Projects</p>
+                    </a>
+                    <a href="##">
+                        <img src="{% static 'assets/dashboard/assets/project.png'%}" alt="leader" />
+                        <p>Practice</p>
+                    </a>
+                    <a href="{% url 'dashassesments' user.profile.slug %}">
+                        <img src="{% static 'assets/dashboard/assets/clipboard.png'%}" alt="leader" />
+                        <p>Assessments</p>
+                    </a>
+                    <a href="##">
+                        <img src="{% static 'assets/dashboard/assets/deadline.png'%}" alt="leader" />
+                        <p>Live Events</p>
+                    </a>
+                </div>
+                <div class="myMenu">
+                    <div class="title">
+                        <h4>PROFILE</h4>
+                    </div>
+                    <a href="{% url 'show_profile' user.profile.slug%}">
+                        <img src="{% static 'assets/dashboard/assets/account (1).png'%}" alt="progress" />
+                        <p>My profile</p>
+                    </a>
+                    <a href="{% url 'update' user.profile.slug%}">
+                        <img src="{% static 'assets/dashboard/assets/edit (1).png'%}" alt="bookmark" />
+                        <p>Edit profile</p>
+                    </a>
+                    <a href="{% url 'accountsettings' user.profile.slug%}">
+                        <img src="{% static 'assets/dashboard/assets/user (1).png'%}" alt="leader" />
+                        <p>Account Settings</p>
+                    </a>
+                    <a href="{% url 'logout' %}">
+                        <img src="{% static 'assets/dashboard/assets/logout (1).png'%}" alt="leader" />
+                        <p>Logout</p>
+                    </a>
+                </div>
+                <button>Contact us</button>
+            </aside>
+			<!---------------Topics section---------------------->
+			<section class="feed_section">
+				<div class="ads_holder">
+					<div class="news">
+						<div class="header">
+							<h1>Techsnap News</h1>
+						</div>
+						<div class="new_section">
+							<div class="news_holder">
+								<h1>Classplus raises $70 million</h1>
+								<p>5h ago</p>
+							</div>
+							<div class="news_holder">
+								<h1>More jobs in engg, healthcare, telecomd</h1>
+								<p>12h ago</p>
+							</div>
+							<div class="news_holder">
+								<h1>Surge in VC exits at startups</h1>
+								<p>21h ago</p>
+							</div>
+							<div class="news_holder">
+								<h1>Indian founders launch startup fund</h1>
+								<p>23h ago</p>
+							</div>
+						</div>
+					</div>
+					<div class="ads">
+						<img
+							src="https://media-exp1.licdn.com/dms/image/C5622AQFKT2BM-v1pTA/feedshare-shrink_800/0/1639483037898?e=1651708800&v=beta&t=_wHUkUQ0dsgrwtwyQ8yzDOVBOm-VOCZQR6IiIkAnMAo"
+							alt="ads"
+						/>
+					</div>
+				</div>
+				<div class="feed_container">
+					<div class="post_feed">
+						<div class="header">
+							{% if user.profile.profile_pic %}
+                                <img src="{{user.profile.profile_pic.url}}"alt="avatar"/>
+                            {% else %}
+                                <img src="https://www.participate.nyc.gov/assets/decidim/default-avatar-43686fd5db4beed0141662a012321bbccd154ee1d9188b0d1f41e37b710af3cb.svg"alt="avatar"/>
+                            {% endif %}
+							<div class="post_bar" onclick="showPostFeed()">
+								<h1>Start A Post</h1>
+							</div>
+						</div>
+						<div class="options_holder">
+							<button onclick="showPostFeed();" style="width:50%;" class=" w3-button icon">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 24 24"
+									data-supported-dps="24x24"
+									fill="currentColor"
+									class="mercado-match"
+									width="24"
+									height="24"
+									focusable="false">
+									<path
+										d="M19 4H5a3 3 0 00-3 3v10a3 3 0 003 3h14a3 3 0 003-3V7a3 3 0 00-3-3zm1 13a1 1 0 01-.29.71L16 14l-2 2-6-6-4 4V7a1 1 0 011-1h14a1 1 0 011 1zm-2-7a2 2 0 11-2-2 2 2 0 012 2z"
+									></path>
+								</svg>
+								<span>Image Post</span>
+							</button>
+							<button onclick="createPDFPost();" style="width:50%;" class=" w3-button icon">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 24 24"
+									data-supported-dps="24x24"
+									fill="currentColor"
+									class="mercado-match"
+									width="24"
+									height="24"
+									focusable="false"
+								>
+								<path
+									d="M21 3v2H3V3zm-6 6h6V7h-6zm0 4h6v-2h-6zm0 4h6v-2h-6zM3 21h18v-2H3zM13 7H3v10h10z"
+								></path>
+								</svg>
+								<span>PDF Post</span>
+							</button>
+						</div>
+					</div>
+					<!-- //-------------------------------------------------- -->
+								<!-- //-------------------------------------------------- -->
+				{% if user.is_superuser %}
+				<div class='w3-row w3-margin w3-round-large w3-white w3-padding'>
+					<a href="{% url 'report-panel' %}" > 
+					<button style='width:100%;' class='w3-button w3-round w3-red'>View Reports Panel</button>
+					</a>
+				</div>
+				{% endif %}
+				{% for feed in feeds %}
+
+					<div id="{{feed.id}}posteditform" style='display:none;' class="w3-modal">
+						<div class="w3-display-middle w3-padding" >
+							<div style="width:500px;" class="w3-container w3-white w3-padding w3-round">
+								<form action="{% url 'update-img-post' feed.slug %}" method="POST" enctype="multipart/form-data">
+									{% csrf_token %}
+									<h3>Update your Post</h3>
+									<textarea type="text" class='w3-input w3-border w3-round ' rows="4" id="desc" name="desc" placeholder="update your post text ....."></textarea><br>
+									<input class='w3-margin' type="file" name="imgs" multiple="">
+									<button style="width:49%;" class='w3-button w3-round-xxlarge w3-green' type="submit"> Update </button>
+									<button type="button" style="width:49%;" class='w3-button w3-round-xxlarge w3-right w3-red' onclick="document.getElementById('{{feed.id}}posteditform').style.display='none'" >Cancel</button>
+								</form>
+							</div>
+						</div>
+					</div>
+
+					<div id="{{feed.id}}reportform" style='display:none;' class="w3-modal">
+						<div class="w3-display-middle w3-padding" >
+							<div style="width:500px;" class="w3-container w3-white w3-padding w3-round">
+								<h3>Report "<e class='w3-medium'>{{feed.title}}</e>" by @{{feed.author.user.username}}</h3>
+								<input placeholder="Any reason ??" class='w3-input w3-margin-bottom w3-border w3-round' type="text" id="{{feed.id}}reason" />
+								<button value="{{feed.id}}" target="{% url 'post-report' feed.slug %}" onclick="postReport(this);" style="width:49%;" class='w3-button w3-round-xxlarge w3-indigo'> Report </button>
+								<button type="button" style="width:49%;" class='w3-button w3-round-xxlarge w3-right w3-red' onclick="document.getElementById('{{feed.id}}reportform').style.display='none'" >Cancel</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="post_section">
+						{% if user.username in feed.reports %}
+						<div class="post_box w3-white w3-round w3-border w3-border-red ">
+						{% else %}
+						<div class="post_box w3-white w3-round ">
+						{% endif %}
+							<div class="avater_section">
+								<div class="profile">
+									<a href="{% url 'show_profile' feed.author.slug %}">
+									{% if feed.author.profile_pic %}
+										<img src="{{feed.author.profile_pic.url}}"alt="avatar"/>
+									{% else %}
+										<img src="https://www.participate.nyc.gov/assets/decidim/default-avatar-43686fd5db4beed0141662a012321bbccd154ee1d9188b0d1f41e37b710af3cb.svg"alt="avatar"/>
+									{% endif %}
+									</a>
+									<div class="name">
+										<p class='w3-large' >
+											<a style="text-decoration:none;" href="{% url 'show_profile' feed.author.slug %}">
+											@{{feed.author.user.username}}
+											</a>
+											{% if feed.author.user.username in following %}
+											<button id="{{feed.id}}followed" status="True" class="w3-small w3-black w3-margin w3-button w3-round-xxlarge " value="{{feed.id}}" target="{% url 'post-follow' feed.slug "True" %}" onclick="postFollow(this);">
+												Unfollow
+											</button>
+											<button id="{{feed.id}}follow" style="display:none;" value="{{feed.id}}" target="{% url 'post-follow' feed.slug "False" %}" onclick="postFollow(this);" class="w3-small w3-margin w3-blue w3-button w3-round-xxlarge ">
+												Follow
+											</button>
+											{% else %}
+											<button id="{{feed.id}}follow" value="{{feed.id}}" target="{% url 'post-follow' feed.slug "False" %}" onclick="postFollow(this);" class="w3-small w3-margin w3-blue w3-button w3-round-xxlarge ">
+												Follow
+											</button>
+											<button status="True" id="{{feed.id}}followed" style="display:none;" value="{{feed.id}}" target="{% url 'post-follow' feed.slug "True" %}" onclick="postFollow(this);" class="w3-small w3-margin w3-black w3-button w3-round-xxlarge ">
+												Unfollow
+											</button>
+											{% endif %}
+										</p>
+										<span>{{feed.author.designations}}</span>
+									</div>
+								</div>
+								<div class='w3-right' >
+									
+									<button class="w3-large w3-right w3-button w3-round-xxlarge " value="{{feed.id}}" onclick="showMore(this)"><i class="fa fa-ellipsis-h"></i></button>
+									{% if feed.author.user.username == user.username %}
+									<a class="w3-large w3-right w3-button w3-round-xxlarge " onclick="document.getElementById({{feed.id}}+'posteditform').style.display='block';"><i class="fa fa-edit"></i></a>
+									<a href="{% url 'delete-post' feed.slug %}" class="w3-large w3-right w3-button w3-round-xxlarge " value="{{feed.id}}"><i class="fa fa-trash"></i></a>
+									{% endif %}
+									
+									{% if user.username in feed.bookmarks %}
+									<button id="{{feed.id}}bookmarked" status="True" class="w3-large w3-right w3-button w3-round-xxlarge " value="{{feed.id}}" target="{% url 'post-bookmark' feed.slug "True" %}" onclick="postBookmark(this);">
+										<i class="fa fa-bookmark w3-text-pink js-heart heart"></i>
+									</button>
+									<button id="{{feed.id}}bookmark" style="display:none;" value="{{feed.id}}" target="{% url 'post-bookmark' feed.slug "False" %}" onclick="postBookmark(this);" class="w3-large w3-right w3-button w3-round-xxlarge ">
+										<i class="fa fa-bookmark js-heart heart"></i>
+									</button>
+									{% else %}
+									<button id="{{feed.id}}bookmark" value="{{feed.id}}" target="{% url 'post-bookmark' feed.slug "False" %}" onclick="postBookmark(this);" class="w3-large w3-right w3-button w3-round-xxlarge ">
+										<i class="fa fa-bookmark js-heart heart"></i>
+									</button>
+									<button id="{{feed.id}}bookmarked" status="True" style="display:none;" value="{{feed.id}}" target="{% url 'post-bookmark' feed.slug "True" %}" onclick="postBookmark(this);" class="w3-large w3-right w3-button w3-round-xxlarge ">
+										<i class="fa fa-bookmark w3-text-pink js-heart heart"></i>
+									</button>
+									{% endif %}
+								</div>
+							</div>
+							<div class="para">
+								<h5>{{feed.title}}</h5>
+								<p>
+									{{feed.description}}
+								</p>
+							</div>
+							<div class="photo" onclick="diplayPost()">
+								{% for img in feed.images %}
+								<img style="width:49%;" class='w3-round' src="{{img}}" alt="banner" />
+								{% endfor %}
+							</div>
+							<div class="post_tages">
+								<div class="tags_box">
+									<p class='icon w3-medium w3-margin' class="icon">
+										<span id="heart">
+											<i class="far fa-heart w3-text-indigo js-heart heart"></i>
+										</span>
+										<input type="hidden" value="{{feed.no_likes}}" id="{{feed.id}}like_count" />
+										<span id="{{feed.id}}like_display" class='w3-text-indigo '>{{feed.no_likes}}  Likes</span>
+									</p>
+									<p class='icon w3-medium w3-margin' class="icon">
+										<span id="heart">
+											<i class="far fa-heart w3-text-black js-heart heart"></i>
+										</span>
+										<input type="hidden" value="{{feed.no_dislikes}}" id="{{feed.id}}dislike_count" />
+										<span id="{{feed.id}}dislike_display" class='w3-text-black '>{{feed.no_dislikes}}  Dislikes</span>
+									</p>
+									<div class=" w3-round tags"># bigdata</div>
+									<div class="w3-round tags"># ml</div>
+                                    <div class="w3-round tags"># datascience</div>
+								</div>
+								<div class="time">
+									<p>{{feed.created}}</p>
+								</div>
+							</div>
+							<div class="post_icon_conatiner">
+								<div class="w3-row">
+
+									{% if user.username in feed.likes %}
+									<button id="{{feed.id}}liked" status="True" value="{{feed.id}}" target="{% url 'post-like' feed.slug "True" %}" onclick="postLike(this);" class='w3-button w3-third w3-round-xxlarge'>
+										<span id="heart">
+											<i class="far fa-heart w3-text-pink js-heart heart"></i>
+										</span>
+										<span class='w3-text-pink'>Liked</span>
+									</button>
+									<button style="display:none;" id="{{feed.id}}like" value="{{feed.id}}" target="{% url 'post-like' feed.slug "False" %}" onclick="postLike(this);" class='icon w3-button w3-third w3-round-xxlarge' class="icon">
+										<span id="heart">
+											<i class="far fa-heart js-heart heart"></i>
+										</span>
+										<span class=''>Like</span>
+									</button>
+									{% else %}
+									<button id="{{feed.id}}like" value="{{feed.id}}" target="{% url 'post-like' feed.slug "False" %}" onclick="postLike(this);" class='icon w3-button w3-third w3-round-xxlarge' class="icon">
+										<span id="heart">
+											<i class="far fa-heart js-heart heart"></i>
+										</span>
+										<span class=''>Like</span>
+									</button>
+									<button id="{{feed.id}}liked" status="True" style="display:none;" value="{{feed.id}}" target="{% url 'post-like' feed.slug "True" %}" onclick="postLike(this);"  class='icon w3-button w3-third w3-round-xxlarge'>
+										<span id="heart">
+											<i class="far fa-heart w3-text-pink js-heart heart"></i>
+										</span>
+										<span class='w3-text-pink'>Liked</span>
+									</button>
+									{% endif %}
+
+									{% if user.username in feed.dislikes %}
+									<button id="{{feed.id}}disliked" value="{{feed.id}}" status="True" target="{% url 'post-dislike' feed.slug "True" %}" onclick="postDislike(this);" class='icon w3-button w3-third w3-round-xxlarge' class="icon">
+										<span id="heart">
+											<i class="fa fa-thumbs-down w3-text-black"></i>
+										</span>
+										<span class='w3-text-black'>Disliked</span>
+									</button>
+									<button id="{{feed.id}}dislike" style="display:none;" value="{{feed.id}}" target="{% url 'post-dislike' feed.slug "False" %}" onclick="postDislike(this);" class='icon w3-button w3-third w3-round-xxlarge' class="icon">
+										<span id="heart">
+											<i class="fa fa-thumbs-down"></i>
+										</span>
+										<span class=''>Dislike</span>
+									</button>
+									{% else %}
+									<button id="{{feed.id}}dislike" value="{{feed.id}}" target="{% url 'post-dislike' feed.slug "False" %}" onclick="postDislike(this);" class='icon w3-button w3-third w3-round-xxlarge' class="icon">
+										<span id="heart">
+											<i class="fa fa-thumbs-down"></i>
+										</span>
+										<span class=''>Dislike</span>
+									</button>
+									<button id="{{feed.id}}disliked" status="True" value="{{feed.id}}" target="{% url 'post-dislike' feed.slug "True" %}" onclick="postDislike(this);" style="display:none;" class='icon w3-button w3-third w3-round-xxlarge' class="icon">
+										<span id="heart">
+											<i class="fa fa-thumbs-down w3-text-black "></i>
+										</span>
+										<span class='w3-text-black'>Disliked</span>
+									</button>
+									{% endif %}
+
+									<a href="{% url 'post-details' feed.slug %}" class="w3-button w3-purple w3-third w3-round-xxlarge">
+										<span id="heart">
+											<i class="fa fa-comments  "></i>
+										</span>
+										<span class=''>Comments</span>
+									</a>
+								</div>
+							</div>
+							<div id="{{feed.id}}" class="comment_section">
+								<form action="{% url 'add-comment' %}" enctype="multipart/form-data" method='POST' class="comment_input">
+									{% csrf_token %}
+									{% if user.profile.profile_pic %}
+									<img src="{{user.profile.profile_pic.url}}" alt="profile" />
+									{% endif %}
+									<input style="width:75%;" type="text" name="comment" id="comment" />
+									<button type="submit" name="slug" id="slug" value="{{feed.slug}}" class='w3-button w3-right w3-round-xxlarge w3-purple'>Comment</button>
+								</form>
+								{% for comment in feed.comments %}
+								<div class="w3-row w3-margin-top">
+									<div class="w3">
+										<div class="sub_comment">
+											{% if comment.details.by.profile_pic  %}
+											<img class='w3-left w3-circle w3-margin-right' style="width:25px;" src="{{comment.details.by.profile_pic.url}}" alt="profile" />
+											{% else %}
+											<img class='w3-left w3-circle w3-margin-right' style="width:25px;" src="https://www.participate.nyc.gov/assets/decidim/default-avatar-43686fd5db4beed0141662a012321bbccd154ee1d9188b0d1f41e37b710af3cb.svg" />
+											{% endif %}
+											<div class="main_info">
+												<div class="comment_info">
+													<div class="comment_name">
+														<span class='w3-text-indigo'>@{{comment.details.by.user.username}}</span>
+														<div class="w3-right">
+															<button value="{{comment.details.id}}" onclick="reply(this);" class='w3-small w3-round-large w3-text-blue w3-button'>Reply</button>
+														</div>
+														<span>{{comment.details.by.designstion}}</span>
+													</div>
+													<div class='w3-round w3-padding'>
+														<p>
+															{{comment.details.text}}
+														</p>
+													</div>
+												</div>
+												<div id="{{comment.details.id}}replyform" style='display:none;' class="w3-modal">
+													<div class="w3-display-middle w3-padding" >
+														<div style="width:500px;" class="w3-container w3-white w3-padding w3-round">
+															<form action="{% url 'add-reply' %}" method="POST" enctype="multipart/form-data">
+																{% csrf_token %}
+																<h3>Reply to @{{comment.details.by.user.username}}'s comment</h3>
+																<textarea type="text" class='w3-input w3-border w3-round ' rows="4" id="text" name="text" placeholder="your reply goes here ....."></textarea><br>
+																<button id="id" name="id" value="{{comment.details.id}}" style="width:49%;" class='w3-button w3-round-xxlarge w3-indigo' type="submit"> Reply </button>
+																<button type="button" style="width:49%;" class='w3-button w3-round-xxlarge w3-right w3-red' onclick="document.getElementById('{{comment.details.id}}replyform').style.display='none'" >Cancel</button>
+															</form>
+														</div>
+													</div>
+												</div>
+
+											</div>
+										</div>
+
+										{% for reply in comment.replies %}
+
+										{% if reply.reply_to %}
+										<div style="margin-left:40px;" class="">
+											{% if reply.by.profile_pic %}
+											<img class='w3-left w3-circle w3-margin-right' style="width:25px;" src="{{reply.by.profile_pic.url}}" alt="profile" />
+											{% else %}
+											<img class='w3-left w3-circle w3-margin-right' style="width:25px;" src="https://www.participate.nyc.gov/assets/decidim/default-avatar-43686fd5db4beed0141662a012321bbccd154ee1d9188b0d1f41e37b710af3cb.svg" />
+											{% endif %}
+											<div class="main_info">
+												<div class="comment_info">
+													<div class="comment_name">
+														<span class='w3-text-indigo'>@{{reply.details.by.user.username}} replied to</span>
+														<span class='w3-round w3-border w3-medium w3-padding'><e class='w3-text-green'>@{{reply.reply_to.by.user.username}}'s reply</e> {{reply.reply_to.text}}</span>
+														<div class="w3-right">
+															<button value="{{reply.details.id}}" onclick="replytoreply(this);" class='w3-small w3-round-large w3-text-blue w3-button'>Reply</button>
+														</div>
+													</div>
+													<div class='w3-round w3-padding'>
+														<span>
+															{{reply.details.text}}
+														</span>
+													</div>
+												</div>
+												<div id="{{reply.details.id}}replytoreplyform" style='display:none;' class="w3-modal">
+													<div class="w3-display-middle w3-padding" >
+														<div style="width:500px;" class="w3-container w3-white w3-padding w3-round">
+															<form action="{% url 'add-reply' %}" method="POST" enctype="multipart/form-data">
+																{% csrf_token %}
+																<h3>Reply to @{{reply.details.by.user.username}}'s reply <span class='w3-round w3-medium w3-padding w3-grey w3-text-white'>{{reply.details.text}}</span></h3>
+																<textarea type="text" class='w3-input w3-border w3-round ' rows="4" id="text" name="text" placeholder="your reply goes here ....."></textarea><br>
+																<input type="hidden" id="reply_code" name="reply_code" value="{{reply.details.code}}" />
+																<button id="id" name="id" value="{{comment.details.id}}" style="width:49%;" class='w3-button w3-round-xxlarge w3-indigo' type="submit"> Reply </button>
+																<button type="button" style="width:49%;" class='w3-button w3-round-xxlarge w3-right w3-red' onclick="document.getElementById('{{reply.details.id}}replytoreplyform').style.display='none'" >Cancel</button>
+															</form>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										{% else %}
+										<div style="margin-left:40px;" class="">
+											{% if reply.by.profile_pic %}
+											<img class='w3-left w3-circle w3-margin-right' style="width:25px;" src="{{reply.by.profile_pic.url}}" alt="profile" />
+											{% else %}
+											<img class='w3-left w3-circle w3-margin-right' style="width:25px;" src="https://www.participate.nyc.gov/assets/decidim/default-avatar-43686fd5db4beed0141662a012321bbccd154ee1d9188b0d1f41e37b710af3cb.svg" />
+											{% endif %}
+											<div class="main_info">
+												<div class="comment_info">
+													<div class="comment_name">
+														<span class='w3-text-indigo'>@{{reply.by.user.username}}</span>
+														<div class="w3-right">
+															<button value="{{reply.id}}" onclick="replytoreply(this);" class='w3-small w3-round-large w3-text-blue w3-button'>Reply</button>
+														</div>
+													</div>
+													<div class='w3-round w3-padding'>
+														<p>
+															{{reply.text}}
+														</p>
+													</div>
+												</div>
+												<div id="{{reply.id}}replytoreplyform" style='display:none;' class="w3-modal">
+													<div class="w3-display-middle w3-padding" >
+														<div style="width:500px;" class="w3-container w3-white w3-padding w3-round">
+															<form action="{% url 'add-reply' %}" method="POST" enctype="multipart/form-data">
+																{% csrf_token %}
+																<h3>Reply to @{{reply.by.user.username}}'s reply <span class='w3-round w3-medium w3-padding w3-grey w3-text-white'>{{reply.text}}</span></h3>
+																<textarea type="text" class='w3-input w3-border w3-round ' rows="4" id="text" name="text" placeholder="your reply goes here ....."></textarea><br>
+																<input type="hidden" id="reply_code" name="reply_code" value="{{reply.code}}" />
+																<button id="id" name="id" value="{{comment.details.id}}" style="width:49%;" class='w3-button w3-round-xxlarge w3-indigo' type="submit"> Reply </button>
+																<button type="button" style="width:49%;" class='w3-button w3-round-xxlarge w3-right w3-red' onclick="document.getElementById('{{reply.id}}replytoreplyform').style.display='none'" >Cancel</button>
+															</form>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										{% endif %}
+										{% endfor %}
+
+										<!--<button onclick="ShowMoreComments()" class="showmorebutton">
+											Load More
+										</button>-->
+									</div>
+								</div>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+					<div id="{{feed.id}}more" style='display:none;' class="w3-modal">
+						<div class="w3-display-middle w3-padding" >
+							<div class="w3-container w3-white w3-padding w3-round">
+								{% if user.username in feed.reports %}
+									<button style="width:100%;" class="w3-button w3-border-red w3-border w3-text-red w3-round more_item">
+										<p>Reported</p>
+									</button>
+								{% else %}
+									<button 
+										id="{{feed.id}}report" 
+										style="width:100%;" 
+										onclick="document.getElementById({{feed.id}}+'reportform').style.display='block';
+												document.getElementById('{{feed.id}}'+'more').style.display='none'"  
+										class="w3-button w3-hover-red w3-text-red w3-round more_item">
+										<p>Report</p>
+									</button>
+									<button style="display:none;" id="{{feed.id}}reported" style="width:100%;" class="w3-button w3-border-red w3-border w3-text-red w3-round more_item">
+										<p>Reported</p>
+									</button>
+								{% endif %}
+								<button style="width:100%;" class="w3-button w3-hover-red w3-text-red w3-round more_item">
+									<p>unfollow</p>
+								</button>
+								<a href="{% url 'post-details' feed.slug %}" style="width:100%;" class="w3-button w3-round more_item">
+									<p>go to post</p>
+								</a>
+								<button style="width:100%;" class="w3-button w3-round more_item">
+									<p>tagged account</p>
+								</button>
+								<button style="width:100%;" class="w3-button w3-round more_item" onclick="shareToBox()">
+									<p>share to..</p>
+								</button>
+								<button style="width:100%;" class="w3-button w3-round more_item">
+									<p>copy to</p>
+								</button>
+								<button style="width:100%;" class="w3-button w3-round more_item">
+									<p>embed</p>
+								</button>
+								<button style="width:100%;" onclick="document.getElementById('{{feed.id}}'+'more').style.display='none'" class="w3-button w3-hover-red w3-text-red w3-round more_item">
+									<p>cancel</p>
+								</button>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			</section>
+		</div>
+		
+
+
+		<div class="feed_more_section" id="feedmainconaitner">
+			<form action="{% url 'add_imgs' %}" method="POST" class="more_container" enctype="multipart/form-data">
+				{% csrf_token %}
+				<div class="title">
+					<h1>Create new Post</h1>
+					<h1 id="close_feed_container">X</h1>
+				</div>
+				<div class="avater_section">
+					<div class="profile">
+						{% if user.profile.profile_pic %}
+						<img src="{{user.profile.profile_pic.url}}" alt="profile" />
+						{% endif %}
+						<div class="name">
+							<p>{{user.profile.full_name}}</p>
+						</div>
+					</div>
+				</div>
+				<div class="write">
+					<input id='title' placeholder='Any title for the post ??' name='title' class='w3-input w3-margin-bottom w3-border w3-round' />  
+					<textarea rows="5" id="desc" name="desc" placeholder="Write Something here..." autofocus></textarea>
+				</div>
+				<div class="footer">
+					<div class="icons">
+						<div class="icon">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 24 24"
+								data-supported-dps="24x24"
+								fill="currentColor"
+								class="mercado-match"
+								width="24"
+								height="24"
+								focusable="false"
+							>
+								<path
+									d="M19 4H5a3 3 0 00-3 3v10a3 3 0 003 3h14a3 3 0 003-3V7a3 3 0 00-3-3zm1 13a1 1 0 01-.29.71L16 14l-2 2-6-6-4 4V7a1 1 0 011-1h14a1 1 0 011 1zm-2-7a2 2 0 11-2-2 2 2 0 012 2z"
+								></path>
+							</svg>
+						</div>
+						<div class="icon">
+							<input type="file" id="imgs" name="imgs" multiple="">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 24 24"
+								data-supported-dps="24x24"
+								fill="currentColor"
+								class="mercado-match"
+								width="24"
+								height="24"
+								focusable="false"
+							>
+								
+							</svg>
+						</input> <br><br>
+						</div>
+					</div>
+					<button type="submit" >Post</button>
+				</div>
+			</form>
+		</div>
+
+		<div id="create_post_feed" style='display:none;' class="w3-modal">
+			<div class="w3-display-middle w3-padding" >
+				<div style="width:500px;" class="w3-container w3-white w3-padding w3-round">
+					<form action="{% url 'add_pdf' %}" method="POST" enctype="multipart/form-data">
+						{% csrf_token %}
+						<h3>Create new PDF Post</h3>
+						<input type="text" class='w3-input' name="title" placeholder="Post Title"><br>
+						<textarea type="text" class='w3-input' rows="4" name="desc" placeholder="Post Description"></textarea><br>
+						<div class="w3-row ">
+							<input type="file" class='w3-input w3-border w3-round' name="pdfs" multiple="" accept=".pdf"><br>
+						</div>
+						<button class='w3-button w3-round-xxlarge w3-large w3-indigo' type="submit"> Post </button>
+						<button type="button" style="width:49%;" class='w3-button w3-large w3-round-xxlarge w3-right w3-red' onclick="document.getElementById('create_post_feed').style.display='none'" >Cancel</button>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class="share_to_section" id="conaitnerCheck">
+			<div class="share_to_conatiner">
+				<div class="title">
+					<p>Share to ..</p>
+				</div>
+				<div class="body">
+					<div class="share_item">
+						<p id="red">whatsapp</p>
+					</div>
+					<div class="share_item">
+						<p id="red">facebookt</p>
+					</div>
+					<div class="share_item">
+						<p id="red">twitter</p>
+					</div>
+					<div class="share_item">
+						<p id="red">zoom</p>
+					</div>
+					<div class="share_item">
+						<p id="red">copy link</p>
+					</div>
+					<div class="share_item" onclick="backToMoreSection()">
+						<p id="red">cancel</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="full_post_section" id="conaitnerCheck">
+			<div class="subFull_post_section">
+				<div class="image_section">
+					<img src="https://media-exp1.licdn.com/dms/image/C4E22AQHNxg-Qfor4MA/feedshare-shrink_800/0/1647871679504?e=1651708800&v=beta&t=VudWfZf62Vb9GZBGSGFytUGFAsySVTfExyLzCODrxBc" alt="post">
+				</div>
+				<div class="comment_sections">
+					<div class="comment_header">
+						<div class="profile_details">
+								<img src="/assets/profile.jpg" alt="profile" >
+								<div class="name_tag">
+									<p  id="name">Alan Biju</p>
+									<p id="followers">123,789 folowers</p>
+								</div>
+						</div>
+						<div class="buttons">
+							<div class="follow">
+								<span>+</span>Follow
+							</div>
+							<div class="close" onclick="diplayPost()">
+								X
+							</div>
+						</div>
+					</div>
+					<div class="comment_body">
+						<div class="comment_input">
+									<img src="/assets/profile.jpg" alt="profile" />
+									<input type="text" name="comment" id="comment" />
+								</div>
+								<div class="comments_box">
+									<div class="comment">
+										<div class="main_comment">
+											<img src="/assets/profile.jpg" alt="profile" />
+											<div class="main_info">
+												<div class="comment_info">
+													<div class="comment_name">
+														<p>Alan Biju</p>
+														<span>Developer </span>
+													</div>
+													<div class="para">
+														<p>
+															Thank you Nuseir Yassin for taking us this through
+															this amazing Odyssey 💕👌😊, surreal experience
+															and Dubai has done it again a giant time
+															capsule.........Yet again millenials will throng
+															the Booking counters eager to catch a
+														</p>
+													</div>
+												</div>
+												<div class="likes">
+													<span>Like . 51 || 1 Reply</span>
+												</div>
+											</div>
+										</div>
+
+										<div class="sub_comment">
+											<img src="/assets/profile.jpg" alt="profile" />
+											<div class="main_info">
+												<div class="comment_info">
+													<div class="comment_name">
+														<p>Alan Biju</p>
+														<span>Developer </span>
+													</div>
+													<div class="para">
+														<p>
+															Thank you Nuseir Yassin for taking us this through
+															this amazing Odyssey 💕👌😊, surreal experience
+															and Dubai has done it again a giant time
+															capsule.........Yet again millenials will throng
+															the Booking counters eager to catch a
+														</p>
+													</div>
+												</div>
+												<div class="likes">
+													<span>Like . 51 || 1 Reply</span>
+												</div>
+											</div>
+										</div>
+										<div class="sub_comment">
+											<img src="/assets/profile.jpg" alt="profile" />
+											<div class="main_info">
+												<div class="comment_info">
+													<div class="comment_name">
+														<p>Alan Biju</p>
+														<span>Developer </span>
+													</div>
+													<div class="para">
+														<p>Thank you</p>
+													</div>
+												</div>
+												<div class="likes">
+													<span>Like . 51 || 1 Reply</span>
+												</div>
+											</div>
+										</div>
+										<div class="sub_comment hidden_comment">
+											<img src="/assets/profile.jpg" alt="profile" />
+											<div class="main_info">
+												<div class="comment_info">
+													<div class="comment_name">
+														<p>Alan Biju</p>
+														<span>Developer </span>
+													</div>
+													<div class="para">
+														<p>Ur right bro</p>
+													</div>
+												</div>
+												<div class="likes">
+													<span>Like . 51 || 1 Reply</span>
+												</div>
+											</div>
+										</div>
+
+										<button onclick="ShowMoreComments()" class="showmorebutton">
+											Load More
+										</button>
+									</div>
+
+								</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- <script src="./app.js"></script> -->
+		<script>
+			count = 0;
+		
+		function refreshSwipers(count) {
+			[...Array(count + 1).keys()].forEach(function(c) {
+				swp1 = new Swiper('.swiper' + c, { direction: 'horizontal', loop: false, navigation: { nextEl: '.swipperNext' + c, prevEl: '.swipperPrev' + c } })
+			})
+		}
+		
+		function openPost(postid) {
+			console.log(postid);
+		}
+		
+		function displayPost(postid, authorname, authorpfp, createdOn, images, title, description) {
+			out = "<div class='post w3-padding w3-round'><div class='author'><img src='" + authorpfp + "' class='author-pfp'><div class='author-text'><div class='author-name'>" + authorname + "</div><div class='author-postedon'>" + createdOn + "</div></div></div><div class='swiper swiper" + count + "'><div class='swiper-wrapper'>";
+			images.forEach(function(imagelink) {
+				out += "<div class='swiper-slide'><img onclick='openPost(\"" + postid + "\")' src='" + imagelink + "' loading='lazy'></div>";
+			})
+			out += "</div><div class='swiper-button-prev swipperPrev" + count + "'></div><div class='swiper-button-next swipperNext" + count + "'></div></div><div class='postTitle'>" + title + "</div><div class='postDesc'>" + description + "</div></div>";
+			document.getElementById("postDisplay").innerHTML += out;
+			refreshSwipers(count);
+			count += 1;
+		}
+		
+		fetch("{% url 'all_posts' %}").then(response => response.json()).then(data => {
+			Object.keys(data).forEach(function(key) {
+				displayPost(key, data[key]['author'], data[key]['authorPfp'], data[key]['createdOn'], data[key]['images'], data[key]['title'], data[key]['description'])
+			})
+		})
+		
+		function showPostImages() {
+			if (document.getElementById("uploadImg").style.display === 'block') {
+				document.getElementById("uploadImg").style.display = 'none';
+			} else { document.getElementById("uploadImg").style.display = 'block'; }
+		}
+		
+		function showPostPdfs() {
+			if (document.getElementById("uploadPdf").style.display === 'block') {
+				document.getElementById("uploadPdf").style.display = 'none';
+			} else { document.getElementById("uploadPdf").style.display = 'block'; }
+		}
+		
+		function TogglePostOptions() {
+			if (document.getElementById("FloatingPostMenu").style.display === 'block') {
+				document.getElementById("FloatingPostMenu").style.display = 'none';
+			} else { document.getElementById("FloatingPostMenu").style.display = 'block'; }
+		}
+
+		function reply(obj){
+			var id = obj.value;
+			console.log(id);
+			document.getElementById(id+'replyform').style.display='block';
+		}
+
+		function replytoreply(obj){
+			var id = obj.value;
+			console.log(id);
+			document.getElementById(id+'replytoreplyform').style.display='block';
+		}
+
+		function createPDFPost(){
+			document.getElementById('create_post_feed').style.display = 'block';
+		}
+
+		function postLike(obj){
+			var url = obj.getAttribute('target');
+			var id = obj.value;
+			var status = obj.getAttribute('status');
+			var like_count = document.getElementById(id+'like_count').value;
+			$.ajax({
+				type: 'GET',
+				url: url,
+				success: function(resp) {
+					if (status=="True"){
+						document.getElementById(id+'liked').style.display = 'none';
+						document.getElementById(id+'like').style.display = 'block';
+						document.getElementById(id+'like_display').innerHTML = parseInt(like_count)-1+" Likes";
+						document.getElementById(id+'like_count').value = parseInt(like_count)-1;
+					}
+					else {
+						document.getElementById(id+'liked').style.display = 'block';
+						document.getElementById(id+'like').style.display = 'none';
+						document.getElementById(id+'like_display').innerHTML = parseInt(like_count)+1+" Likes";
+						document.getElementById(id+'like_count').value = parseInt(like_count)+1;
+
+						document.getElementById(id+'disliked').style.display = 'none';
+						document.getElementById(id+'dislike').style.display = 'block';
+					}
+				}
+			})
+		}
+		function postDislike(obj){
+			var url = obj.getAttribute('target');
+			var id = obj.value;
+			var status = obj.getAttribute('status');
+			var dislike_count = document.getElementById(id+'dislike_count').value;
+			$.ajax({
+				type: 'GET',
+				url: url,
+				success: function(resp) {
+					if (status=="True"){
+						document.getElementById(id+'disliked').style.display = 'none';
+						document.getElementById(id+'dislike').style.display = 'block';
+						document.getElementById(id+'dislike_display').innerHTML = parseInt(dislike_count)-1+" Dislikes";
+						document.getElementById(id+'dislike_count').value = parseInt(dislike_count)-1;
+					}
+					else {
+						document.getElementById(id+'disliked').style.display = 'block';
+						document.getElementById(id+'dislike').style.display = 'none';
+						document.getElementById(id+'dislike_display').innerHTML = parseInt(dislike_count)+1+" Dislikes";
+						document.getElementById(id+'dislike_count').value = parseInt(dislike_count)+1;
+
+						document.getElementById(id+'liked').style.display = 'none';
+						document.getElementById(id+'like').style.display = 'block';
+					}
+				}
+			})
+		}
+		function postFollow(obj){
+			var url = obj.getAttribute('target');
+			var id = obj.value;
+			var status = obj.getAttribute('status');
+			$.ajax({
+				type: 'GET',
+				url: url,
+				success: function(resp) {
+					if (status=="True"){
+						document.getElementById(id+'followed').style.display = 'none';
+						document.getElementById(id+'follow').style.display = 'block';
+					}
+					else {
+						document.getElementById(id+'followed').style.display = 'block';
+						document.getElementById(id+'follow').style.display = 'none';
+					}
+				}
+			})
+		}
+		function postBookmark(obj){
+			var url = obj.getAttribute('target');
+			var id = obj.value;
+			var status = obj.getAttribute('status');
+			$.ajax({
+				type: 'GET',
+				url: url,
+				success: function(resp) {
+					if (status=="True"){
+						document.getElementById(id+'bookmarked').style.display = 'none';
+						document.getElementById(id+'bookmark').style.display = 'block';
+					}
+					else {
+						document.getElementById(id+'bookmarked').style.display = 'block';
+						document.getElementById(id+'bookmark').style.display = 'none';
+					}
+				}
+			})
+		}
+
+		function postReport(obj){
+			var id = obj.value;
+			var url = obj.getAttribute('target')+'?reason='+document.getElementById(id+'reason').value;
+			$.ajax({
+				type: 'GET',
+				url: url,
+				success: function(resp) {
+					document.getElementById(id+'reported').style.display = 'block';
+					document.getElementById(id+'reported').style.width = '100%';
+					document.getElementById(id+'report').style.display = 'none';
+					document.getElementById(id+'reportform').style.display = 'none';
+				}
+			})
+		}
+		</script>
+		<script>
+			///--------------------------------
+
+			///------------------------------
+			const shareToBox = () => {
+				const moreSection = document.querySelector('.more_section');
+				const shareSection = document.querySelector('.share_to_section');
+				moreSection.style.display = 'none';
+				shareSection.style.display = 'grid';
+			};
+			const backToMoreSection = () => {
+				const moreSection = document.querySelector('.more_section');
+				const shareSection = document.querySelector('.share_to_section');
+				moreSection.style.display = 'grid';
+				shareSection.style.display = 'none';
+			};
+			////------------------------------
+			const ShowMoreComments = () => {
+				console.log('here');
+				const ShowMoreCommentsSection =
+					document.querySelector('.hidden_comment');
+				const ShowMoreCommentsButton =
+					document.querySelector('.showmorebutton');
+
+				if (ShowMoreCommentsSection.style.display == 'flex') {
+					ShowMoreCommentsSection.style.display = 'none';
+					ShowMoreCommentsButton.textContent = 'Load More';
+				} else {
+					ShowMoreCommentsSection.style.display = 'flex';
+					ShowMoreCommentsButton.textContent = 'Show Less';
+				}
+			};
+			///--------------------------------
+			const showComment = (slug) => {
+				const CommentSection = document.getElementById(slug);
+				if (CommentSection.style.display == 'block') {
+					CommentSection.style.display = 'none';
+				} else {
+					CommentSection.style.display = 'block';
+				}
+			};
+			//--------------------------------------------
+
+			const feedMoreSection = document.querySelector('.feed_more_section');
+			const closeFeedMoreSection = document.querySelector(
+				'#close_feed_container',
+			);
+			const showPostFeed = () => {
+				console.log('here');
+
+				if (feedMoreSection.style.display == 'grid') {
+					feedMoreSection.style.display = 'none';
+				} else {
+					feedMoreSection.style.display = 'grid';
+				}
+			};
+			feedMoreSection.addEventListener('click', (e) => {
+				if (e.target.id === 'feedmainconaitner') {
+					feedMoreSection.style.display = 'none';
+				}
+			});
+			closeFeedMoreSection.addEventListener('click', (e) => {
+				feedMoreSection.style.display = 'none';
+			});
+
+			const showMore = (obj) => {
+				var id = obj.value;
+				console.log(id+'more')
+				document.getElementById(id+'more').style.display = 'block';
+				
+			};
+			//-------------------------------------
+						const moreSection = document.querySelector('.more_section');
+			moreSection.addEventListener('click', (e) => {
+				if (e.target.id === 'conaitnerCheck') {
+					moreSection.style.display = 'none';
+				}
+			});
+			const shareSection = document.querySelector('.share_to_section');
+			shareSection.addEventListener('click', (e) => {
+				if (e.target.id === 'conaitnerCheck') {
+					shareSection.style.display = 'none';
+				}
+			});
+			const fullpostsection = document.querySelector('.full_post_section');
+			fullpostsection.addEventListener('click', (e) => {
+				if (e.target.id === 'conaitnerCheck') {
+					fullpostsection.style.display = 'none';
+				}
+			});
+			//-------------------
+			$(document).ready(function () {
+				$('#heart').click(function () {
+					if ($('#heart').hasClass('liked')) {
+						$('#heart').html(
+							'<i class="far fa-heart js-heart heart" aria-hidden="true"></i>',
+						);
+						$('#heart').removeClass('liked');
+					} else {
+						$('#heart').html('<i class="fa fa-heart" aria-hidden="true"></i>');
+						$('#heart').addClass('liked');
+					}
+				});
+			});
+				//------------------------
+			const diplayPost=()=>{
+				const full_post_section = document.querySelector('.full_post_section');
+				if (full_post_section.style.display == 'grid') {
+					full_post_section.style.display = 'none';
+				} else {
+					full_post_section.style.display = 'grid';
+				}
+			}
+			//------------------------
+		</script>
+        <script src="{% static 'assets/dashboard/app.js'%}"></script>
+	</body>
+</html>

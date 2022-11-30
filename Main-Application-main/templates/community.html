@@ -1,0 +1,674 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community</title>
+
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'assets/communitystyle.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/community/new.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/community/card.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/community/headfoot.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'assets/main/favicon.png'%}">
+
+    <link rel="preload" href="https://fonts.gstatic.com/s/nunitosans/v5/pe0qMImSLYBIv1o4X1M8cce9I9tAcVwo.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/nunitosans/v5/pe03MImSLYBIv1o4X1M8cc9iB85tU1ECVZl_.woff2"
+        as="font" type="font/woff2" crossorigin>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-L4D2PNVR8Z"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-L4D2PNVR8Z');
+		</script>
+</head>
+
+<body>
+
+<div class="dropMenu">
+	<ul>
+		<li><a href="##">Catalog » </a></li>
+		<li><a href="##">Products » </a></li>
+		<li><a href="##">Career paths » </a></li>
+		<li><a href="##">Resources » </a></li>
+		<li><a href="##">For Business » </a></li>
+		<div class="mob1">
+		{% if user.is_authenticated %}
+							<p>Hi, {{user.username}}</p>
+			<a href="{% url 'update' user.profile.id %}">Edit</a>
+							<a href="{% url 'logout' %}"><button class="btn" id='logout'>LogOut</button></a>
+							{% else %}
+							<a href="{% url 'login' %}"><button class="btn" id="login">LogIn</button></a>
+							</div>
+							<a href="{% url 'register' %}"><button class="btn1" id="btn1">Register</button></a>
+							{% endif %}
+
+	</ul>
+	<div class="Close">X</div>
+</div>
+			<!-- //---------------------------------- -->
+			<div class="header">
+				<div class="sub_header">
+					<div class="logo">
+						<img src="{% static 'assets/main/logo.png'%}" alt="logo" />
+					</div>
+					<div class="menu_item">
+						<ul>
+							<li>
+								<a href="##" class="nav_item">Catalog</a
+								><span class="nav_item">⌵</span>
+							</li>
+							<li>
+								<a href="##" class="nav_item">Products</a
+								><span class="nav_item">⌵</span>
+							</li>
+							<li>
+								<a href="##" class="nav_item">Career paths</a
+								><span class="nav_item">⌵</span>
+							</li>
+							<li>
+								<a href="##" class="nav_item">Resources</a
+								><span class="nav_item">⌵</span>
+							</li>
+							<li>
+								<a href="##" class="nav_item">For Business</a
+								><span class="nav_item">⌵</span>
+							</li>
+
+						</ul>
+						<div class="buttons">
+							{% if user.is_authenticated %}
+							<p>Hi, {{user.username}}</p>
+							<a href="{% url 'update' user.profile.id %}">Edit</a>
+							<a href="{% url 'logout' %}"><button id='logout'>LogOut</button></a>
+							{% else %}
+							<a href="{% url 'login' %}"><button id="login">LogIn</button></a>
+							<a href="{% url 'register' %}"><button id="register">Register</button></a>
+							{% endif %}
+						</div>
+					</div>
+					<div class="ham">
+						<img src="{% static 'assets/main/menu.png'%}" alt="menu" />
+					</div>
+				</div>
+			</div>
+
+    <div class="main-sec">
+        <section class="box-1">
+            <div class="content-1">
+                <h1>Start Your Career Here</h1>
+                <h4>Join thousands of people to learn, practice, share, choose your career join a bootcamp or live
+                    session and do much more!</h4>
+                <a class="button">Signup &learn</a>
+            </div>
+            <div class="img-1">
+                <img src="{% static 'assets/community/images/img-1.png' %}">
+            </div>
+        </section>
+    </div>
+
+
+    <div class="second-sec">
+    <section class="section-2">
+        <div class="box-2">
+            <h1>Grow Your Skills With Techsnap</h1>
+
+            <section id="facts" class="section parallax">
+                <div class="overlay"></div>
+                <div class="container">
+                    <div class="row">
+                        <!-- Start Item-->
+                        <div class="col-md-3 col-sm-6 facts-box margin-bottom-30">
+                            <span>
+                                <div class="center">
+                                    <img src="{% static 'assets/community/images/resume .png' %}">
+                                </div>
+                            </span>
+                            <h3>Learn+</h3>
+                            <span>Utilize our expert-curated courses as per your interest and pace.</span>
+                        </div>
+                        <!-- End Item-->
+
+                        <!-- Start Item-->
+                        <div class="col-md-3 col-sm-6 facts-box margin-bottom-30">
+                            <span>
+                                <div class="center">
+                                    <img src="{% static 'assets/community/images/testing .png' %}">
+                                </div>
+                            </span>
+                            <h3>Practice</h3>
+                            <span>Prepare yourself by solving practice problems on diverse datasets.</span>
+                        </div>
+
+                        <!-- End Item-->
+
+                        <!-- Start Item-->
+                        <div class="col-md-3 col-sm-6 facts-box margin-bottom-30">
+                            <span>
+                                <div class="center">
+                                    <img src="{% static 'assets/community/images/training.png' %}">
+                                </div>
+                            </span>
+                            <h3>Implement</h3>
+                            <span>Showcase your skills & compete with the best to solve real-world problems.</span>
+                        </div>
+                        <!-- End Item-->
+
+                        <!-- Start Item-->
+                        <div class="col-md-3 col-sm-6 facts-box margin-bottom-30">
+                            <span>
+                                <div class="center">
+                                    <img src="{% static 'assets/community/images/people .png' %}">
+                                </div>
+                            </span>
+                            <h3>Earn</h3>
+                            <span>Interact with community, get your questions answered, & be inspired.</span>
+                        </div>
+
+                        <!-- End Item-->
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.container -->
+            </section>
+        </div>
+    </section>
+    </div>
+ <div class="section-2-alt">
+    <h1>Grow Your Skills With Techsnap</h1>
+ </div>
+<div class="slider">
+
+
+    <input type="radio" name="slider" title="slide1" checked="checked" class="slider__nav"/>
+    <input type="radio" name="slider" title="slide2" class="slider__nav"/>
+    <input type="radio" name="slider" title="slide3" class="slider__nav"/>
+    <input type="radio" name="slider" title="slide4" class="slider__nav"/>
+    <div class="slider__inner">
+      <div class="slider__contents"><img src="{% static 'assets/community/images/resume .png' %}">
+        <h2 class="slider__caption">Learn</h2>
+        <p class="slider__txt">Utilize our expert-curated courses as per your interest and pace.</p>
+      </div>
+      <div class="slider__contents"> <img src="{% static 'assets/community/images/testing .png' %}">
+        <h2 class="slider__caption">Practice</h2>
+        <p class="slider__txt">Prepare yourself by solving practice problems on diverse datasets.</p>
+      </div>
+      <div class="slider__contents"><img src="{% static 'assets/community/images/training.png' %}">
+        <h2 class="slider__caption">Implement</h2>
+        <p class="slider__txt">Showcase your skills & compete with the best to solve real-world problems.</p>
+      </div>
+      <div class="slider__contents"><img src="{% static 'assets/community/images/people .png' %}">
+        <h2 class="slider__caption">Earn</h2>
+        <p class="slider__txt">Interact with community, get your questions answered, & be inspired.</p>
+      </div>
+    </div>
+  </div>
+
+
+
+    <section class="section-3">
+        <section class="box-3">
+            <div class="content-3">
+                <h1>Tutorials</h1>
+                <h4>Learn From Well Organized and Optimised Tutorials.Start to Learn and code with our beginner-friendly tutorials and examples. Read tutorials, try examples, write programs and apply them to solve problems.Gain practical skills from industry experts and apply them in the real world.
+                </h4>
+                <img src="{% static 'assets/community/images/img-3.jpg' %}" class="img-3-alt" height="200">
+                <div class="cards">
+                    <div class="card-p-1">
+                        <div class="card-1 card">
+                            <h3>Python</h3>
+                        </div>
+                        <div class="card-2 card">
+                            <h3>SQL</h3>
+                        </div>
+                    </div>
+                    <div class="card-p-1">
+                        <div class="card-3 card">
+                            <h3>C++</h3>
+                        </div>
+                        <div class="card-4 card">
+                            <h3>HTML</h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="card_button">
+                    <a href=""><p>Explore All » </p></a>
+                </div> -->
+
+                <br>
+
+                <div class="button-3">
+                    <a class="button">Explore & Learn for Free</a>
+                </div>
+            </div>
+            <div class="img-3">
+                <img src="{% static 'assets/community/images/img-3.jpg' %}">
+            </div>
+        </section>
+    </section>
+
+    <section class="section-3" style="background-color:#f6e4d5;">
+    <section class="extra-section">
+        <h1>All Courses Include</h1>
+        <div class="extra-box">
+            <div class="cont-1 content">
+                <div class="image">
+                <img src="{% static 'assets/community/images/file.svg' %}">
+                </div>
+                <h2>Proffesional PDF</h2>
+                <h4>Professionally rendered PDFs you can download and view anywhere.</h4>
+
+            </div>
+            <div class="cont-1 content">
+                <div class="image">
+                <img src="{% static 'assets/community/images/lock.svg' %}">
+                </div>
+                <h2>DRM Free</h2>
+                <h4>You bought it. You get to keep it.Download it and watch it whenever you want.</h4>
+            </div>
+            <div class="cont-1 content">
+                <div class="image">
+                <img src="{% static 'assets/community/images/message.svg' %}">
+                </div>
+                <h2>Tech Support</h2>
+                <h4>Email support and get help when you’re stuck.</h4>
+            </div>
+        </div>
+    </section>
+</section>
+    <div class="section-extra-alt">
+        <h1>All Courses Include</h1>
+     </div>
+    <div class="slider slider-alt">
+
+
+        <input type="radio" name="slider" title="slide1" checked="checked" class="slider__nav"/>
+        <input type="radio" name="slider" title="slide2" class="slider__nav"/>
+        <input type="radio" name="slider" title="slide3" class="slider__nav"/>
+        <input type="radio" name="slider" title="slide4" class="slider__nav"/>
+        <div class="slider__inner">
+          <div class="slider__contents"><img src="{% static 'assets/community/images/file.svg' %}">
+            <h2 class="slider__caption">Proffesional PDF</h2>
+            <p class="slider__txt">Professionally rendered PDFs you can download and view anywhere.</p>
+          </div>
+          <div class="slider__contents"> <img src="{% static 'assets/community/images/lock.svg' %}">
+            <h2 class="slider__caption">DRM Free</h2>
+            <p class="slider__txt">You bought it. You get to keep it.Download it and watch it whenever you want.</p>
+          </div>
+          <div class="slider__contents"><img src="{% static 'assets/community/images/message.svg' %}">
+            <h2 class="slider__caption">Tech Support</h2>
+            <p class="slider__txt">Email support and get help when you’re stuck.</p>
+          </div>
+          <div class="slider__contents"><img src="{% static 'assets/community/images/file.svg' %}">
+            <h2 class="slider__caption">Proffesional PDF</h2>
+            <p class="slider__txt">Professionally rendered PDFs you can download and view anywhere.</p>
+          </div>
+
+        </div>
+      </div>
+    <section class="section-4">
+        <section class="box-4">
+            <div class="img-4">
+                <img src="{% static 'assets/community/images/img-4.png' %}">
+            </div>
+            <div class="content-4">
+                <!-- <h1>Explore Community Bootcamps</h1> -->
+                <h1>One-on-one live mentorship</h1>
+                <p><img src="{% static 'assets/community/images/debug.svg' %}">&emsp;&ensp;Debug with the help of an expert</p>
+                <p><img src="{% static 'assets/community/images/student.svg' %}">&emsp;&ensp;Personalize your learning experience</p>
+                <p><img src="{% static 'assets/community/images/sheet.svg' %}">&emsp;&ensp;Get answers to complex problems</p>
+
+                <img src="{% static 'assets/community/images/img-4.png' %}" class="img-4-alt" height="290px">
+                <hr>
+                <div class="content-4-2">
+                    <div class="content-4-2-1">
+                        <h3>1.2k+</h3>
+                        <h4>Followers</h4>
+                    </div>
+                    <div class="content-4-2-2">
+                        <h3>10+</h3>
+                        <h4>Bootcamps</h4>
+                    </div>
+                    <div class="content-4-2-3">
+                        <h3>5+</h3>
+                        <h4>Instructors</h4>
+
+
+                    </div>
+
+                </div>
+                <hr>
+                <br>
+                <a class="button">Explore</a>
+            </div>
+        </section>
+    </section>
+    <!-- <section class="section-5">
+        <section class="box-5">
+            <div class="content-5">
+                <h1>Don’t just take our word for it.</h1>
+                <div class="about-sec">
+                    <div class="content-5-flex cont-1">
+                        <div class="img-2x img-5-flex">
+                            <img src="resume .png">
+                        </div>
+                        <h3>“As a manager, DataCamp helps me show my team new packages and new ways to solve problems.”</h3>
+                        <div class="flex-h4">
+                        <h4>Gabriel Lages, Business Intelligence and Analytics Manager, Hotmart</h4>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="content-5-flex cont-2">
+                        <div class="img-2x img-5-flex">
+                            <img src="resume .png">
+                        </div>
+                        <h3>“We think of it as everyone's responsibility in the organization to be more data-driven. After all, every single one
+                            of us is probably touching data in some way, regardless of your role.”</h3>
+                            <div class="flex-h4">
+                        <h4>Rachel Alt-Simmons, Head Of Strategic Design, Data, Pricing And Analytics, AXA XL</h4>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="content-5-flex cont-3">
+                        <div class="img-2x img-5-flex">
+                            <img src="resume .png">
+                        </div>
+                        <h3>“On DataCamp, you learn from the experts. As you are taking courses, you are really learning from the best
+                            instructors in the world.”</h3>
+                            <div class="flex-h4">
+                        <h4>Ofentswe Lebogo, Data Scientist, Council for Scientific and Industrial Research (CSIR)</h4>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </section> -->
+    <!-- <div class="wrapper">
+        <h1>Our Team</h1>
+        <div class="team">
+            <div class="team_member">
+                <div class="team_img">
+                    <img src="pro.jpeg" alt="Team_image">
+                </div>
+                <h3>Jessi</h3>
+                <p class="role">Manager</p>
+                <p class="opt">“As a manager, Techsnap helps me show my team new packages and new ways to solve problems.”</p>
+                <h4>Gabriel Lages, Business Intelligence and Analytics Manager, Hotmart</h4>
+
+            </div>
+            <div class="team_member">
+                <div class="team_img">
+                    <img src="pro.jpeg" alt="Team_image">
+                </div>
+                <h3>Sam</h3>
+                <p class="role">App Developer</p>
+                <p class="opt">“We think of it as everyone's responsibility in the organization to be more data-driven. After all, every single one
+                    of us is probably touching data in some way, regardless of your role.”</p>
+                    <h4>Rachel Alt-Simmons, Head Of Strategic Design, Data, Pricing And Analytics</h4>
+            </div>
+            <div class="team_member">
+                <div class="team_img">
+                    <img src="pro.jpeg" alt="Team_image">
+                </div>
+                <h3>John </h3>
+                <p class="role">Team Lead</p>
+                <p class="opt">“On DataCamp, you learn from the experts. As you are taking courses, you are really learning from the best
+                    instructors in the world.”</p>
+                    <h4>Ofentswe Lebogo, Data Scientist, Council for Scientific and Industrial Research (CSIR)</h4>
+            </div>
+        </div>
+    </div> -->
+    <br>
+
+    <section class="section-7">
+        <section class="box-7">
+            <h1>More things you can do on Techsnap</h1>
+            <br>
+            <div class="content-7">
+                <div class="content-7-1">
+                    <div class="img-7-1">
+                        <img src="{% static 'assets/community/images/step-1.svg' %}">
+                    </div>
+                    <h3>Share Knowledge Via Notebooks</h3>
+                    <div class="btn-learn">
+                        <a href="#" class="button-learn">Learn more <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" fill="currentColor" position="relative" class="bi bi-arrow-right"
+                                viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                            </svg></a>
+                    </div>
+                </div>
+                <div class="content-7-2">
+                    <div class="img-7-2">
+                        <img src="{% static 'assets/community/images/step-2.svg' %}">
+                    </div>
+                    <h3>Join Our Expert Live Sessions</h3>
+                    <div class="btn-learn">
+                        <a href="#" class="button-learn">Learn more <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                            </svg></a>
+                    </div>
+                </div>
+                <div class="content-7-3">
+                    <div class="img-7-3">
+                        <img src="{% static 'assets/community/images/step-3.svg' %}">
+                    </div>
+                    <h3>Be Part Of Our Discuss Forum</h3>
+                    <div class="btn-learn">
+                        <a href="#" class="button-learn">Learn more <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                            </svg></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <section class="section-9">
+        <section class="box-9">
+            <div class="content-9">
+                <div class="last">
+                <h1 style="color:black;">Ready to join...?</h1>
+                <p style="color:black; font-size:16px;font-weight:500;text-align:left">The only way to learn to program is by writing code. We provide a lot of complete examples so that run and edit code on your own.</p>
+                </div>
+                <div class="last-btn">
+                <a href="">Apply</a>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- <section class="section-10">
+        <section class="box-10">
+            <div class="content-10">
+                <h1>Exercises and Quizzes</h1>
+                <h4>Test your skills!</h4>
+            </div>
+            <div class="content-2-1">
+                <div class="flex-box-1">
+                    <h2>Exercises</h2>
+                    <a href="">View</a>
+                </div>
+                <div class="flex-box-2">
+                    <h2>Quizzes</h2>
+                    <a href="">View</a>
+                </div>
+                <div class="flex-box-3">
+                    <h2>Quizzes</h2>
+                    <a href="">View</a>
+                </div>
+            </div>
+        </section>
+    </section> -->
+    <div class="footer_MainBox">
+        <div class="Footer_page">
+            <footer class="Footer_conatiner">
+                <div class="Footer_header">
+                    <img src="{% static 'assets/main/logo.png'%}" alt="Logo">
+                    <br>
+                    <br>
+                    <p>We are here to endure your muddled stages of knowing the trends while pursuing UG-CSE.
+                    </br>we help you to know about trending jobs and required skills for achieving one particular designation</p>
+                <br>
+                <p>We will succour you in submitting your university projects as well as steer you with free tutorials, online courses, live courses and career paths</p>
+            </div>
+            <div class="Footer_columns_holder">
+                <div class="Footer_columns">
+                    <h1>Company</h1>
+                    <a href="{% url 'aboutus' %}">About us</a>
+                    <a href="{% url 'learnerstories' %}">Learner stories</a>
+                    <a href="{% url 'ourpeople' %}">our people</a>
+                    <a href="{% url 'job_test:jobslist' %}">jobs</a>
+                </div>
+                <div class="Footer_columns">
+                    <h1>Resources</h1>
+                    <a href="{% url 'community' %}">Tutorials</a>
+                    <a href="{% url 'careerpath' %}">Career paths</a>
+                    <a href="{% url 'community' %}">Courses</a>
+                    <a href="{% url 'community' %}">Blogs</a>
+                </div>
+                <div class="Footer_columns">
+                    <h1>Support</h1>
+                    <a href="{% url 'contact' %}">Contact us</a>
+                    <a href="">FAQ</a>
+                    <a href="##">Any ideas/Bugs</a>
+                    <a href="">Get Involved</a>
+                </div>
+                <div class="Footer_columns">
+                    <h1>Services</h1>
+                    <a href="##">Startup services</a>
+                    <a href="##">Design services</a>
+                    <a href="##">Mini Projects</a>
+                    <a href="##">Mock interviews</a>
+                </div>
+            </div>
+            <div class="join_our desktop">
+                <p>Join our newsletter</p>
+                <form class="input_holder">
+                    <input type="text">
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </footer>
+        <div class="join_our responsive">
+            <p>Join our newsletter</p>
+            <form class="input_holder">
+                <input type="text">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+        <div class="Privacy_holder">
+            <div class="Privacy_links">
+                <a href="{% url 'privacy' %}">Privacy policy</a>
+                <a href="{% url 'cookies' %}">Cookies Notice</a>
+                <a href="{% url 'security' %}">Security</a>
+                <a href="{% url 'terms' %}">Terms of use</a>
+            </div>
+            <div class="Social-media">
+                <div class="image_conatiner">
+                    <a href="https://www.linkedin.com/company/74741373/">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/768px-LinkedIn_logo_initials.png" id="link">
+                    </a>
+                    <a href="{% url 'contact' %}">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/2560px-Gmail_icon_%282020%29.svg.png" id="link">
+                    </a>
+                    <a href="https://trello.com/b/SMDt9NMY/techsnap-upcoming-releases">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC-APsSZXqFUpTTg9qvGW6D5hERazjQfAMkM0Oz6b9sC3uIwU4-_fD8CatVhbAUG4hz3g&usqp=CAU" id="link">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyRight">
+        Made with 💗 in india © 2021 Techsnap Educations LLP. All Rights
+            Reserved.
+    </div>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+<script>
+new Splide( '.splide', {
+type   : 'loop',
+autoplay: true,
+pagination : false,
+arrows     : false,
+perPage    : 2,
+perMove    : 1,
+focus  : 'center',
+autoplay: true,
+gap    : '1rem',
+breakpoints : {
+    '600': {
+perPage : 1,
+gap    : '1rem'
+    }
+},
+} ).mount();
+</script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 900,
+        offset: 220,
+        easing: 'ease-in-out-quad',
+    });
+
+    const header = document.querySelector('.header');
+    const navLink = document.querySelectorAll('.nav_item');
+    const ham = document.querySelector('.ham');
+
+    window.addEventListener('scroll', () => {
+        const top = window.innerHeight * (15 / 100);
+        if (window.scrollY <= top) {
+            header.style.background = 'rgb(26, 25, 29)';
+            ham.style.background ="transparent";
+
+            header.style.height = '60px';
+            navLink.forEach((i) => {
+                i.style.color = '#fff';
+            });
+        }
+        if (window.scrollY > top) {
+            header.style.background = '#fff';
+            ham.style.background ="#0a33ec";
+            header.style.height = '55px';
+            navLink.forEach((i) => {
+                i.style.color = '#000';
+            });
+        }
+    });
+</script>
+<script>
+        //----------------------------
+
+      const Close=document.querySelector(".Close");
+        const DropMenu =document.querySelector('.dropMenu')
+      ham.addEventListener('click',() => {
+        DropMenu.classList.add("MenuAnimation")
+        console.log('sdsd');
+
+    })
+    Close.addEventListener('click',() => {
+        DropMenu.classList.remove('MenuAnimation')
+
+    })
+//-------
+</script>
+</html>

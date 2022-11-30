@@ -1,0 +1,256 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'assets/contact/css/contact.css' %}">
+    <link rel="stylesheet" href="{% static 'headfoot.css' %}">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <!-- Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Invest</title>
+    
+<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-L4D2PNVR8Z"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-L4D2PNVR8Z');
+	</script>
+</head>
+
+<body>
+    <section
+    class="header">
+    <a href="{% url 'index' %}"><img id='logo' src="{% static 'assets/images/logo.jpg' %}" alt="logo"></a>
+			<div class="navItems">
+				<a href="{% url 'aboutus' %}">About Us</a>
+				<a href="{% url 'boardmembers' %}">Our People</a>
+				<a href="##">Learn</a>
+				<a href="{% url 'job_test:jobslist' %}">Jobs</a>
+				<button class="btn">Get Started</button>
+			</div>
+    <div class="Ham">
+        <img src="{% static 'assets/images/menu.png' %}" alt="Ham" >
+    </div>
+</section>
+<!-- mobile menu --------------------------------------------- -->
+<div class="dropMenu">
+<ul>
+<li><a href="{% url 'aboutus' %}">About Us</a></li>
+<li><a href="{% url 'boardmembers' %}">Our People</a></li>
+<li><a href="##">Learn</a></li>
+<li><a href="{% url 'job_test:jobslist' %}">Jobs</a></li>
+<button class="btn">Get Started</button>
+
+</ul>
+<div class="Close">X</div>
+</div>
+    <section class="contactus">
+        <h1 class="contactus__primary connect__primary">Come Invest on Us</h1>
+        <div class="contactus__row">
+
+            <div class="contactus__item">
+                <hr>
+                <h1 class="contactus__primary">
+                    Just <span class="contactuss__primary-main">write</span> to Us!
+                </h1>
+                <div class="contactus__con-form">
+                    <form class="form" method="POST" action="contact" onsubmit="return submitUserForm();">
+			    {% csrf_token %}
+                        <div class="form__group">
+                            <input id="name" type="text" class="form__input" placeholder="Enter Your Name" required name="name"
+                                oninvalid="this.setCustomValidity('Please Enter Your Name')"
+                                oninput="setCustomValidity('')">
+                            <label class="form__label" for="name">Enter Your Name</label>
+                        </div>
+                        <div class="form__group">
+                            <input id="email" type="email" class="form__input" placeholder="Enter Email" required name="email"
+                                oninvalid="this.setCustomValidity('Please Enter valid email')"
+                                oninput="setCustomValidity('')">
+                            <label class="form__label" for="email">Enter Email</label>
+                        </div>
+                        <div class="form__group">
+                            <textarea class="form__input" type="text" id="msg" name="message" placeholder="Message"
+                                required rows="3" spellcheck="false"></textarea>
+                            <label class="form__label" for="msg">Message</label>
+                        </div>
+                        <div class="form__group">
+                            <div class="g-recaptcha" data-sitekey="6LcLBWwcAAAAAOeCS4m6f4tGR1iyUHxLmQr_VO7Q" data-callback="verifyCaptcha"></div>
+                        </div>
+			    <div id="g-recaptcha-error"></div>
+                        <div class="form__button">
+
+                            <input type='submit' class="form__button-btn" value="Send Message">
+                        </div>
+                </div>
+                </form>
+            </div>
+
+            <div class="contactus__item item2">
+                <hr>
+                <h1 class="contactus__primary">
+                    More ways to <span class="contactuss__primary-main">connect</span>
+                </h1>
+                <div class="contactus__connectgroup">
+                    <h3 class="contactus__tertiary">
+                        Subscribe to our newsletter
+                    </h3>
+                    <p class="contactus__connectgroup-text contactus__newsletter">
+                        Our <a class="contactus__links" href="{% url 'error' %}">Editor's picks newsletter</a> will keep you informed
+                        about the latest trends.
+                    </p>
+                </div>
+                <div class="contactus__connectgroup">
+                    <h3 class="contactus__tertiary">
+                        Follow us on social media
+                    </h3>
+                    <p class="contactus__connectgroup-text contactus__socialmedia">
+                        Join the conversation on <a class="contactus__links" href="error.html">Facebook, </a><a
+                            class="contactus__links" href="{% url 'error' %}">LinkedIn </a>or <a class="contactus__links"
+                            href="{% url 'error' %}">Twitter,</a> or visit us on <a class="contactus__links" href="{% url 'error' %}">YouTube</a>.
+                    </p>
+                </div>
+                <div class="contactus__connectgroup">
+                    <h3 class="contactus__tertiary">
+                        Find an office
+                    </h3>
+                    <p class="contactus__connectgroup-text contactus__office">
+                        With <a class="contactus__links" href="#">one office location</a>we
+                        provide local knowledge with global experience.
+                    </p>
+                </div>
+                <div class="contactus__connectgroup">
+                    <h3 class="contactus__tertiary">
+                        Explore the latest news
+                    </h3>
+                    <p class="contactus__connectgroup-text contactus__news">
+                        Stay up to date with the <a class="contactus__links" href="{% url 'error' %}">latest news</a> from Techsnap— and see
+                        how we’re building a better working world.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="Footer_conatiner">
+	<div class="Footer_header">
+		<a href="{% url 'index' %}"><img src="{% static 'assets/images/logo.jpg' %}" alt="Logo" ></a>
+		<br><br>
+		<p>We are here to endure your muddled stages of knowing the trends while pursuing UG-CSE.</br>we help you to know about trending jobs and required skills</p>
+		<br>
+		<p>We will succour you in submitting your university projects as well as steer you with free tutorials</p>
+	</div>
+	<div class="Footer_columns_holder">
+		<div class="Footer_columns">
+			<h1>Company</h1>
+			<a href="{% url 'aboutus' %}">About us</a>
+			<a href="{% url 'learnerstories' %}">Learner stories</a>
+			<a href="{% url 'boardmembers' %}">our people</a>
+			<a href="{% url 'job_test:jobslist' %}">jobs</a>
+		</div>
+		<div class="Footer_columns">
+			<h1>Resources</h1>
+			<a href="##">Learn</a>
+			<a href="{% url 'careerpath' %}">Career path</a>
+			<a href="##">Internship</a>
+			<a href="##">Blogs</a>
+		</div>
+		<div class="Footer_columns">
+			<h1>Support</h1>
+			<a href="{% url 'contact' %}">Contact us</a>
+			<a href="##">FAQ</a>
+			<a href="{% url 'contact' %}">Any ideas DM us</a>
+			<a href="##">Doc</a>
+		</div>
+		<div class="Footer_columns">
+			<h1>Services</h1>
+			<a href="##">Startup services</a>
+			<a href="{% url 'design' %}">Design services</a>
+			<a href="{% url 'projects' %}">Projects</a>
+			<a href="{% url 'courses' %}">Courses</a>
+		</div>
+	</div>
+</footer>
+<div class="Privacy_holder">
+	<div class="Privacy_links">
+		<a href="{% url 'privacy' %}">Privacy policy</a>
+		<a href="{% url 'cookies' %}">Cookies Notice</a>
+		<a href="{% url 'security' %}">Security</a>
+		<a href="{% url 'terms' %}">Terms of use</a>
+	</div>
+	<div class="Social-media">
+		<a href="https://www.linkedin.com/company/74741373/"><img src="{% static 'assets/images/linkedin.svg' %}"/></a>
+		<a href="https://discord.gg/JWMbQCNZxF/"><img src="{% static 'assets/images/twitter.svg' %}"/></a>
+		<a href="https://www.instagram.com/techsnapofficial/"><img src="{% static 'assets/images/instagram.svg' %}"/></a>
+	</div>
+</div>
+
+    <!--JavaScript link -->
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script src="{% static 'contact.js' %}"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+var recaptcha_response = '';
+function submitUserForm() {
+    if(recaptcha_response.length == 0) {
+        document.getElementById('g-recaptcha-error').innerHTML = '<span style="color:red;">This field is required.</span>';
+        return false;
+    }
+    return true;
+}
+ 
+function verifyCaptcha(token) {
+    recaptcha_response = token;
+    document.getElementById('g-recaptcha-error').innerHTML = '';
+}
+</script>
+    <script>
+        // Animation------------------------------------
+        AOS.init({
+            duration: 900,
+            offset: 220,
+            easing: 'ease-in-out-quad'
+        });
+      //-----scroll-----------------
+      const ham = document.querySelector('.Ham');
+      const Close=document.querySelector(".Close");
+      const DropMenu =document.querySelector('.dropMenu')
+        window.addEventListener('scroll', () => {
+    const top = window.innerHeight * (10 / 100)+300;
+    if (window.scrollY <= top) {
+        document.querySelector(".Scroll").style.display='none';
+    
+    }
+    if (window.scrollY > top) {
+            document.querySelector(".Scroll").style.display='grid';
+    }
+});
+    ham.addEventListener('click',() => {
+        DropMenu.classList.add("MenuAnimation")
+
+    })
+    Close.addEventListener('click',() => {
+        DropMenu.classList.remove('MenuAnimation')
+
+    })
+    </script>
+</body>
+
+</html>

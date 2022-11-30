@@ -1,0 +1,223 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>verification-Newsletter</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="{% static 'assets/newsletter/vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/newsletter/style.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/newsletter/headfoot.css' %}" rel="stylesheet" />
+  <link rel="shortcut icon" type="image/png" href="{% static 'assets/main/favicon.png'%}"/>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-L4D2PNVR8Z"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-L4D2PNVR8Z');
+    </script>
+</head>
+<body>
+
+<div class="dropMenu">
+	<ul>
+		<li><a href="##">Catalog » </a></li>
+		<li><a href="##">Products » </a></li>
+		<li><a href="##">Career paths » </a></li>
+		<li><a href="##">Resources » </a></li>
+		<li><a href="##">For Business » </a></li>
+		<div class="mob1">
+		{% if user.is_authenticated %}
+							<p>Hi, {{user.username}}</p>
+							<a href="{% url 'logout' %}"><button class="btn" id='logout'>LogOut</button></a>
+							{% else %}
+							<a href="{% url 'login' %}"><button class="btn" id="login">LogIn</button></a>
+							</div>
+							<a href="{% url 'register' %}"><button class="btn1" id="btn1">Register</button></a>
+							{% endif %}
+
+	</ul>
+	<div class="Close">X</div>
+</div>
+			<!-- //---------------------------------- -->
+			<div class="header">
+				<div class="sub_header">
+					<div class="logo">
+						<img src="{% static 'assets/main/logo.png'%}" alt="logo" />
+					</div>
+					<div class="menu_item">
+						<ul>
+							<li>
+								<a href="##" class="nav_item">Catalog</a
+								><span class="nav_item">⌵</span>
+							</li>
+							<li>
+								<a href="##" class="nav_item">Products</a
+								><span class="nav_item">⌵</span>
+							</li>
+							<li>
+								<a href="##" class="nav_item">Career paths</a
+								><span class="nav_item">⌵</span>
+							</li>
+							<li>
+								<a href="##" class="nav_item">Resources</a
+								><span class="nav_item">⌵</span>
+							</li>
+							<li>
+								<a href="##" class="nav_item">For Business</a
+								><span class="nav_item">⌵</span>
+							</li>
+
+						</ul>
+						<div class="buttons">
+							{% if user.is_authenticated %}
+							<p>Hi, {{user.username}}</p>
+							<a href="{% url 'logout' %}"><button id='logout'>LogOut</button></a>
+							{% else %}
+							<a href="{% url 'login' %}"><button id="login">LogIn</button></a>
+							<a href="{% url 'register' %}"><button id="register">Register</button></a>
+							{% endif %}
+						</div>
+					</div>
+					<div class="ham">
+						<img src="{% static 'assets/main/menu.png'%}" alt="menu" />
+					</div>
+				</div>
+			</div>
+
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-lg-flex flex-lg-column justify-content-center align-items-stretch pt-5 pt-lg-0 order-2 order-lg-1" data-aos="fade-up">
+          <div>
+            <h1>A verification mail has been sent to you</h1>
+            <h2>please verify it to continue with our Newsletter</h2>
+        </div>
+        </div>
+        <div class="col-lg-6 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2 hero-img" data-aos="fade-up">
+          <img src="{%static 'assets/newsletter/hero-img.png'%}" class="img-fluid" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer_MainBox">
+			<div class="Footer_page">
+				<footer class="Footer_conatiner">
+					<div class="Footer_header">
+						<img src="{% static 'assets/main/logo.png'%}"alt="Logo" />
+						<br /><br />
+						<p>We are here to endure your muddled stages of knowing the trends while pursuing UG-CSE.</br>we help you to know about trending jobs and required skills for achieving one particular designation</p>
+						<br>
+						<p>We will succour you in submitting your university projects as well as steer you with free tutorials, online courses, live courses and career paths</p>
+					</div>
+					<div class="Footer_columns_holder">
+						<div class="Footer_columns">
+							<h1>Company</h1>
+							<a href="{% url 'aboutus' %}">About us</a>
+							<a href="{% url 'learnerstories' %}">Learner stories</a>
+							<a href="{% url 'boardmembers' %}">our people</a>
+							<a href="{% url 'job_test:jobslist' %}">jobs</a>
+						</div>
+						<div class="Footer_columns">
+							<h1>Resources</h1>
+							<a href="##">Tutorials</a>
+							<a href="{% url 'careerpath' %}">Career paths</a>
+							<a href="##">Courses</a>
+							<a href="##">Blogs</a>
+						</div>
+						<div class="Footer_columns">
+							<h1>Support</h1>
+							<a href="{% url 'contact' %}">Contact us</a>
+							<a href="##">FAQ</a>
+							<a href="{% url 'any_bugs' %}">Any ideas/Bugs</a>
+							<a href="{% url 'invest' %}">Get Involved</a>
+						</div>
+						<div class="Footer_columns">
+							<h1>Services</h1>
+							<a href="##">Startup services</a>
+							<a href="##">Design services</a>
+							<a href="##">Mini Projects</a>
+							<a href="##">Mock interviews</a>
+						</div>
+					</div>
+				</footer>
+				<div class="Privacy_holder">
+					<div class="Privacy_links">
+						<a href="{% url 'privacy' %}">Privacy policy</a>
+						<a href="{% url 'cookies' %}">Cookies Notice</a>
+						<a href="{% url 'security' %}">Security</a>
+						<a href="{% url 'terms' %}">Terms of use</a>
+					</div>
+					<div class="Social-media">
+						<div class="image_conatiner">
+							<a href="https://www.linkedin.com/company/74741373/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/768px-LinkedIn_logo_initials.png" id="link" /></a>
+
+							<a href="{% url 'contact' %}"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/2560px-Gmail_icon_%282020%29.svg.png" id="link" /></a>
+
+							<a href="https://trello.com/b/SMDt9NMY/techsnap-upcoming-releases"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC-APsSZXqFUpTTg9qvGW6D5hERazjQfAMkM0Oz6b9sC3uIwU4-_fD8CatVhbAUG4hz3g&usqp=CAU" id="link" /></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="copyRight">
+				Made with 💗 in india © 2021 Techsnap Educations LLP. All Rights
+				Reserved.
+			</div>
+		</div>
+	</body>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+<script>
+new Splide( '.splide', {
+	type   : 'loop',
+	autoplay: true,
+	pagination : false,
+	arrows     : false,
+	perPage    : 2,
+	perMove    : 1,
+	focus  : 'center',
+	autoplay: true,
+	gap    : '1rem',
+	breakpoints : {
+		'600': {
+	perPage : 1,
+	gap    : '1rem'
+		}
+	},
+} ).mount();
+</script>
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+	<script>
+		AOS.init({
+			duration: 900,
+			offset: 220,
+			easing: 'ease-in-out-quad',
+		});
+
+		const header = document.querySelector('.header');
+		const navLink = document.querySelectorAll('.nav_item');
+		const ham = document.querySelector('.ham');
+
+	</script>
+	<script>
+			//----------------------------
+
+		  const Close=document.querySelector(".Close");
+		    const DropMenu =document.querySelector('.dropMenu')
+		  ham.addEventListener('click',() => {
+			DropMenu.classList.add("MenuAnimation")
+			console.log('sdsd');
+
+		})
+		Close.addEventListener('click',() => {
+			DropMenu.classList.remove('MenuAnimation')
+
+		})
+	//-------
+	</script>
+<script src="{% static 'assets/newsletter/main.js' %}"></script>
+</body>
+</html>

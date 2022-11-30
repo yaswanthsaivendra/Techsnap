@@ -1,0 +1,113 @@
+@media screen and (max-width:1240px) {
+    .banner-body-section h1{
+        font-size: 30px;
+        margin-bottom: 12px;
+    }
+    .banner-section p{
+        font-size: 15px;
+        line-height: 22px;
+    }
+}
+
+@media screen and (max-width:1100px) {
+    .banner-section .bottom-left-right-images-section{
+        top: -40.5vw;
+    }   
+}
+@media screen and (max-width:991px) {
+
+    /*banner-section*/
+    .banner-body-section h1{
+        font-size: 24px;
+    }
+    .banner-section .bottom-left-right-images-section{
+        top: -41vw;
+    }
+
+
+    /*course-section*/
+    .course-section{
+        padding: 20px 0;
+        padding-bottom: 30px;
+    }
+    .course-section .course-container{
+        grid-template-columns: 220px 220px 220px 220px;
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+        padding: 10px 40px;
+    }
+    .course-section ul li div{
+        outline: 1px solid black;
+        border-radius: 10px;
+        width: 220px;
+    }
+    .course-section ul li i{
+        padding: 10px;
+        font-size: 10px;
+    }
+    .course-section ul li img{
+        width: 80px;
+    }
+    .course-section ul li h6{
+        font-size: 13px;
+        padding-left: 10px;
+        margin-top: 25px;
+    }
+    .course-section ul li p{
+        font-size: 10px;
+        padding: 2px 10px;
+        line-height: 12px;
+    }
+    .course-section .course-container div ul{
+        padding: 2px 10px;
+        padding-bottom: 10px;
+    }
+    .course-section .course-container div li{
+        width: 8px;
+        border-radius: 100%;
+        height: 8px;
+    }
+    .course-section .course-container div ul h6{
+        font-size: 9px;
+        padding-left: 2px;
+        bottom: 1px;
+    }
+    .course-section .course-container div a{
+        padding: 14px 0;
+        border-radius: 0 15px 0 0;
+        font-size: 12px;
+    }
+    .course-section ul li .java-section img{
+        width: 180px;
+    }
+    .course-section ul li .php-section img{
+        width: 92px;
+    }
+    .course-section ul li .mongo-section img{
+        width: 170px;
+    }
+}
+@media screen and (max-width:768px) {
+    .banner-section{
+        height: auto;
+    }
+    .banner-section .bottom-left-right-images-section img{
+        display: none;
+    }
+    .banner-section .top-left-right-images-section img{
+        display: none;
+    }
+    .banner-body-section {
+        padding: 60px 20px;
+        padding-top: 110px;
+        top: 0;
+    }
+}
+@media screen and (max-width:576px){
+    .course-section .course-container{
+        justify-content: center;
+    }
+    .banner-section p br{
+        display: none;
+    }
+}

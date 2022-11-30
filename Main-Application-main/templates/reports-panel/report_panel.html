@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <nav class='w3-black w3-margin-bottom w3-container w3-padding'>
+        <h3 class='w3-left'>All Posts with reports</h3>
+        <a href={% url 'course-ash' %}>
+            <button class='w3-button w3-margin w3-black w3-border w3-right'>Back to index</button>
+        </a>
+    </nav>
+    <div class='w3-container w3-margin w3-half'>
+        {% for post in posts %}
+            <div class='w3-row w3-border-bottom w3-margin' >
+                <h4 class='w3-left w3-margin-right' >
+                    Post by <e class='w3-text-red'>@{{post.profile.user.username}}</e> titled "<e class='w3-text-blue'>{{post.title}}</e>"
+                </h4>
+                <a href="{% url 'post-reports' post.slug %}">
+                    <button class=' w3-button w3-right w3-round w3-red'>{{post.reports}} Reports</button>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+
+    <script>
+        function showForm(){
+            document.getElementById('plan_form').style.display = "block";
+            document.getElementById('button').style.display = "none";
+        }
+    </script>
+{% endblock %}

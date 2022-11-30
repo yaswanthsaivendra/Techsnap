@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <nav class='w3-black w3-margin-bottom w3-container w3-padding'>
+        <h4 class='w3-left'>Courses Settings >>>>> Course Description</h4>
+        <h4 class='w3-right' >{{creator.username}}</h4>
+        <a href={% url 'course-desc-form' course.slug %}>
+            <button class='w3-button w3-black w3-border w3-right'>Back</button>
+        </a>
+    </nav>
+    <div class='w3-padding'>
+    <div class='w3-container w3-padding w3-border w3-round w3-half'>
+        <h4>Title : {{course.course_title}}</h4>
+        <h4>Instructor username : {{course.instructor.user.username}}</h4>
+        <h4>Overview : {{course.course_overview}}</h4>
+        <h4>Duration : {{course.course_duration}}</h4>
+        <h4>Price : {{course.course_price}}</h4>
+        <h4>Level : {{course.course_level}}</h4>
+        <img class='w3-img w3-border w3-round-large w3-padding' src="{{course.course_img.url}}" style="width:90%" />
+    </div>
+    <div class='w3-container w3-padding w3-half '>
+        <button id="button" onclick="showForm();" class=' w3-round w3-button w3-blue'>
+            Update {{course.course_title}}
+        </button>
+        <form id="course_form" style="display:none;" enctype='multipart/form-data' method='POST' action="{% url 'update-obj' course.slug 'course' course.id %}">
+            <h5 class='w3-center'>Update Course</h5>
+            {% csrf_token %}
+            {{form.media}}
+            {{ form|crispy }}
+            <button style='width:100%;' type='submit' class='w3-margin w3-round w3-green w3-button' >Update</button>
+        </form>
+    </div>
+    </div>
+
+    <script>
+        function showForm(){
+            document.getElementById('course_form').style.display = "block";
+            document.getElementById('button').style.display = "none";
+        }
+    </script>
+{% endblock %}

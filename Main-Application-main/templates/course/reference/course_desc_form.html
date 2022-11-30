@@ -1,0 +1,179 @@
+{% extends '../base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <nav class='w3-black w3-round-large w3-margin w3-container w3-padding'>
+        <h4 class='w3-left'>{{course.course_title}}</h4>
+        <h4 class='w3-right' >{{creator.user.username}}</h4>
+    </nav>
+    <div id='course' class='w3-container w3-center w3-margin w3-padding w3-round w3-border'>
+        <button id="button" onclick="showForm();" class=' w3-round w3-button w3-blue'>
+            Update Course Details
+        </button>
+        <form  id="course_form" style="display:none;"  enctype='multipart/form-data' method='POST' action="{% url 'update-obj' course.slug 'course' course.id %}">
+            <h3 class='w3-center'>Update Course {{course.course_title}}</h3>
+            {% csrf_token %}
+            {{ course_form|crispy }}
+            <button type='submit' style="width:100%;" class='w3-margin w3-round w3-green w3-button' >Update Course</button>
+        </form>
+    </div>
+
+    <div id='description' class='w3-container w3-center w3-margin w3-padding w3-row w3-round w3-border'>
+        {% if description %}
+        <form enctype='multipart/form-data' method='POST' action="{% url 'update-obj' course.slug 'description' description.id %}">
+            <h3 class='w3-center'>Update Description {{course.course_title}}</h3>
+            {% csrf_token %}
+            {{desc_form.media}}
+            {{ desc_update_form|crispy }}
+        {% else %}
+        <form enctype='multipart/form-data' method='POST' action="{% url 'create-obj' course.slug 'description'  %}">
+            <h3 class='w3-center'>Create Description for {{course.course_title}}</h3>
+            {% csrf_token %}
+            {{desc_form.media}}
+            {{ desc_form|crispy }}
+        {% endif %}
+            <button type='submit' style="width:100%;" class='w3-margin w3-round w3-green w3-button' >Submit Description</button>
+        </form>
+    </div>
+
+    <div id='units' class='w3-padding w3-row w3-border-bottom'>
+        <div class='w3-container w3-padding w3-half'>
+            {% for unit in units %}
+                <div class='w3-row' >
+                    <a href="{% url 'update-unit' course.slug unit.slug %}">
+                        <h5 class='w3-left w3-text-blue w3-margin-right' >{{unit.title}}</h5>
+                    </a>
+                    <a href="{% url 'delete-unit' unit.id %}">
+                        <button class=' w3-button w3-large w3-round w3-red'>Delete</button>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        <div class='w3-container w3-padding w3-half w3-border'>
+            <form enctype='multipart/form-data' method='POST' action="{% url 'create-obj' course.slug 'unit' %}">
+                <h5 class='w3-center'>Create New Unit</h5>
+                {% csrf_token %}
+                {{ unit_form|crispy }}
+                <button type='submit' class='w3-margin w3-green w3-button' >Create</button>
+            </form>
+        </div>
+    </div>
+
+    <div id='anouncements' class='w3-padding w3-row w3-border-bottom'>
+        <h3>Anouncement in {{course.course_title}}</h3>
+        <div class='w3-container w3-padding w3-quarter'>
+            {% for anouncement in anouncements %}
+                <div class='w3-row' >
+                    <a href='#'>
+                        <h5 class='w3-left w3-text-blue w3-margin-right' > by {{anouncement.instructor.username}}</h5>
+                    </a>
+                    <a href="{% url 'delete-anouncement' anouncement.id %}">
+                        <button class=' w3-button w3-large w3-round w3-red'>Delete</button>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        <div class='w3-container w3-padding w3-threequarter w3-border'>
+            <form enctype='multipart/form-data' method='POST' action="{% url 'create-obj' course.slug 'anouncement' %}">
+                <h5 class='w3-center'>Create New Anouncement</h5>
+                {% csrf_token %}
+                {{ anouncement_form|crispy }}
+                <button type='submit' class='w3-margin w3-green w3-button' >Create</button>
+            </form>
+        </div>
+    </div>
+
+    <div id='rating' class='w3-padding w3-row w3-border-bottom'>
+        {% if rating %}
+        <form enctype='multipart/form-data' method='POST' action="{% url 'update-obj' course.slug 'rating' rating.id %}">
+            <h5 class='w3-center'>Update Rating</h5>
+            {% csrf_token %}
+            {{ rating_update_form|crispy }}
+        {% else %}
+        <form enctype='multipart/form-data' method='POST' action="{% url 'create-obj' course.slug 'rating'  %}">
+            <h5 class='w3-center'>Create Rating</h5>
+            {% csrf_token %}
+            {{ rating_form|crispy }}
+        {% endif %}
+            <button type='submit' class='w3-margin w3-green w3-button' >Submit Rating</button>
+        </form>
+    </div>
+
+    <div id='review' class='w3-padding w3-row w3-border-bottom'>
+        <h3>Review for {{course.course_title}}</h3>
+        <div class='w3-container w3-padding w3-half'>
+            {% for review in reviews %}
+                <div class='w3-row' >
+                    <a href="{% url 'update-obj' course.slug 'review' review.id %}" >
+                        <h5 class='w3-left w3-text-blue w3-margin-right' >by {{review.name}}</h5>
+                    </a>
+                    <a href="{% url 'delete-review' review.id %}">
+                        <button class=' w3-button w3-large w3-round w3-red'>Delete</button>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        <div class='w3-container w3-padding w3-half w3-border'>
+            <form enctype='multipart/form-data' method='POST' action="{% url 'create-obj' course.slug 'review' %}">
+                <h5 class='w3-center'>Create New Review</h5>
+                {% csrf_token %}
+                {{ review_form|crispy }}
+                <button type='submit' class='w3-margin w3-green w3-button' >Create</button>
+            </form>
+        </div>
+    </div>
+
+    <div id='testimonial' class='w3-padding w3-row w3-border-bottom'>
+        <div class='w3-container w3-padding w3-half'>
+            {% for testimonial in testimonials %}
+                <div class='w3-row' >
+                    <a href="{% url 'update-obj' course.slug 'testimonial' testimonial.id %}" >
+                        <h5 class='w3-left w3-text-blue w3-margin-right' >Testimonial by {{testimonial.name}}</h5>
+                    </a>
+                    <a href="{% url 'delete-testimonial' testimonial.id %}">
+                        <button class=' w3-button w3-large w3-round w3-red'>Delete</button>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        <div class='w3-container w3-padding w3-half w3-border'>
+            <form enctype='multipart/form-data' method='POST' action="{% url 'create-obj' course.slug 'testimonial' %}">
+                <h5 class='w3-center'>Create New Testimonial</h5>
+                {% csrf_token %}
+                {{ testimonial_form|crispy }}
+                <button type='submit' class='w3-margin w3-green w3-button' >Create</button>
+            </form>
+        </div>
+    </div>
+
+    <div id='faq' class='w3-padding w3-row w3-border-bottom'>
+        <div class='w3-container w3-padding w3-half'>
+            {% for faq in faqs %}
+                <div class='w3-row' >
+                    <a href="{% url 'update-obj' course.slug 'faq' faq.id %}">
+                        <h5 class='w3-left w3-text-blue w3-margin-right' >{{faq.question}}</h5>
+                    </a>
+                    <a href="{% url 'delete-faq' faq.id %}">
+                        <button class=' w3-button w3-large w3-round w3-red'>Delete</button>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        <div class='w3-container w3-padding w3-half w3-border'>
+            <form enctype='multipart/form-data' method='POST' action="{% url 'create-obj' course.slug 'faq' %}">
+                <h5 class='w3-center'>Create New Frequently Asked Question</h5>
+                {% csrf_token %}
+                {{ faq_form|crispy }}
+                <button type='submit' class='w3-margin w3-green w3-button' >Create</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function showForm(){
+            document.getElementById('course_form').style.display = "block";
+            document.getElementById('button').style.display = "none";
+        }
+    </script>
+{% endblock %}

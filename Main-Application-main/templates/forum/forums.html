@@ -1,0 +1,87 @@
+{% extends './forum_base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="subforum">
+        {% if forums %}
+        <div class="subforum-title">
+            <h1>General Information</h1>
+        </div>
+        <table class="table table-primary table-striped table-bordered border-secondary">
+            <tbody>
+                {% for forum in forums %}
+                <tr>
+                    <td>
+                        <i class="fa fa-gamepad"></i>
+                    </td>
+                    <td>
+                        <h4>
+                            <a href="{{forum.get_url}}">{{forum.title}}</a>
+                        </h4>
+                        <p>Description: {{forum.description}}</p>
+                    </td>
+                    <td>
+                        <span>{{forum.num_posts}} Posts</span>
+                    </td>
+                    <td>
+                        {% if forum.last_post %}
+                        <b>
+                            <a href="{{forum.last_post.get_url}}">Last post</a>
+                        </b>
+                        by
+                        <a href="">{{forum.last_post.user.fullname|title}}</a>
+                        <br>
+                        on
+                        <small>{{forum.last_post.date|date}}</small>
+                        {% else %}
+                        <span>No posts in this category.</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <div class="subforum-title">
+            <h1>
+                <i class="fa fa-frown-o"></i>
+                &nbsp;You have no posts yet.
+            </h1>
+        </div>
+        {% endif %}
+    </div>
+</div>
+<div class="forum-info bg-light mx-auto my-5 align-center container border border-primary">
+    <div class="chart">
+        TechSnap Forum - Stats &nbsp;
+        <i class="fa fa-bar-chart"></i>
+    </div>
+    <span>
+        <u>{{num_posts}}</u>
+        Posts in
+        <u>{{num_categories}}</u>
+        Categories by
+        <u>{{num_users}}</u>
+        Members.
+    </span>
+    <br>
+    {% if forums %}
+    <span>
+        Latest post:
+        <b>
+            <a href="{{last_post.get_url}}">{{last_post.title}}</a>
+        </b>
+        on {{last_post.date|date}} By
+        <a href="">{{last_post.user.fullname|title}}</a>
+    </span>
+    .
+    <br>
+    <span>
+        Check
+        <a href="{% url 'latest_posts' %}">the latest posts</a>
+        .
+    </span>
+    <br>
+    {% endif %}
+</div>
+{% endblock content %}

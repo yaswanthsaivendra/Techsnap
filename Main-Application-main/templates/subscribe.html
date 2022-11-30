@@ -1,0 +1,185 @@
+{% extends 'footer.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>{% block title %}Subscribe-Newsletter{% endblock title %}</title>
+  {% block css %}
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="{% static 'assets/newsletter/vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/newsletter/style.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/newsletter/headfoot.css' %}" rel="stylesheet" />
+  <link rel="shortcut icon" type="image/png" href="{% static 'assets/main/favicon.png'%}"/>
+  {% endblock css %}
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  {% block google_tags %}
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-L4D2PNVR8Z"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-L4D2PNVR8Z');
+    </script>
+	{% endblock google_tags %}
+</head>
+<body>
+{% block body %}
+<div class="dropMenu">
+	<ul>
+		<li><a href="##">Catalog » </a></li>
+		<li><a href="##">Products » </a></li>
+		<li><a href="##">Career paths » </a></li>
+		<li><a href="##">Resources » </a></li>
+		<li><a href="##">For Business » </a></li>
+		<div class="mob1">
+		{% if user.is_authenticated %}
+							<p>Hi, {{user.username}}</p>
+							<a href="{% url 'logout' %}"><button class="btn" id='logout'>LogOut</button></a>
+							{% else %}
+							<a href="{% url 'login' %}"><button class="btn" id="login">LogIn</button></a>
+							</div>
+							<a href="{% url 'register' %}"><button class="btn1" id="btn1">Register</button></a>
+							{% endif %}
+
+	</ul>
+	<div class="Close">X</div>
+</div>
+			<!-- //---------------------------------- -->
+			<div class="header">
+				<div class="sub_header">
+					<div class="logo">
+						<img src="{% static 'assets/main/logo.png'%}" alt="logo" />
+					</div>
+					<div class="menu_item">
+						<ul>
+							<li>
+								<a href="##" class="nav_item">Catalog</a
+								><span class="nav_item">⌵</span>
+							</li>
+							<li>
+								<a href="##" class="nav_item">Products</a
+								><span class="nav_item">⌵</span>
+							</li>
+							<li>
+								<a href="##" class="nav_item">Career paths</a
+								><span class="nav_item">⌵</span>
+							</li>
+							<li>
+								<a href="##" class="nav_item">Resources</a
+								><span class="nav_item">⌵</span>
+							</li>
+							<li>
+								<a href="##" class="nav_item">For Business</a
+								><span class="nav_item">⌵</span>
+							</li>
+
+						</ul>
+						<div class="buttons">
+							{% if user.is_authenticated %}
+							<p>Hi, {{user.username}}</p>
+							<a href="{% url 'logout' %}"><button id='logout'>LogOut</button></a>
+							{% else %}
+							<a href="{% url 'login' %}"><button id="login">LogIn</button></a>
+							<a href="{% url 'register' %}"><button id="register">Register</button></a>
+							{% endif %}
+						</div>
+					</div>
+					<div class="ham">
+						<img src="{% static 'assets/main/menu.png'%}" alt="menu" />
+					</div>
+				</div>
+			</div>
+
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-lg-flex flex-lg-column justify-content-center align-items-stretch pt-5 pt-lg-0 order-2 order-lg-1" data-aos="fade-up">
+          <div>
+            <h1>Subscribe to our Newsletter</h1>
+            <h2>Stay up to date! Get all the latest posts delivered straight to your inbox.</h2>
+        </div>
+		<form method='POST' action={% url 'subscribe' %}>
+			{% csrf_token %}
+		<div text-align="left" class="name1">
+			<input type="text" value="Name" name='name' onfocus="if(this.value==this.defaultValue)this.value=''"
+			onblur="if(this.value=='')this.value=this.defaultValue" required>
+			{% if email %}
+			<input type="text" value="{{email}}" name='email' onfocus="if(this.value==this.defaultValue)this.value=''"
+			onblur="if(this.value=='')this.value=this.defaultValue" required>
+			{% else %}
+			<input type="text" value="Email" name='email' onfocus="if(this.value==this.defaultValue)this.value=''"
+			onblur="if(this.value=='')this.value=this.defaultValue" required>
+			{% endif %}
+		</div>
+		{%for message in messages %}
+		<h5> {{ message }} </h5>
+		{%endfor%}
+		<div class="name"><input type="checkbox" id= "agree" value="I agree terms & conditions" style="text-align:center;" required>
+			<label for="agree" >I agree terms & conditions</label>
+        </div>
+		<div class=name2><a href="#"><input type="submit" value="Subscribe"></a></div></div></form>
+        <div class="col-lg-6 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2 hero-img" data-aos="fade-up">
+          <img src="{%static 'assets/newsletter/hero-img.png'%}" class="img-fluid" alt="">
+        </div>
+      </div>
+    </div>
+  </section><!-- End Hero -->
+
+  {% endblock body %}
+	</body>
+	{% block script %}
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+<script>
+new Splide( '.splide', {
+	type   : 'loop',
+	autoplay: true,
+	pagination : false,
+	arrows     : false,
+	perPage    : 2,
+	perMove    : 1,
+	focus  : 'center',
+	autoplay: true,
+	gap    : '1rem',
+	breakpoints : {
+		'600': {
+	perPage : 1,
+	gap    : '1rem'
+		}
+	},
+} ).mount();
+</script>
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+	<script>
+		AOS.init({
+			duration: 900,
+			offset: 220,
+			easing: 'ease-in-out-quad',
+		});
+
+		const header = document.querySelector('.header');
+		const navLink = document.querySelectorAll('.nav_item');
+		const ham = document.querySelector('.ham');
+
+	</script>
+	<script>
+			//----------------------------
+
+		  const Close=document.querySelector(".Close");
+		    const DropMenu =document.querySelector('.dropMenu')
+		  ham.addEventListener('click',() => {
+			DropMenu.classList.add("MenuAnimation")
+			console.log('sdsd');
+
+		})
+		Close.addEventListener('click',() => {
+			DropMenu.classList.remove('MenuAnimation')
+
+		})
+	//-------
+	</script>
+<script src="{% static 'assets/newsletter/main.js' %}"></script>
+{% endblock script %}
+</html>

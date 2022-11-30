@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class='w3-padding' >
+    <header class='w3-center w3-pading w3-blue w3-xlarge w3-margin'>
+        Courses
+    </header>
+    {% for course in courses %}
+        <div class="w3-white w3-margin w3-border w3-quarter w3-padding w3-round-large" >
+            <img style="width:100%;" src="{{course.course_img.url}}" class='w3-img' />
+                <h5 class='w3-center'><e class='w3-border w3-padding'>{{course.course_title}}</e></h5>
+                <p class='w3-small w3-center'>{{course.course_level}}</p>
+                <p class='w3-text-grey'>{{course.course_durstion}}</p>
+            <button 
+                class='w3-button w3-blue w3-left' 
+                onclick="
+                            document.getElementById('myModal').style.display='block';
+                            document.getElementById('content').innerHTML='{{course.course_overview}}'
+                        " >
+                Overview
+            </button>
+            <a href="{% url 'course-description' course.slug %}" >
+            <button class='w3-button w3-teal w3-right' >Description</button>
+            </a>
+        </div>
+    {% endfor %}
+
+    <div id="myModal" class="w3-modal">
+        <div class="w3-display-middle w3-padding" >
+          <button class='w3-right w3-button w3-round-large w3-red w3-padding' onclick="document.getElementById('myModal').style.display='none'" >&times;</button>
+          <div class="w3-margin w3-padding w3-round-large w3-teal" id="content">
+
+          </div>
+        </div>
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+        modal.style.display = 'none';
+        document.getElementByClassName("hidden").style.display = 'none';
+
+    </script>
+</div>
+{% endblock %}

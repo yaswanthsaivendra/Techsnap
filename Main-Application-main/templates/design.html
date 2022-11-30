@@ -1,0 +1,389 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<!-- Aos styled_link -->
+		<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+		<title>UI-UX services</title>
+		<link href="{% static 'assets/uiux/uiux.css' %}" rel="stylesheet" />
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+    crossorigin="anonymous"
+    />
+    <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"
+    ></script>
+
+    <script src="{% static 'js/modernizr.js' %}"></script>
+    <link rel="icon" type="image/png" href="{% static 'favicon.png' %}">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-L4D2PNVR8Z"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-L4D2PNVR8Z');
+	</script>
+
+</head>
+
+<body>
+		<section
+			class="header">
+			<a href="{% url 'index' %}"><img id='logo' src="{% static 'assets/images/logo.jpg' %}" alt="logo"></a>
+			<div class="navItems">
+				<a href="{% url 'aboutus' %}">About Us</a>
+				<a href="">Our People</a>
+				<a href="##">Learn</a>
+        <a href="{% url 'job_test:jobslist' %}">Jobs</a>
+				<button class="navbtn">Get Started</button>
+			</div>
+			<div class="Ham">
+				<img src="{% static 'assets/images/menu.png' %}" alt="Ham" >
+			</div>
+		</section>
+		<!-- mobile menu --------------------------------------------- -->
+<div class="dropMenu">
+	<ul>
+		<li><a href="{% url 'aboutus' %}">About Us</a></li>
+		<li><a href="">Our People</a></li>
+		<li><a href="##">Learn</a></li>
+    <li><a href="{% url 'job_test:jobslist' %}">Jobs</a></li>
+		<button class="navbtn">Get Started</button>
+
+	</ul>
+	<div class="Close">X</div>
+</div>
+<!-- -------------------------------------------- -->
+		<div class="body">
+            <div class="page">
+                <!-- head -->
+            <div class="head">
+                <div class="container  col-lg-10 mx-auto" style="padding-top: 14%;padding-bottom: 5%;">
+
+                  <div class="row">
+                    <h1 class="headtext col-lg-6 col-md-6 ">The best products<br> Don't focus on features They focus on design</h1>
+
+                  </div>
+                  <div class="row" style="padding: 5% 0 3% 0;">
+                    <h4 class="headsubtext col-lg-7">Design is not just what it looks like and feels like <br>Design is how it works</h4>
+                  </div>
+                 <div class="row " style="width: fit-content;padding-left: 2%;">
+                    <button class="navbtn">Schedule a meeting</button>
+                 </div>
+                </div>
+            </div>
+            <!-- design strategy -->
+            <div class="design" >
+            <div class="row  col-lg-12 col-md-10 col-sm-10 col-10 mx-auto" style="padding-bottom: 5%;text-align: center;padding-bottom: 10%; ">
+              <div class="row">
+
+            <h1 class="getstartedtext">Design is where Science and Art break even !</h1>
+            <p style="color: white;text-align: center;">Creativity, customer focus, technological innovation at its finest with well-defined design processes at Techsnap</p>
+              </div>
+
+            <div class="row col-lg-10 col-md-10 col-sm-8 col-8 mx-auto" >
+            <div class="col-lg-3 col-md-3 col-sm-6 col-12 container box textimages"  >
+              <img src="{% static 'assets/uiux/images/step1_s1.jpg' %}" alt="Avatar" class="finalimg">
+              <p class="sub">Analysis</p>
+              <div class="overlay">
+                <div class="text">
+                  <p>Brainstrom Your Idea</p>
+                  <hr>
+                  <p>Design Requirements</p>
+                  <hr>
+                  <p>Target Audiemce Analysis</p>
+                  <hr>
+                  <p>Competitive Analysis</p>
+                  <hr>
+                  <p>UI/UX Consulting</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-12 container box textimages" >
+              <img src="{% static 'assets/uiux/images/step2_s1.jpg' %}" alt="Avatar" class="finalimg">
+              <p class="sub">Design</p>
+              <div class="overlay">
+                <div class="text">
+                  <p>Wireframe</p>
+                  <hr>
+                  <p>Website Design</p>
+                  <hr>
+                  <p>Mobile App Design</p>
+                  <hr>
+                  <p>Logo Design</p>
+                  <hr>
+                  <p>Brochure Design</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-12 container box textimages" >
+              <img src="{% static 'assets/uiux/images/step3_s1.jpg' %}" alt="Avatar" class="finalimg">
+              <p class="sub">HTML</p>
+              <div class="overlay">
+                <div class="text">
+                  <p>Clickable Prototype</p>
+                  <hr>
+                  <p>HTML5/CSS3</p>
+                  <hr>
+                  <p>Responsive HTML</p>
+                  <hr>
+                  <p>HTML Template</p>
+                  <hr>
+                  <p>Theme Custamization</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-12 container box textimages" >
+              <img src="{% static 'assets/uiux/images/step4_s1.jpg' %}" alt="Avatar" class="finalimg">
+              <p class="sub qua">Quality Assurance</p>
+              <div class="overlay">
+                <div class="text">
+                  <p>Define Test Strategy</p>
+                  <hr>
+                  <p>Cross Browser Testing</p>
+                  <hr>
+                  <p>Device Compatibility</p>
+                  <hr>
+                  <p>Usability Testing</p>
+                  <hr>
+                  <p>Management</p>
+                </div>
+              </div>
+            </div>
+        </div>
+
+            </div>
+            </div>
+
+            <!-- getstarted -->
+            <div class="sectionthree">
+            <div class="row getstarted">
+            <h1 class="getstartedtext" style="padding-top: 8%;padding-bottom: 2%;" >Get started today</h1>
+            </div>
+            <div class="row col-lg-12 col-md-10 col-sm-10 col-10 mx-auto" style="padding-top: 5%;padding-left:5%;text-align: left;">
+              <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <img src="{% static 'assets/uiux/images/Contact-Us.svg' %}" class="images">
+                <h4 class="imgsubtext">1. Contact Us</h4>
+                <p class="imgminitxt" >Fill the contact form provided by Techsnap, book a calendar and schedule a Zoom Meeting with our experts.</p>
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <img src="{% static 'assets/uiux/images/Get-a-Consultation.svg' %}" class="images">
+                <h4 class="imgsubtext">2. Get a Consultation</h4>
+                <p class="imgminitxt">Get on a call with our team to know the feasibility of your project idea.</p>
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <img src="{% static 'assets/uiux/images/Get-aCost-Estimation.svg' %}" class="images">
+                <h4 class="imgsubtext">3. Get a Cost Estimate</h4>
+                <p class="imgminitxt">Based on the project requirements, we share a project proposal with budget and timeline estimates.</p>
+             </div>
+              <div class="col-lg-3 col-md-6 col-sm-6 col-12" style="
+              padding-bottom: 5%;">
+                <img src="{% static 'assets/uiux/images/Project-Kick-off.svg' %}" class="images">
+                <h4 class="imgsubtext">4. Project Kickoff</h4>
+                <p class="imgminitxt">Once the project is signed, we bring together a team from a range of disciplines to kick start your project.</p>
+              </div>
+            </div>
+            </div>
+            <!-- uiux design -->
+            <main id="main-404-content" class="main-content-particle-js">
+            <div class="col-lg-10 col-md-10 col-sm-10 col-10 mx-auto" style="padding-top: 3%;padding-bottom:3% ;">
+              <div class="row  uidesign">
+                <h1 class="uitext">Our UI/UX Design Services</h1>
+              </div>
+              <div class="row" style="text-align: center;padding-top: 5%;">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+            <img src="{% static 'assets/uiux/images/Ethereum-Contract-Compatibility.svg' %}" class="uiimages">
+            <h4 class="imgsubtext">High-fidelity Prototype</h4>
+            <p class="imgminitxt">We create a prototype to demonstrate the behavior of the application and show how it would work in reality. We design fully-interactive prototypes to give you an idea of the workflow of your project.</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                  <img src="{% static 'assets/uiux/images/Telemedicine-Software-Development-1.svg' %}" class="uiimages">
+                  <h4 class="imgsubtext">Wireframes</h4>
+                  <p class="imgminitxt">We design wireframes to provide you an outline of a mobile or web app by demonstrating content, structure and functionality that will exist on your app’s and software’s pages.</p>
+                      </div>
+              </div>
+              <div class="row" style="text-align: center;">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+            <img src="{% static 'assets/uiux/images/Development.svg' %}" class="uiimages">
+            <h4 class="imgsubtext">Mobile and Web User Interface Design</h4>
+            <p class="imgminitxt">We deliver our best efforts to ingeniously convert your ideas and thoughts into a clear and fully functional design. We design user interfaces that conform to what the user requires and understands.</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                  <img src="{% static 'assets/uiux/images/Mobile-Apps-1.svg' %}" class="uiimages">
+                  <h4 class="imgsubtext">Cross-Platform Compatibility</h4>
+                  <p class="imgminitxt">Focusing on the core principles of UI design and functionality implementation, we design and deliver responsive and cross-platform compatible designs to ensure that it works across different platforms.</p>
+                      </div>
+              </div>
+              <div class="row" style="text-align: center;">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+            <img src="{% static 'assets/uiux/images/Technical-Component-Definition.svg' %}" class="uiimages">
+            <h4 class="imgsubtext">Technical Design</h4>
+            <p class="imgminitxt">Our team can also create a technical design that helps our clients understand the technical workflow of the project. In technical design, we define technology stack for all the components of the app, third-party integrations and interactions of services and APIs.</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                  <img src="{% static 'assets/uiux/images/Software-redesign.svg' %}" class="uiimages">
+                  <h4 class="imgsubtext">Software Redesign</h4>
+                  <p class="imgminitxt">If you already have an app or a website but it does not look appealing or professional, we can help you by re-designing the entire website or application. After evaluating your app and understanding the users, we make your software look engaging and beautiful.</p>
+                      </div>
+              </div>
+            </div>
+            </main>
+            <!-- technology -->
+            <div class="technology" style="background-color: rgb(60,64,67);">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-10 mx-auto">
+              <div class="row  uidesign" >
+                <h1 class="uitext" style="padding-bottom:1%;">Technology Expertise</h1>
+              </div>
+              <div class="row" style="text-align: center;padding-bottom:3%">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-2">
+                  <img src="{% static 'assets/uiux/images/ps.png' %}" class="icons">
+                  <img src="{% static 'assets/uiux/images/fig.png' %}" class="icons" style="padding-top:6%">
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-2">
+                  <img src="{% static 'assets/uiux/images/xd.png' %}" class="icons">
+                  <img src="{% static 'assets/uiux/images/icn_invision.png' %}" class="icons" style="padding-top:6%">
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-2">
+                  <img src="{% static 'assets/uiux/images/ai.png' %}" class="icons">
+                  <img src="{% static 'assets/uiux/images/icn_sketch.png' %}"  class="icons" style="padding-top:6%">
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-2">
+                  <img src="{% static 'assets/uiux/images/ae.png' %}" class="icons">
+                  <img src="{% static 'assets/uiux/images/icn_HTML.png' %}" class="icons" style="padding-top:6%">
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-2">
+                  <img src="{% static 'assets/uiux/images/pr.png' %}" class="icons">
+                  <img src="{% static 'assets/uiux/images/icn_CSS.png' %}" class="icons" style="padding-top:6%">
+                </div>
+              </div>
+            </div>
+        </div>
+            <!-- registration -->
+            <div class="col-lg-8 col-md-10 col-sm-10 col-10 mx-auto" style="padding-top: 5%;text-align: center;">
+            <div class="row">
+              <div class="col-lg-3 col-md-4 col-sm-12 col-12">
+                <img src="{% static 'assets/uiux/images/madam.png' %}">
+              </div>
+              <div class="col-lg-9 col-md-4 col-sm-6 col-6" style="padding-top: 9%;text-align: center;">
+                <h3 class="formhead"><a href="{% url 'contact' %}" style="text-decoration: none;color: rgb(194, 82, 41);">Contact Us</a></h3>
+                <h1 style="color: white;">What can we help you with?</h1>
+              </div>
+            </div><br>
+            </div><br>
+
+            </div>
+        </div>
+
+		<!-- Main Conatiner ------------------------------------------------------------------------------------------------ -->
+<!-- ---------------------------------------Our footer--------------------------------------------------------------- -->
+    <!-- footer -->
+    <footer class="Footer_conatiner">
+	<div class="Footer_header">
+		<a href="{% url 'index' %}"><img src="{% static 'assets/images/logo.jpg' %}" alt="Logo" ></a>
+		<br><br>
+		<p>We are here to endure your muddled stages of knowing the trends while pursuing UG-CSE.</br>we help you to know about trending jobs and required skills</p>
+		<br>
+		<p>We will succour you in submitting your university projects as well as steer you with free tutorials</p>
+	</div>
+	<div class="Footer_columns_holder">
+		<div class="Footer_columns">
+			<h1>Company</h1>
+			<a href="{% url 'aboutus' %}">About us</a>
+			<a href="{% url 'learnerstories' %}">Learner stories</a>
+			<a href="">our people</a>
+			<a href="{% url 'job_test:jobslist' %}">jobs</a>
+		</div>
+		<div class="Footer_columns">
+			<h1>Resources</h1>
+			<a href="##">Learn</a>
+			<a href="{% url 'careerpath' %}">Career path</a>
+			<a href="##">Internship</a>
+			<a href="##">Blogs</a>
+		</div>
+		<div class="Footer_columns">
+			<h1>Support</h1>
+			<a href="{% url 'contact' %}">Contact us</a>
+			<a href="##">FAQ</a>
+			<a href="{% url 'contact' %}">Any ideas DM us</a>
+			<a href="##">Doc</a>
+		</div>
+		<div class="Footer_columns">
+			<h1>Services</h1>
+			<a href="##">Startup services</a>
+			<a href="{% url 'design' %}">Design services</a>
+			<a href="">Projects</a>
+			<a href="">Courses</a>
+		</div>
+	</div>
+</footer>
+<div class="Privacy_holder">
+	<div class="Privacy_links">
+		<a href="{% url 'privacy' %}">Privacy policy</a>
+		<a href="{% url 'cookies' %}">Cookies Notice</a>
+		<a href="{% url 'security' %}">Security</a>
+		<a href="{% url 'terms' %}">Terms of use</a>
+	</div>
+	<div class="Social-media">
+		<a href="https://www.linkedin.com/company/74741373/"><img src="{% static 'assets/images/linkedin.svg' %}"/></a>
+		<a href="https://discord.gg/JWMbQCNZxF/"><img src="{% static 'assets/images/twitter.svg' %}"/></a>
+		<a href="https://www.instagram.com/techsnapofficial/"><img src="{% static 'assets/images/instagram.svg' %}"/></a>
+	</div>
+</div>
+<div class="Scroll">
+ <a href="#top" class="back-to-top-link" aria-label="Scroll to Top">&#9757</a>
+</div>
+
+
+
+
+
+
+<script src="{% static 'assets/uiux/js/jquery-2.1.3.min.js' %}"></script>
+<script src="{% static 'assets/uiux/js/plugins.js' %}"></script>
+<script src="{% static 'assets/uiux/js/main.js' %}"></script>
+
+		<!-- script files link here -->
+		<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+		<script>
+			// Animation------------------------------------
+			AOS.init({
+				duration: 900,
+				offset: 220,
+				easing: 'ease-in-out-quad'
+			});
+          //-----scroll-----------------
+		  const ham = document.querySelector('.Ham');
+		  const Close=document.querySelector(".Close");
+		  const DropMenu =document.querySelector('.dropMenu')
+			window.addEventListener('scroll', () => {
+		const top = window.innerHeight * (10 / 100)+300;
+		if (window.scrollY <= top) {
+			document.querySelector(".Scroll").style.display='none';
+
+		}
+		if (window.scrollY > top) {
+				document.querySelector(".Scroll").style.display='grid';
+		}
+	});
+		ham.addEventListener('click',() => {
+			DropMenu.classList.add("MenuAnimation")
+
+		})
+		Close.addEventListener('click',() => {
+			DropMenu.classList.remove('MenuAnimation')
+
+		})
+		</script>
+	</body>
+</html>

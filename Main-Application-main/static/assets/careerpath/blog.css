@@ -1,0 +1,225 @@
+.nav-dummy{
+    height: 70px;
+    background-color: #101D42;
+}
+
+.banner {
+    min-height: 450px;
+    padding: 60px;
+    background-color: #101D42;
+    color: #FFF;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.banner-left {
+    max-width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 25px;
+}
+
+.banner-left h1{
+    font-size: 40px;
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 30px;
+    line-height: 40px;
+}
+
+.banner-right{
+    display: flex;
+    margin-left: 40px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.content-body {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-scroll {
+    position: sticky;
+    max-height: calc(100vh - 80px);
+    width: 300px;
+    top: 80px;
+    margin-top: 30px;
+    border: 1px solid #999;
+    border-radius: 2px;
+    flex-shrink: 0;
+    overflow-y: auto;
+}
+
+.left-scroll h1 {
+    padding: 15px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    background-size: 200% 200%;
+    background-image: linear-gradient(to left, #Ec00bd 50%, black 50%);
+    color: #FFF;
+    display: flex;
+    padding-right: 20px;
+    justify-content: space-between;
+    font-family: 'Noto Sans', sans-serif;
+    transition: background-position 1s ease-in;
+}
+
+@keyframes h1animation-scroll {
+    0%{
+        padding-right: 20px;
+    }
+    100%{
+        padding-right: 10px;
+    }
+}
+
+.left-scroll h1:hover {
+    background-color: #Ec00bd;
+    color: #FFF;
+    padding-right: 10px;
+    background-position: 100%;
+    transform-origin: left;
+    animation: h1animation-scroll 0.3s linear;
+}
+
+.left-scroll h1 a {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+.left-scroll h2 {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    padding-left: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.left-scroll h2 a {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+.left-scroll h2 a:hover {
+    text-decoration: underline;
+}
+
+.left-scroll h3 {
+    padding: 15px;
+    padding-left: 30px;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    border-left: 3px solid transparent;
+    color: #666;
+}
+
+.left-scroll h3:hover {
+    border-left: 3px solid #fc00bd;
+}
+
+.left-scroll h3 a {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+.left-scroll h3 a:hover {
+    text-decoration: underline;
+}
+
+.left-scroll hr {
+    margin-top: 10px;
+    outline: 0;
+    border: 0;
+}
+
+.right-scroll {
+    max-width: 1200px;
+    padding-top: 100px;
+    padding-left: 40px;
+}
+
+.right-scroll h1{
+    margin-top: 60px;
+    font-weight: 500;
+    font-size: 40px;
+    font-family: 'Oswald', sans-serif;
+}
+
+.right-scroll p {
+    color: 333;
+    padding: 20px;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    color: #555;
+    padding-left: 50px;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.right-scroll a {
+    color: #1266F1;
+    text-decoration: none;
+}
+
+.right-scroll a:hover {
+    text-decoration: underline;
+}
+
+.yellow-dash{
+    width: 60px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    outline: 0;
+    border: 0;
+    border-bottom: 6px solid #FFCF00;
+}
+
+.collapsible{
+    display: block;
+}
+
+.rotate-text {
+    transform: rotate(180deg);
+    transition: all 0.5s ease;
+}
+
+@media screen and (max-width: 1020px) {
+    .content-body{
+        display: block;
+    }
+    .banner{
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .banner-left{
+        width: 90vw;
+        max-width: 90vw;
+        margin-bottom: 30px;
+    }
+    .banner-right{
+        margin: 0;
+    }
+    .left-scroll {
+        position: static;
+        display: none;
+    }
+    .right-scroll {
+        padding: 10px;
+        padding-left: 20px;
+
+    }
+    .right-scroll p{
+        padding-left: 0;
+    }
+    .right-scroll h1{
+        font-size: 30px;
+    }
+}

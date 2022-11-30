@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class='w3-margin w3-padding'>
+    <a href={% url 'course-desc-form' course.slug %}>
+        <button class='w3-button w3-black w3-border w3-right'>Back to Course</button>
+    </a>
+    <h3>Enrolled students in {{course.course_title}}</h3>
+        <table class="w3-table w3-round w3-black w3-striped">
+            <tr class='w3-sans-serif'>
+                <th>Username</th>
+                <th>Course Version</th>
+                <th>Percentage Completion</th>
+                <th>Once Completed</th>
+                <th>Reset Count</th>
+                <th>Total XP</th>
+                <th>Total Lessons Completed</th>
+            </tr>
+            {% for stat in stats %}
+                <tr class='w3-text-black'>
+                    <td>{{stat.map.user.user.username}}</td>
+                    <td>{{stat.map.version}}.0</td>
+                    <td>{{stat.map.percentage_completion}}% completed</td>
+                    <td>{{stat.map.once_completed}}</td>
+                    <td>{{stat.map.reset_count}}</td>
+                    <td>{{stat.map.total_xp}} xp</td>
+                    <td>{{stat.map.total_lessons_completed}}</td>
+                    <td>
+                        <button value="{{stat.detail}}" class='w3-button w3-small w3-blue w3-round' onclick="showDetails(this);" >
+                        View details
+                        </button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+</div>
+
+<div id="myModal" class=" w3-modal w3-padding" >
+    <div style="width:60%;" class="w3-display-middle w3-padding w3-round w3-white">
+        <button class='w3-right w3-button w3-large w3-round w3-red w3-padding' onclick="document.getElementById('myModal').style.display='none'" >&times;</button> 
+        <h3 id='username' ></h3>
+        <p>Lessons Completed</p>
+        <div id='completed' class='w3-padding w3-border w3-round' >
+
+        </div>
+        <p>Lessons Not Completed</p>
+        <div id='not_completed' class='w3-padding w3-border w3-round' >
+
+        </div>
+        <a href="{% url 'get-user-course-history' course.slug user.user.username %}" >
+        <button style='width:100%;' class='w3-margin-top w3-round w3-button w3-indigo w3-padding' >See {{user.user.username}}'s Course History </button>
+        </a>
+    </div>
+</div>
+
+<script>
+    function showDetails(obj) {
+        document.getElementById('myModal').style.display = 'block';
+        var data = JSON.parse(obj.value);
+        var completed = data.completed;
+        var not_completed = data.not_completed;
+        var username = data.username;
+        document.getElementById('completed').innerHTML = completed;
+        document.getElementById('not_completed').innerHTML = not_completed;
+        document.getElementById('username').innerHTML = username;
+        console.log(data);
+    }
+
+</script>
+
+{% endblock %}

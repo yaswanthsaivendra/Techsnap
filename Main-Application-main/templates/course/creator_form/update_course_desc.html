@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <nav class='w3-black w3-margin-bottom w3-container w3-padding'>
+        <h3 class='w3-left'>Courses Settings >>>>> Course Description</h3>
+        <h3 class='w3-right' >{{creator.username}}</h3>
+        <a href={% url 'course-desc-form' slug %}>
+            <button class='w3-button w3-black w3-border w3-right'>Back</button>
+        </a>
+    </nav>
+    <div id="desc_form" style='display:none;' class="w3-row">
+        <div class="w3-padding" >
+          <button class='w3-right w3-button w3-round w3-red w3-padding' onclick="document.getElementById('desc_form').style.display='none'" >&times;</button>
+          <div class=" w3-padding w3-margin w3-round w3-border w3-white" id="content">
+            {% if desc %}
+            <form enctype='multipart/form-data' method='POST' action="{% url 'update-obj' slug 'description' desc.id %}">
+            {% else %}
+            <form enctype='multipart/form-data' method='POST' action="{% url 'create-obj' slug 'description'  %}">
+            {% endif %}
+                <h4 class='w3-center'>Update/Create Description</h4>
+                {% csrf_token %}
+                {{form.media}}
+                {{ form|crispy }}
+                <button style='width:97%;' type='submit' class='w3-margin w3-round w3-green w3-button' >Update/Create</button>
+            </form>
+          </div>
+        </div>
+    </div>
+    <div class='w3-padding'>
+    <div class='w3-container w3-padding w3-border w3-round w3-half'>
+        <h4>Course Name : {{desc.course.course_title}}</h4>
+        <h4>Title : {{desc.title}}</h4>
+        <h4 class='w3-padding w3-border w3-round'>Description : {{desc.description|safe}}</h4>
+        <h4>Prerequisites : {{desc.prerequisites}}</h4>
+        <h4>No. of learners : {{desc.no_of_learners}}</h4>
+        <h4>Certificate
+            <img class='w3-img w3-border w3-round-large w3-padding' src="{{desc.certificate.url}}" style="width:90%" />
+        </h4>
+    </div>
+    <div class='w3-container w3-padding w3-half '>
+        <button onclick="showForm();" class=' w3-round w3-button w3-blue'>
+            Update/Create
+        </button>
+    </div>
+    </div>
+
+    <script>
+        function showForm(){document.getElementById('desc_form').style.display = "block";}
+    </script>
+{% endblock %}

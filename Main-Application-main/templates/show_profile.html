@@ -1,0 +1,26 @@
+{{page_profile}} {% if page_profile.profile_pic %}- <img src="{{page_profile.profile_pic.url}}" width=100px height=100px><br>{% endif %}<br><br><br>
+Full Name: {{page_profile.full_name}} - Joined on: {{page_profile.user.date_joined}}<br>
+Gender: {{page_profile.gender}}<br>
+state: {{page_profile.state}}<br>
+linkedin: {{page_profile.linkedin}}<br>
+github: {{page_profile.github}}<br>
+Institute Name: {{page_profile.institute_name}}<br>
+yearOfPassing: {{page_profile.yaerOfPassing}}<br>
+xp: {{page_profile.xp}}<br>
+bio: {{page_profile.bio}}<br>
+{% if user.id == page_profile.user.id %}
+xii_percentage: {{page_profile.xii_percentage}}<br>
+x_percentage: {{page_profile.x_percentage}}<br>
+Btech_percentage: {{page_profile.Btech_percentage}}<br>
+workExp: {{page_profile.workExp}}<br>
+current_CTC: {{page_profile.current_CTC}}<br>
+expected_CTC: {{page_profile.expected_CTC}}<br>
+current_company: {{page_profile.current_company}}<br>
+dream_company: {{page_profile.dream_company}}<br>
+designation: {{page_profile.designation}}<br>
+techsnap_cash: {{page_profile.techsnap_cash}}<br>
+city: {{page_profile.city}}<br>
+base_programming_lang: {{page_profile.base_programming_lang}}<br>
+base_database: {{page_profilebase_database}}<br>
+other_techs: {{page_profile.other_techs}}<br>
+{% endif %}

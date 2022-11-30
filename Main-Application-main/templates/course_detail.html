@@ -1,0 +1,243 @@
+{% load static %}
+{% load custom_tags %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Course_detail</title>
+    <link rel="stylesheet" href="{% static 'assets/courses/styles.css'%}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="shortcut icon" type="image/png" href="{% static 'assets/main/favicon.png'%}"/>
+
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-L4D2PNVR8Z"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-L4D2PNVR8Z');
+		</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+		<!-- Google Tag Manager -->
+		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-KJSXSDQ');</script>
+		<!-- End Google Tag Manager -->
+
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJSXSDQ"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+  </head>
+  <body id="body">
+    <!-- navbar -->
+
+    <div class="navbar">
+      <div class="nav-left">
+
+        <div class="logo">
+          <img src="{% static 'assets/main/logo.png'%}" alt="logo" />
+        </div>
+        <div class="course-title">
+          <span>{{object.title}}</span>
+        </div>
+      </div>
+      <div class="nav-right">
+
+        <span>{{object.id|get_percentage:request.user.id }}%</span>
+        <span>{{ request.user.profile.xp}} xp</span>
+          <div class="nav-dropdown">
+            <span  class="dropdown">
+                <img src="https://avatars.githubusercontent.com/u/39455174?v=4" height="40px" width="40px" class="profile-avatar" style="margin-top: 8px; border-radius: 100%; object-fit: contain;"></img>
+                  <div class="profile-dropdown">
+                    <ul>
+                                  <span style="display: flex; padding-top: 10px; padding-left:15px; padding-right:15px; padding-bottom: 15px; align-items:center; gap: 20px" class="profile-hover">
+                                      <img src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-dashboard-blogger-vitaliy-gorbachev-lineal-vitaly-gorbachev.png" height="30px" />
+                                      <li style="line-height: 8px;">View Dashboard</li>
+                                  </span>
+                                  <span style="display: flex; padding-top: 10px; padding-left:15px; padding-right:15px; padding-bottom: 15px; align-items:center; gap: 20px" class="profile-hover">
+                                      <img src="https://img.icons8.com/ios/50/000000/user.png" height="30px" />
+                                      <li style="line-height: 8px;">View Profile</li>
+                                  </span>
+                                  <span style="display: flex; padding-top: 10px; padding-left:15px; padding-right:15px; padding-bottom: 15px; align-items:center; gap: 20px" class="profile-hover">
+                                      <img src="https://img.icons8.com/ios/50/000000/user-not-found.png" height="30px" />
+                                      <li style="line-height: 8px;">Edit</li>
+                                  </span>
+                                  <span style="display: flex; padding-top: 10px; padding-left:15px; padding-right:15px; padding-bottom: 15px; align-items:center; gap: 20px" class="profile-hover">
+                                      <img src="https://img.icons8.com/windows/32/000000/exit.png" height="30px" />
+                                      <li style="line-height: 8px;">Logout</li>
+                                  </span>
+                    </ul>
+                    </div>
+              </span>
+           </div>
+      </div>
+    </div>
+    <div class="course-container">
+      <div class="main-content-container">
+        <div class="article-container">
+          <!--<div class="article-heading">
+            <h1>How to become a frontend developer</h1>
+          </div>
+          <div class="article-banner">
+            <img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20201111215809/How-to-Become-a-Front-End-Developer-in-2020.png" alt="header-image" class="post-img">
+          </div>-->
+          <div class="article-content">
+            <div id="Data">
+              <article>{{lesson_data|safe}}</article>
+            </div>
+          </div>
+        </div>
+        <div class="article-end-btns">
+          <a href="#">Previous</a>
+          <a href="#">Mark as read</a>
+          <a href="#">Next</a>
+        </div>
+
+        <div class="article-end-section">
+          <div class="article-end-nav">
+            <span id="overview" class="overview nav-item active"><a>Overview</a></span>
+            <span id="notes" class="notes nav-item" ><a>Notes</a></span>
+            <span id="qna" class="qna nav-item" ><a>QnA</a></span>
+            <span id="assignments" class="assignment nav-item" ><a>Assignments</a></span>
+          </div>
+
+          <div class="article-end-nav-desc">
+            <div class="overview-desc show nav-item-desc">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique vero facilis non quo doloremque nemo quae unde hic, cumque distinctio tenetur quam at architecto delectus consequatur? Fugit obcaecati ipsam eligendi voluptates, eaque dolore autem. Qui deserunt magnam reprehenderit dicta. Harum at earum corrupti quisquam esse nemo impedit provident, eaque quasi fugit animi ducimus amet aliquid quis iusto odit! Magnam, a, quos praesentium quae alias reiciendis esse neque provident, amet rem laborum labore pariatur asperiores similique. At id quisquam perspiciatis, obcaecati aut, consequatur magni reprehenderit veniam quibusdam illum dolorum, corrupti necessitatibus hic eum. Itaque aperiam hic necessitatibus et consectetur ullam quam corporis distinctio labore iusto eos sequi obcaecati, atque nulla numquam iure. Eligendi, nisi aliquid quod eum odit consectetur laudantium suscipit delectus eius voluptatibus incidunt modi inventore atque dicta quibusdam et voluptatum nobis sequi tempora eaque hic autem? Cupiditate excepturi ratione voluptatibus quisquam illo fugit minus, id non totam exercitationem laborum harum ducimus, reprehenderit ullam sit deserunt iure commodi dolorum error, ea veritatis. Dolore sed officiis cupiditate? Laborum perspiciatis reiciendis, a et ab ad necessitatibus maiores nobis iure suscipit animi velit temporibus repellat, minima doloremque laboriosam culpa excepturi inventore sint, sunt ea. Rem iure veritatis sapiente deleniti atque dignissimos unde natus.
+            </div>
+            <div class="notes-desc nav-item-desc">
+             re atque dicta quibusdam et voluptatum nobis sequi tempora eaque hic autem? Cupiditate excepturi ratione voluptatibus quisquam illo fugit minus, id non totam exercitationem laborum harum ducimus, reprehenderit ullam sit deserunt iure commodi dolorum error, ea veritatis. Dolore sed officiis cupiditate? Laborum perspiciatis reiciendis, a et ab ad necessitatibus maiores nobis iure suscipit animi velit temporibus repellat, minima doloremque laboriosam culpa excepturi inventore sint, sunt ea. Rem iure veritatis sapiente deleniti atque dignissimos unde natus.
+            </div>
+            <div class="qna-desc nav-item-desc">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique vero facilis non quo doloremque nemo quae unde hic, cumque distinctio tenetur quam at architecto delectus consequatur? Fugit obcaecati ipsam eligendi voluptates, eaque dolore autem. Qui deserunt magnam reprehenderit dicta. Harum at earum corrupti quisquam esse nemo impedit provident, eaque quasi fugit animi ducimus amet aliquid quis iusto odit! Magnam, a, quos praesentium quae alias reiciendis esse neque provident, amet rem laborrit ullam sit deserunt iure commodi dolorum error, ea veritatis. Dolore sed officiis cupiditate? Laborum perspiciatis reiciendis, a et ab ad necessitatibus maiores nobis iure suscipit animi velit temporibus repellat, minima doloremque laboriosam culpa excepturi inventore sint, sunt ea. Rem iure veritatis sapiente deleniti atque dignissimos unde natus.
+            </div>
+            <div class="assignments-desc nav-item-desc">
+              Loriores similique. At id quisquam perspiciatis, obcaecati aut, consequatur magni reprehenderit veniam quibusdam illum dolorum, corrupti necessitatibus hic eum. Itaque aperiam hic necessitatibus et consectetur ullam quam corporis distinctio labore iusto eos sequi obcaecati, atque nulla numquam iure. Eligendi, nisi aliquid quod eum odit consectetur laudantium suscipit delectus eius voluptatibus incidunt modi inventore atque dicta quibusdam et voluptatum nobis sequi tempora eaque hic autem? Cupiditate excepturi ratione voluptatibus quisquam illo fugit minus, id non totam exercitationem laborum harum ducimus, reprehenderit ullam sit deserunt iure commodi dolorum error, ea veritatis. Dolore sed officiis cupiditate? Laborum perspiciatis reiciendis, a et ab ad necessitatibus maiores nobis iure suscipit animi velit temporibus repellat, minima doloremque laboriosam culpa excepturi inventore sint, sunt ea. Rem iure veritatis sapiente deleniti atque dignissimos unde natus.
+            </div>
+          </div>
+        </div>
+
+        <div class="article-footer">
+          <div class="footer-info">
+            <h3>
+              Teach the world online
+            </h3>
+            <h5>Create an online video course, reach students across the globe, and earn money</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-nav-container">
+        <!-- <span class="fas fa-arrow-left nav-btn"></span> -->
+        <nav class="sidebar">
+          <div class="heading">
+            <h5>Course content</h5>
+            <span class="fas fa-bars mobile-nav-icon"></span>
+          </div>
+          <ul class="lessons">
+            {% for user_topic in user_topics %}
+            <li class="lesson-container">
+              <a class="section-btn-{{user_topic.coursetopic.position}} course-item" id="{{user_topic.coursetopic.slug}}">
+                <div class="course-item-title">
+                  <p>{{user_topic.coursetopic.title}}</p>
+                  <span class="fas fa-caret-down icon"></span>
+                </div>
+                <div class="course-item-info">
+                  <span class="total-time">{{user_topic.num_com_lessons}} / {{user_topic.coursetopic.num_lessons}} | {{user_topic.coursetopic.min_time}}min</span>
+                </div>
+              </a>
+              <ul class="sub-menu sub-menu-{{user_topic.coursetopic.position}}">
+                {% for userLesson in user_topic.courselessons.all|dictsort:'position' %}
+                <li class="lesson">
+                  <div class="course-lesson">
+
+                    {% if userLesson.done %}
+                    <a target="{% url 'courses:topic_complete' user_topic.id userLesson.id %}" topicid="{{userLesson.id}}" class='doneBtn'>
+                      <i style="color: black;font-size: 1.2rem;" class="doneIcon{{userLesson.id}} fas fa-check-square"></i>
+                    </a>
+                    {% else %}
+                    <a target="{% url 'courses:topic_complete' user_topic.id userLesson.id %}" topicid="{{userLesson.id}}" class='doneBtn'>
+                      <i style="color: black;font-size: 1.2rem;" class="doneIcon{{userLesson.id}} fas fa-square"></i>
+                    </a>
+                    {% endif %}
+                    
+                    <a href="{% url 'courses:course_detail' object.slug %}?lesson={{userLesson.courselesson.slug}}&topic={{user_topic.coursetopic.slug}}">{{userLesson.courselesson.title}}</a>
+                  </div>
+                  <div class="lesson-info">
+                    <div class="time">
+                      <i class="fas fa-newspaper"></i>
+                      <span>{{userLesson.courselesson.min_time}}min</span>
+                    </div>
+                    {% if userLesson.courselesson.resources %}
+                    <a href="{{userLesson.courselesson.resources}}" target="_blank">
+                      <div class="resources">
+                        <i class="fas fa-folder"></i>Resources<i class="fas fa-chevron-down"></i>
+                      </div>
+                    </a>
+                    {% endif %}
+                  </div>
+                </li>
+                {% endfor %}
+              </ul>
+            </li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <script src="{% static 'assets/courses/script.js'%}"></script>
+    <!--<script>
+      var getData = document.querySelectorAll(".getData")
+      getData.forEach(function(btn){
+          var url = btn.getAttribute('target');
+          btn.addEventListener("click", function(){
+              fetch(url).then(response => response.json()).then(data => {
+                  Object.keys(data).forEach(function(){
+                      displayData(data['data'])
+                  })
+              })
+          })
+      })
+      function displayData(data) {
+          out = "<article>"+data+"</article>";
+          document.getElementById("Data").innerHTML = out;
+      }
+    </script>-->
+    <script>
+      var url = new URL(document.location);
+      document.getElementById(url.searchParams.get('topic')).click();
+    </script>
+    <script>
+      var donebtn = document.querySelectorAll(".doneBtn")
+      console.log(donebtn)
+      donebtn.forEach(function(btn) {
+          var url = btn.getAttribute('target');
+          var topicid = btn.getAttribute('topicid');
+          var doneIcon = document.querySelector(".doneIcon" + topicid);
+          btn.addEventListener("click", function() {
+              if (doneIcon.classList.contains('fa-check-square') == true) {
+                  doneIcon.classList.remove('fa-check-square');
+                  doneIcon.classList.add('fa-square');
+              } else if (doneIcon.classList.contains('fa-square') == true) {
+                  doneIcon.classList.remove('fa-square');
+                  doneIcon.classList.add('fa-check-square');
+              }
+              fetch(url)
+                  .then(response => response.json())
+          });
+      });
+  </script>
+  </body>
+</html>

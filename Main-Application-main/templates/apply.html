@@ -1,0 +1,394 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{% static 'apply_style.css' %}" />
+    <title>jobs | SEO design</title>
+  </head>
+  <body>
+    <div class="site-wrap">
+
+        <!-- navbar in here -->
+        <section class="header">
+            <a href="{% url 'index' %}">
+              <img id="logo" src="{% static 'assets/images/logo.jpg' %}" alt="logo">
+            </a>
+            <div class="navItems">
+              <a href="{% url 'aboutus' %}">About Us</a>
+              <a href="">Our People</a>
+              <a href="">Learn</a>
+              <a href="{% url 'job_test:jobslist' %}">Jobs</a>
+              <button class="btn">Get Started</button>
+              <div class="Ham">
+                <img src="{% static 'assets/images/menu.png' %}" alt="Ham">
+              </div>
+            </div>
+          </section>
+          <div class="dropMenu">
+            <ul>
+              <li>
+                <a href="{% url 'aboutus' %}">About Us</a>
+              </li>
+              <li>
+                <a href="">Our People</a>
+              </li>
+              <li>
+                <a href="">Learn</a>
+              </li>
+              <li><a href="{% url 'job_test:jobslist' %}">Jobs</a></li>
+              <button clas="btn">Get Started</button>
+            </ul>
+            <div class="Close">X</div>
+          </div>
+
+        <!-- HOME -->
+        <section class="section-hero overlay inner-page bg-image"
+          id="home-section">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-7">
+                <h1 class="text-white font-weight-bold">
+                    SEO intern
+                </h1>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-hero overlay inner-page"  id="home-section">
+        <img src="{{jobs.banner1.url}}"  style="
+        height: 70vh;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;width: 100%;">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-7">
+                <!-- <h1 class="text-white font-weight-bold">
+                    SEO intern
+                </h1> -->
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="site-section">
+          <div class="container">
+            <div class="row align-items-center mb-5">
+              <div class="col-lg-8  mb-4 mb-lg-0">
+                <div class="ds d-flex relative justify-content-between align-items-center pt-4" >
+                  <!-- <div class="border p-2 d-inline-block mr-3 rounded">
+                    <img src="images/featured-listing-1.jpg"  alt="Techsnap">
+                  </div> -->
+                  <div>
+                    <h1>{{jobs.desg}}</h1>
+                    <div>
+                      <span class="ml-0 mr-2 mb-2">
+                        <i class="fa fa-briefcase"></i>
+                      </span>{{jobs.location}}</span>
+                      &nbsp; &nbsp;
+                      <span class="m-1">
+                        <i class="fa fa-map-marked-alt"></i>
+                      </span>{{jobs.state}}</span>
+                      &nbsp; &nbsp;
+                      <span class="m-1" style="position: relative;">
+                        <i class="fa fa-clock"></i>
+                        <span class="text-primary">{{jobs.job_type}}
+                      </span></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="row">
+                  <div class="col-6">
+
+                  </div>
+                  <!-- <div class="col-6">
+                    <a href="" class="btn btn-block btn-primary btn-md">Apply Now</a>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+            <div class="mb-5">
+              <h3 class="h5 d-flex align-items-center mb-4 text-primary"> <i class="fa fa-rocket"></i> &nbsp;&nbsp;
+                Terms and Conditions</h3>
+              <ul class="list-unstyled m-0 p-0">
+                {% for term in jobs.get_terms %}
+                    <li class="d-flex align-items-start mb-2 ml-3"><i class="fa fa-check-circle"></i>&nbsp;&nbsp;<span>{{term.term}}</span></li>
+                    {% endfor %}
+              </ul>
+            </div>
+            <div class="row content">
+              <div class="col-lg-8 ">
+                  <div class="wrapper">
+
+                  <div class="title">
+                    Registration Form
+                  </div>
+                  <form method="POST" action="{% url 'job_test:apply' jobs.slug jobs.u_code %}" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  <div class="form">
+                      <div class="row">
+                        <label class="name">Enter Full Name</label>
+                        <div class="col mb-3 mt-3">
+
+                          <input type="text" class="form-control" name="f_name" required>
+                          <h4 class="name-part">First name</h4>
+                        </div>
+                        <div class="col mb-2 mt-3">
+                          <input type="text" class="form-control" name="l_name" required>
+                          <h4 class="name-part">Last name</h4>
+                        </div>
+                      </div>
+                      <br>
+
+
+                      <div class="inputfield">
+                        <label>Gender</label>
+                        <div class="custom_select">
+                          <select name="gender" required>
+                            <option disabled selected value="0">Select</option>
+                            <option value="male" required>Male</option>
+                            <option value="female" required>Female</option>
+                          </select>
+                        </div>
+                        <br>
+                     </div>
+                     <br>
+                     <br>
+                      <div class="inputfield">
+                        <label>Email Address</label>
+                        <input type="email" class="form-control" name="email" required>
+                     </div>
+
+
+                     <br>
+                     <br>
+                     <div class="inputfield">
+                      <label>Mobile Number</label>
+                      <input type="text" name="ph_num" class="form-control" required>
+                   </div>
+                      <br>
+                      <br>
+                      <div class="inputfield">
+                        <label>Linkedin URL</label>
+                        <input type="url" name="linkedin" class="form-control" required>
+                     </div>
+                     <br>
+                     <br>
+                     <div class="inputfield">
+                      <label>Github URL</label>
+                      <input type="url" class="form-control" name="github" required>
+                   </div>
+                   <br>
+                   <br>
+                   <div class="inputfield">
+                    <label>Resume</label>
+                    <input type="file" class="form-control" name="file" required>
+                 </div>
+                 <br>
+                 <br>
+                 <p>How did they hear about us:</p>
+                <div class="inputfield">
+                <div class="custom_select">
+                          <select name="hear" required>
+                            <option disabled selected value="0">Select</option>
+                            <option value="LinkedIn" required>LinkedIn</option>
+                            <option value="FaceBook" required>FaceBook</option>
+                            <option value="Instagram" required>Instagram</option>
+                            <option value="Trello" required>Trello</option>
+                            <option value="Google ADS" required>Google ADS</option>
+                            <option value="Tech Community" required>Tech Community</option>
+			    <option value="others" required>Others</option>
+                          </select>
+                        </div>
+                  <br>
+                  <label >If selected other mention</label>
+                  <input type="text" class="form-control" name="other">
+                  <br>
+                </div>
+                <br>
+
+                   <div class="inputfield">
+                    <label>Current City</label>
+                    <input type="text" class="form-control" name="city" required>
+                 </div>
+                 <br>
+                 <br>
+
+                     <div class="inputfield">
+                        <label>Postal Code</label>
+                        <input type="text" class="form-control" name="code" required>
+                     </div>
+                     <br>
+                     <br>
+                     <div class="inputfield mb-4">
+                      <label>Available date:</label>
+
+                      <input type="date" id="start" name="date" class="form-control" required>
+                     </div>
+                     <br>
+                     <br>
+
+                    <div class="inputfield">
+			     {% if exist or f_name %}
+                  {% else %}
+                      <div>
+                        <input type="checkbox" id="scales" name="scales" required>
+                       <label for="scales">Agree to Terms/conditions</label>
+                       </div>
+			    {% endif %}
+                     </div>
+                  </div>
+                  </div>
+              </div>
+              </div>
+		     {% if exist %}
+                  Hey {{request.user}} you had already applied to this Job Role, you cannot reapply.
+                  {% else %}
+                  {% if f_name %}
+                  You have successfully applied
+                  {% else %}
+                <div class="col-6">
+                <input type='submit' class="btn btn-block btn-primary btn-md">
+                </div>
+		    {% endif %}
+              {% endif %}
+                </br></br>
+
+              </div>
+              </form>
+
+              <div class="col-lg-4" id="job">
+                <div class="bg-dark p-3 border-container rounded mb-4">
+                  <h3 class="text-light mt-3 h5 pl-3 mb-3 ">Job Summary</h3>
+                  <ul class="list-unstyled pl-3 mb-0">
+                    <li class="mb-2 summary-li"><i class="fa fa-check-circle"></i>&nbsp;&nbsp; <strong class="text-light">Published on:</strong> {{jobs.published_date}}</li>
+                    <li class="mb-2 summary-li"><i class="fa fa-check-circle"></i>&nbsp;&nbsp; <strong class="text-light">Vacancy:</strong> {{jobs.vacancies}}</li>
+                    <li class="mb-2 summary-li"><i class="fa fa-check-circle"></i>&nbsp;&nbsp; <strong class="text-light">Employment Status:</strong> {{jobs.job_type}} </li>
+                    <li class="mb-2 summary-li"><i class="fa fa-check-circle"></i>&nbsp;&nbsp; <strong class="text-light">Experience:</strong> {{jobs.experience_min}}-{{jobs.experience_max}} {{jobs.experience_in}}</li>
+                    <li class="mb-2 summary-li"><i class="fa fa-check-circle"></i>&nbsp;&nbsp; <strong class="text-light">Job Location:</strong> {{jobs.location}}</li>
+                   <!-- <li class="mb-2"><strong class="text-black">:</strong> </li> -->
+                   <!-- <li class="mb-2"><strong class="text-black">Gender:</strong> Any</li> -->
+                   <!-- <li class="mb-2"><strong class="text-black">Application Deadline:</strong> April 28, 2019</li> -->
+                  </ul>
+                </div>
+
+                <div class="addSection">
+
+                  <div class="adds bg p-3 rounded">
+                    <a href= "#" ><img
+                      src="{% static 'poster.png' %}" height=500px width=300px
+                      alt=""> </a>
+                  </div>
+                  </br></br>
+                  <div class="adds">
+                    <div class="addHeading">WHAT'S NEW</div>
+                    <div class="add">
+                      <img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210115220210/prethumb_min.png" alt="">
+                      <span>Ad free experience with TechSnap Premium</span>
+                    </div>
+                    <div class="add">
+                      <img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210203145720/DSA-SP_1-min.png" alt="">
+                      <span>DSA Self Placed course</span>
+                    </div>
+                    <div class="add">
+                      <img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210609101834/GC-LIve-Icon-1.png" alt="">
+                      <span>Choose Best IDE for Programming</span>
+                    </div>
+                  </div>
+
+
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ======= Footer ======= -->
+      <footer id="footer">
+
+        <footer class="Footer_conatiner">
+            <div class="Footer_header">
+              <a href="{% url 'index' %}">
+                <img src="{% static 'assets/images/logo.jpg' %}" alt="Logo">
+              </a>
+              <p>
+                We are here to endure your muddled stages of knowing the trends
+                while pursuing UG-CSE.we help you to know about trending jobs and
+                required skills
+              </p>
+
+              <p>
+                We will succour you in submitting your university projects as well
+                as steer you with free tutorials
+              </p>
+            </div>
+            <div class="Footer_columns_holder">
+              <div class="Footer_columns">
+                <h1>Company</h1>
+                <a href="{% url 'aboutus' %}">About us</a>
+                <a href="{% url 'learnerstories' %}">Learner stories</a>
+                <a href="">our people</a>
+                <a href="{% url 'job_test:jobslist' %}">jobs</a>
+              </div>
+              <div class="Footer_columns">
+                <h1>Resources</h1>
+                <a href="##">Learn</a>
+                <a href="{% url 'careerpath' %}">Career path</a>
+                <a href="##">Internship</a>
+                <a href="##">Blogs</a>
+              </div>
+              <div class="Footer_columns">
+                <h1>Support</h1>
+                <a href="{% url 'contact' %}">Contact us</a>
+                <a href="##">FAQ</a>
+                <a href="{% url 'contact' %}">Any ideas, DM us</a>
+                <a href="##">Doc</a>
+              </div>
+              <div class="Footer_columns">
+                <h1>Services</h1>
+                <a href="##">Startup services</a>
+                <a href="">Design services</a>
+                <a href="">Projects</a>
+                <a href="##">Courses</a>
+              </div>
+            </div>
+          </footer>
+          <div class="Privacy_holder">
+            <div class="Privacy_links">
+            <a href="{% url 'privacy' %}">Privacy policy</a>
+		        <a href="{% url 'cookies' %}">Cookies Notice</a>
+		        <a href="{% url 'security' %}">Security</a>
+		        <a href="{% url 'terms' %}">Terms of use</a>
+            </div>
+
+            <div class="Social-media">
+              <a href="https://www.linkedin.com/company/74741373/">
+                <img src="{% static 'assets/images/linkedin.svg' %}" alt="linkedin" />
+              </a>
+              <a href="https://discord.gg/JWMbQCNZxF/">
+                <img src="{% static 'assets/images/twitter.svg' %}" alt="twitter" />
+              </a>
+              <a href="https://www.instagram.com/techsnapofficial/">
+                <img src="{% static 'assets/images/instagram.svg' %}" alt="instagram" />
+              </a>
+            </div>
+          </div>
+
+  </body>
+</html>

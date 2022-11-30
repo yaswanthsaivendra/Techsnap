@@ -1,0 +1,330 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: sans-serif;
+}
+.banner-section{
+    text-align: center;
+    padding: 18vw 0;
+    background-color: #0A182E;
+    width: 100vw;
+    padding-bottom: 7.5vw;
+}
+.banner-section  img{
+    width: 8vw;
+    height: auto;
+}
+.banner-section h1{
+    font-size: 4vw;
+    margin: 1vw 0;
+    color: white;
+}
+.banner-section a{
+    display: inline-block;
+    text-decoration: none;
+    color: #000000;
+    font-weight: 600;
+    background-color: white;
+    padding: 0.8vw 2vw;
+    border-radius: 0.8vw;
+    font-size: 1.25vw;
+}
+
+/*overview-syllabus-information-section*/
+.overview-syllabus-information-section{
+    padding: 2vw 6vw;
+    display: flex;
+    justify-content: space-between;
+}
+.overview-syllabus-section{
+    padding: 6vw 0;
+}
+.why-learn-python-section,
+.take-away-skills-section{
+    padding: 4vw;
+    padding-bottom: 0px;
+}
+.why-learn-python-section p,
+.take-away-skills-section p{
+    padding-left: 1.5vw;
+    padding-top: 1vw;
+}
+.information-section{
+    box-shadow: 0 0 0.8vw grey;
+    text-align: center;
+    padding: 3vw;
+    border-radius: 1.3vw;
+}
+.information-section div{
+    padding-bottom: 5vw;
+}
+.information-section div.prerequisites{
+    padding-bottom: 0px;
+}
+.overview-syllabus-information-section  .overview-syllabus span{
+    color: #3A10E5;
+    border-bottom: .3vw solid #3A10E5;
+}
+.overview-syllabus-information-section p{
+    font-size: 1.3vw;
+    line-height: 2vw;
+}
+.information-section p{
+    color: grey;
+}
+.overview-syllabus-information-section h1{
+    font-size: 4vw;
+}
+.overview-syllabus-information-section h2{
+    font-size: 3vw;
+}
+.information-section h2{
+    color: #454242;
+}
+
+/*python-basic-course-list*/
+.python-basic-course-list{
+    padding: 2vw 6vw;
+    width: 100vw;
+    padding-bottom: 6vw;
+}
+.python-basic-course-list h2{
+    font-size: 3vw;
+    color: #454242;
+}
+.python-basic-course-list h3{
+    font-size: 2vw;
+    color: #3A10E5;
+}
+.python-basic-course-list .content-section,
+.python-basic-course-list .blog-contributer-section{
+    display: flex;
+}
+.python-basic-course-list .blog-contributer-section{
+    padding-top: .7vw;
+}
+.python-basic-course-list .content-section{
+    padding: 0 2vw;
+    justify-content: space-between;
+}
+.python-basic-course-list .content-section .left-section p{
+    font-size: 1.3vw;
+    line-height: 2vw;
+}
+.python-basic-course-list .content-section .left-section p,
+.python-basic-course-list .content-section .left-section i{
+    margin-top: 1vw;
+}
+.python-basic-course-list .content-section .left-section i{
+    margin-top: 1.4vw;
+}
+.python-basic-course-list .content-section .left-section .space-right{
+    margin-right: 1vw;
+}
+.python-basic-course-list .content-section .left-section .black-circle{
+    padding: .5vw .7vw;
+    border-radius: 100%;
+    background-color: black;
+    color: white;
+    margin-top: .6vw;
+    margin-right: .6vw;
+}
+.python-basic-course-list .content-section a{
+    display: inline-block;
+    text-decoration: none;
+    color: #3A10E5;
+    font-weight: 600;
+    background-color: white;
+    padding: 0.8vw 2vw;
+    border-radius: 0.8vw;
+    font-size: 1.25vw;
+    border: .1vw solid #3A10E5;
+    margin-top: 1.4vw;
+}
+.python-basic-course-list .course-list-container{
+    padding-left: 4.5vw;
+}
+.python-basic-course-list .course-list{
+    margin-top: 3vw;
+    border-left: 0.3vw solid #3A10E5;
+    border-radius: 0.5vw;
+    box-shadow: 0 0 1vw #c5c5c5;
+    width: 80%;
+    padding: 2vw 0;
+    padding-left: 3vw;
+}
+.python-basic-course-list .course-list .left-section{
+    width: 75%;
+}
+.python-basic-course-list .view-more{
+    text-align: center;
+}
+.python-basic-course-list .view-more a{
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    background-color: white;
+    padding: 1vw 2.2vw;
+    border-radius: 0.8vw;
+    font-size: 1.25vw;
+    background-color: #3A10E5;
+    margin-top: 4vw;
+}
+
+
+/*start-learning-today-section*/
+.start-learning-today{
+    width: 100vw;
+    padding: 0 6vw;
+    padding-bottom: 6vw;
+}
+.start-learning-today h2{
+    font-size: 3vw;
+    margin-bottom: 2vw;
+}
+.start-learning-today .start-learning-content{
+    display: flex;
+}
+.start-learning-today .start-learning-content img{
+    height: fit-content;
+    position: relative;
+    top: .9vw;
+}
+.start-learning-today .start-learning-content p{
+    font-size: 1.7vw;
+    line-height: 3.7vw;
+}
+.start-learning-today .start-learning-content-image-section{
+    display: grid;
+    grid-template-columns: 60% auto;
+}
+.certificate-image-section{
+    padding: 3.2vw  0;
+}
+.certificate-image-section p{
+    font-size: 1.3vw;
+    line-height: 2vw;
+    margin-left: 1.1vw;
+}
+.linkedin-image{
+    width: 1.2vw;
+    height: auto;
+    position: relative;
+    top: .1vw;
+}
+.certificate-image{
+    width: 100%;
+    height: auto;
+}
+.go-to-course{
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    background-color: white;
+    padding: 1vw 2.2vw;
+    border-radius: 0.8vw;
+    font-size: 1.25vw;
+    background-color: #3A10E5;
+    margin-top: 2vw;
+    margin-bottom: 3vw;
+}
+
+/*slider-section*/
+.slider-section{
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 6vw;
+    padding-bottom: 6vw;
+}
+.slider-section button{
+    font-size: 4vw;
+    height: fit-content;
+    margin: auto;
+    border: 0px;
+    background-color: white;
+}
+.slider-section button:focus{
+    border: 0px;
+}
+.slider-content-section-container{
+    display: flex;
+    grid-column-gap:6vw;
+    padding: 0 3vw;
+}
+.slider-content{
+    background-color: burlywood;
+    padding: 3vw 1vw;
+    border-radius: 1vw;
+}
+.slider-content h3{
+    font-size: 1.5vw;
+}
+.slider-content p{
+    font-size: 1.3vw;
+    line-height: 2vw;
+}
+.name-images{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 4vw;
+}
+.name-images .image{
+    border-radius: 100%;
+    width: 8vw;
+}
+.name-images .image img{
+    width: 100%;
+    border-radius: 100%;
+}
+.name-section{
+    padding: .5vw 2.5vw;
+}
+.slider-content{
+    display: none;
+}
+.slider-content{
+    display: none;
+}
+.slider-content-right{
+    background-color: #BCFFBE;
+}
+.slider-content-left{
+    background-color:#D7E5FF;
+}
+.slider-content-show{
+    background-color: #FFB1B1;
+}
+
+/*frequently-ask-section*/
+.frequently-ask-section{
+    width: 100vw;
+    padding: 0 6vw;
+    padding-bottom: 1vw;
+}
+.frequently-ask-section .header-section{
+    text-align: center;
+    padding-bottom: 2.5vw;
+}
+.frequently-ask-section .header-section h2{
+    font-size: 3vw;
+}
+.frequently-ask-section .content-section{
+    display: flex;
+    margin: auto;
+    background-color: #E7EFFF;
+    width: 60%;
+    margin-bottom: 2vw;
+    padding: 1.5vw 1vw;
+    border-radius: .5vw;
+}
+.frequently-ask-section .content-section h{
+    font-size: 1.3vw;
+}
+.frequently-ask-section .content-section p{
+    font-size: 1.3vw;
+    line-height: 2vw;
+}
+

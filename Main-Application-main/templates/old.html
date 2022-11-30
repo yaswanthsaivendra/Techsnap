@@ -1,0 +1,773 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="generator" content="Techsnap">
+    <meta name="title" content="Techsnap">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+    <meta name="twitter:description"content="choose career path,know required skills for particualr designation,mini projects,major projects,internships,free courses" />
+
+    <title>Techsnap</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shorthandcss@1.1.1/dist/shorthand.min.css" />
+    <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Muli:200,300,400,500,600,700,800,900&display=swap" />
+    <link rel="stylesheet" type="text/css"href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="{% static 'headfoot.css' %}" rel="stylesheet" />
+    <link href="{% static 'style.css' %}" rel="stylesheet" />
+
+ 	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-L4D2PNVR8Z"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-L4D2PNVR8Z');
+	</script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KJSXSDQ');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+    <script>
+        // disable right click
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.onkeydown = function (e) {
+
+            // disable F12 key
+            if(e.keyCode == 123) {
+                return false;
+            }
+
+            // disable I key
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 73){
+                return false;
+            }
+            // disable I key
+            if(e.ctrlKey && e.keyCode == 73){
+                return false;
+            }
+
+            // disable J key
+            if(e.ctrlKey && e.keyCode == 74) {
+                return false;
+            }
+
+            // disable U key
+            if(e.ctrlKey && e.keyCode == 85) {
+                return false;
+            }
+            // disable s key
+            if(e.ctrlKey && e.keyCode == 83) {
+                return false;
+            }
+
+            // disable c key
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 67) {
+                return false;
+            }
+        }
+    </script>
+
+    <script language="javascript">
+        function Disable_Control_C() {
+        var keystroke = String.fromCharCode(event.keyCode).toLowerCase();
+
+        if (event.ctrlKey && (keystroke == 'c' || keystroke == 'v')) {
+        alert("No use Dude !!");
+        event.returnValue = false; // disable Ctrl+C
+        }
+        }
+    </script>
+</head>
+
+<body oncontextmenu="return false" onkeydown="javascript:Disable_Control_C()" class="bg-black muli">
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJSXSDQ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <nav class="w-100pc flex flex-column md-flex-row md-px-10 py-5 bg-black">
+        <div class="flex justify-between">
+            <a href="{% url 'index' %}" class="flex items-center p-2 mr-4 no-underline">
+                <img class="max-h-l5 w-auto" src="{% static 'assets/images/logo.jpg' %}" />
+            </a>
+            <a data-toggle="toggle-nav" data-target="#nav-items" href="#"
+                class="flex items-center ml-auto md-hidden indigo-lighter opacity-50 hover-opacity-100 ease-300 p-1 m-3">
+                <i data-feather="menu"></i>
+            </a>
+        </div>
+        <div id="nav-items" class="hidden flex sm-w-100pc flex-column md-flex md-flex-row md-justify-end items-center">
+            <a href="#home" class="fs-s1 mx-3 py-3 indigo no-underline hover-underline">Home</a>
+            <a href="#features" class="fs-s1 mx-3 py-3 indigo no-underline hover-underline">Features</a>
+            <a href="#slides" class="fs-s1 mx-3 py-3 indigo no-underline hover-underline">Career</a>
+            <a href="#projects" class="fs-s1 mx-3 py-3 indigo no-underline hover-underline">Projects</a>
+            <a href="#blog" class="fs-s1 mx-3 py-1 indigo no-underline hover-underline">Free tutorials</a>
+            {% if user.is_authenticated %}
+            <p class="fs-s1 mx-3 py-1 indigo no-underline hover-underline">Hi, {{user.username}}</p>
+            <a href="{% url 'logout' %}" class="button bg-white black fw-600 no-underline mx-5">LogOut</a>
+            {% else %}
+            <a href="{% url 'register' %}" class="button bg-white black fw-600 no-underline mx-5">Register</a>
+            <p class="fs-s1 mx-3 py-1 indigo no-underline hover-underline">OR</p>
+            <a href="{% url 'login' %}" class="button bg-white black fw-600 no-underline mx-5">LogIn</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <!-- hero section -->
+    <section id="home" class="min-h-100vh flex justify-start items-center">
+        <div class="mx-5 md-mx-l5">
+            <div class="inline-block br-round bg-indigo-30 indigo-lightest p-2 fs-s2 mb-5">
+                <a href="#jobs"class="inline-block bg-indigo indigo-lightest br-round px-3 py-1 mr-3 fs-s3 no-underline">Start Now</a>We are here to Help You....
+            </div>
+            <div>
+                <h1 class="white fs-l3 lh-2 md-fs-xl1 md-lh-1 fw-900 ">Choose Career & <br>Start Your Project Now</h1>
+		   {% if user.is_authenticated %}
+		    {% else %}
+                <div class="br-8 mt-10 inline-flex">
+                    <input type="text"
+                        class="input-lg half bw-0 fw-200 bg-indigo-lightest-10 white ph-indigo-lightest focus-white opacity-80 fs-s3 py-5 min-w-25vw br-r-0"
+                        placeholder="Email Address">
+                    <button
+                        class="button-lg bg-indigo-lightest-20 indigo-lightest focus-white fw-300 fs-s3 mr-0 br-l-0">Get
+                        Started</button>
+                </div>
+                <div class="white opacity-20 fs-s3 mt-3">No credit card required</span>
+		    {% endif %}
+            </div>
+            <div class="indigo-lightest fw-600 fs-m1 lh-7 opacity-50"> Want to choose ur job description? Donno whom to ask? Confused what to choose? Want to start doing a project? Got stuck in half way through ? Donno where to start or Donno what to do???? </div>
+        </div>
+
+    </section>
+
+    <!-- features -->
+    <section id="features" class="p-10 md-p-l5">
+        <div class="flex flex-column md-flex-row mx-auto">
+            <div class="w-100pc md-w-40pc">
+                <div class="br-8 p-5 m-5">
+                    <div class="flex justify-center items-center bg-indigo-lightest-10 white w-l5 h-l5 br-round mb-5"><i
+                            data-feather="inbox" class="w-l5"></i></div>
+                    <h4 class="white fw-600 fs-m3 mb-5">Programming languages</h4>
+                    <div class="indigo-lightest fw-600 fs-m1 lh-3 opacity-50">Choosing a programming language for a project is different than choosing one to learn.Certain languages are chosen as the industry standard.</div>
+                    <a href="{% url 'services' %}"
+                        class="mt-5 button bg-indigo-lightest-10 fs-s3 white no-underline hover-opacity-100 hover-scale-up-1 ease-300">Read</a>
+                </div>
+            </div>
+            <div class="w-100pc md-w-40pc">
+                <div class="br-8 p-5 m-5">
+                    <div class="flex justify-center items-center bg-indigo-lightest-10 white w-l5 h-l5 br-round mb-5"><i
+                            data-feather="cpu" class="w-l5"></i></div>
+                    <h4 class="white fw-600 fs-m3 mb-5">Jobs & skills required</h4>
+                    <div class="indigo-lightest fw-600 fs-m1 opacity-50">Having a degree is vital for job opportunities, but you need to have a good resume that showcases your skills in programming,problem solving etc.</div>
+                    <a href="https://www.hackerearth.com/blog/developers/study-data-structures-algorithms/"
+                        class="mt-5 button bg-indigo-lightest-10 fs-s3 white no-underline hover-opacity-100 hover-scale-up-1 ease-300">Read</a>
+                </div>
+            </div>
+            <div class="w-100pc md-w-40pc">
+                <div class="br-8 p-5 m-5">
+                    <div class="flex justify-center items-center bg-indigo-lightest-10 white w-l5 h-l5 br-round mb-5"><i
+                            data-feather="database" class="w-l5"></i></div>
+                    <h4 class="white fw-600 fs-m3 mb-5">Free projects & Tutorials</h4>
+                    <div class="indigo-lightest fw-600 fs-m1 opacity-50">Join today to get access to Our courses.you’ll go through structured content,tools & projects. It is the ONLY program that offers job-oriented training!</div>
+                    <a href="{% url 'projects' %}"
+                        class="mt-5 button bg-indigo-lightest-10 fs-s3 white no-underline hover-opacity-100 hover-scale-up-1 ease-300">Read</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- slides -->
+    <section id="slides" class="relative bg-indigo-lightest-10" style="height: 565px;">
+        <div class="splide">
+			<div class="splide__track">
+				<div class="tabs-holder splide__list">
+                    <div class="tab splide__slide">
+                        <h1>Big Data Engineer</h1>
+                        <p style="font-size:16px">
+                            the highest paying computer science jobs this year will be
+                            rewarded to the Big Data Engineers. As industries become more and
+                            more dependent on user data, companies are always looking for
+                            skillful people that can help them gain insights into the
+                            customer’s mind
+                        </p>
+                        <a class="slidebutton" style="border-radius:4px "
+                            href="careerpath">WATCH NOW</a>
+                    </div>
+
+                    <div class="tab splide__slide">
+                        <h1>Data Scientist</h1>
+                        <p style="font-size:16px">
+                        data scientists are always on demand and enterprises are ready to spend big bucks behind them. As data continues to fuel business growth, data scientists will continue to enjoy one of the highest paying computer science jobs this year.
+                        </p>
+                        <a class="slidebutton" style="border-radius:4px "
+                            href="careerpath">WATCH NOW</a>
+                    </div>
+
+                    <div class="tab splide__slide">
+                        <h1>Machine Learning Engineer</h1>
+                        <p style="font-size:16px">
+                        Machine Learning is one of the most popular (if not the most!) career choices. According to Indeed, Machine Learning Engineer Is The Best Job of 2019 with a 344% growth Machine learning engineer do one of the toughest job to create a ML or AI-based model that can work properly with best performance.
+                        </p>
+                        <a class="slidebutton" style="border-radius:4px "
+                            href="careerpath">WATCH NOW</a>
+                    </div>
+
+                    <div class="tab splide__slide">
+                        <h1>Deep Learning Engineer</h1>
+                        <p style="font-size:16px">
+                        Deep learning research engineers are a kind of computer scientist. They specialize in using deep learning platforms for specific types of programming tasks related to artificial intelligence. Their goal is to develop programming systems that mimic brain functions.
+                        </p>
+                        <a class="slidebutton" style="border-radius:4px "
+                            href="careerpath">WATCH NOW</a>
+                    </div>
+
+                    <div class="tab splide__slide">
+                        <h1>Block chain Developer/Engineer</h1>
+                        <p style="font-size:16px">
+                        A developer responsible for developing and optimizing blockchain protocols, crafting the architecture of blockchain systems, developing smart contracts and web apps using blockchain technology are commonly called blockchain developers..
+                        </p>
+                        <a class="slidebutton" style="border-radius:4px "
+                            href="careerpath">WATCH NOW</a>
+                    </div>
+
+                    <div class="tab splide__slide">
+                        <h1>Full Stack Developer</h1>
+                        <p style="font-size:16px">
+                            A full stack developer is a web developer or engineer who works with both the front and back ends of a website or application—meaning they can tackle projects that involve databases, building user-facing websites, or even work with clients during the planning phase of projects
+                        </p>
+                        <a class="slidebutton" style="border-radius:4px "
+                            href="careerpath">WATCH NOW</a>
+                    </div>
+
+                    <div class="tab splide__slide">
+                        <h1> Cloud Engineer</h1>
+                        <p style="font-size:16px">
+                            A cloud engineer is an IT professional responsible for any technological duties associated with cloud computing,including design, planning, management,maintenance and support.It also includes knowing and implementing the best practices for deploying an application on the cloud.
+                        </p>
+                        <a class="slidebutton" style="border-radius:4px "
+                            href="careerpath">WATCH
+                            NOW</a>
+                    </div>
+
+                    <div class="tab splide__slide">
+                        <h1>Game Developer</h1>
+                        <p style="font-size:16px">
+                            Game developers are people like you with math, computer, or
+                            creative arts skills. They spend their time programming and
+                            developing games.Working in games development, you'll be involved
+                            in the creation and production of games for personal computers,
+                            games consoles, social/online games.
+                        </p>
+                        <a class="slidebutton" style="border-radius:4px "
+                            href="careerpath">WATCH NOW</a>
+                    </div>
+
+                    <div class="tab splide__slide">
+                        <h1>Software Engineer/Developer</h1>
+                        <p style="font-size:16px">
+                            Software developers retrieve, store, and manipulate data to analyze a system's capability and requirements. They maintain the design and maintenance of a software system. At times they also oversee the work of computer technologists, programmers, and technicians and Computer software engineers apply engineering principles and systematic methods to develop programs
+                        </p>
+                        <div class="buttons-holder">
+                            <a class="slidebutton" style="border-radius:4px "
+                                href="careerpath">WATCH DIFF</a>
+                            <a class="slidebutton" style="border-radius:4px "
+                                href="careerpath">DEVELOPER</a>
+                            <a class="slidebutton" style="border-radius:4px "
+                                href="careerpath">ENGINEER</a>
+                        </div>
+                    </div>
+
+                    <div class="tab splide__slide">
+                        <h1>Ethical Hacker</h1>
+                        <p style="font-size:16px">
+                            An ethical hacker (also known as a white-hat hacker) is the ultimate security professional. Ethical hackers know how to find and exploit vulnerabilities and weaknesses in various systems—just like a malicious hacker (or a black hat hacker) and structured hacking performed to expose vulnerabilities in a system, using tools and techniques with the organization's' knowledge
+                        </p>
+                        <a class="slidebutton" style="border-radius:4px "
+                            href="careerpath">WATCH NOW</a>
+                    </div>
+
+                    <div class="tab splide__slide">
+                        <h1>Mobile Application Developer</h1>
+                        <p style="font-size:16px">
+                            Mobile app developer primary duty is to create, maintain and implement the source code to develop mobile apps and programs that meet the needs and requirements of the clients using the computer programming languages.A mobile app developer chooses the operating system (a.k.a. mobile platform) they will develop for, such as Google's Android or Apple's iOS
+                        </p>
+                        <a class="slidebutton" style="border-radius:4px "
+                            href="careerpath">WATCH NOW</a>
+                    </div>
+
+                    <div class="tab splide__slide">
+                        <h1>Android Software Developer/Engineer</h1>
+                        <p style="font-size:16px">
+                            Android Developer is a Software Developer who specializes in designing applications for the Android marketplace. The Android marketplace is the direct competitor to Apple's app store. This means most of an Android Developer's job revolves around creating the apps we use on our smartphones and tablets
+                        </p>
+                        <a class="slidebutton" style="border-radius:4px "
+                            href="careerpath">WATCH NOW</a>
+                    </div>
+
+                    <div class="tab splide__slide">
+                        <h1>Senior Web Developer</h1>
+                        <p style="font-size:16px">
+                            Front-end web developers are responsible for how a website looks. They create the site's layout and integrate graphics, applications (such as a retail checkout tool), and other content. They also write webdesign programs in a variety of computer languages, such as HTML or JavaScript.A web developer is a programmer who specializes in, or is specifically engaged in, the development of World Wide Web applications using a client–server model.
+                        </p>
+                        <a class="slidebutton" style="border-radius:4px "
+                            href="careerpath">WATCH NOW</a>
+                    </div>
+                    <div class="tab splide__slide">
+                        <h1>Cyber Security Engineer & Cyber Security Analyst</h1>
+                        <p style="font-size:16px">
+                            Cybersecurity engineers, sometimes called information security engineers, identify threats and vulnerabilities in systems and software, then apply their skills to developing and implementing high-tech solutions to defend against hacking, malware and ransomware, insider threats and all types of cybercrime.
+                        </p>
+                        <div class="buttons-holder">
+                            <a class="slidebutton" style="border-radius:4px "
+                                href="careerpath">WATCH DIFF</a>
+                            <a class="slidebutton" style="border-radius:4px "
+                                href="careerpath">ENGINEER</a>
+                            <a class="slidebutton" style="border-radius:4px "
+                                href="careerpath">ANALYST</a>
+                        </div>
+                    </div>
+
+                    <div class="tab splide__slide">
+                        <h1>Information Systems Security Manager</h1>
+                        <p style="font-size:16px">
+                            Information systems security managers (sometimes called IT security managers) coordinate and execute security policies and controls, as well as assess vulnerabilities within a company. They are responsible for data and network security processing, security systems management, and security violation investigation.
+                        </p>
+                        <a class="slidebutton" style="border-radius:4px "
+                            href="careerpath">WATCH
+                            NOW</a>
+                    </div>
+                    <div class="tab splide__slide">
+                        <h1>Computer Systems Analysts</h1>
+                        <p style="font-size:16px">
+                            Computer Systems Analysts work to ensure that all computer systems within an organization serve to support organizational goals. They are tasked with collaborating with colleagues to determine the strengths and weaknesses of the existing systems and identifying areas for improvement.
+                        </p>
+                        <a class="slidebutton" style="border-radius:4px "
+                            href="careerpath">WATCH
+                            NOW</a>
+                    </div>
+                    <div class="tab splide__slide">
+                        <h1>Database Administrator</h1>
+                        <p style="font-size:16px">
+                            Database administrators ensure databases run efficiently. Database administrators use specialized software to store and organize data, such as financial information and customer shipping records. They make sure that data are available to users and secure from unauthorized access.
+                        </p>
+                        <a class="slidebutton" style="border-radius:4px "
+                            href="careerpath">WATCH
+                            NOW</a>
+                    </div>
+                    <div class="tab splide__slide">
+                        <h1> Site Reliability Engineer</h1>
+                        <p style="font-size:16px">
+                            SRE team is responsible for availability, latency, performance, efficiency, change management, monitoring, emergency response, and capacity planning.” Site reliability engineers create a bridge between development and operations by applying a software engineering mindset to system administration topics.
+                        </p>
+                        <a class="slidebutton" style="border-radius:4px "
+                            href="careerpath">WATCH
+                            NOW</a>
+                    </div>
+                    <div class="tab splide__slide">
+                        <h1> Software Architect</h1>
+                        <p style="font-size:16px">
+                            A Software Architect is a computer programmer or software developer who determines which processes and technologies the development team should use. As a Software Architect you will also troubleshoot coding problems and collaborate with other experts to produce high-performance software systems.
+                        </p>
+                        <a class="slidebutton" style="border-radius:4px "
+                            href="careerpath">WATCH
+                            NOW</a>
+                    </div>
+                    <div class="tab splide__slide">
+                        <h1>Data Warehouse Architect</h1>
+                        <p style="font-size:16px">
+                            A data warehouse architect is responsible for designing data warehouse solutions and working with conventional data warehouse technologies to come up with plans that best support a business or organization.
+                        </p>
+                        <a class="slidebutton" style="border-radius:4px "
+                            href="careerpath">WATCH
+                            NOW</a>
+                    </div>
+                    <div class="tab splide__slide">
+                        <h1>Development Operations (DevOps) Engineer</h1>
+                        <p style="font-size:16px">
+                            DevOps Engineer works with developers and the IT staff to oversee the code releases. They are either developers who get interested in deployment and network operations or sysadmins who have a passion for scripting and coding and move into the development side where they can improve the planning of test and deployment.
+                        </p>
+                        <a class="slidebutton" style="border-radius:4px "
+                            href="careerpath">WATCH
+                            NOW</a>
+                    </div>
+                    <div class="tab splide__slide">
+                        <h1>IT Auditor</h1>
+                        <p style="font-size:16px">
+                            IT auditor is responsible for analyzing and assessing a company's technological infrastructure to ensure processes and systems run accurately and efficiently, while remaining secure and meeting compliance regulations.
+                        </p>
+                        <a class="slidebutton" style="border-radius:4px "
+                            href="careerpath">WATCH
+                            NOW</a>
+                    </div>
+                    <div class="tab splide__slide">
+                        <h1>Game Developer</h1>
+                        <p style="font-size:16px">
+                            Game developers are people like you with math, computer, or
+                            creative arts skills. They spend their time programming and
+                            developing games.Working in games development, you'll be involved
+                            in the creation and production of games for personal computers,
+                            games consoles, social/online games.
+                        </p>
+                        <a class="slidebutton" style="border-radius:4px "
+                            href="careerpath">WATCH
+                            NOW</a>
+                    </div>
+                    <div class="tab splide__slide">
+                        <h1>UX Designer</h1>
+                        <p style="font-size:16px">
+                            UX design focuses on the interaction between real human users (like you and me) and everyday products and services, such as websites, apps, and even coffee machines. It's an extremely varied discipline, combining aspects of psychology, business, market research, design, and technology.
+                        </p>
+                        <a class="slidebutton" style="border-radius:4px "
+                            href="careerpath">WATCH
+                            NOW</a>
+                    </div>
+                </div>
+			</div>
+		</div>
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				new Splide('.splide', {
+					type: 'loop',
+					perPage: 1,
+				}).mount();
+			});
+		</script>
+    </section>
+
+
+    <!-- big text -->
+    <section id="jobs"class="p-10 md-py-10">
+        <div class="w-100pc md-w-70pc mx-auto py-10">
+            <h2 class="white fs-l2 md-fs-xl0.98 fw-800 lh-3">
+                <span class="border-b bc-indigo bw-1"> Field in computer science has more growth and money</span><br/>
+                <h2 class="white fs-l 1md-fs-xl0 fw-500 lh-2">
+                <br />1. Parallel Computing<br />2. Cloud Computing<br />3. Distributed Systems<br />4. All forms of AI (ML, RL, DL, NLP, CV, SR, VR<br />5. Big Data<br />6. Database Administration & Design<br />7. Semantic web<br />8. Full Stack web development<br />9. Mobile app development<br />10. Data mining & analytics<br />11. IoT<br />12. Robotics<br />13. Computer Graphics<br />14. Blockchain technology<br />15. Cyber Security<br />16. GPU design<br />17. Multi-core Computer Architecture design<br />18. Embedded systems
+                </h2>
+            </h2>
+        </div>
+    </section>
+
+    <!-- product options -->
+    <section class="py-l10">
+        <div class="flex flex-column md-flex-row md-w-80pc mx-auto">
+            <div class="w-100pc md-w-50pc">
+                <div class="br-8 p-5 m-5 bg-indigo-lightest-10 pointer hover-scale-up-1 ease-300">
+                    <div class="inline-block bg-pink indigo-lightest br-3 px-4 py-1 mb-10 fs-s4 uppercase">Board Members</div>
+                    <div class="indigo-lightest fw-600 fs-m1">Check Out Here<span class="opacity-30">&nbsp;&nbsp;for Techsnap's Board Members and Best of Our Interns</span> </div>
+                    <a href="" class="mt-10 button bg-blue fs-s3 white no-underline">click here</a>
+                </div>
+            </div>
+            <div class="w-100pc md-w-50pc">
+                <div class="br-8 p-5 m-5 bg-indigo-lightest-10  pointer hover-scale-up-1 ease-300">
+                    <div class="inline-block bg-pink indigo-lightest br-3 px-4 py-1 mb-10 fs-s4 uppercase">
+                        Top Jobs & Salaries</div>
+                    <div class="indigo-lightest fw-600 fs-m1">Check Out Here<span class="opacity-30">&nbsp;&nbsp;for recent salaries of CSE Engineer and Highest paid Jobs of the year</span> </div>
+                    <a href="https://www.indeed.com/career-advice/finding-a-job/highest-paying-computer-science-jobs" class="mt-10 button bg-blue fs-s3 white no-underline">clik here</a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- projects-->
+    <section id="projects">
+        <div class="p-10 flex flex-wrap">
+            <div class="w-100pc md-w-50pc">
+                <div class="p-5">
+                    <h4 class="white fw-800 fs-l1 mb-5">Start you project</h4>
+                    <div class="indigo-lightest fw-600 fs-m1 opacity-50">Wanna know about skills needed for building for a project.We are here to help you with getting successed in you project and don't forget to maintain profiles in </div>
+                    <h4 class="white fw-600 fs-m2 mt-10">Professional networkings like</h4>
+                    <div class="flex justify-around my-8">
+                        <a href="https://www.linkedin.com/company/tech-snap/" class="relative p-5 bg-indigo br-round white hover-scale-up-1 ease-400"><i
+                            data-feather="linkedin" class="absolute-center h-4"></i></a>
+                        <a href="https://github.com/" class="relative p-5 bg-indigo br-round white hover-scale-up-1 ease-400"><i
+                            data-feather="github" class="absolute-center h-4"></i></a>
+                        <a class="mt-6 button bg-pink fs-s3 white no-underline" href="https://internshala.com/internships/computer%20science-internship">Internships</a>
+                    </div>
+                </div>
+            </div>
+            {% if user.is_authenticated %}
+            {% else %}
+            <div class="w-100pc md-w-25pc">
+                <div class="m-3 p-5 br-8 bg-indigo-lightest-10 overflow-hidden">
+                    <div class="p-3">
+                        <h3 class="indigo">Free projects</h3>
+                        <div class="white flex items-center">$<span class="fs-l5 lh-1">0</span>/project</div>
+                    </div>
+                    <div class="p-3 indigo-lightest fw-400 fs-s1 lh-5">
+                        <div>
+                            <i class="h-3 indigo" stroke-width="4" data-feather="check"></i>
+                            <span class="opacity-50">Choose career</span>
+                        </div>
+                        <div>
+                            <i class="h-3 indigo" stroke-width="4" data-feather="check"></i>
+                            <span class="opacity-50">Interested topic</span></div>
+                        <div>
+                            <i class="h-3 indigo" stroke-width="4" data-feather="check"></i>
+                            <span class="opacity-50">Register</span></div>
+                        <div>
+                            <i class="h-3 indigo" stroke-width="4" data-feather="check"></i>
+                            <span class="opacity-50">Start to see project</span></div>
+                        <div>
+                            <i class="h-3" stroke-width="4" data-feather="x"></i>
+                            <span class="opacity-50">No Copy and Paste</span></div>
+                    </div>
+                    <div class="p-3">
+                        <button class="button full bg-black white  hover-opacity-100 hover-scale-up-1 ease-300">SIGN
+                            UP</button>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100pc md-w-25pc">
+                <div class="m-3 p-5 br-8 bg-white overflow-hidden">
+                    <div class="p-3">
+                        <h3 class="indigo">Mini Projects</h3>
+                        <div class="black flex items-center">$<span class="fs-l5 lh-1">2</span>/project</div>
+                    </div>
+                    <div class="p-3 black fw-400 fs-s1 lh-5">
+                        <div>
+                            <i class="h-3 indigo" stroke-width="4" data-feather="check"></i>
+                            <span class="opacity-50">Choose career</span></div>
+                        <div>
+                            <i class="h-3 indigo" stroke-width="4" data-feather="check"></i>
+                            <span class="opacity-50">Register</span></div>
+                        <div>
+                            <i class="h-3 indigo" stroke-width="4" data-feather="check"></i>
+                            <span class="opacity-50">Select & pay</span></div>
+                        <div>
+                            <i class="h-3 indigo" stroke-width="4" data-feather="check"></i>
+                            <span class="opacity-50">24x7 support</span></div>
+                        <div>
+                            <i class="h-3 indigo" stroke-width="4" data-feather="check"></i>
+                            <span class="opacity-50">Third parties</span></div>
+                    </div>
+                    <div class="p-3">
+                        <button class="button full bg-indigo white hover-opacity-100 hover-scale-up-1 ease-300">SIGN
+                            UP</button>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+
+    <!-- testimonials -->
+    <section class="p-10 md-p-l5">
+        <div id="slider-2">
+            <div class="px-3">
+                <div class="p-8 br-8 bg-indigo-lightest-10 relative">
+                    <span class="fs-l5 lh-1 white opacity-10 absolute top-0 z--1">&#10077;</span>
+                    <p class="fw-600 fs-m1 indigo-lightest opacity-80 italic ls-wider">Follow some of the Best Companies in linkedin and know about their needs and find problems to thier solutins </p>
+                    <div class="flex items-center my-5">
+                        <div class="block br-round bw-4 w-l3 h-l3"><img class="br-round"
+                                src="{% static 'assets\images\mitra.webp' %}" alt=""></div>
+                        <div class="ml-4 fs-s1">
+                            <div class="indigo-lightest">Mitranand chowdary</div>
+                            <div class="indigo-lightest opacity-20">director,mitra</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="px-3">
+                <div class="p-8 br-8 bg-indigo-lightest-10 relative">
+                    <span class="fs-l5 lh-1 white opacity-10 absolute top-0 z--1">&#10077;</span>
+                    <p class="fw-600 fs-m1 indigo-lightest opacity-80 italic ls-wider">first i thought its a normal website but after going through features ,it too good</p>
+                    <div class="flex items-center my-5">
+                        <div class="block br-round bw-4 w-l3 h-l3"><img class="br-round"
+                                src="{% static 'assets\images\yes.webp' %}" alt=""></div>
+                        <div class="ml-4 fs-s1">
+                            <div class="indigo-lightest">Yeswanth</div>
+                            <div class="indigo-lightest opacity-20">Student,SRM Univ</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="px-3">
+                <div class="p-8 br-8 bg-indigo-lightest-10 relative">
+                    <span class="fs-l5 lh-1 white opacity-10 absolute top-0 z--1">&#10077;</span>
+                    <p class="fw-600 fs-m1 indigo-lightest opacity-80 italic ls-wider">so glad to be working in this company,looking forward to work with you guys</p>
+                    <div class="flex items-center my-5">
+                        <div class="block br-round bw-4 w-l3 h-l3"><img class="br-round"
+                                src="{% static 'assets\images\sampreeth.webp' %}" alt=""></div>
+                        <div class="ml-4 fs-s1">
+                            <div class="indigo-lightest">Sampreeth</div>
+                            <div class="indigo-lightest opacity-20">CEO,techsnap</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="px-3">
+                <div class="p-8 br-8 bg-indigo-lightest-10 relative">
+                    <span class="fs-l5 lh-1 white opacity-10 absolute top-0 z--1">&#10077;</span>
+                    <p class="fw-600 fs-m1 indigo-lightest opacity-80 italic ls-wider">Thank you techsnap for making my career transition soo easy from mechanical to cse</p>
+                    <div class="flex items-center my-5">
+                        <div class="block br-round bw-4 w-l3 h-l3"><img class="br-round"
+                                src="{% static 'assets\images\balraj.webp' %}" alt=""></div>
+                        <div class="ml-4 fs-s1">
+                            <div class="indigo-lightest">manoj</div>
+                            <div class="indigo-lightest opacity-20">Student,KL univ</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="px-3">
+                <div class="p-8 br-8 bg-indigo-lightest-10 relative">
+                    <span class="fs-l5 lh-1 white opacity-10 absolute top-0 z--1">&#10077;</span>
+                    <p class="fw-600 fs-m1 indigo-lightest opacity-80 italic ls-wider">interested in startups,wanna build huge company then come to me ill help u,we can have a good deal</p>
+                    <div class="flex items-center my-5">
+                        <div class="block br-round bw-4 w-l3 h-l3"><img class="br-round"
+                                src="{% static 'assets\images\yogi.webp' %}" alt=""></div>
+                        <div class="ml-4 fs-s1">
+                            <div class="indigo-lightest">yogi</div>
+                            <div class="indigo-lightest opacity-20">Student,Aditya Eng</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- featured blog -->
+    <section class="p-10 md-p-l10">
+        <div class="md-w-75pc">
+            <h2 class="white fs-l3 fw-900 lh-1">We are Hiring Interns !</h2>
+            <p class="indigo-lightest fw-600 fs-m1 opacity-50 my-5">Visit our Careers for more Details and Feel Free to Contact Us!</p>
+        </div>
+        <div class="new-logo">
+            <img class="new-logo-img" src="{% static 'assets/images/jobs.webp' %}" alt="logo-new">
+        </div>
+    </section>
+
+    <!-- blog -->
+    <section id ="blog" class="p-0 md-p-5">
+        <div class="flex flex-wrap">
+            <div class="w-100pc md-w-33pc p-10">
+                <a href="##" class="block no-underline p-5 br-8 hover-bg-indigo-lightest-10 hover-scale-up-1 ease-300">
+                    <img class="w-150pc" src="{% static 'assets/images/python.webp' %}" alt="">
+                    <p class="fw-600 white fs-m3 mt-3">
+                        Python (programming language) tutorial
+                        <div class="indigo-lightest fw-600 fs-m1 opacity-50">Well organized and easy to understand Web building tutorials with lots of examples of how to use of python and Python is a general-purpose interpreted, interactive, object-oriented, and high-level demanding programming language</div>
+                    </p>
+                    <div class="indigo fs-s3 italic after-arrow-right my-4">START FREE TUTORIALS</div>
+                </a>
+            </div>
+            <div class="w-100pc md-w-33pc p-10">
+                <a href="##" class="block no-underline p-5 br-8 hover-bg-indigo-lightest-10 hover-scale-up-1 ease-300">
+                    <img class="w-150pc" src="{% static 'assets/images/databases.webp' %}" alt="">
+                    <p class="fw-600 white fs-m3 mt-3">
+                        Databases tutorial(sql,nosql etc..)
+                        <div class="indigo-lightest fw-600 fs-m1 opacity-50">Databases are widely divided into two major types, namely, Relational or Sequence Databases and Non-relational or Non-sequence databases.</div>
+                    </p>
+                    <div class="indigo fs-s3 italic after-arrow-right my-4">START FREE TUTORIALS</div>
+                </a>
+            </div>
+            <div class="w-100pc md-w-33pc p-10">
+                <a href="##" class="block no-underline p-5 br-8 hover-bg-indigo-lightest-10 hover-scale-up-1 ease-300">
+                    <img class="w-150pc" src="{% static 'assets/images/data csience.webp' %}" alt="">
+                    <p class="fw-600 white fs-m3 mt-3">
+                        Data science,AI,ML tutorial
+                        <div class="indigo-lightest fw-600 fs-m1 opacity-50"> artificial intelligence is applied based on machine learning and machine learning is a part of data science that draws features from algorithms and statistics to work on the data extracted from and produced by multiple resources</div>
+                    </p>
+                    <div class="indigo fs-s3 italic after-arrow-right my-4">START FREE TUTORIALS</div>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- subscribe -->
+    <section class="p-10 md-p-l5">
+        <div class="br-8 bg-indigo-lightest-10 p-5 md-p-l5 flex flex-wrap md-justify-between md-items-center">
+            <div class="w-100pc md-w-33pc">
+                <h2 class="white fs-m4 fw-800">Try Free Tutorials</h2>
+                <p class="fw-600 indigo-lightest opacity-40">Start to learn from free tutorials,Gain knowledge,see free
+                    projects and buy some mini projects at low cost and support us by registering </p>
+                <br /><a class="mt-12 button bg-blue fs-s3 white no-underline" href="{% url 'tutorials' %}">Free tutorials</a>
+            </div>
+            <div class="w-100pc md-w-50pc">
+                <div class="flex my-5 subscribe__email">
+                    <input type="text"
+                        class=" email_sub input-lg flex-grow-1 bw-0 fw-200 bg-indigo-lightest-10 white ph-indigo-lightest focus-white opacity-80 fs-s3 py-5 br-r-0"
+                        placeholder="Email Address">
+                    <button class=" button_sub button-lg bg-indigo indigo-lightest fw-300 fs-s3 br-l-0">Get Started</button>
+                </div>
+                <br /><a class="mt-12 button bg-blue fs-s3 white no-underline" href="{% url 'projects' %}">Free projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="Footer_conatiner">
+	<div class="Footer_header">
+		<a href="{% url 'index' %}"><img src="{% static 'assets/images/visible.png' %}" alt="Logo" ></a>
+		<br><br>
+		<p>We are here to endure your muddled stages of knowing the trends while pursuing UG-CSE.</br>we help you to know about trending jobs and required skills</p>
+		<br>
+		<p>We will succour you in submitting your university projects as well as steer you with free tutorials</p>
+	</div>
+	<div class="Footer_columns_holder">
+		<div class="Footer_columns">
+			<h1>Company</h1>
+			<a href="{% url 'aboutus' %}">About us</a>
+			<a href="{% url 'learnerstories' %}">Learner stories</a>
+			<a href="">our people</a>
+			<a href="{% url 'job_test:jobslist' %}">jobs</a>
+		</div>
+		<div class="Footer_columns">
+			<h1>Resources</h1>
+			<a href="">Learn</a>
+			<a href="{% url 'careerpath' %}">Career path</a>
+			<a href="">Internship</a>
+			<a href="##">Blogs</a>
+		</div>
+		<div class="Footer_columns">
+			<h1>Support</h1>
+			<a href="{% url 'contact' %}">Contact us</a>
+			<a href="">FAQ</a>
+			<a href="">Any ideas or Bugs</a>
+			<a href="">Invest</a>
+		</div>
+		<div class="Footer_columns">
+			<h1>Services</h1>
+			<a href="##">Startup services</a>
+			<a href="{% url 'design' %}">Design services</a>
+			<a href="{% url 'services' %}">Projects</a>
+			<a href="{% url 'services' %}">Courses</a>
+		</div>
+	</div>
+</footer>
+<div class="Privacy_holder">
+	<div class="Privacy_links">
+		<a href="{% url 'privacy' %}">Privacy policy</a>
+		<a href="{% url 'cookies' %}">Cookies Notice</a>
+		<a href="{% url 'security' %}">Security</a>
+		<a href="{% url 'terms' %}">Terms of use</a>
+	</div>
+	<div class="Social-media">
+		<a href="https://www.linkedin.com/company/74741373/"><img src="{% static 'assets/images/linkedin.svg' %}"/></a>
+		<a href="##"><img src="{% static 'assets/images/twitter.svg' %}"/></a>
+		<a href="https://www.instagram.com/techsnapofficial/"><img src="{% static 'assets/images/instagram.svg' %}"/></a>
+	</div>
+</div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="{% static 'assets/js/script.js' %}"></script>
+</body>
+
+</html>

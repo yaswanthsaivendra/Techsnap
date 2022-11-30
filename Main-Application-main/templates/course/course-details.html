@@ -1,0 +1,878 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+	{% block head %}
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link
+			rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		/>
+		<link type="text/css" href="{% static 'css/details/style.css'%}" rel="stylesheet" />
+		<script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+		<script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+		<title>Document</title>
+		<script src="{% static 'js/timer.js'%}"></script>
+	{% endblock %}
+
+
+	{% block content %}
+	<style>
+		.lesson-label{
+			margin-top: 8px;
+		}
+	</style>
+		<!-- -------------------------------------------- -->
+		<div class="settings_sidebar">
+			<div class="side_conatiner">
+				<div class="side_header">
+					<p onclick="settingSideBar()">X</p>
+					<div class="logos">
+						<img src="{% static '/images/logo.png'%}" alt="logo" />
+					</div>
+					<h1>Course Setting</h1>
+				</div>
+				<div class="dark_section">
+					<div class="text">
+						<p>
+							Dark Mode
+							<span>Beta</span>
+						</p>
+					</div>
+					<label class="switch">
+						<input type="checkbox" checked />
+						<span class="slider round"></span>
+					</label>
+				</div>
+				{% if current_lesson %}
+					<a href="{% url 'get-user-course-history' current_lesson.lesson.unit.course.slug user.user.username %}" >
+					<button class='w3-button w3-hover-border w3-hover-white w3-hover-text-purple w3-padding w3-purple' style="width:100%;">View Course History</button>
+					</a>
+					{% if user_course_map.total_lessons_completed != 0  and user_course_map.percentage_completion == 100 %}
+					<a href="{% url 'reset-course' current_lesson.lesson.unit.course.slug%}" >
+						<button class='w3-button w3-hover-border w3-hover-white w3-hover-text-red w3-padding w3-red' style="width:100%;">Reset Course</button>
+					</a>
+					{% endif %}
+				{% endif %}
+				<div class="theme_demo">
+					<div class="right_sec">
+						<img src="{% static '/images/download.png'%}" alt="snpiiet" srcset="" />
+
+						<label>
+							<input type="checkbox" class="default__check" />
+							<span class="custom__check"></span>
+							Checkbox
+						</label>
+					</div>
+					<div class="left_sec">
+						<img src="{% static '/images/download.png'%}" alt="snpiiet" srcset="" />
+						<label>
+							<input type="checkbox" class="default__check" />
+							<span class="custom__check"></span>
+							Checkbox
+						</label>
+					</div>
+				</div>
+				<div class="choice_section">
+					<div class="text">
+						<p>Save course history</p>
+					</div>
+					<label class="switch">
+						<input type="checkbox" checked />
+						<span class="slider round"></span>
+					</label>
+				</div>
+				<div class="choice_section">
+					<div class="text">
+						<p>Announcement Emails</p>
+					</div>
+					<label class="switch">
+						<input type="checkbox" checked />
+						<span class="slider round"></span>
+					</label>
+				</div>
+				<div class="choice_section">
+					<div class="text">
+						<p>Reminders</p>
+					</div>
+					<label class="switch">
+						<input type="checkbox" checked />
+						<span class="slider round"></span>
+					</label>
+				</div>
+			</div>
+		</div>
+
+		<!-- //------------------------------------------------------- -->
+		<header>
+			<div class="left_side_header">
+				<div class="ham" onclick="displayCourseContentHandler()">
+					<img
+						src="https://icon-library.com/images/hamburger-menu-icon-svg/hamburger-menu-icon-svg-17.jpg"
+						alt=""
+					/>
+				</div>
+				<div class="logo">
+					<img
+						src="https://www.techsnap.in/assets/assets/main/logo.png"
+						alt=""
+					/>
+				</div>
+				<p id="title_text_header">{{current_lesson.lesson.unit.course.course_title}}</p>
+				<h3 class='w3-border w3-padding w3-medium w3-text-white w3-margin' id="timer" ></h3>
+			</div>
+
+			<div class="right_side_header">
+				<progress id='progress_done' max="100" value="{{user_course_map.percentage_completion}}"></progress>
+				<h4 id='percentage_done' >{{user_course_map.percentage_completion|floatformat:1}}%</h4>
+				<div id="setting_icon" class="setting_icon" onclick="settingSideBar()">
+					<img
+						src="https://img.icons8.com/external-xnimrodx-lineal-gradient-xnimrodx/64/000000/external-setting-advertising-xnimrodx-lineal-gradient-xnimrodx-3.png"
+					/>
+				</div>
+				<div class="setting_icon" id="back" >
+					<a href="{% url 'exit-course' user_course_map.course.slug %}" >
+					<img
+						src="https://img.icons8.com/ultraviolet/40/000000/circled-left-2.png"
+					/>
+					</a>
+				</div>
+				<div class="profile_avatar">
+					<img
+						src="https://avatars.githubusercontent.com/u/39455174?v=4"
+						alt=""
+						class="avatar"
+					/>
+				</div>
+			</div>
+
+			<div class="profile_dropDown">
+				<a href="#" class="profile_dropDown_item">
+					<span
+						><img
+							src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-dashboard-blogger-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"
+					/></span>
+					<p>View Dashboard</p>
+				</a>
+				<a href="#" class="profile_dropDown_item">
+					<span
+						><img src="https://img.icons8.com/ios/50/000000/user.png"
+					/></span>
+					<p>View Profile</p>
+				</a>
+				<a href="#" class="profile_dropDown_item">
+					<span
+						><img src="https://img.icons8.com/ios/50/000000/user-not-found.png"
+					/></span>
+					<p>Edit</p>
+				</a>
+				<a href="#" class="profile_dropDown_item">
+					<span
+						><img src="https://img.icons8.com/windows/32/000000/exit.png"
+					/></span>
+					<p>Logout</p>
+				</a>
+			</div>
+		</header>
+
+		<div class="main_container">
+			<div class="max_width_section">
+				<div class="left_side_holder">
+					<h1 class='w3-left w3-text-indigo'>{{current_lesson.lesson.title}}</h1>
+					<div class='w3-row'>
+					{{current_lesson.lesson.body | safe}}
+					</div>
+					<input type="hidden" id="min_left" value="{{current_lesson.timer_min_left}}">
+					<input type="hidden" id="sec_left" value="{{current_lesson.timer_sec_left}}">
+					<input type="hidden" currId="{{current_lesson.id}}" nextId="{{next_locked.id}}" id="lesson_id" value="{% url 'lesson-timer-update' current_lesson.id %}">
+					<div class="control_btn_holder">
+						{% if back %}
+						<a href="{% url 'lesson-view' current_lesson.lesson.unit.course.slug back.lesson.slug %}" >
+						<button>Back</button>
+						</a>
+						{% endif %}
+
+						<div id="timer_0" style="display:none;" >
+							{%if not current_lesson.completed %}
+							<button class='w3-border-green w3-text-green' value="{% url 'lesson-completed' current_lesson.lesson.slug %}" onclick="currentLessonCompleted(this);">Mark as completed</button>
+							{% else %}
+							<button class='w3-border-red w3-text-red' value="{% url 'lesson-completed' current_lesson.lesson.slug %}" onclick="currentLessonUnCompleted(this);">Unmark Lesson</button>
+							{% endif %}
+						</div>
+						<div id="timer_not_0" >
+							<div class="w3-container w3-small w3-border w3-margin">
+								<div class='w3-row'>
+									<h1 class='w3-left lesson-label w3-text-grey w3-medium' ><e class='w3-medium w3-text-red'>This Lesson can be completed once the minimum required time is over.</e></h1>
+								</div>
+							</div>
+						</div>
+						
+						{% if next %}
+							<a href="{% url 'lesson-view' current_lesson.lesson.unit.course.slug next.lesson.slug %}" >
+							<button>Next</button>
+							</a>
+						{% endif %}
+					</div>
+
+					<!--Tab view like udemy -->
+
+					<div class="tab_section">
+						<div class="tab">
+							<button class="tablinks" onclick="openTab(event, 'Course')">
+								Course Info
+							</button>
+							<button class="tablinks" onclick="openTab(event, 'Q&A')">
+								Q&A
+							</button>
+							<button
+								class="tablinks"
+								onclick="openTab(event, 'Announcements')"
+							>
+								Announcements
+							</button>
+							<button class="tablinks" onclick="openTab(event, 'Feedback')">
+								Feedback
+							</button>
+							<button class="tablinks" onclick="openTab(event, 'Resource')">
+								Resource
+							</button>
+
+							<button
+								class="tablinks"
+								id="defaultOpen"
+								onclick="openTab(event, 'Grade')"
+							>
+								Grade
+							</button>
+						</div>
+
+						<!-- Course info  section-->
+						<div class="tabcontent" id="Course">
+							<div class="course_info w3-round-large w3-border w3-padding">
+								<div class="course_info_header">
+									<div class="course_info_avatar">
+										<img src="{{user_course_map.course.course_img.url}}" alt="icon" />
+									</div>
+									<div class="course_info_header_right">
+										<h1>{{current_lesson.lesson.unit.course}}</h1>
+										<p>Lorem ipsum dolor, sit amet consectetur adipisicin</p>
+									</div>
+								</div>
+								<div class="course_info_controls">
+									<img
+										src="https://i.pinimg.com/originals/20/9b/d8/209bd859c265e7ffc4bfeb75877b23f7.png"
+									/>
+									<img
+										src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2plMCOHyLkE8ZJE0sEWh3KYGStc-gH7KKt64a5Rb4WFPlt5fj0E-JdcYmRqKNE4gKGQQ&usqp=CAU"
+									/>
+								</div>
+								<div class="course_info_details">
+									{{current_lesson.lesson.unit.course.course_overview}}
+								</div>
+							</div>
+						</div>
+
+						<!-- Q&A section -->
+						<div class="tabcontent" id="Q&A">
+							<div class="QA_conatiner">
+								<div class="title">
+									<h1>Coming Soon .....</h1>
+								</div>
+							</div>
+						</div>
+
+						<!--Announcements section-->
+						<div class="tabcontent" id="Announcements">
+							<div class="announcement_conatiner">
+								{% for new in news %}
+								<div class="announcement_item">
+									<div class="header">
+										<div class="image">
+											<img src="{{new.anouncement.img.url}}" alt="profile" />
+										</div>
+										<div class="names">
+											<p>{{new.anouncement.intructor}}</p>
+											<span><e class='w3-text-black w3-large w3-bold' >{{new.anouncement.instructor}}</e> posted an announcement on · {{new.anouncement.posted_on}} · </span>
+										</div>
+									</div>
+									<div class="body w3-padding w3-round-large w3-border">
+										{{new.anouncement.body | safe}}
+									</div>
+									<div class="comment_zone">
+										<div class="comment_input w3-margin-top">
+											<div class="profile">
+												<img src="{% static 'images/icons8-avatar.svg'%}" alt="prifile" />
+											</div>
+											<input type="text" class='w3-input w3-round-large' />
+										</div>
+										<div class="comments">
+											{% for comment in new.comments %}
+											<div class="comment">
+												<div class="profile">
+													<img src="{{comment.img.url}}" alt="prifile" />
+												</div>
+												<div class="text">
+													<span>
+														<a>{{comment.name}} ·</a> {{comment.added_on}} ·
+													</span>
+													<p>
+														{{comment.thoughts}}
+													</p>
+												</div>
+											</div>
+											{% endfor %}
+											<button onclick="showMoreComment()" id="more_comment">
+												see more
+											</button>
+										</div>
+									</div>
+								</div>
+								{% endfor %}
+							</div>
+						</div>
+
+						<!--Feedback section-->
+						<div class="tabcontent" id="Feedback">
+							<section class="main-content">
+								<div class="row">
+									<div class="rating-card">
+										<div class="text-center">
+											<h4>Rating Overview</h4>
+											<br />
+											<h1 class="rating-number">{{ratings.avg|floatformat:1}}<small>/5</small></h1>
+											<div
+												class="rating-stars d-inline-block position-relative mr-2"
+											>
+												<img src="{% static 'images/grey-star.svg'%}" alt="" />
+												<div class="filled-star" style="width: {{ratings.avg_per}}%"></div>
+											</div>
+											<div class="text-muted">{{ratings.get_total}} ratings</div>
+										</div>
+										<div class="rating-divided">
+											{% for any in ratings.all %}
+											<div class="rating-progress">
+												<span class="rating-grade"
+													>{{any.for}} <img src="{% static '/images/star.svg' %}" alt=""
+												/></span>
+												<div class="progress">
+													<div
+														class="progress-bar bg-warning"
+														role="progressbar"
+														style="width: {{any.per}}%"
+														aria-valuenow="{{any.per}}"
+														aria-valuemin="0"
+														aria-valuemax="100"
+													></div>
+												</div>
+												<span class="rating-value">{{any.votes}}</span>
+											</div>
+											{% endfor %}
+										</div>
+									</div>
+								</div>
+							</section>
+							<h2>Reviews</h2>
+							<p>See what other saying about this course</p>
+							<div class="feedback_container">
+								{% for review in reviews %}
+								<div class="feedback_item w3-white w3-border-indigo w3-border w3-round">
+									<div class="feedback_right_sec">
+										{% if review.img %}
+										<div class="profile">
+											<img src="{{review.img.url}}" alt="icon" />
+										</div>
+										{% endif %}
+										<h1>{{review.name}}</h1>
+										<div class="rating_holder">
+											<img
+												src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png"
+												alt="filled-star"
+											/>
+											<img
+												src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png"
+												alt="filled-star"
+											/>
+											<img
+												src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png"
+												alt="filled-star"
+											/>
+											<img
+												src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png"
+												alt="filled-star"
+											/>
+											<img
+												src="https://cdn-icons-png.flaticon.com/512/1828/1828970.png"
+												alt="unfilled-star"
+											/>
+										</div>
+										<div class="like_holder">
+											<div class="svg_holder">
+												<img src="{% static '/images/like.svg'%}" alt="" />
+												<p>Like</p>
+											</div>
+											<div class="svg_holder">
+												<img src="{% static '/images/dislike.svg'%}" alt="" />
+												<p>Unlike</p>
+											</div>
+											<div class="svg_holder">
+												<img src="{% static '/images/report.svg'%}" alt="" />
+												<p>Report</p>
+											</div>
+										</div>
+									</div>
+
+									<div class="feedback_left_sec">
+										<h1>Review</h1>
+										<p>
+											{{review.body}}
+										</p>
+									</div>
+								</div>
+								{% endfor %}
+							</div>
+							<h2>Add Reviews</h2>
+							<form enctype='multipart/form-data' method='POST' action="{% url 'create-review' user_course_map.course.slug current_lesson.lesson.slug %}">
+								{% csrf_token %}
+								{{ review_form|crispy }}
+								<button type='submit' class='w3-round-large w3-green w3-button' >Post Review</button>
+							</form>
+						</div>
+						<!--Resource section-->
+						<div class="tabcontent" id="Resource">
+							<div class="resource_section">
+								{% for content in contents %}
+								<div class='w3-row'>
+								<div class="resource_item">
+									<h6>{{content.unit.title}}:</h6>
+									{% for lesson in content.lessons %}
+									{% if lesson.lesson.resource %}
+										<div class="pdf_details_holder">
+											<div class="pdf_icon w3-half">
+												<img
+													src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-clipboard-line-black-icon-png-image_3767738.jpg"
+												/>
+											</div>
+											<div class="pdf_details_right w3-half">
+											<a href="{{lesson.lesson.resource.url}}" >
+												<h1>{{lesson.lesson.resource_name}} | {{lesson.lesson.unit.title}} | {{lesson.lesson.title}}</h1>
+												<p>Resource File </p>
+											</a>
+											</div>
+										</div>
+									{% endif %}
+									{% if lesson.lesson.resource_link %}
+										<div class="pdf_details_holder">
+											<div class="pdf_icon w3-half">
+												<img
+													src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-clipboard-line-black-icon-png-image_3767738.jpg"
+												/>
+											</div>
+											<div class="pdf_details_right w3-half">
+											<a href="{{lesson.lesson.resource_link}}" >
+												<h1>{{lesson.lesson.resource_link}}</h1>
+												<p>Resource Link | {{lesson.lesson.unit.title}} | {{lesson.lesson.title}}</p>
+											</a>
+											</div>
+										</div>
+									{% endif %}
+									{% endfor %}
+								</div>
+							</div>
+								{% endfor %}
+							</div>
+						</div>
+
+						<!--Grade section-->
+						<div class="tabcontent" id="Grade">
+						{% for grade in grades %}
+						<button class="accordion1">
+							<div>
+
+							<img src="https://image.pngaaa.com/831/5262831-middle.png" />
+							{{grade.name}}
+							</div>
+						</button>
+						<div class="panel">
+							<div class="panel_left">
+								<div class="item">
+
+									<h3>Videos :</h3>
+									<h4>{{grade.videos}}</h4>
+									
+								</div>
+								<div class="item">
+
+									<h3>Articles :</h3>
+									<h4>{{grade.readings}}</h4>
+
+								</div>
+
+							</div>
+							<div class="panel_right">
+									<div class="item">
+
+									<h3>Total XP :</h3>
+									<h4>{{grade.txp}}</h4>
+									
+								</div>
+									<div class="item">
+
+									<h3>Completed :</h3>
+									<h4>{{grade.due}}</h4>
+									
+								</div>
+							</div>
+						</div>
+						{% endfor %}
+						
+					</div>
+				</div>
+			</div>
+
+			<div class="right_side_holder">
+				<div class="accordion">
+					<div class="heading_holder">
+						<h1>Course Content</h1>
+					</div>
+					{% for content in contents %}
+					<div class="accordion-item">
+						<button id="accordion-button-1" aria-expanded="false">
+							<span class="accordion-title">
+								<h1>{{content.unit.title}}</h1>
+								<p id="{{content.unit.id}}">{{content.completed}}</p>
+
+								<span class="icon" aria-hidden="true"></span>
+							</span>
+						</button>
+						<div class="accordion-content">
+							{% for lesson in content.lessons %}
+							<div>
+							{% if lesson.unlocked %}
+								{% if lesson.timer_min_left <= 0 and lesson.timer_sec_left <= 0 %}
+									<a class='w3-text-black' href="{% url 'lesson-view' current_lesson.lesson.unit.course.slug lesson.lesson.slug %}" >
+									<div class="w3-container w3-small w3-padding w3-border-top">
+										<div class='w3-quarter w3-small w3-col'>
+											{% if lesson.completed %}
+											<input type="checkbox" class='w3-check w3-left' value="{% url 'lesson-completed' lesson.lesson.slug %}" onchange="lessonCompleted(this);"  checked/>
+											{% else %}
+											<input type="checkbox" class='w3-check w3-left' value="{% url 'lesson-completed' lesson.lesson.slug %}" onchange="lessonCompleted(this);" />
+											{% endif %}
+										</div>
+										<div class='w3-twothird'>
+											<h1 class='w3-left lesson-label w3-hover-text-indigo w3-large' >{{lesson.lesson.title}} | {{lesson.lesson.duration}}&nbspmin</h1>
+										</div>
+									</div>
+									</a>
+								{% else %}
+									<a href="{% url 'lesson-view' current_lesson.lesson.unit.course.slug lesson.lesson.slug %}" >
+									<div class="w3-container w3-small w3-padding w3-border-top">
+										<div class='w3-quarter w3-small w3-col'>
+											{% if lesson.completed %}
+											<input type="checkbox" class='w3-check w3-left' value="{% url 'lesson-completed' lesson.lesson.slug %}" onchange="lessonCompleted(this);"  checked/>
+											{% else %}
+											<input id="{{lesson.id}}lesson" style="pointer-events: none;opacity: 0.5;" type="checkbox" class='w3-check w3-left' value="{% url 'lesson-completed' lesson.lesson.slug %}" onchange="lessonCompleted(this);" />
+											{% endif %}
+										</div>
+										<div class='w3-twothird'>
+											<h1 id="{{lesson.id}}text" class='w3-left lesson-label w3-text-green w3-hover-text-indigo w3-large' >{{lesson.lesson.title}} | {{lesson.lesson.duration}}&nbspmin</h1>
+										</div>
+									</div>
+									</a>
+								{% endif %}
+							{% else %}
+								<a id="{{lesson.id}}lesson" style="pointer-events: none;opacity: 0.5;" href="{% url 'lesson-view' current_lesson.lesson.unit.course.slug lesson.lesson.slug %}" >
+								<div class="w3-container w3-small w3-padding w3-border-top">
+									<div class='w3-quarter w3-small w3-col'>
+										{% if lesson.completed %}
+										<input type="checkbox" class='w3-check w3-left' value="{% url 'lesson-completed' lesson.lesson.slug %}" onchange="lessonCompleted(this);"  checked/>
+										{% else %}
+										<input style="pointer-events: none;opacity: 0.5;" type="checkbox" class='w3-check w3-left' value="{% url 'lesson-completed' lesson.lesson.slug %}" onchange="lessonCompleted(this);" />
+										{% endif %}
+									</div>
+									<div class='w3-twothird'>
+										<h1 id="{{lesson.id}}text" class='w3-left w3-text-red lesson-label w3-hover-text-indigo w3-large' >{{lesson.lesson.title}} | {{lesson.lesson.duration}}&nbspmin</h1>
+									</div>
+								</div>
+								</a>
+							{% endif %}
+							</div>
+							{% endfor %}
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	<script src="{% static 'js/app.js'%}"></script>
+	<script>
+		
+		window.onload = function() {
+			var min_left = parseInt(document.querySelector('#min_left').value);
+			var sec_left = parseInt(document.querySelector('#sec_left').value);
+			console.log(min_left, sec_left);
+			if (min_left<=0 && sec_left<=0){
+				
+				document.getElementById('timer_0').style.display = 'block';
+				document.getElementById('timer_not_0').style.display = 'none';
+			}
+			else {
+				startTimer(min_left, sec_left);
+			}
+		}
+
+		function startTimer(min_left, sec_left, lesson_id) {
+			var min=min_left;
+			var seconds=sec_left;
+			if (min_left>0 && sec_left==0){
+				min = min-1;
+				seconds = 59;
+			}
+			var timer = Timer();
+
+			timer.every('1 seconds', function() {
+				seconds-=1;
+				if (seconds<=0 && min>0){
+					seconds=59;
+					min-=1;
+					document.getElementById("timer").innerText= min+" min "+seconds+" sec";
+				}
+				else if (seconds<=0 && min==0) {
+					document.getElementById("timer").innerText = " Minimum time over ! ";
+					timer.stop();
+					document.getElementById('timer_0').style.display = 'block';
+					document.getElementById('timer_not_0').style.display = 'none';
+					timerUpdate(0, 0);
+				} 
+				else {
+					document.getElementById("timer").innerText= min+" min "+seconds+" sec";
+				}
+			});
+
+			timer.start();
+
+			document.addEventListener("visibilitychange", event => {
+				if (document.visibilityState !== "visible") {
+					timer.stop()
+				} 
+				else {
+					timer.start()
+				}
+			})
+			document.addEventListener("blur", event => {
+				timer.stop();
+			})
+			document.addEventListener("focus", event => {
+				timer.start();
+			})
+			window.addEventListener("beforeunload", function(){
+				timerUpdate(min, seconds);
+			});
+		}
+	
+		function timerUpdate(min, seconds){
+			lesson = document.querySelector('#lesson_id');
+			var nxt = lesson.getAttribute('nextId');
+			var cur = lesson.getAttribute('currId');
+			var url = lesson.value;
+			$.get(
+				url,
+				{
+					'min': min,
+					'sec': seconds
+				}
+			)
+			document.getElementById(cur+'lesson').style = "";
+			document.getElementById(cur+'text').className = "w3-left lesson-label w3-text-black w3-hover-text-indigo w3-large";
+			console.log(nxt, cur);
+			document.getElementById(nxt+'lesson').style = "";
+			document.getElementById(nxt+'text').className = "w3-left lesson-label w3-text-green w3-hover-text-indigo w3-large";
+		}
+
+		function currentLessonCompleted(obj){
+			var url = obj.value+"?redo="+false;
+			$.ajax({
+				type: 'GET',
+				url: url,
+				success: function(resp) {
+					document.location.reload(true);
+				}
+			})
+		}
+
+		function currentLessonUnCompleted(obj){
+			var url = obj.value+"?redo="+true;
+			$.ajax({
+				type: 'GET',
+				url: url,
+				success: function(resp) {
+					document.location.reload(true);
+				}
+			})
+		}
+
+		function lessonCompleted(obj) {
+			if ($(obj).is(":checked")){
+				var url = obj.value+"?redo="+false;
+			}
+			else {
+				var url = obj.value+"?redo="+true;
+			}
+			$.ajax({
+				type: 'GET',
+				url: url,
+				success: function(resp) {
+					var data = resp['data'];
+					$('#percentage_done').replaceWith(`
+						<h4 id='percentage_done' >${data["percentage"].toFixed(1)||"0.0"}%</h4>
+					`)
+					$('#progress_done').replaceWith(`
+						<progress id='progress_done' max="100" value="${data["percentage"]||0}"></progress>
+					`)
+				}
+			})
+			console.log(obj.value);
+		}
+
+		document.getElementById('defaultOpen').click();
+
+		function openTab(evt, cityName) {
+			var i, tabcontent, tablinks;
+			tabcontent = document.getElementsByClassName('tabcontent');
+			for (i = 0; i < tabcontent.length; i++) {
+				tabcontent[i].style.display = 'none';
+			}
+			tablinks = document.getElementsByClassName('tablinks');
+			for (i = 0; i < tablinks.length; i++) {
+				tablinks[i].className = tablinks[i].className.replace(' active', '');
+			}
+			document.getElementById(cityName).style.display = 'block';
+			evt.currentTarget.className += ' active';
+		}
+
+		const items = document.querySelectorAll('.accordion button');
+
+		function toggleAccordion() {
+			const itemToggle = this.getAttribute('aria-expanded');
+
+			for (i = 0; i < items.length; i++) {
+				items[i].setAttribute('aria-expanded', 'false');
+			}
+
+			if (itemToggle == 'false') {
+				this.setAttribute('aria-expanded', 'true');
+			}
+		}
+
+		items.forEach((item) => item.addEventListener('click', toggleAccordion));
+
+		const course_content = document.querySelector('.right_side_holder');
+		const middlecontent = document.querySelector('.max_width_section');
+		const body = document.querySelector('body');
+
+		let x = window.matchMedia('(max-width: 700px)');
+		const displayCourseContentHandler = () => {
+			if (course_content.style.left === '0px') {
+				console.log('here');
+				middlecontent.style.width = '100%';
+
+				if (!x.matches) {
+					middlecontent.style.padding = '10px 150px';
+				}
+				course_content.style.left = '-100%';
+				if (x.matches) {
+					body.style.overflow = 'auto';
+					course_content.style.overflow = 'hidden';
+				}
+			} else {
+				course_content.style.left = '0px';
+				middlecontent.style.width = '75%';
+
+				if (!x.matches) {
+					middlecontent.style.padding = '10px 40px';
+				}
+				course_content.style.overflow = 'auto';
+				if (x.matches) {
+					course_content.style.overflow = 'auto';
+					body.style.overflow = 'hidden';
+				}
+			}
+		};
+
+		const Profile = document.querySelector('.avatar');
+		const Profile_dropDown = document.querySelector('.profile_dropDown');
+		Profile.addEventListener('click', () => {
+			if (Profile_dropDown.style.opacity === '1') {
+				Profile_dropDown.style.opacity = '0';
+				Profile_dropDown.style.pointerEvents = 'none';
+			} else {
+				Profile_dropDown.style.opacity = '1';
+				Profile_dropDown.style.pointerEvents = 'all';
+			}
+		});
+		document.addEventListener('click', function (event) {
+			var isClickInsideAvatar = Profile.contains(event.target);
+
+			if (!isClickInsideAvatar) {
+				Profile_dropDown.style.opacity = '0';
+				Profile_dropDown.style.pointerEvents = 'none';
+			}
+		});
+	</script>
+	<script>
+		const showMoreList = () => {
+			const hiddenList = document.querySelectorAll('#QA_hidden');
+			const moreItem = document.querySelector('#more');
+
+			hiddenList.forEach((i) => {
+				if (i.style.display === 'flex') {
+					i.style.display = 'none';
+					moreItem.innerHTML = 'see More';
+				} else {
+					i.style.display = 'flex';
+					moreItem.innerHTML = 'Show Less ';
+				}
+			});
+		};
+		//-----------------------------------------
+		const showMoreComment = () => {
+			const hiddenList = document.querySelectorAll('#hidden_comment');
+			const moreItem = document.querySelector('#more_comment');
+			console.log('heete');
+			hiddenList.forEach((i) => {
+				if (i.style.display === 'flex') {
+					i.style.display = 'none';
+					moreItem.innerHTML = 'see More';
+				} else {
+					i.style.display = 'flex';
+					moreItem.innerHTML = 'Show Less ';
+				}
+			});
+		};
+	</script>
+	<script>
+		const settingSideBar = () => {
+			const body = document.querySelector('body');
+			const section = document.querySelector('.settings_sidebar');
+			const sidesection = document.querySelector('.side_conatiner');
+			if (section.style.right == '0%') {
+				body.style.overflow = 'auto';
+				section.style.right = '-100%';
+			} else {
+				body.style.overflow = 'hidden';
+				section.style.right = '0%';
+			}
+		};
+	</script>
+	<script>
+		tippy('#setting_icon', {
+			content: 'Account settings',
+			animation: 'fade',
+		});
+		tippy('#back', {
+			content: ' Exit Course ',
+		});
+	</script>
+{% endblock %}

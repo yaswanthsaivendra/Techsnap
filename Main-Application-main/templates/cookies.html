@@ -1,0 +1,291 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Cookies</title>
+		<link rel="shortcut icon" type="image/png" href="logo1.png"/>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+		<link href="{% static 'footerterms.css' %}" rel="stylesheet" />
+        <link rel="shortcut icon" type="image/png" href="{% static 'assets/main/favicon.png'%}"/>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-L4D2PNVR8Z"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-L4D2PNVR8Z');
+	</script>
+
+</head>
+<body>
+<div class="dropMenu">
+	<ul>
+		<li><a href="##">Catalog » </a></li>
+		<li><a href="##">Products » </a></li>
+		<li><a href="##">Career paths » </a></li>
+		<li><a href="##">Resources » </a></li>
+		<li><a href="##">For Business » </a></li>
+		<div class="mob1">
+		{% if user.is_authenticated %}
+							<p>Hi, {{user.username}}</p>
+							<a href="{% url 'logout' %}"><button class="btn" id='logout'>LogOut</button></a>
+							{% else %}
+							<a href="{% url 'login' %}"><button class="btn" id="login">LogIn</button></a>
+							</div>
+							<a href="{% url 'register' %}"><button class="btn1" id="btn1">Register</button></a>
+							{% endif %}
+
+	</ul>
+	<div class="Close">X</div>
+</div>
+			<!-- //---------------------------------- -->
+			<div class="header">
+				<div class="sub_header">
+					<div class="logo">
+						<img src="{% static 'assets/main/logo.png'%}" alt="logo" />
+					</div>
+					<div class="menu_item">
+						<ul>
+							<li>
+								<a href="##" class="nav_item">Catalog</a
+								><span class="nav_item">⌵</span>
+							</li>
+							<li>
+								<a href="##" class="nav_item">Products</a
+								><span class="nav_item">⌵</span>
+							</li>
+							<li>
+								<a href="##" class="nav_item">Career paths</a
+								><span class="nav_item">⌵</span>
+							</li>
+							<li>
+								<a href="##" class="nav_item">Resources</a
+								><span class="nav_item">⌵</span>
+							</li>
+							<li>
+								<a href="##" class="nav_item">For Business</a
+								><span class="nav_item">⌵</span>
+							</li>
+
+						</ul>
+						<div class="buttons">
+							{% if user.is_authenticated %}
+							<p>Hi, {{user.username}}</p>
+							<a href="{% url 'logout' %}"><button id='logout'>LogOut</button></a>
+							{% else %}
+							<a href="{% url 'login' %}"><button id="login">LogIn</button></a>
+							<a href="{% url 'register' %}"><button id="register">Register</button></a>
+							{% endif %}
+						</div>
+					</div>
+					<div class="ham">
+						<img src="{% static 'assets/main/menu.png'%}" alt="menu" />
+					</div>
+				</div>
+			</div>
+
+<div class="grandparent">
+	<div class="parent1"> </div>
+	<div class="parent2">
+		<center><h1 class="h1top">Tech Snap Cookie Policy</h1></center>
+		<p class="space">This Cookie Policy describes the different types of cookies that are used on our website operated and provided by TechSnap.For general information on how we process your personal data, please see our Privacy Policy.</p>
+
+		<h2 class="h2top">What are cookies?</h2>
+		<p class="space">Cookies are text files containing small amounts of information which are downloaded to your computer or mobile device when you visit a site and allow a site to recognize your device. Cookies managed by TechSnap only are called “first party cookies” whereas cookies from third parties are called “third party cookies” as explained below.</p>
+
+		<h2class="h2top">Why do we use cookies and similar technologies?</h2>
+		<p class="space">Cookies do a lot of different jobs, such as letting you navigate between pages efficiently, remembering your preferences and generally improving the user experience. They can also help to ensure that the advertisements you see online are more relevant to you and your interests. In addition, cookies can help us to analyze the use of our websites and online content (analytics cookies) and they can also facilitate/track the interaction on our websites and online content with social media (e.g. links to social media sites, like buttons, etc.).</p>
+
+		<h2 class="h2top">Cookies we use</h2>
+		<p class="space">We use different cookies on our Sites.
+		Some cookies are strictly necessary for the operation of our Site or providing the service you have requested. These cookies are inter alia essential for enabling website navigation and providing access to features such as your user profile and other secure areas of our website. These cookies do not gather information about you that is used for analytics or marketing purposes. This category of cookiescannot be disabled. On the other hand, we use cookies which are not strictly necessary for the operation of our Site or providing you with the service you have requested</p>
+
+		<h2 class="h2top">Controlling and deletion of cookies</h2>
+		<p class="space">With the cookie consent management tool implemented on our Site, we offer you a convenient option for rejecting or approving individual cookies or groups of cookies used on our Site. You can also enable or disable cookies at any time by changing settings in your browser. To manage cookies, most browsers allow you to accept or reject all cookies or accept only certain types of cookies. Search for “cookies” under your web browser’s “Help menu” for more information on cookie management features available to you. Please be aware that if you choose to disable some or all cookies our Site may not function properly or certain features are not available. For example, you may need to sign in upon each visit of our Site, and/or be required to enter your contact details again when certain cookies are disabled.</p>
+
+		<h2 class="h2top">Changes to the Cookie Policy</h2>
+		<p class="space">We may modify or update this Cookie Policy from time to time. Such amendments might be necessary due to the need to keep the Cookie Policy up to date.</p>
+
+		<h2 class="h2top">Contact us</h2>
+		<p class="space">For any queries and concerns relating to cookie policy, contact us at snapthetechqueries@gmail.com</p>
+
+</div> <br>
+<div class="footer_MainBox">
+			<div class="Footer_page">
+				<footer class="Footer_conatiner">
+					<div class="Footer_header">
+						<img src="{% static 'assets/main/logo.png'%}"alt="Logo" />
+						<br /><br />
+						<p>We are here to endure your muddled stages of knowing the trends while pursuing UG-CSE.</br>we help you to know about trending jobs and required skills for achieving one particular designation</p>
+						<br>
+						<p>We will succour you in submitting your university projects as well as steer you with free tutorials, online courses, live courses and career paths</p>
+					</div>
+					<div class="Footer_columns_holder">
+						<div class="Footer_columns">
+							<h1>Company</h1>
+							<a href="{% url 'aboutus' %}">About us</a>
+							<a href="{% url 'learnerstories' %}">Learner stories</a>
+							<a href="">our people</a>
+							<a href="{% url 'job_test:jobslist' %}">jobs</a>
+						</div>
+						<div class="Footer_columns">
+							<h1>Resources</h1>
+							<a href="##">Tutorials</a>
+							<a href="{% url 'careerpath' %}">Career paths</a>
+							<a href="##">Courses</a>
+							<a href="##">Blogs</a>
+						</div>
+						<div class="Footer_columns">
+							<h1>Support</h1>
+							<a href="{% url 'contact' %}">Contact us</a>
+							<a href="##">FAQ</a>
+							<a href="">Any ideas/Bugs</a>
+							<a href="">Get Involved</a>
+						</div>
+						<div class="Footer_columns">
+							<h1>Services</h1>
+							<a href="##">Startup services</a>
+							<a href="##">Design services</a>
+							<a href="##">Mini Projects</a>
+							<a href="##">Mock interviews</a>
+						</div>
+					</div>
+					<div class="join_our desktop">
+						<p>Join our newsletter</p>
+						<form class="input_holder">
+							<input type="text" />
+							<button type="submit">Subscribe</button>
+						</form>
+					</div>
+				</footer>
+				<div class="join_our responsive">
+					<p>Join our newsletter</p>
+					<form class="input_holder">
+						<input type="text" />
+						<button type="submit">Subscribe</button>
+					</form>
+				</div>
+				<div class="Privacy_holder">
+					<div class="Privacy_links">
+						<a href="{% url 'privacy' %}">Privacy policy</a>
+						<a href="{% url 'cookies' %}">Cookies Notice</a>
+						<a href="{% url 'security' %}">Security</a>
+						<a href="{% url 'terms' %}">Terms of use</a>
+					</div>
+					<div class="Social-media">
+						<div class="image_conatiner">
+							<a href="https://www.linkedin.com/company/74741373/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/768px-LinkedIn_logo_initials.png" id="link" /></a>
+
+							<a href="{% url 'contact' %}"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/2560px-Gmail_icon_%282020%29.svg.png" id="link" /></a>
+
+							<a href="https://trello.com/b/SMDt9NMY/techsnap-upcoming-releases"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC-APsSZXqFUpTTg9qvGW6D5hERazjQfAMkM0Oz6b9sC3uIwU4-_fD8CatVhbAUG4hz3g&usqp=CAU" id="link" /></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="copyRight">
+				Made with 💗 in india © 2021 Techsnap Educations LLP. All Rights
+				Reserved.
+			</div>
+		</div>
+		<div class="Scroll">
+ <a href="#top" class="back-to-top-link" aria-label="Scroll to Top">&#9757</a>
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+<script>
+new Splide( '.splide', {
+	type   : 'loop',
+	autoplay: true,
+	pagination : false,
+	arrows     : false,
+	perPage    : 2,
+	perMove    : 1,
+	focus  : 'center',
+	autoplay: true,
+	gap    : '1rem',
+	breakpoints : {
+		'600': {
+	perPage : 1,
+	gap    : '1rem'
+		}
+	},
+} ).mount();
+</script>
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+	<script>
+		AOS.init({
+			duration: 900,
+			offset: 220,
+			easing: 'ease-in-out-quad',
+		});
+
+		const header = document.querySelector('.header');
+		const navLink = document.querySelectorAll('.nav_item');
+		const ham = document.querySelector('.ham');
+
+		window.addEventListener('scroll', () => {
+			const top = window.innerHeight * (15 / 100);
+			if (window.scrollY <= top) {
+				header.style.background = 'rgb(26, 25, 29)';
+				ham.style.background ="transparent";
+
+				header.style.height = '60px';
+				navLink.forEach((i) => {
+					i.style.color = '#fff';
+				});
+			}
+			if (window.scrollY > top) {
+				header.style.background = '#black';
+				ham.style.background ="#black";
+				header.style.height = '55px';
+				navLink.forEach((i) => {
+					i.style.color = '#fff';
+				});
+			}
+		});
+		window.addEventListener('scroll', () => {
+		const top = window.innerHeight * (10 / 100)+300;
+		if (window.scrollY <= top) {
+			document.querySelector(".Scroll").style.display='none';
+
+		}
+		if (window.scrollY > top) {
+				document.querySelector(".Scroll").style.display='grid';
+		}
+	});
+		ham.addEventListener('click',() => {
+			DropMenu.classList.add("MenuAnimation")
+
+		})
+		Close.addEventListener('click',() => {
+			DropMenu.classList.remove('MenuAnimation')
+
+		})
+
+	</script>
+	<script>
+			//----------------------------
+
+		  const Close=document.querySelector(".Close");
+		    const DropMenu =document.querySelector('.dropMenu')
+		  ham.addEventListener('click',() => {
+			DropMenu.classList.add("MenuAnimation")
+			console.log('sdsd');
+
+		})
+		Close.addEventListener('click',() => {
+			DropMenu.classList.remove('MenuAnimation')
+
+		})
+
+	//-------
+	</script>
+
+</body>
+</html>

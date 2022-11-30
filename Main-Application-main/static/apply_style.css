@@ -1,0 +1,645 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  /* mobile touch-action */
+  scroll-behavior: smooth;
+  color: #fff;
+  overflow-x: hidden;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Montserrat", sans-serif;
+}
+@media screen and (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+.name{
+  font-size: 16px;
+}
+.name-part{
+  font-size: 10px;
+  font-family:  "Montserrat", sans-serif !important;
+  padding-top: 5px;
+  padding-left: 5px;
+}
+
+.header {
+  padding: 0 60px;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  background-color: #19191a;
+  z-index: 5;
+  margin-bottom: 20px;
+}
+ul li::before {
+  content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  color: #000; /* Change the color */
+  font-weight: bold; /* If you want it to be bold */
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  width: 1em; /* Also needed for space (tweak if needed) */
+  margin-left: -1em; /* Also needed for space (tweak if needed) */
+}
+ul .summary-li::before {
+  color: #212529;
+}
+#logo {
+  width: 100px;
+  object-fit: contain;
+}
+.heading-right a {
+  border-bottom: solid 1px white;
+  color: #fff;
+  transition: all 0.5s ease;
+}
+.heading-right a:hover {
+  color: rgb(236, 69, 208);
+}
+.dropMenu {
+  background-color: #19191a;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  transform: translateX(-100%);
+  transition: all 0.5s ease;
+  display: none;
+}
+.Close {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  color: white;
+  font-weight: 600;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.MenuAnimation {
+  transform: translateX(0%);
+}
+
+.dropMenu ul {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.dropMenu ul li {
+  width: 100%;
+  height: 70px;
+  display: grid;
+  place-items: center;
+}
+.dropMenu ul li a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #ffffff;
+  transition: all 0.5s ease;
+  white-space: nowrap;
+}
+.dropMenu ul li a:hover {
+  color: rgb(236, 69, 208);
+}
+
+.header h1 {
+  letter-spacing: 2px;
+  color: rgb(247, 247, 247);
+}
+
+.header h1 {
+  letter-spacing: 2px;
+  color: rgb(247, 247, 247);
+}
+.navItems {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navItems a {
+  font-family: "Montserrat", sans-serif !important;
+  text-decoration: none;
+  color: #ffffff;
+  transition: all 0.5s ease;
+  font-weight: 500;
+  white-space: nowrap;
+  margin: 0 25px;
+}
+
+#job{
+  float: right;
+  margin-top: -120%;
+  margin-bottom: 20%;
+  margin-right: 4%;
+}
+.Ham {
+  display: none;
+}
+.navItems a:hover {
+  color: rgb(236, 69, 208);
+}
+body {
+  background-color: rgb(0, 0, 0);
+}
+.content{
+  margin:5px;
+ 
+}
+.main-img {
+  width: 30px;
+  height: 40px;
+}
+.btn {
+  outline: none;
+  border: none;
+  width: 120px;
+  height: 35px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 5px;
+  transition: all 0.7s ease;
+  background-color: rgb(236, 69, 208);
+}
+/* .icon-a {
+  background-color: #fff;
+  width: 20px;
+} */
+.btn:hover {
+  color: #000000;
+  background-color: #fff;
+}
+
+@media (max-width: 750px) {
+  
+  .navItems {
+    display: none;
+  }
+  .dropMenu {
+    display: flex;
+  }
+  .Ham {
+    display: block;
+  }
+  .form{
+    width: 80%;
+  }
+  
+ 
+}
+@media (max-width: 416px)  {
+  .Hero_details h1 {
+    font-size: 1.5rem;
+  }
+  .ds{
+    position: relative;
+    font-size: 12px;
+  }
+  
+}
+
+.Footer_conatiner {
+  font-family: "Montserrat", sans-serif !important;
+  width: 100%;
+  height: fit-content;
+  background-color: #19191a;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px 20px;
+}
+.Footer_header {
+  width: 50%;
+  height: 100%;
+  letter-spacing: 1px;
+  line-height: 1.5em;
+  color: rgba(245, 245, 245, 0.788);
+  padding-right: 20px;
+}
+.Footer_header p {
+  font-family: "Montserrat", sans-serif !important;
+  font-size: 0.8rem;
+}
+.Footer_columns_holder {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.Footer_columns {
+  height: 200px;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  letter-spacing: 2px;
+}
+.Footer_columns h1 {
+  font-family: "Montserrat", sans-serif !important;
+  font-size: 1rem;
+  color: white;
+  font-weight: 600;
+}
+.Footer_columns a {
+  font-family: "Montserrat", sans-serif !important;
+  width: fit-content;
+  text-decoration: none;
+  font-size: 0.8rem;
+  color: rgba(245, 245, 245, 0.788);
+  transition: all 0.5s ease;
+}
+.Footer_header img {
+  width: 150px;
+
+  object-fit: contain;
+}
+.Footer_columns a:hover {
+  text-decoration: underline;
+  color: rgb(236, 69, 208);
+}
+
+.Scroll {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgb(236, 69, 208);
+  display: grid;
+  place-items: center;
+  transition: all 0.5s ease;
+  position: fixed;
+  bottom: 15px;
+  right: 10px;
+  z-index: 6;
+  display: none;
+}
+label{
+  white-space:nowrap;
+}
+.Scroll:hover {
+  transform: scale(1.1);
+}
+.Scroll a {
+  text-decoration: none;
+}
+.border-container {
+  border: 2px solid black;
+}
+.Privacy_holder {
+  font-family: "Montserrat", sans-serif !important;
+  width: 100%;
+  height: 100px;
+  background-color: #19191a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.Privacy_links {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.Privacy_links a {
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 500;
+  width: fit-content;
+  text-decoration: none;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.404);
+  transition: all 0.5s ease;
+}
+.Privacy_links a:hover {
+  color: rgba(255, 255, 255, 0.938);
+}
+.Social-media {
+  margin-right: 50px;
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
+}
+.Social-media img {
+  fill: white;
+}
+@media (max-width: 750px) {
+  .Hero_section {
+    padding: 30px;
+    height: 90vh;
+  }
+  .Footer_conatiner {
+    flex-direction: column;
+  }
+  .Footer_header {
+    width: 100%;
+  }
+  .addSection {
+        width: auto;
+  }
+  .adds {
+        margin-bottom: 20px;
+  }
+  
+}
+@media (max-width: 750px) {
+  .Hero_section {
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+  }
+  .Hero_details {
+    width: 100%;
+    height: 20%;
+  }
+  .Hero_details h1 {
+    font-size: 2rem;
+  }
+  #Learners_img {
+    width: 100%;
+    height: 35%;
+  }
+  #job{
+    margin-top: 25%;
+    display: inline;
+  }
+  .header {
+    padding: 20px;
+  }
+  .header h1 {
+    font-size: 1rem;
+  }
+  .Footer_columns_holder {
+    width: 95%;
+  }
+  .Footer_columns {
+    width: 50%;
+  }
+  .Footer_columns p {
+    width: 95%;
+  }
+  .Privacy_holder {
+    justify-content: space-around;
+    flex-direction: column;
+  }
+  .Privacy_links {
+    width: 100%;
+  }
+  .Social-media {
+    width: 50%;
+  }
+  
+}
+
+
+.addHeading {
+      font-size: 16pt;
+      font-weight: 300;
+      letter-spacing: .2rem;
+      color: white;
+      text-transform: uppercase;
+    }
+
+.add {
+      background-color: #131417;
+      height: 100px;
+      margin-top: 25px;
+      display: flex;
+    }
+
+.add img {
+      margin: 0px;
+      width: 100px;
+      height: 100px;
+    }
+
+.add span {
+      font-size: 14pt;
+      font-weight: 600;
+      padding: 10px;
+    }
+.addText div {
+      color: white;
+      font-size: 14pt;
+      font-weight: 600;
+      /* padding: 10px; */
+      margin-top: 25px;
+    }
+
+.lastAdd {
+      position: sticky;
+      top: 97px;
+    }
+
+    wrapper{
+      max-width: 500px;
+      width: 100%;
+      background: #fff;
+      margin: 50px auto;
+      box-shadow: 2px 2px 4px rgba(0,0,0,0.125);
+      padding: 30px;
+    }
+    
+    .wrapper .title{
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 25px;
+      color:rgb(236, 69, 208);
+      text-transform: uppercase;
+      text-align: left;
+    }
+    
+    .wrapper .form{
+      width: 50%;
+    }
+    
+    .wrapper .form .inputfield{
+      margin-bottom: 20px;
+      margin-left: 0;
+      display: inline;
+      align-items:baseline;
+    }
+    
+    .wrapper .form .inputfield label{
+       width: 200px;
+       color: white;
+       margin-right: 10px;
+      font-size: 14px;
+    }
+    
+    .wrapper .form .inputfield .input,
+    .wrapper .form .inputfield .textarea{
+      width: 100%;
+      outline: none;
+      border: 1px solid #d5dbd9;
+      font-size: 15px;
+      padding: 8px 10px;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+    
+    .wrapper .form .inputfield .textarea{
+      width: 100%;
+      height: 125px;
+      resize: none;
+    }
+    
+    .wrapper .form .inputfield .custom_select{
+      position: relative;
+      width: 100%;
+      height: 37px;
+    }
+    
+    .wrapper .form .inputfield .custom_select:before{
+      content: "";
+      position: absolute;
+      top: 12px;
+      right: 10px;
+      border: 8px solid;
+      color: black;
+      border-color: #d5dbd9 transparent transparent transparent;
+      pointer-events: none;
+    }
+    
+    .wrapper .form .inputfield .custom_select select{
+      -webkit-appearance: none;
+      -moz-appearance:   none;
+      appearance:        none;
+      outline: none;
+      width: 100%;
+      height: 100%;
+      border: 0px;
+      padding: 8px 10px;
+      font-size: 15px;
+      color: black;
+      border: 1px solid #d5dbd9;
+      border-radius: 3px;
+    }
+    .wrapper .form .inputfield .custom_select select option{
+      color: black;
+    }
+    
+    
+    .wrapper .form .inputfield .input:focus,
+    .wrapper .form .inputfield .textarea:focus,
+    .wrapper .form .inputfield .custom_select select:focus{
+      border: 1px solid rgb(236, 69, 208);
+      color: black;
+    }
+    
+    .wrapper .form .inputfield p{
+       font-size: 14px;
+       color: #757575;
+    }
+    .wrapper .form .inputfield .check{
+      width: 15px;
+      height: 15px;
+      position: relative;
+      display: block;
+      cursor: pointer;
+    }
+    .wrapper .form .inputfield .check input[type="checkbox"]{
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+    }
+    .wrapper .form .inputfield .check .checkmark{
+      width: 15px;
+      height: 15px;
+      border: 1px solid rgb(236, 69, 208);
+      display: block;
+      position: relative;
+    }
+    .wrapper .form .inputfield .check .checkmark:before{
+      content: "";
+      position: absolute;
+      top: 1px;
+      left: 2px;
+      width: 5px;
+      height: 2px;
+      border: 2px solid;
+      border-color: transparent transparent #fff #fff;
+      transform: rotate(-45deg);
+      display: none;
+    }
+    .wrapper .form .inputfield .check input[type="checkbox"]:checked ~ .checkmark{
+      background: rgb(236, 69, 208);
+    }
+    
+    .wrapper .form .inputfield .check input[type="checkbox"]:checked ~ .checkmark:before{
+      display: block;
+    }
+    
+    .wrapper .form .inputfield .btn{
+      width: 100%;
+       padding: 8px 10px;
+      font-size: 15px; 
+      border: 0px;
+      background:  rgb(236, 69, 208);
+      color: #fff;
+      cursor: pointer;
+      border-radius: 3px;
+      outline: none;
+    }
+    
+    .wrapper .form .inputfield .btn:hover{
+      background: rgb(236, 69, 208);
+    }
+    
+    .wrapper .form .inputfield:last-child{
+      margin-bottom: 0;
+    }
+    
+    @media (max-width:750px) {
+      .wrapper .form .inputfield{
+        flex-direction: column;
+        align-items: flex-start;
+        
+      }
+      .wrapper{
+        margin-bottom: 10%;
+      }
+     
+      
+
+      /* .wrapper .form .inputfield label{
+        margin-bottom: 5px;
+      } */
+      .wrapper .form .inputfield.terms{
+        flex-direction: row;
+      }
+    }
+    @media only screen and (max-width:750px){
+      .wrapper .form{
+        width: 90%;
+      }
+      .mb-5 ul li i{
+        width: 50px;
+        padding-left: 10px;
+      }
+      .add{
+        padding-left: 10px;
+      }
+      .adds{
+        text-align: center;
+      }
+    }

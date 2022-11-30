@@ -1,0 +1,72 @@
+{% extends './forum_base.html' %}
+{% load hitcount_tags %}
+{% block content %}
+<div class="container">
+    <div class="navigate">
+        <h2>Search: {{query}} --> {{objects|length}} Result(s) Found</h2>
+    </div>
+    <div class="posts-table">
+        <table class="mt-5 table table-primary table-striped table-bordered border-secondary">
+            <thead>
+                <tr>
+                    <th scope="col">Status</th>
+                    <th scope="col">Subjects</th>
+                    <th scope="col">Replies/View</th>
+                    <th scope="col">Last Reply</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for post in objects %}
+                <tr>
+                    <td>
+                        <i class="fa fa-fire"></i>
+                    </td>
+                    <td>
+                        <a href="{{post.get_url}}">{{post.title}}</a>
+                        <br>
+                        <span>
+                            Started by
+                            <b>
+                                <a href="">{{post.user.fullname|title}}</a>
+                            </b>
+                            .
+                        </span>
+                    </td>
+                    <td>
+                        {{post.num_comments}} comments
+                        <br>
+                        {% get_hit_count for post %} views
+                    </td>
+                    {% if post.last_reply %}
+                    <td>
+                        {{post.last_reply.date|date}}
+                        <br>
+                        By
+                        <b>
+                            <a href="">{{post.last_reply.user.fullname|title}}</a>
+                        </b>
+                    </td>
+                    {% else %}
+                    <td>
+                        {{post.date|date}}
+                        <br>
+                        By
+                        <b>
+                            <a href="">{{post.user.fullname|title}}</a>
+                        </b>
+                    </td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% if objects.is_paginated %}
+    <div class="pagination">
+        pages: {% for num_page in posts.paginator.page_range %}
+        <a href="?page={{num_page}}">{{num_page}}</a>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+{% endblock content %}

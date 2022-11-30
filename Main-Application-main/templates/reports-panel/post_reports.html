@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <nav class='w3-black w3-margin-bottom w3-container w3-padding'>
+        <h3 class='w3-left'>Post Reports</h3>
+        <a href={% url 'report-panel' %}>
+            <button class='w3-button w3-margin w3-black w3-border w3-right'>Back to Panel</button>
+        </a>
+    </nav>
+    <div class='w3-padding'>
+    <div class='w3-container w3-half'>
+        <h3 class='w3-text-red'>{{post.reports}} Reports</h3>
+        {% for report in reports %}
+            <div class='w3-row w3-padding w3-round w3-border' >
+                <span>
+                By <e class='w3-text-indigo'>@{{report.user.username}}</e>
+                Reason :
+                </span>
+                <span class='w3-text-red' >
+                    {{report.reason}} 
+                </span>
+            </div>
+        {% endfor %}
+    </div>
+    <div class='w3-container w3-padding w3-margin-bottom w3-round w3-half w3-border'>
+        {% if post.profile.profile_pic %}
+        <img class='w3-img w3-circle w3-margin-right' src="{{post.profile.profile_pic.url}}" style="width:10%;" />
+        {% endif %}
+        <span class='w3-medium w3-text-red'>{{post.profile.full_name}} aka @{{post.profile.user.username}}</span>
+        <h4>Post Title : {{post.title}}</h4>
+        <p>Post Description : {{post.desc}}</p>
+        {% for image in images %}
+        <img class='w3-img w3-round w3-margin' src="{{image}}" style="width:48%;" />
+        {% endfor %}
+        <div class='w3-round w3-padding w3-border'>
+            {{likes}}
+        </div>
+        <button class='w3-button w3-row w3-text-pink' >{{no_likes}} Likes</button>
+    </div>
+    </div>
+
+    <script>
+    </script>
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="w3-sidebar w3-third">
+    <div class='w3-row w3-teal w3-round w3-margin w3-padding'>
+        <h3 id='percentage' class='w3-large w3-left'>{{user_course_map.percentage_completion}}% completed</h3>
+        <h3 id='xp' class='w3-large w3-right'>{{user_course_map.total_xp}} xp</h3>
+    </div>
+    {% for content in contents %}
+    <div class="w3-round w3-padding w3-border w3-margin">
+        {{content.unit.title}}
+        <e class='w3-row w3-small w3-text-teal'>{{content.completed}}</e>
+        {% for lesson in content.lessons %}
+        <a href="{% url 'lesson-view' current_lesson.unit.course.id lesson.2 %}" >
+            <button style="width:100%;" class="w3-padding w3-button w3-border-teal w3-border w3-round w3-margin-top">
+                <div class='w3-left'>
+                    {{lesson.0}}
+                    <e class='w3-text-teal w3-small'>{{lesson.1}} min</e>
+                </div>
+                <a href="{% url 'lesson-completed' lesson.2 %}">
+                {% if lesson.3 %}
+                <input type="checkbox" value="{{lesson.2}}" class='w3-right' onchange="lessonCompleted(this);"  checked/>
+                {% else %}
+                <input type="checkbox" value="{{lesson.2}}" class='w3-right' onchange="lessonCompleted(this);" />
+                {% endif %}
+                </a>
+            </button>
+        </a>
+        {% endfor %}
+    </div>
+    {% endfor %}
+    <a href="{% url 'course-list' %}">
+    <button style='width:90%;' class='w3-button w3-teal w3-round w3-margin'>Back to Courses</button>
+    </a>
+</div>
+
+<div class='w3-right w3-padding w3-twothird'>
+    <h3 id="lesson_title" class="w3-text-teal" >
+        {{current_lesson.title}} | 
+        <e class='w3-medium w3-text-black' >{{current_lesson.duration}} min</e>
+    </h3>
+    <div class='w3-border-top' id="current_lesson_body" >
+        {{current_lesson.body | safe}}
+    </div>
+    <div class='w3-border w3-round w3-padding'>
+        <h4 class='w3-text-teal'>Notes</h4>
+        {{current_lesson.notes | safe}}
+    </div>
+    <br>
+    <div class='w3-border w3-round w3-padding'>
+        <h4 class='w3-text-teal'>Overview</h4>
+        {{current_lesson.overview}}
+        <a class='w3-row' href="{{current_lesson.resources.url}}">
+            <button class='w3-button w3-margin-top w3-border-teal w3-border'>Download Resources<i class="fa fa-download" /></button>
+        </a>
+    </div>
+    <br>
+</div>
+<script>
+    function lessonCompleted(obj) {
+        if ($(obj).is(":checked")){
+            var url = "/lesson-completed/"+obj.value+"?redo="+false;
+        }
+        else {
+            var url = "/lesson-completed/"+obj.value+"?redo="+true;
+        }
+        $.ajax({
+            type: 'GET',
+            url: url,
+            success: function(resp) {
+                var data = resp['data'];
+                $('#percentage').html(`
+                    <h3 id='percentage' class='w3-large w3-left'>${data["percentage"]||"0.0"}% completed</h3>
+                `)
+                $('#xp').html(`
+                    <h3 id='xp' class='w3-large w3-right'>${data["xp"]||"0"} xp</h3>
+                `)
+            }
+        })
+        console.log(obj.value);
+    }   
+</script>
+
+{% endblock %}

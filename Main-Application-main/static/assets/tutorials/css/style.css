@@ -1,0 +1,158 @@
+.banner-section-container{
+    width: 100vw;
+    overflow: hidden;
+}
+.banner-section-container *{
+    margin: 0px;
+    padding: 0px;
+}
+.banner-section{
+    background-color: #D7E5FF;
+    height: 37vw;
+    overflow: hidden;
+    position: relative;
+    top: 1vw;
+}
+.banner-body-section{
+    text-align: center;
+    position: relative;
+    top: -25vw;
+}
+.banner-body-section h1{
+    font-size: 2.5vw;
+    margin-bottom: 1vw;
+}
+.banner-section p{
+    font-size: 1.2vw;
+    line-height: 1.8vw;
+    color: #8b8b8b;
+}
+.banner-section .top-left-right-images-section,
+.banner-section .bottom-left-right-images-section{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+.banner-section .bottom-left-right-images-section{
+    top: -40vw;
+}
+.banner-section .top-left-right-images-section .top-left-image{
+    position: relative;
+    width: 20vw;
+    top: -21.5vw;
+    left: 15vw;
+    height: auto;
+}
+.banner-section .top-left-right-images-section .top-right-image{
+    position: relative;
+    width: 44vw;
+    top: -23vw;
+    height: auto;
+    right: -9vw;
+}
+.banner-section .bottom-left-right-images-section .bottom-left-image{
+    position: relative;
+    right: 24vw;
+    top: 12vw;
+    height: auto;
+    width: 61vw;
+}
+.banner-section .bottom-left-right-images-section .bottom-right-image{
+    position: relative;
+    top: 12vw;
+    left: 2vw;
+    width: 46vw;
+}
+
+/*course-section*/
+.course-section{
+    width: 100vw;
+    padding: 2vw 0;
+    padding-bottom: 3vw;
+}
+.course-section .course-container{
+    display: flex;
+    grid-column-gap: 1vw;
+    grid-row-gap: 1vw;
+    padding: 1vw 4vw;
+    flex-wrap: wrap;
+    width: 100vw;
+}
+.course-section ul li{
+    list-style-type: none;
+}
+.course-section ul li div{
+    display: flex;
+    height: 100%;
+    width: 22vw;
+    outline: .1vw solid black;
+    border-radius: 1vw;
+    flex-direction: column;
+    overflow: hidden;
+}
+.course-section ul li i{
+    text-align: right;
+    padding: 1vw;
+    color: red;
+    font-size: 1vw;
+}
+.course-section ul li img{
+    width: 8vw;
+    height: auto;
+    margin: auto;
+}
+.course-section ul li h6{
+    font-size: 1.3vw;
+    padding-left: 1vw;
+    margin-top: 2.5vw;
+}
+.course-section ul li p{
+    font-size: 1vw;
+    padding: 0.2vw 1vw;
+    line-height: 1.2vw;
+}
+.course-section .course-container div ul{
+    width: 100%;
+    padding: 0.2vw 1vw;
+    padding-bottom: 1vw;
+}
+.course-section .course-container div li{
+    display: inline-block;
+    width: 0.8vw;
+    border-radius: 100%;
+    height: 0.8vw;
+    background-color: grey;
+}
+.course-section .course-container div .rate-color{
+    background-color: #B52FF3;
+}
+.course-section .course-container div ul h6{
+    font-size: .9vw;
+    padding-left: 0.2vw;
+    margin: 0px;
+    display: inline-block;
+    position: relative;
+    bottom: 0.1vw;
+}
+.course-section .course-container div a{
+    display: block;
+    padding: 1.4vw 0;
+    border-radius: 0 1.5vw 0 0;
+    background-color: #0A182E;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2vw;
+    text-align: center;
+}
+.course-section ul li .java-section img{
+    width: 18vw;
+    height: auto;
+}
+.course-section ul li .php-section img{
+    width: 9.2vw;
+    height: auto;
+}
+.course-section ul li .mongo-section img{
+    width: 17vw;
+    height: auto;
+}

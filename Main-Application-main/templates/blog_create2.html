@@ -1,0 +1,134 @@
+{% extends 'footer.html' %}
+{% load static %}
+<!DOCTYPE html>
+<!-- saved from url=(0040)https://stoic-bhabha-f579db.netlify.app/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'blogs/style.css' %}">
+    <link rel="stylesheet" href="{% static 'blogs/post-new.css' %}">
+    <link rel="stylesheet" href="{% static 'blogs/all.min.css' %}" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="{% static 'blogs/splide.min.css' %}">
+	<link rel="stylesheet" href="{% static 'blogs/aos.css' %}">
+	<title>Techsnap</title>
+		<script src="{% static 'blogs/jquery.min.js.download' %}"></script>
+        <link rel="shortcut icon" type="image/png" href="{% static 'assets/main/favicon.png'%}"/>
+    {% endblock css %}
+    {% block google_tags %}
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4D2PNVR8Z"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-L4D2PNVR8Z');
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    {% endblock google_tags %}
+  </head>
+  <body>
+    {% block body %}
+        <section class="flex editor-section">
+            <section class="flex-left editor-body p-3">
+            <div class="editor-container">
+                <form method="POST" id="mainform" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input name="title" type="text" placeholder="Enter Title" class="p-2 title-input mb-3" required>
+                    <input name="banner_img" type="file" value="banner img" class="p-2 title-input mb-3" required>
+                    {{form.as_p}}
+                    {{form.media}}
+            </div>
+            </section>
+            <aside class="editor sidebar flex-right">
+                <div class="post-details-container p-3 mb-3">
+                    <h3>Post Details</h3><br>
+                    <div class="action-btns d-flex justify-content-between mb-3">
+                        <button onclick="saveDraft()" class="btn">Save as Draft</button>
+                        <input type="submit" style="display: none;" id="submitbutton">
+                        <button onclick="preview()" class="btn">Preview</button>
+                    </div>
+                    <!--<div class="post-status">
+                        <p>Status: <span class="status">Draft</span></p>
+                    </div>-->
+                    <button class="review-btn" onclick="submitForReview()">Submit for Review</button>
+                </div>
+            </form>
+
+        <div class="categories-container p-3 mb-3">
+
+            <div class="category-info">
+                <h3 class="mb-3">Please select a category</h3>
+                <p class="mb-3">
+                    Selecting atleast one category will help fast-track reviewing process.</p>
+            </div>
+
+
+            <select name="languages" id="lang" class="categories">
+                <option value="javascript">JavaScript</option>
+                <option value="php">PHP</option>
+                <option value="java">Java</option>
+
+              </select>
+
+        </div>
+        <div class="tags-container p-3">
+<h3 class="mb-3">Tags</h3>
+<select name="languages" id="lang" class="tags mb-3">
+    <option value="javascript">JavaScript</option>
+    <option value="php">PHP</option>
+    <option value="java">Java</option>
+  </select>
+  <button>Add</button>
+        </div>
+
+
+    </aside>
+  </section>
+
+    <script>
+
+        function submitForReview() {
+            document.getElementById("mainform").action="{% url 'blogs:blogcreate' %}?status=review";
+            document.getElementById("submitbutton").click;
+        }
+
+        function saveDraft() {
+          document.getElementById("mainform").action="{% url 'blogs:blogcreate' %}?status=draft";
+          document.getElementById("submitbutton").click;
+        }
+
+        function preview() {
+          document.getElementById("mainform").action="{% url 'blogs:blogcreate' %}?status=preview";
+          document.getElementById("mainform").target="_blank";
+          document.getElementById("submitbutton").click;
+        }
+    </script>
+
+<script src="{% static 'blogs/splide.min.js.download' %}"></script>
+<script>
+  new Splide( '.splide', {
+      type   : 'loop',
+      autoplay: true,
+      pagination : false,
+      arrows     : false,
+      perPage    : 2,
+      perMove    : 1,
+      focus  : 'center',
+      autoplay: true,
+      gap    : '1rem',
+      breakpoints : {
+          '600': {
+              perPage : 1,
+              gap    : '1rem'
+          }
+      },
+  } ).mount();
+</script>
+<script src="{% static 'blogs/aos.js.download' %}"></script>
+<script src="{% static 'blogs/nav-dropdown.js.download' %}"></script>
+<script src="{% static 'blogs/bootstrap.bundle.min.js.download' %}" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+{% endblock body %}
+</body></html>

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class='w3-padding w3-container w3-black'>
+    <h4 class='w3-left' >[ <e class='w3-text-green'>{{course.course_title}}</e> ] Logs for [ <e class='w3-text-blue'>{{user.user.username}}</e> ]</h4>
+</div>
+
+<div class='w3-padding w3-container w3-margin w3-border' >
+    {% for log in logs %}
+    <h5 class='w3-row'>
+        <e class='w3-text-green'>DATE</e> [ {{log.date}} ] <e class='w3-text-indigo'>LOG</e> [ {{log.log}} ]
+    </h5>
+    {% endfor %}
+</div>
+
+
+{% endblock %}

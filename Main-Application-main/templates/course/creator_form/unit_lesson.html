@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <nav class='w3-black w3-margin-bottom w3-container w3-padding'>
+        <h3 class='w3-left'>Course >> {{slug}}</h3>
+        <h3 class='w3-right' >Unit >> {{unit.slug}}</h3>
+        <a href={% url 'course-desc-form' slug %}>
+            <button class='w3-button w3-black w3-margin w3-border w3-right'>Back</button>
+        </a>
+    </nav>
+
+    <div id="lesson_form" style='display:none;' class="w3-row">
+        <div class="w3-padding" >
+          <button class='w3-right w3-button w3-round-large w3-red w3-padding' onclick="document.getElementById('lesson_form').style.display='none'" >&times;</button>
+          <div class="w3-margin w3-padding w3-round-large w3-border w3-white" id="content">
+            <form enctype='multipart/form-data' method='POST' action="{% url 'update-unit' slug unit.slug %}">
+                <h4 class='w3-center'>Create New Lesson</h4>
+                {% csrf_token %}
+                {{lesson_form.media}}
+                {{ lesson_form|crispy }}
+                <button type='submit' style='width:97%' class='w3-margin w3-round-large w3-green w3-button' >Create</button>
+            </form>
+          </div>
+        </div>
+    </div>
+
+    <div id="unit_form" style='display:none;' class="w3-row">
+        <div class="w3-padding" >
+          <button class='w3-right w3-button w3-round-large w3-red w3-padding' onclick="document.getElementById('unit_form').style.display='none'" >&times;</button>
+          <div class="w3-margin w3-padding w3-round-large w3-border w3-white" id="content">
+            <form enctype='multipart/form-data' method='POST' action="{% url 'update-obj' slug 'unit' unit.id %}">
+                <h4 class='w3-center'>Update Unit</h4>
+                {% csrf_token %}
+                {{ unit_form|crispy }}
+                <button style='width:97%' type='submit' class='w3-margin w3-green w3-button' >Update Unit</button>
+            </form>
+          </div>
+        </div>
+    </div>
+
+    <div id='course' class='w3-padding w3-margin w3-round-large w3-row w3-border'>
+        <div class='w3-container w3-padding w3-half'>
+            <h4>Course Name : {{unit.course.course_title}}</h4>
+            <h4>Unit Title : {{unit.title}}</h4>
+            <h4>Brief : {{unit.brief}}</h4>
+            <h4>Due Date to complete : {{unit.due}}</h4>
+        </div>
+        <div class='w3-half w3-padding'>
+            <button style='width:100%;' id="button" onclick="showUnitForm();" class=' w3-margin w3-round w3-button w3-blue'>
+                Update Unit
+            </button>
+        </div>
+    </div>
+
+    <div class='w3-margin w3-round-large w3-padding w3-border' >
+        <h3>Lessons</h3>
+        <button onclick='showLessonForm();' class='w3-button w3-blue w3-round-large' >Add another Lesson</button>
+            {% for lesson in lessons %}
+                <div class='w3-row' >
+                    <h5 class='w3-left w3-margin-right' >
+                        <a class='w3-text-blue' href="{% url 'update-obj' slug 'lesson' lesson.id %}">
+                        {{lesson.title}}
+                        </a>
+                    </h5>
+                    <a href="{% url 'delete-lesson' lesson.slug %}">
+                        <button class=' w3-button w3-right w3-round w3-red'>Delete</button>
+                    </a>
+                    <a href="{% url 'lesson-stats' lesson.slug %}">
+                        <button class=' w3-button w3-margin-right w3-right w3-round w3-blue'>Statistics</button>
+                    </a>
+                </div>
+            {% endfor %}
+    </div>
+
+    <script>
+        function showLessonForm(){
+            document.getElementById('lesson_form').style.display = "block";
+            document.getElementById('unit_form').style.display = "none";
+        }
+        function showUnitForm(){
+            document.getElementById('lesson_form').style.display = "none";
+            document.getElementById('unit_form').style.display = "block";
+        }
+    </script>
+{% endblock %}

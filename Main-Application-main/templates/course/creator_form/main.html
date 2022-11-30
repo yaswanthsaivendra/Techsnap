@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <nav class='w3-black w3-round-large w3-margin w3-container w3-padding'>
+        <h4 class='w3-left'>{{course.course_title}}</h4>
+        <h4 class='w3-right' >{{creator.user.username}}</h4>
+        <a href={% url 'admin-panel' creator.slug %}>
+            <button class='w3-button w3-margin w3-black w3-border w3-right'>Back</button>
+        </a>
+    </nav>
+    
+    <div class='w3-margin w3-round-large w3-padding w3-border' >
+        <h3>Course Settings</h3>
+        <a href="{% url 'update-course-details' course.slug %}">
+            <button class='w3-button w3-blue w3-round-large' >Course Details</button>
+        </a>
+        <a href="{% url 'update-course-desc' course.slug %}">
+            <button class='w3-button w3-indigo w3-round-large' >Course Description</button>
+        </a>
+        <a href="{% url 'update-course-info' course.slug %}">
+            <button class='w3-button w3-teal w3-round-large' >Course Info</button>
+        </a>
+    </div>
+
+    <div class='w3-margin w3-round-large w3-padding w3-border' >
+        <h3>Manage Units and Lessons</h3>
+        <button onclick='showCourseForm();' class='w3-button w3-blue w3-round-large' >Add another Unit</button>
+        <div id="course_form" style='display:none;' class="w3-modal">
+            <div class="w3-display-middle w3-padding" >
+              <button class='w3-right w3-button w3-round-large w3-red w3-padding' onclick="document.getElementById('course_form').style.display='none'" >&times;</button>
+              <div class="w3-margin w3-padding w3-round-large w3-border w3-white" id="content">
+                <form enctype='multipart/form-data' method='POST' action="{% url 'create-obj' course.slug 'unit' %}">
+                    <h4 class='w3-center'>Create New Unit</h4>
+                    {% csrf_token %}
+                    {{ unit_form|crispy }}
+                    <button type='submit' class='w3-margin w3-round-large w3-green w3-button' >Create</button>
+                </form>
+              </div>
+            </div>
+        </div>
+            {% for unit in units %}
+                <div class='w3-row' >
+                        <h5 class='w3-left w3-margin-right' >
+                            Unit 
+                            <a class='w3-text-blue' href="{% url 'update-unit' course.slug unit.slug %}">
+                            {{unit.title}}
+                            </a>
+                        </h5>
+                    <a href="{% url 'delete-unit' unit.id %}">
+                        <button class=' w3-button w3-right w3-round w3-red'>Delete {{unit.title}}</button>
+                    </a>
+                </div>
+            {% endfor %}
+    </div>
+
+    <div class='w3-margin w3-round-large w3-padding w3-border' >
+        <h3>Course Statistics
+            <a href="{% url 'course-stats' course.slug %}">
+                <button class=' w3-medium w3-button w3-border w3-round w3-border-black'>Course Enrollement Stats </button>
+            </a>
+        </h3>
+        <div class='w3-margin w3-round-large w3-padding w3-border'>
+            <h4>Reviews</h4>
+            <button onclick="showReviewForm();" class='w3-button w3-blue w3-round-large' >Add Review</button>
+            <div id="review_form" style='display:none;' class="w3-modal">
+                <div class="w3-display-middle w3-padding" >
+                  <button class='w3-right w3-button w3-round w3-red w3-padding' onclick="document.getElementById('review_form').style.display='none'" >&times;</button>
+                  <div class=" w3-padding w3-round w3-border w3-white" id="content">
+                    <form enctype='multipart/form-data' method='POST' action="{% url 'create-obj' course.slug 'review' %}">
+                        <h4 class='w3-center'>Create New Review</h4>
+                        {% csrf_token %}
+                        {{ review_form|crispy }}
+                        <button type='submit' class='w3-margin w3-round w3-green w3-button' >Create Review</button> 
+                    </form>
+                  </div>
+                </div>
+            </div>
+            {% for review in reviews %}
+                <div class='w3-row' >
+                    <h5 class='w3-left w3-margin-right' >
+                        Review by 
+                        <a class='w3-text-blue' href="{% url 'update-obj' course.slug 'review' review.id %}">
+                        {{review.name}}
+                        </a>
+                    </h5>
+                    <a href="{% url 'delete-review' review.id %}">
+                        <button class=' w3-button w3-right w3-round w3-red'>Delete</button>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        
+        <div class='w3-margin w3-round-large w3-padding w3-border'>
+            <h4>Testimonials</h4>
+            <button onclick='showTestimonialForm();' class='w3-button w3-indigo w3-round-large' >Add Testimonial</button>
+            <div id="testimonial_form" style='display:none;' class="w3-modal">
+                <div class="w3-display-middle w3-padding" >
+                  <button class='w3-right w3-button w3-round-large w3-red w3-padding' onclick="document.getElementById('testimonial_form').style.display='none'" >&times;</button>
+                  <div class="w3-margin w3-padding w3-round-large w3-border w3-white" id="content">
+                    <form enctype='multipart/form-data' method='POST' action="{% url 'create-obj' course.slug 'testimonial' %}">
+                        <h4 class='w3-center'>Create New testimonial</h4>
+                        {% csrf_token %}
+                        {{ testimonial_form|crispy }}
+                        <button type='submit' class='w3-margin w3-round-large w3-green w3-button' >Create Testimonial</button>
+                    </form>
+                  </div>
+                </div>
+            </div>
+            {% for testimonial in testimonials %}
+                <div class='w3-row' >
+                    <h5 class='w3-left w3-margin-right' >
+                        Testimonial by 
+                        <a class='w3-text-blue' href="{% url 'update-obj' course.slug 'testimonial' testimonial.id %}">
+                        {{testimonial.name}}
+                        </a>
+                    </h5>
+                    <a href="{% url 'delete-testimonial' testimonial.id %}">
+                        <button class=' w3-button w3-right w3-round w3-red'>Delete</button>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class='w3-margin w3-round-large w3-padding w3-border'>
+            <h4>Rating</h4>
+            <button onclick='showRatingForm();' class='w3-button w3-teal w3-round-large' >Add/Update Rating</button>
+
+            <div class='w3-container w3-padding w3-small'>
+                <h5 class=' w3-third'>{{rating.five}} five Stars</h5>
+                <h5 class=' w3-third'>{{rating.four}} four Stars</h5>
+                <h5 class=' w3-third'>{{rating.three}} three Stars</h5>
+                <h5 class=' w3-third'>{{rating.two}} two Stars</h5>
+                <h5 class=' w3-third'>{{rating.one}} one Stars</h5>
+            </div>
+            <div id="rating_form" style='display:none;' class="w3-modal">
+                <div class="w3-display-middle w3-padding" >
+                  <button class='w3-right w3-button w3-round-large w3-red w3-padding' onclick="document.getElementById('rating_form').style.display='none'" >&times;</button>
+                  <div class="w3-margin w3-padding w3-round-large w3-border w3-white" id="content">
+                    {% if rating %}
+                    <form enctype='multipart/form-data' method='POST' action="{% url 'update-obj' course.slug 'rating' rating.id %}">
+                        <h5 class='w3-center'>Update Rating</h5>
+                        {% csrf_token %}
+                        {{ rating_update_form|crispy }}
+                    {% else %}
+                    <form enctype='multipart/form-data' method='POST' action="{% url 'create-obj' course.slug 'rating'  %}">
+                        <h5 class='w3-center'>Create Rating</h5>
+                        {% csrf_token %}
+                        {{ rating_form|crispy }}
+                    {% endif %}
+                        <button type='submit' class='w3-margin w3-green w3-button' >Submit Rating</button>
+                    </form>
+                  </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
+    <script>
+        function showCourseForm(){document.getElementById('course_form').style.display = "block";}
+        function showReviewForm(){document.getElementById('review_form').style.display = "block";}
+        function showTestimonialForm(){document.getElementById('testimonial_form').style.display = "block";}
+        function showRatingForm(){document.getElementById('rating_form').style.display = "block";}
+    </script>
+{% endblock %}

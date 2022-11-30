@@ -1,0 +1,278 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<title>Security</title>
+		<link rel="shortcut icon" type="image/png" href="logo1.png"/>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+		<link href="{% static 'footerterms.css' %}" rel="stylesheet" />
+		<link rel="shortcut icon" type="image/png" href="{% static 'assets/main/favicon.png'%}"/>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-L4D2PNVR8Z"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-L4D2PNVR8Z');
+	</script>
+
+</head>
+
+<body>
+<div class="dropMenu">
+	<ul>
+		<li><a href="##">Catalog » </a></li>
+		<li><a href="##">Products » </a></li>
+		<li><a href="##">Career paths » </a></li>
+		<li><a href="##">Resources » </a></li>
+		<li><a href="##">For Business » </a></li>
+		<div class="mob1">
+		{% if user.is_authenticated %}
+							<p>Hi, {{user.username}}</p>
+							<a href="{% url 'logout' %}"><button class="btn" id='logout'>LogOut</button></a>
+							{% else %}
+							<a href="{% url 'login' %}"><button class="btn" id="login">LogIn</button></a>
+							</div>
+							<a href="{% url 'register' %}"><button class="btn1" id="btn1">Register</button></a>
+							{% endif %}
+
+	</ul>
+	<div class="Close">X</div>
+</div>
+			<!-- //---------------------------------- -->
+			<div class="header">
+				<div class="sub_header">
+					<div class="logo">
+						<img src="{% static 'assets/main/logo.png'%}" alt="logo" />
+					</div>
+					<div class="menu_item">
+						<ul>
+							<li>
+								<a href="##" class="nav_item">Catalog</a
+								><span class="nav_item">⌵</span>
+							</li>
+							<li>
+								<a href="##" class="nav_item">Products</a
+								><span class="nav_item">⌵</span>
+							</li>
+							<li>
+								<a href="##" class="nav_item">Career paths</a
+								><span class="nav_item">⌵</span>
+							</li>
+							<li>
+								<a href="##" class="nav_item">Resources</a
+								><span class="nav_item">⌵</span>
+							</li>
+							<li>
+								<a href="##" class="nav_item">For Business</a
+								><span class="nav_item">⌵</span>
+							</li>
+
+						</ul>
+						<div class="buttons">
+							{% if user.is_authenticated %}
+							<p>Hi, {{user.username}}</p>
+							<a href="{% url 'logout' %}"><button id='logout'>LogOut</button></a>
+							{% else %}
+							<a href="{% url 'login' %}"><button id="login">LogIn</button></a>
+							<a href="{% url 'register' %}"><button id="register">Register</button></a>
+							{% endif %}
+						</div>
+					</div>
+					<div class="ham">
+						<img src="{% static 'assets/main/menu.png'%}" alt="menu" />
+					</div>
+				</div>
+			</div>
+
+		<div class="grandparent">
+			<div class="parent1"></div>
+			<div class="parent2">
+				<center><h1 class="h1top">Tech Snap Security</h1></center>
+				<p class="space">When you use our services, you’re trusting us with your information. We understand this is a big responsibility and work hard to protect your information and put you in control.</p>
+
+				<p class="space">TechSnap uses commercially reasonable administrative, technical, and physical security safeguards that is designed to preserve the integrity protect your data and information. However, no security system is impenetrable and we cannot guarantee the security of our systems 100%. In the event that any information under our control is compromised as a result of a breach of security, we will take reasonable and appropriate steps to investigate the situation, notify those individuals whose information may have been compromised in accordance with any applicable laws and regulations, and take other steps as appropriate. Your privacy settings may also be affected by changes to the functionality of third-party sites and services that you add to the TechSnap Service, such as social networks. TechSnap is not responsible for the functionality or security measures of any third party.</p>
+
+				<p class="space">TechSnap reserves the right to modify or update this Privacy Policy from time to time to reflect the changes in our business and practices, Privacy Policy.</p>
+				<p class="space">For any queries and concerns, contact us at snapthetechqueries@gmail.com</p>
+
+		</div> <br>
+<div class="footer_MainBox">
+			<div class="Footer_page">
+				<footer class="Footer_conatiner">
+					<div class="Footer_header">
+						<img src="{% static 'assets/main/logo.png'%}"alt="Logo" />
+						<br /><br />
+						<p>We are here to endure your muddled stages of knowing the trends while pursuing UG-CSE.</br>we help you to know about trending jobs and required skills for achieving one particular designation</p>
+						<br>
+						<p>We will succour you in submitting your university projects as well as steer you with free tutorials, online courses, live courses and career paths</p>
+					</div>
+					<div class="Footer_columns_holder">
+						<div class="Footer_columns">
+							<h1>Company</h1>
+							<a href="{% url 'aboutus' %}">About us</a>
+							<a href="{% url 'learnerstories' %}">Learner stories</a>
+							<a href="">our people</a>
+							<a href="{% url 'job_test:jobslist' %}">jobs</a>
+						</div>
+						<div class="Footer_columns">
+							<h1>Resources</h1>
+							<a href="##">Tutorials</a>
+							<a href="{% url 'careerpath' %}">Career paths</a>
+							<a href="##">Courses</a>
+							<a href="##">Blogs</a>
+						</div>
+						<div class="Footer_columns">
+							<h1>Support</h1>
+							<a href="{% url 'contact' %}">Contact us</a>
+							<a href="##">FAQ</a>
+							<a href="">Any ideas/Bugs</a>
+							<a href="">Get Involved</a>
+						</div>
+						<div class="Footer_columns">
+							<h1>Services</h1>
+							<a href="##">Startup services</a>
+							<a href="##">Design services</a>
+							<a href="##">Mini Projects</a>
+							<a href="##">Mock interviews</a>
+						</div>
+					</div>
+					<div class="join_our desktop">
+						<p>Join our newsletter</p>
+						<form class="input_holder">
+							<input type="text" />
+							<button type="submit">Subscribe</button>
+						</form>
+					</div>
+				</footer>
+				<div class="join_our responsive">
+					<p>Join our newsletter</p>
+					<form class="input_holder">
+						<input type="text" />
+						<button type="submit">Subscribe</button>
+					</form>
+				</div>
+				<div class="Privacy_holder">
+					<div class="Privacy_links">
+						<a href="{% url 'privacy' %}">Privacy policy</a>
+						<a href="{% url 'cookies' %}">Cookies Notice</a>
+						<a href="{% url 'security' %}">Security</a>
+						<a href="{% url 'terms' %}">Terms of use</a>
+					</div>
+					<div class="Social-media">
+						<div class="image_conatiner">
+							<a href="https://www.linkedin.com/company/74741373/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/768px-LinkedIn_logo_initials.png" id="link" /></a>
+
+							<a href="{% url 'contact' %}"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/2560px-Gmail_icon_%282020%29.svg.png" id="link" /></a>
+
+							<a href="https://trello.com/b/SMDt9NMY/techsnap-upcoming-releases"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC-APsSZXqFUpTTg9qvGW6D5hERazjQfAMkM0Oz6b9sC3uIwU4-_fD8CatVhbAUG4hz3g&usqp=CAU" id="link" /></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="copyRight">
+				Made with 💗 in india © 2021 Techsnap Educations LLP. All Rights
+				Reserved.
+			</div>
+		</div>
+</div>
+<div class="Scroll">
+ <a href="#top" class="back-to-top-link" aria-label="Scroll to Top">&#9757</a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+<script>
+new Splide( '.splide', {
+	type   : 'loop',
+	autoplay: true,
+	pagination : false,
+	arrows     : false,
+	perPage    : 2,
+	perMove    : 1,
+	focus  : 'center',
+	autoplay: true,
+	gap    : '1rem',
+	breakpoints : {
+		'600': {
+	perPage : 1,
+	gap    : '1rem'
+		}
+	},
+} ).mount();
+</script>
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+	<script>
+		AOS.init({
+			duration: 900,
+			offset: 220,
+			easing: 'ease-in-out-quad',
+		});
+
+		const header = document.querySelector('.header');
+		const navLink = document.querySelectorAll('.nav_item');
+		const ham = document.querySelector('.ham');
+
+		window.addEventListener('scroll', () => {
+			const top = window.innerHeight * (15 / 100);
+			if (window.scrollY <= top) {
+				header.style.background = 'rgb(26, 25, 29)';
+				ham.style.background ="transparent";
+
+				header.style.height = '60px';
+				navLink.forEach((i) => {
+					i.style.color = '#fff';
+				});
+			}
+			if (window.scrollY > top) {
+				header.style.background = '#black';
+				ham.style.background ="#black";
+				header.style.height = '55px';
+				navLink.forEach((i) => {
+					i.style.color = '#fff';
+				});
+			}
+		});
+		window.addEventListener('scroll', () => {
+		const top = window.innerHeight * (10 / 100)+300;
+		if (window.scrollY <= top) {
+			document.querySelector(".Scroll").style.display='none';
+
+		}
+		if (window.scrollY > top) {
+				document.querySelector(".Scroll").style.display='grid';
+		}
+	});
+		ham.addEventListener('click',() => {
+			DropMenu.classList.add("MenuAnimation")
+
+		})
+		Close.addEventListener('click',() => {
+			DropMenu.classList.remove('MenuAnimation')
+
+		})
+
+	</script>
+	<script>
+			//----------------------------
+
+		  const Close=document.querySelector(".Close");
+		    const DropMenu =document.querySelector('.dropMenu')
+		  ham.addEventListener('click',() => {
+			DropMenu.classList.add("MenuAnimation")
+			console.log('sdsd');
+
+		})
+		Close.addEventListener('click',() => {
+			DropMenu.classList.remove('MenuAnimation')
+
+		})
+
+	//-------
+	</script>
+
+</body>
+</html>

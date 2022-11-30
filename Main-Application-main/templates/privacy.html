@@ -1,0 +1,304 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Privacy Policy</title>
+		<link rel="shortcut icon" type="image/png" href="logo1.png"/>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+		<link href="{% static 'footerterms.css' %}" rel="stylesheet" />
+		<link rel="shortcut icon" type="image/png" href="{% static 'assets/main/favicon.png'%}"/>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-L4D2PNVR8Z"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-L4D2PNVR8Z');
+	</script>
+
+</head>
+
+<body>
+<div class="dropMenu">
+	<ul>
+		<li><a href="##">Catalog » </a></li>
+		<li><a href="##">Products » </a></li>
+		<li><a href="##">Career paths » </a></li>
+		<li><a href="##">Resources » </a></li>
+		<li><a href="##">For Business » </a></li>
+		<div class="mob1">
+		{% if user.is_authenticated %}
+							<p>Hi, {{user.username}}</p>
+							<a href="{% url 'logout' %}"><button class="btn" id='logout'>LogOut</button></a>
+							{% else %}
+							<a href="{% url 'login' %}"><button class="btn" id="login">LogIn</button></a>
+							</div>
+							<a href="{% url 'register' %}"><button class="btn1" id="btn1">Register</button></a>
+							{% endif %}
+
+	</ul>
+	<div class="Close">X</div>
+</div>
+			<!-- //---------------------------------- -->
+			<div class="header">
+				<div class="sub_header">
+					<div class="logo">
+						<img src="{% static 'assets/main/logo.png'%}" alt="logo" />
+					</div>
+					<div class="menu_item">
+						<ul>
+							<li>
+								<a href="##" class="nav_item">Catalog</a
+								><span class="nav_item">⌵</span>
+							</li>
+							<li>
+								<a href="##" class="nav_item">Products</a
+								><span class="nav_item">⌵</span>
+							</li>
+							<li>
+								<a href="##" class="nav_item">Career paths</a
+								><span class="nav_item">⌵</span>
+							</li>
+							<li>
+								<a href="##" class="nav_item">Resources</a
+								><span class="nav_item">⌵</span>
+							</li>
+							<li>
+								<a href="##" class="nav_item">For Business</a
+								><span class="nav_item">⌵</span>
+							</li>
+
+						</ul>
+						<div class="buttons">
+							{% if user.is_authenticated %}
+							<p>Hi, {{user.username}}</p>
+							<a href="{% url 'logout' %}"><button id='logout'>LogOut</button></a>
+							{% else %}
+							<a href="{% url 'login' %}"><button id="login">LogIn</button></a>
+							<a href="{% url 'register' %}"><button id="register">Register</button></a>
+							{% endif %}
+						</div>
+					</div>
+					<div class="ham">
+						<img src="{% static 'assets/main/menu.png'%}" alt="menu" />
+					</div>
+				</div>
+			</div>
+<div class="grandparent">
+	<div class="parent1"></div>
+		<div class="parent2">
+			<center><h1 class="h1top">Tech Snap Privacy Policy</h1></center>
+			<h2 class="h2top">Consent</h2>
+			<p class="space">By using our website, you hereby consent to our Privacy Policy and agree to its terms.</p><br>
+
+			<h2 class="h2top">Information we collect</h2>
+			<p>The personal information that you are asked to provide, and the reasons why you are asked to provide it, will be made clear to you at the point we ask you to provide your personal information.</p><br>
+			<p>If you contact us directly, we may receive additional information about you such as your name, email address, phone number, the contents of the message and/or attachments you may send us, and any other information you may choose to provide.</p><br>
+			<p class="space">When you register for an Account, we may ask for your contact information, including items such as name, company name, address, email address, and telephone number.</p><br>
+
+			<h2 class="h2top">Information You Provide Directly to Us</h2>
+			<p>You can browse our site without providing personal information, but you must register in order to access most of the features of Service. Certain personal information — such as a user name, email address — are required to create an account. However, after you set up an account, you may choose what additional information may be shared through public profiles, including your name, location, website, links to your social media profiles, and other information that may be considered personal information. Similarly, should you choose to engage in messaging through the Service, the contents of such messages may be processed and saved by us. You may choose to voluntarily provide other information to us that we do not request, and, in such instances, you are solely responsible for such information.</p><br>
+			<p>The following are categories of information we collect directly from you:</p><br>
+
+			<div class="h3top"><ul>
+			<li>Contact Data, including your first and last name, email address, postal address, and phone number.</li>
+			<li>Account Credentials, including your username, password, password hints, and information for authentication and account access.</li>
+			<li>Demographic Data, including your age, gender, and country.</li>
+			<li>Billing Data, including your payment instrument number (such as a credit or debit card number), expiration date, and security code as necessary to process your payments.</li>
+			<li>Profile Data, including your interests, inferences, preferences and favorites.</li>
+			<li>Content, including content within any messages you send to us (such as feedback and questions to customer support) or publicly post on the Service (such as in your public profile, in reviews, and comments) as well as any academic content that you generate and submit for grading. We also collect content within any messages you exchange with other users through the Service (such as if you use our contact forms in startup,design services).</li>
+			<li>Job Applicant Data, including your employment and education history, transcript, writing samples, and references as necessary to consider your job application for open positions.</li></ul></div><br>
+			<p class="space">You may choose to voluntarily provide other information to us, and, in such instances, you are solely responsible for such information.</p><br>
+
+			<h2 class="h2top">Childern's privacy</h2>
+			<p class="space">Only persons age 18 or older have perlesson to access our Service. Our Service is not intended for anyone under the age of 13 years old. We do not knowingly collect personally identifiable information from children under 13. If we become aware that we have collected Personal Information from a child under age 13 without verification of parental consent, we take steps to remove that information from our servers. If you believe we might have any information from or about a child under 13, or that there may be a user under the age of 13, please contact us immediately at techsnapwork@gmail.com</p><br>
+
+			<h2 class="h2top">Data Security</h2>
+			<p class="space">Techsnap uses commercially reasonable administrative, technical, and physical security safeguards designed to preserve the integrity and security of all information collected through the Service. However, no security system is impenetrable and we cannot guarantee the security of our systems 100%. In the event that any information under our control is compromised as a result of a breach of security, we will take reasonable and appropriate steps to investigate the situation, notify those individuals whose information may have been compromised in accordance with any applicable laws and regulations, and take other steps as appropriate. Your privacy settings may also be affected by changes to the functionality of third party sites and services that you add to the Codecademy Service, such as social networks. Codecademy is not responsible for the functionality or security measures of any third party.</p><br>
+
+			<h2 class="h2top">Links to Other Websites and Services</h2>
+			<p class="space">The Services may, from time to time, contain links to and from websites, platforms, and other services not operated or controlled by us. If you follow a link to any of these locations, please note that these locations have their own privacy policies and that we do not accept any responsibility or liability for their policies. Please check the individual policies before you submit any information to those locations.</p><br>
+
+			<h2 class="h2top">Contact Us</h2>
+			<p>If you have any questions about this Privacy Policy, our data practices, our compliance with applicable law, or the Service, please contact us by submitting your concern through our Help Center. This Privacy Policy has been designed to be accessible to people with disabilities. If you experience any difficulties accessing the information here, please contact us through the Help Center.</p><br>
+
+	</div> <br>
+<div class="footer_MainBox">
+			<div class="Footer_page">
+				<footer class="Footer_conatiner">
+					<div class="Footer_header">
+						<img src="{% static 'assets/main/logo.png'%}"alt="Logo" />
+						<br /><br />
+						<p>We are here to endure your muddled stages of knowing the trends while pursuing UG-CSE.</br>we help you to know about trending jobs and required skills for achieving one particular designation</p>
+						<br>
+						<p>We will succour you in submitting your university projects as well as steer you with free tutorials, online courses, live courses and career paths</p>
+					</div>
+					<div class="Footer_columns_holder">
+						<div class="Footer_columns">
+							<h1>Company</h1>
+							<a href="{% url 'aboutus' %}">About us</a>
+							<a href="{% url 'learnerstories' %}">Learner stories</a>
+							<a href="">our people</a>
+							<a href="{% url 'job_test:jobslist' %}">jobs</a>
+						</div>
+						<div class="Footer_columns">
+							<h1>Resources</h1>
+							<a href="##">Tutorials</a>
+							<a href="{% url 'careerpath' %}">Career paths</a>
+							<a href="##">Courses</a>
+							<a href="##">Blogs</a>
+						</div>
+						<div class="Footer_columns">
+							<h1>Support</h1>
+							<a href="{% url 'contact' %}">Contact us</a>
+							<a href="##">FAQ</a>
+							<a href="">Any ideas/Bugs</a>
+							<a href="">Get Involved</a>
+						</div>
+						<div class="Footer_columns">
+							<h1>Services</h1>
+							<a href="##">Startup services</a>
+							<a href="##">Design services</a>
+							<a href="##">Mini Projects</a>
+							<a href="##">Mock interviews</a>
+						</div>
+					</div>
+					<div class="join_our desktop">
+						<p>Join our newsletter</p>
+						<form class="input_holder">
+							<input type="text" />
+							<button type="submit">Subscribe</button>
+						</form>
+					</div>
+				</footer>
+				<div class="join_our responsive">
+					<p>Join our newsletter</p>
+					<form class="input_holder">
+						<input type="text" />
+						<button type="submit">Subscribe</button>
+					</form>
+				</div>
+				<div class="Privacy_holder">
+					<div class="Privacy_links">
+						<a href="{% url 'privacy' %}">Privacy policy</a>
+						<a href="{% url 'cookies' %}">Cookies Notice</a>
+						<a href="{% url 'security' %}">Security</a>
+						<a href="{% url 'terms' %}">Terms of use</a>
+					</div>
+					<div class="Social-media">
+						<div class="image_conatiner">
+							<a href="https://www.linkedin.com/company/74741373/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/768px-LinkedIn_logo_initials.png" id="link" /></a>
+
+							<a href="{% url 'contact' %}"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/2560px-Gmail_icon_%282020%29.svg.png" id="link" /></a>
+
+							<a href="https://trello.com/b/SMDt9NMY/techsnap-upcoming-releases"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC-APsSZXqFUpTTg9qvGW6D5hERazjQfAMkM0Oz6b9sC3uIwU4-_fD8CatVhbAUG4hz3g&usqp=CAU" id="link" /></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="copyRight">
+				Made with 💗 in india © 2021 Techsnap Educations LLP. All Rights
+				Reserved.
+			</div>
+		</div>
+</div>
+<div class="Scroll">
+ <a href="#top" class="back-to-top-link" aria-label="Scroll to Top">&#9757</a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+<script>
+new Splide( '.splide', {
+	type   : 'loop',
+	autoplay: true,
+	pagination : false,
+	arrows     : false,
+	perPage    : 2,
+	perMove    : 1,
+	focus  : 'center',
+	autoplay: true,
+	gap    : '1rem',
+	breakpoints : {
+		'600': {
+	perPage : 1,
+	gap    : '1rem'
+		}
+	},
+} ).mount();
+</script>
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+	<script>
+		AOS.init({
+			duration: 900,
+			offset: 220,
+			easing: 'ease-in-out-quad',
+		});
+
+		const header = document.querySelector('.header');
+		const navLink = document.querySelectorAll('.nav_item');
+		const ham = document.querySelector('.ham');
+
+		window.addEventListener('scroll', () => {
+			const top = window.innerHeight * (15 / 100);
+			if (window.scrollY <= top) {
+				header.style.background = 'rgb(26, 25, 29)';
+				ham.style.background ="transparent";
+
+				header.style.height = '60px';
+				navLink.forEach((i) => {
+					i.style.color = '#fff';
+				});
+			}
+			if (window.scrollY > top) {
+				header.style.background = '#black';
+				ham.style.background ="#black";
+				header.style.height = '55px';
+				navLink.forEach((i) => {
+					i.style.color = '#fff';
+				});
+			}
+		});
+		window.addEventListener('scroll', () => {
+		const top = window.innerHeight * (10 / 100)+300;
+		if (window.scrollY <= top) {
+			document.querySelector(".Scroll").style.display='none';
+
+		}
+		if (window.scrollY > top) {
+				document.querySelector(".Scroll").style.display='grid';
+		}
+	});
+		ham.addEventListener('click',() => {
+			DropMenu.classList.add("MenuAnimation")
+
+		})
+		Close.addEventListener('click',() => {
+			DropMenu.classList.remove('MenuAnimation')
+
+		})
+
+	</script>
+	<script>
+			//----------------------------
+
+		  const Close=document.querySelector(".Close");
+		    const DropMenu =document.querySelector('.dropMenu')
+		  ham.addEventListener('click',() => {
+			DropMenu.classList.add("MenuAnimation")
+			console.log('sdsd');
+
+		})
+		Close.addEventListener('click',() => {
+			DropMenu.classList.remove('MenuAnimation')
+
+		})
+
+	//-------
+	</script>
+
+</body>
+</html>

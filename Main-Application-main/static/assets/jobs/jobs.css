@@ -1,0 +1,109 @@
+.hide{
+    display: none;
+}
+.side-bar span a{
+    text-decoration: none;
+    color: #6c757d;
+    font-size: 1rem;
+}
+.side-bar .act a{
+    font-weight: 700;
+    color: black !important;
+}
+.side-bar span a:hover{
+    color: black;
+}
+.sticky-top{
+    top: 70px;
+    z-index: 1;
+}
+.position-heading{
+    max-width: 32em;
+    padding-bottom: 80px;
+}
+.items,.items-ex{
+    position: relative;
+    width: 100%;
+    height: 84px;
+    border-bottom: #d3d9df 1px solid;
+    text-decoration: none;
+    color: black;
+    margin-bottom: 12px;
+}
+.items:hover{
+    color: inherit;
+    background-color: #f8f9fa;
+}
+.items::after{
+    content: "→";
+    position: absolute;
+    text-decoration: none;
+    background: 0px 0px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: 500;
+}
+.items-title{
+    width: calc((((100vw - 520px)/12)*4) + 120px + 0px);
+    font-size: 22px;
+    padding-left: 25px;
+    padding-right: 18px;
+    font-weight: 500;
+}
+.items-count{
+    width: calc((((100vw - 520px)/12)*1) + 0px + 0px);
+    margin-right: 40px;
+    font-size: 22px;
+    font-weight: 500;
+}
+.items-location{
+    width: calc((((100vw - 520px)/12)*4) + 120px + 0px);
+    margin: 0;
+    font-size: 16px;
+    padding-right: 70px;
+}
+.items-none{
+    padding-left: 25px;
+    padding-right: 18px;
+    font-weight: 500;
+    font-size: 18px;
+}
+@media  (max-width: 830px) {
+    .items{
+        flex-wrap: wrap;
+        padding-bottom: 16px;
+        height: 90px;
+    }
+    .items-title{
+        font-size: 18px;
+    }
+    .items-count{
+        font-size: 18px;
+    }
+    .items-location{
+        font-size: 14px;
+    }
+}
+@media  (max-width: 740px) {
+    .items-title{
+        width: auto;
+        font-size: 16px;
+    }
+    .items-count{
+        width: auto;
+        font-size: 16px;
+    }
+    .items-location{
+        width: auto;
+        padding-left: 25px;
+        font-size: 12px;
+    }
+}
+@media (max-width:766px) {
+    #position .position-list{
+        display: none;
+    }
+    .position-heading{
+        padding-bottom: 45px;
+    }
+}

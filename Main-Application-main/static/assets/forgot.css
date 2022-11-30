@@ -1,0 +1,88 @@
+*{
+    font-family: sans-serif;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: url(register_bg_2.png);
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: black;
+    }
+    .container{
+      max-width: max-content;
+      height: 100%;
+      margin-top: 6px;
+    }
+    .main-card{
+      display: flex;
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+    .card{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 6px;
+        width: 477px;
+    }
+    .welcome{
+        font-size: 30px;
+        font-weight: bold;
+    }
+    .username , .password{
+      display: block;
+      text-transform: capitalize;
+      color: black;
+      font-weight: 700;
+      font-size: large;
+      margin-bottom: 2px;
+    }
+    .forgetpass {
+        position: relative;
+        float: right;
+        font-size: 15px;
+        text-transform: capitalize;
+      }
+  h2 {
+    width: 100%; 
+    text-align: center; 
+    border-bottom: 1px solid #000; 
+    line-height: 0.1em;
+    margin: 10px 0 20px; 
+  } 
+
+  h2 span { 
+      background:rgb(212, 211, 211); 
+      padding:0 10px; 
+  }
+ 
+  [type=checkbox]:checked + span:before {/* <-- style its checked state */
+    font-family: FontAwesome;
+    font-size: 16px;
+    content: "\f00c";
+    position: absolute;
+    top: -4px;
+    color: #896cec;
+    left: -1px;
+    width: 13px;
+}
+
+.card-2{
+  margin: 16px 0;
+    padding: 10x;
+    text-align: center;
+    background-color: white;
+    width: 477px;
+    text-align: center;
+    align-items: center;
+    margin-left:30%;
+    border-radius: 5%;
+    position: relative;
+}
+
+  .set-scroll {
+    max-height: calc(100vh-100px);
+  }
