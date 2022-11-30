@@ -18,6 +18,8 @@ from django.http import JsonResponse
 from courses.models import *
 from course.models import *
 from careerpaths.models import CareerPath
+
+from hashtags.models import Hashtag
 # Create your views here.
 
 from .models import *
@@ -546,6 +548,8 @@ def mark_read(request, slug):
     return HttpResponseRedirect(reverse('notifications', kwargs={'slug': notifi.profile.slug}))
 
 def topics(request,slug):
+    new_tags = Hashtag.objects.all().order_by()
+
     return render(request, 'dash_topics.html')
 
 def events(request,slug):
