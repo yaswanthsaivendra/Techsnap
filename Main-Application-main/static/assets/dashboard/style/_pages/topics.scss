@@ -1,106 +1,168 @@
 .topic_section {
 	width: 100%;
 	height: 100%;
-	max-height: calc(100vh - 60px);
-	min-height: calc(100vh - 60px);
+	max-width: 1400px;
 	padding: 30px 40px;
-	height: 100%;
-
-	overflow: scroll;
 	box-sizing: border-box;
-	@media (max-width: 620px) {
+	@media (max-width: 700px) {
 		padding: 30px 10px;
 	}
-	& .heading {
-		margin-left: 10%;
-		font-size: 1.8rem;
+}
+button {
+	cursor: pointer;
+}
+.heading {
+	width: 100%;
+	height: 40px;
+	display: flex;
+	@media (max-width: 700px) {
+		font-size: 1rem;
+	}
+	button {
+		outline: none;
+		border: solid 1px rgb(35, 32, 253);
+		border-radius: 20px;
+		background: none;
+		width: 150px;
+		height: 40px;
+		font-size: 1rem;
+		color: rgb(35, 32, 253);
+		margin-left: 20px;
+		font-weight: 600;
 	}
 }
-.topics_holder {
+.tags_holder {
+	margin-top: 40px;
 	width: 100%;
-	height: 100%;
 	display: flex;
-	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
-	margin-top: 20px;
-}
-.topic_item {
-	width: 80%;
-	height: 150px;
-	display: flex;
-	align-items: center;
-	justify-content: space-around;
-	background: #fff;
-	position: relative;
-	margin-top: 15px;
-	@media (max-width: 700px) {
-		width: 94%;
-		min-height: 160px;
-		h1 {
-			white-space: nowrap;
-			font-size: 1rem;
-		}
-	}
-	::after {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		height: 100%;
-		width: 5px;
-		background: rgb(189, 3, 226);
-	}
-}
-.topic_image {
-	width: 150px;
-	height: 100%;
-	display: grid;
-	place-items: center;
+	flex-wrap: wrap;
 
-	img {
-		width: 100px;
-		height: 100px;
+	@media (max-width: 700px) {
+		justify-content: center;
 	}
 }
-.topic_content {
-	width: 75%;
-	height: 90%;
+.tag {
+	max-width: 300px;
+	min-width: 300px;
+	margin: 2px;
+	height: 80px;
 	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	justify-content: space-around;
-	p {
-		font-size: 0.9rem;
-		letter-spacing: 0.5px;
-		color: rgb(70, 70, 70);
-		font-weight: 600;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		max-height: 50px;
-		@media (max-width: 700px) {
-			font-size: 0.7rem;
+	background: rgb(228, 228, 228);
+	border: solid 1px #fff;
+	align-items: center;
+	border-radius: 5px;
+	padding: 10px;
+	justify-content: space-between;
+	@media (max-width: 1000px) {
+		max-width: 270px;
+		min-width: 270px;
+	}
+	@media (max-width: 700px) {
+		max-width: 330px;
+		min-width: 330px;
+	}
+	img {
+		width: 40px;
+		height: 40px;
+	}
+	.details_holder {
+		margin-left: 20px;
+		width: 70%;
+		h1 {
+			font-size: 1.3rem;
+		}
+		p {
+			font-size: 0.8rem;
+			color: rgb(93, 93, 93);
 		}
 	}
 	button {
-		margin-left: 70%;
-		border: none;
 		outline: none;
-		padding: 5px 20px;
+		background: #fff;
+		border: none;
+		width: 35px;
+		height: 35px;
+		color: blue;
+		border-radius: 50%;
+		font-size: 1.3rem;
 		font-weight: 600;
-		font-size: 0.8rem;
-		background: rgb(0, 0, 0);
-		color: #fff;
-		cursor: pointer;
-		transition: all 0.5s ease;
-		border: solid 1px #000;
-		@media (max-width: 700px) {
-			margin: 0 0;
+	}
+}
+#light_heading {
+	color: rgba(1, 1, 1, 0.662);
+	font-size: 1.2rem;
+	margin: 20px 0;
+	font-weight: 600;
+}
+.newly {
+	width: 280px;
+}
+.green {
+	background-color: green;
+}
+#green {
+	color: green;
+}
+.yellow {
+	background-color: rgb(185, 185, 0);
+}
+#yellow {
+	color: rgb(185, 185, 0);
+}
+.tag_card {
+	max-width: 300px;
+	min-width: 300px;
+	height: 280px;
+	background: rgb(255, 255, 255);
+	display: flex;
+	flex-direction: column;
+	margin: 15px 5px;
+	align-items: center;
+	justify-content: flex-start;
+	border: solid 1px rgb(172, 172, 172);
+	border-radius: 10px;
+	@media (max-width: 700px) {
+		width: 90%;
+	}
+	span {
+		color: rgb(195, 195, 0);
+		margin-right: 5;
+	}
+	.color_holder {
+		width: 100%;
+		height: 20px;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+	}
+
+	.details_holder {
+		width: 100%;
+		padding: 20px;
+		p {
+			margin: 10px 0;
 		}
-		&:hover {
-			background: rgb(255, 255, 255);
-			color: rgb(0, 0, 0);
-			border: solid 1px #000;
+		#light {
+			color: rgb(69, 69, 69);
+		}
+	}
+	.card_footer {
+		padding: 0 20px;
+		width: 100%;
+		height: 50px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		button {
+			width: 90px;
+			height: 40px;
+			border: none;
+			outline: none;
+			border-radius: 10px;
+			font-weight: 500;
+			font-size: 1rem;
+			background: rgb(195, 195, 195);
 		}
 	}
 }
