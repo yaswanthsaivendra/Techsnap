@@ -6,7 +6,7 @@ from .models import Hashtag, Feedback
 # # Create your views here.
 
 
-# def home(request, hashtag):
+def home(request, hashtag):
 #     form = FeedbackForm()
 #     hashtag = get_object_or_404(Hashtag, title=hashtag)
 #     user_profile = Profile.objects.get(user=request.user)
@@ -15,7 +15,8 @@ from .models import Hashtag, Feedback
 #     if queryset:
 #         follow=True
 #     events = Event.objects.filter()
-#     return render(request, 'hashtags/home.html', {'hashtag':hashtag, 'follow':follow, 'form' : form})
+#     return render(request, 'hashtags/hashtag.html', {'hashtag':hashtag, 'follow':follow, 'form' : form})
+    return render(request, 'hashtags/hashtag.html')
 
 
 # def follow(request, hashtag):
