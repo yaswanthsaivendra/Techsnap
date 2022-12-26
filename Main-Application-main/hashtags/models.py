@@ -6,6 +6,10 @@ from django.db import models
 class Hashtag(models.Model):
     title = models.CharField("hashtag name", max_length=100)
     is_active = models.BooleanField(default=False)
+    followers = models.PositiveBigIntegerField(default=0, editable=False)
+    image = models.ImageField(upload_to='hashtag_images/')
+    description = models.TextField()
+
 
 
     def __str__(self) :

@@ -4,7 +4,7 @@ from .models import Hashtag, Feedback
 
 
 class HashtagAdmin(admin.ModelAdmin):
-    list_display=('title','is_active')
+    list_display=('title', 'followers', 'is_active')
     list_editable=('is_active',)
 
 admin.site.register(Hashtag, HashtagAdmin)

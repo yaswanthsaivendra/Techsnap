@@ -548,9 +548,13 @@ def mark_read(request, slug):
     return HttpResponseRedirect(reverse('notifications', kwargs={'slug': notifi.profile.slug}))
 
 def topics(request,slug):
-    new_tags = Hashtag.objects.all().order_by()
 
-    return render(request, 'dash_topics.html')
+    all_tags = Hashtag.objects.all().filter(is_active=True)
+    new_tags = all_tags.order_by('-id')[:10]
+    trend_tags = all_tags.order_by('-followers')[:10]    
+
+
+    return render(request, 'dash_topics.html', {'new_tags' : new_tags, 'trend_tags' : trend_tags})
 
 def events(request,slug):
     return render(request, 'dash_events.html')
