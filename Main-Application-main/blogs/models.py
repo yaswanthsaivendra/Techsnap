@@ -29,7 +29,8 @@ class Blogs(models.Model):
     status = models.BooleanField(default=False)
     date_published= models.DateTimeField(auto_now_add=True,null=False)
     date_modified = models.DateTimeField(auto_now=True,null=False)
-    tags = models.ManyToManyField(Hashtag, blank=True)
+    # tags = models.ManyToManyField(Hashtag, blank=True)
+    hashtags = models.ManyToManyField(Hashtag, blank=True)
 
     def __str__(self):
         return str(self.author)+' '+self.title

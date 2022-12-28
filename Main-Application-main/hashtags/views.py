@@ -5,6 +5,8 @@ from accounts.models import Profile
 from .forms import FeedbackForm
 
 from posts.models import Posts
+from careerpaths.models import CareerPath
+from blogs.models import Blogs
 
 # # Create your views here.
 
@@ -15,11 +17,22 @@ def home(request, hashtag):
     user_profile = Profile.objects.get(user=request.user)
     queryset = user_profile.hashtags.filter(id=hashtag.id)
     posts = Posts.objects.filter(hashtags__in=[hashtag])
+    career_paths = CareerPath.objects.filter(hashtags__in=[hashtag])
+    blogs = Blogs.objects.filter(hashtags__in=[hashtag])
+    imgs = []
+    for post in posts:
+        for img in post.get_post_imgs():
+            imgs.append(img)
+        if len(imgs)>0:
+            post.img_url = imgs[0].img_url
+        else:
+            post.img_url = ''
+        imgs.clear()
     follow=False
     if queryset:
         follow=True
 #     events = Event.objects.filter()
-    return render(request, 'hashtags/hashtag.html', {'hashtag':hashtag, 'follow':follow, 'form' : form, 'posts':posts})
+    return render(request, 'hashtags/hashtag.html', {'hashtag':hashtag, 'follow':follow, 'form' : form, 'posts':posts,'career_paths':career_paths , 'blogs':blogs})
     # return render(request, 'hashtags/hashtag.html', {'hashtag':hashtag, 'follow':follow})
 
 

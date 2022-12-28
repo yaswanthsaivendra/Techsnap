@@ -3,6 +3,7 @@ from courses.models import Course
 from django.urls import reverse
 from django.utils.text import slugify
 from ckeditor_uploader.fields import RichTextUploadingField
+from hashtags.models import Hashtag
 
 # Create your models here.
 class CareerPath(models.Model):
@@ -16,6 +17,7 @@ class CareerPath(models.Model):
     webinar_link = models.URLField(max_length=100)
     career_pdf = models.FileField(upload_to='career')
     slug = models.CharField(max_length=50, editable=False, null=True)
+    hashtags = models.ManyToManyField(Hashtag, blank=True)
 
     def __str__(self):
         return self.title

@@ -6,6 +6,7 @@ from django.utils.text import slugify
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.urls import reverse
 from django.db.models.signals import post_save
+from hashtags.models import Hashtag
 
 # Create your models here.
 level = (('Beginner', 'Beginner'),
@@ -23,6 +24,7 @@ class Course(models.Model):
     gst = models.IntegerField(null=True)
     total = models.IntegerField(null=True, editable=False)
     release_status = models.BooleanField(default=False, null=True)
+   
 
     def __str__(self):
         return self.slug
