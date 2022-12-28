@@ -18,8 +18,62 @@
 		integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
 	<title>Document</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+	<!-- bootstrap -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/datalist-css/dist/datalist-css.min.js"></script>
 </head>
+<style>
+	p {
+		margin-bottom: initial !important;
+	}
+
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
+
+	body {
+		font-family: sans-serif;
+		font-size: 100%;
+		color: #222;
+		background-color: #fafafe;
+		margin: 1em;
+	}
+
+	label,
+	button {
+		display: block;
+		margin-top: 1em;
+	}
+
+	datalist {
+		position: absolute;
+		max-height: 20em;
+		border: 0 none;
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+
+	datalist option {
+		font-size: 0.8em;
+		padding: 0.3em 1em;
+		background-color: #ccc;
+		cursor: pointer;
+	}
+
+	/* option active styles */
+	datalist option:hover,
+	datalist option:focus {
+		color: #fff;
+		background-color: #036;
+		outline: 0 none;
+	}
+</style>
 
 <body>
 
@@ -907,17 +961,23 @@
 					class='w3-input w3-margin-bottom w3-border w3-round' />
 				<textarea rows="5" id="desc" name="desc" placeholder="Write Something here..." autofocus></textarea>
 			</div>
-			<label for="browser">Add Hashtags:</label>
-			<input list="browsers" name="browser" id="hashtag_input">
-			<datalist id="browsers">
-				{% for hashtag in all_tags %}
-				<option value="{{hashtag.title}}">
-				{% endfor %}
-			</datalist>
-			<button onclick="add_hashtag()">Add</button>
-			<div>hashtags</div>
-			<div id="hashtags"></div>
-			<input type="text" name="hashtags" id="hashtags_input_dummy">
+			<div class="write">
+				<label for="browser">Add Hashtags:</label>
+				<br>
+				<div class="flex">
+					<input list="browsers" name="browser" id="hashtag_input" autocomplete="off" size="50"
+						class="w3-input w3-margin-bottom w3-border w3-round w-50 " style="display:inline">
+					<datalist id="browsers">
+						{% for hashtag in all_tags %}
+						<option value="{{hashtag.title}}">
+							{% endfor %}
+					</datalist>
+					<button onclick="add_hashtag()" class="btn btn-secondary m-0 py-2 px-3 mx-2">Add</button>
+				</div>
+				<div id="hashtags"></div>
+				<input type="text" name="hashtags" id="hashtags_input_dummy" style="display: none" >
+			</div>
+
 			<div class="footer">
 				<div class="icons">
 					<div class="icon">
@@ -1409,18 +1469,40 @@
 	let hashtags_arr = []
 	function add_hashtag() {
 		event.preventDefault();
-		const div = document.createElement('div');
+		const div = document.createElement('span');
 		let hashtag_value = document.getElementById('hashtag_input').value;
 		let hashtag_div = document.getElementById('hashtags');
 		let hashtags_input_dummy = document.getElementById('hashtags_input_dummy');
 		hashtags_arr = [...hashtags_arr, hashtag_value]
 		console.log(hashtags_arr);
-		div.innerHTML = `<h1>${hashtag_value}</h1> `;
+		div.innerHTML = `<span class="bg-success badge py-3 px-3 mx-1 my-2">${hashtag_value}</span> `;
 		document.getElementById('hashtag_input').value = ""
-		hashtags_input_dummy.value=hashtags_arr;
+		hashtags_input_dummy.value = hashtags_arr;
 		hashtag_div.appendChild(div)
 
 	}
+</script>
+<script>
+	(() => {
+
+		const form = document.getElementById('autoform');
+
+		form.addEventListener('submit', e => {
+
+			e.preventDefault();
+
+			console.clear();
+			console.log('Submit disabled. Data:');
+
+			const data = new FormData(form);
+
+			for (let nv of data.entries()) {
+				console.log(`${nv[0]}: ${nv[1]}`);
+			}
+
+		});
+
+	})();
 </script>
 
 </html>
