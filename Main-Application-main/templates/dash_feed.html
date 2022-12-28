@@ -591,7 +591,9 @@
 											class='w3-text-black '>{{feed.no_dislikes}} Dislikes</span>
 									</p>
 									{% for tag in feed.hashtags %}
+									{% if tag.is_active %}
 									<div class=" w3-round tags">#{{tag.title}}</div>
+									{% endif %}
 
 									{% endfor %}
 								</div>
