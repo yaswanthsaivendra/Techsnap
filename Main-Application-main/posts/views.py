@@ -128,6 +128,7 @@ def get_all_posts(request):
     return JsonResponse(ret)
 
 def feeds(request, slug):
+    all_tags= Hashtag.objects.all()
     posts = Posts.objects.all()
     following = [profile.user.username for profile in Profile.objects.filter(followers=request.user)]
     posts_ = []
@@ -197,7 +198,7 @@ def feeds(request, slug):
             'reports': reports,
         }
         posts_.append(ret)
-    return render(request, 'dash_feed.html', {'feeds': posts_, 'following': following})
+    return render(request, 'dash_feed.html', {'feeds': posts_, 'following': following,'all_tags':all_tags})
 
 def post_details(request, postslug):
     post = Posts.objects.get(slug=postslug)
