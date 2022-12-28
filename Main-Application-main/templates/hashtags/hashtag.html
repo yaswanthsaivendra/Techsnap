@@ -453,6 +453,8 @@
                 <h4>Description</h4>
                 <p class="tsecondary">{{ hashtag.description }}</p>
             </div>
+
+
             <div class="tabsection m-5 px-5">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
@@ -473,7 +475,12 @@
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+						{% for post in posts %}
+						<p>{{post.title}}</p>
+						<p>{{post.desc}}</p>
+
+						{% endfor %}
                     </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
                     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">3</div>

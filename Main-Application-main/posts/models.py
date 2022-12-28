@@ -16,10 +16,10 @@ class Posts(models.Model):
     likes = models.ManyToManyField(User, blank=True, related_name='likes')
     dislikes = models.ManyToManyField(User, blank=True, related_name='dislikes')
     slug = models.SlugField(max_length=255)
-    tags = models.ManyToManyField(Hashtag, blank=True)
     reports = models.IntegerField(default=0, null=True)
     is_archived = models.BooleanField(default=False)
     bookmarks = models.ManyToManyField(User, blank=True, related_name='bookmarks')
+    hashtags = models.ManyToManyField(Hashtag, blank=True, related_name='hashtags')
 
     def __str__(self):
         return self.title

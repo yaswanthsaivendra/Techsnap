@@ -528,9 +528,10 @@
 										<input type="hidden" value="{{feed.no_dislikes}}" id="{{feed.id}}dislike_count" />
 										<span id="{{feed.id}}dislike_display" class='w3-text-black '>{{feed.no_dislikes}}  Dislikes</span>
 									</p>
-									<div class=" w3-round tags"># bigdata</div>
-									<div class="w3-round tags"># ml</div>
-                                    <div class="w3-round tags"># datascience</div>
+									{% for tag in feed.hashtags %}
+									<div class=" w3-round tags">#{{tag.title}}</div>
+		
+									{% endfor %}
 								</div>
 								<div class="time">
 									<p>{{feed.created}}</p>

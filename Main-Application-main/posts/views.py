@@ -135,6 +135,9 @@ def feeds(request, slug):
         imgs = []
         for img in post.get_post_imgs():
             imgs.append(img.img_url)
+        hashtags = []
+        for tag in post.hashtags.all():
+            hashtags.append(tag)
         if post.profile.profile_pic:
             authorpfp = 'https://www.techsnap.in'+post.profile.profile_pic.url
         else:
@@ -182,6 +185,7 @@ def feeds(request, slug):
             'created': str(post.timestamp),
             'author': post.profile,
             'images': imgs,
+            'hashtags':hashtags,
             'slug': post.slug,
             'id': post.id,
             'comments': comments_,

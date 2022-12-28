@@ -4,6 +4,8 @@ from accounts.models import Profile
 # from events.models import Event
 from .forms import FeedbackForm
 
+from posts.models import Posts
+
 # # Create your views here.
 
 
@@ -12,11 +14,12 @@ def home(request, hashtag):
     hashtag = get_object_or_404(Hashtag, title=hashtag)
     user_profile = Profile.objects.get(user=request.user)
     queryset = user_profile.hashtags.filter(id=hashtag.id)
+    posts = Posts.objects.filter(hashtags__in=[hashtag])
     follow=False
     if queryset:
         follow=True
 #     events = Event.objects.filter()
-    return render(request, 'hashtags/hashtag.html', {'hashtag':hashtag, 'follow':follow, 'form' : form})
+    return render(request, 'hashtags/hashtag.html', {'hashtag':hashtag, 'follow':follow, 'form' : form, 'posts':posts})
     # return render(request, 'hashtags/hashtag.html', {'hashtag':hashtag, 'follow':follow})
 
 
