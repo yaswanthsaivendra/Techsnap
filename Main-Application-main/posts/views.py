@@ -27,9 +27,26 @@ def add_imgs(request):
     if request.method=='POST':
         title = request.POST.get('title')
         desc = request.POST.get('desc')
+        hashtags = request.POST.get('hashtags')
+        hashtags = hashtags.split(',')
+        
+            
+        
+
         post = Posts(profile=request.user.profile,
                      title=title,
-                     desc=desc)
+                     desc=desc,)
+        
+
+        post.save()
+
+        for hashtag in hashtags:
+            if not Hashtag.objects.filter(title=hashtag).first():
+                hashtag=Hashtag.objects.create(title=hashtag)
+            else :
+                hashtag = Hashtag.objects.filter(title=hashtag).first()
+
+            post.hashtags.add(hashtag)
         post.save()
         i = 0
         postimages = []
