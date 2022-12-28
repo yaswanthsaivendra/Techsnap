@@ -552,9 +552,9 @@ def topics(request,slug):
     all_tags = Hashtag.objects.all().filter(is_active=True)
     new_tags = all_tags.order_by('-id')[:10]
     trend_tags = all_tags.order_by('-followers')[:10]    
+    user_profile = Profile.objects.get(user=request.user)
 
-
-    return render(request, 'dash_topics.html', {'new_tags' : new_tags, 'trend_tags' : trend_tags})
+    return render(request, 'dash_topics.html', {'new_tags' : new_tags, 'trend_tags' : trend_tags ,'all_tags': all_tags,'user_profile':user_profile})
 
 def events(request,slug):
     return render(request, 'dash_events.html')
