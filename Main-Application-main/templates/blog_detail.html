@@ -65,9 +65,18 @@
                     </div>
                     <h1 class="fw-bold">{{blogs.title}}</h1>
                     <p class="content-names d-flex flex-wrap gap-3">
-                        <a class="appwritehack"><span style="color:#f22e65">#</span>blogging</a>
-                        <a class="appwrite"><span style="color:#3b49df">#</span>techblog</a>
-                        <a class="meta"><span style="color:black">#</span>techsnap</a>
+                        {% for hashtag in blogs.categories.all %}
+                        {% if hashtag.is_active %}
+                        <a class="appwritehack"><span style="color:#f22e65">#</span>{{hashtag}}</a>
+                        {% endif %}
+                        {% endfor %}
+                    </p>
+                    <p class="content-names d-flex flex-wrap gap-3">
+                        {% for hashtag in blogs.hashtags.all %}
+                        {% if hashtag.is_active %}
+                        <a class="appwritehack"><span style="color:#f22e65">#</span>{{hashtag}}</a>
+                        {% endif %}
+                        {% endfor %}
                     </p>
                 </div>
                 <div class="event-details">

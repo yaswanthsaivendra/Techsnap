@@ -233,10 +233,22 @@
                                             </div>
                                         </div>
                                         <div class="tags-used">
+                                            <div class="used-tags grey-text reaction-item">Categories :
+                                                {% for category in blogs.categories.all %}
+                                                {% if category.is_active %}
+                                                <span class="used-tag grey-text">{{ category }}</span>
+                                                {% endif %}
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="tags-used">
                                             <div class="used-tags grey-text reaction-item">Tags :
-                                                <span class="used-tag grey-text">Javascript</span>
-                                                <span class="used-tag grey-text">Git</span>
-                                                <span class="used-tag grey-text num">+1</span>
+                                                {% for hashtag in blogs.hashtags.all %}
+                                                {% if hashtag.is_active %}
+                                                <span class="used-tag grey-text">{{ hashtag }}</span>
+                                                {% endif %}
+                                                {% endfor %}
+                                                
                                             </div>
                                         </div>
                                         <div class="read-reactions">
