@@ -9,6 +9,22 @@
     <title>Create Blog</title>
     <link rel="stylesheet" href="{% static 'assets/contact/edit.css' %}">
 </head>
+<style>
+    /* .badge {
+        background-color: rgb(56, 130,191);
+        padding: 20px 30px;
+    } */
+    .badge_container {
+        display: flex;
+        height: auto;
+        flex-wrap: wrap;
+        align-items: space-between;
+    }
+
+    .badge_container div {
+        margin: 15px 5px;
+    }
+</style>
 
 <body>
     <div class="outer-container">
@@ -92,20 +108,21 @@
                                 </div> <br>
                                 <div class="write">
                                     <br>
-                                    <div class="flex">
+                                    <div class="badge_container">
                                         <input list="browsers" name="browser" id="category_input" autocomplete="off"
-                                            size="50" class="w3-input w3-margin-bottom w3-border w3-round w-50 "
-                                            style="display:inline">
+                                            style="display:inline;width:85%" type="text">
                                         <datalist id="browsers">
                                             {% for category in categories %}
                                             <option value="{{ category.title }}">
                                                 {% endfor %}
                                         </datalist>
-                                        <button onclick="add_category()"
-                                            class="btn btn-secondary m-0 py-2 px-3 mx-2">Add</button>
+                                        <button onclick="add_category()" class="btn btn-secondary m-0 py-2 px-3 mx-2"
+                                            style="border:1px solid black;border-left:none;">Add</button>
+                                        <br>
                                     </div>
-                                    <div id="categories"></div>
-                                    <input type="text" name="categories" id="categories_input_dummy">
+                                    <div id="categories" class="badge_container"></div>
+                                    <input type="text" name="categories" id="categories_input_dummy"
+                                        style="display:none">
                                 </div>
                             </div>
                         </div>
@@ -114,10 +131,9 @@
                                 <h3>Tags</h3> <br>
                                 <div class="write">
                                     <br>
-                                    <div class="flex">
+                                    <div class="badge_container">
                                         <input list="browsers" name="browser" id="hashtag_input" autocomplete="off"
-                                            size="50" class="w3-input w3-margin-bottom w3-border w3-round w-50 "
-                                            style="display:inline">
+                                            size="50" style="display:inline;width:85%" type="text">
                                         <datalist id="browsers">
                                             {% for hashtag in hashtags %}
                                             <option value="{{ hashtag.title }}">
@@ -125,10 +141,12 @@
 
                                         </datalist>
                                         <button onclick="add_hashtag()"
-                                            class="btn btn-secondary m-0 py-2 px-3 mx-2">Add</button>
+                                            style="border:1px solid black;border-left:none;">Add</button>
+
                                     </div>
-                                    <div id="hashtags"></div>
-                                    <input type="text" name="hashtags" id="hashtags_input_dummy">
+                                    <br>
+                                    <div id="hashtags" class="badge_container"></div>
+                                    <input type="text" name="hashtags" id="hashtags_input_dummy" style="display: none" required>
                                 </div>
                             </div>
                         </div>
@@ -162,16 +180,18 @@
         let categories_arr = []
         function add_category() {
             event.preventDefault();
-            const div = document.createElement('span');
+            const div = document.createElement('div');
             let hashtag_value = document.getElementById('category_input').value;
             let hashtag_div = document.getElementById('categories');
+            if(hashtag_value!=""){
             let hashtags_input_dummy = document.getElementById('categories_input_dummy');
             categories_arr = [...categories_arr, hashtag_value]
             console.log(categories_arr);
-            div.innerHTML = `<span class="bg-success badge py-3 px-3 mx-1 my-2">${hashtag_value}</span> `;
+            div.innerHTML = `<span class="submit" style="padding:10px 20px;">${hashtag_value}</span> `;
             document.getElementById('category_input').value = ""
             hashtags_input_dummy.value = categories_arr;
             hashtag_div.appendChild(div)
+            }
 
         }
     </script>
@@ -180,16 +200,19 @@
         let hashtags_arr = []
         function add_hashtag() {
             event.preventDefault();
-            const div = document.createElement('span');
+            const div = document.createElement('div');
             let hashtag_value = document.getElementById('hashtag_input').value;
             let hashtag_div = document.getElementById('hashtags');
-            let hashtags_input_dummy = document.getElementById('hashtags_input_dummy');
+            if(hashtag_value!=""){
+                let hashtags_input_dummy = document.getElementById('hashtags_input_dummy');
             hashtags_arr = [...hashtags_arr, hashtag_value]
             console.log(hashtags_arr);
-            div.innerHTML = `<span class="bg-success badge py-3 px-3 mx-1 my-2">${hashtag_value}</span> `;
+            div.innerHTML = `<span class="submit" style="padding:10px 20px;">${hashtag_value}</span> `;
             document.getElementById('hashtag_input').value = ""
             hashtags_input_dummy.value = hashtags_arr;
             hashtag_div.appendChild(div)
+            }
+           
 
         }
     </script>
