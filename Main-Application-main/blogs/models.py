@@ -31,6 +31,7 @@ class Blogs(models.Model):
     date_modified = models.DateTimeField(auto_now=True,null=False)
     # tags = models.ManyToManyField(Hashtag, blank=True)
     hashtags = models.ManyToManyField(Hashtag, blank=True)
+    categories = models.ManyToManyField(Hashtag, blank=True, related_name='categories')
 
     def __str__(self):
         return str(self.author)+' '+self.title

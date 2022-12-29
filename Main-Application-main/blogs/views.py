@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import BlogsForm
 from django.urls import reverse
 from django.http.response import HttpResponseRedirect
+from hashtags.models import Hashtag
 
 # Create your views here.
 class BlogsListView(ListView):
@@ -21,15 +22,48 @@ class BlogCreateView(LoginRequiredMixin, CreateView):
     template_name = 'blog_create.html'
     form_class = BlogsForm
 
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        # Add in a QuerySet of all the books
+        context['hashtags'] = Hashtag.objects.all()
+        context['categories'] = Hashtag.objects.all()
+        return context
+
     def post(self, request):
         status = self.request.GET.get('status')
         title = request.POST['title']
         body = request.POST['body']
+        categories = request.POST.get('categories', '')
+        hashtags = request.POST.get('hashtags', '')
+        print(hashtags)
+        hashtags = hashtags.split(',')
+        categories = categories.split(',')
+
         banner_img = request.FILES['banner_img']
         blog = Blogs.objects.create(author=request.user,
                                     title=title,
                                     body=body,
-                                    banner_img=banner_img)
+                                    banner_img=banner_img
+                                    )
+        for hashtag in hashtags:
+            if not Hashtag.objects.filter(title=hashtag).first():
+                hashtag=Hashtag.objects.create(title=hashtag, created_by=request.user)
+            else :
+                hashtag = Hashtag.objects.filter(title=hashtag).first()
+
+            blog.hashtags.add(hashtag)
+        for hashtag in categories:
+            if not Hashtag.objects.filter(title=hashtag).first():
+                hashtag=Hashtag.objects.create(title=hashtag, created_by=request.user)
+            else :
+                hashtag = Hashtag.objects.filter(title=hashtag).first()
+
+            blog.categories.add(hashtag)
+        blog.save()
+        
+      
+
         if status=='review':
             blog.user_status = True
             blog.save()

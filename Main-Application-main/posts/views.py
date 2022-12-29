@@ -42,7 +42,7 @@ def add_imgs(request):
 
         for hashtag in hashtags:
             if not Hashtag.objects.filter(title=hashtag).first():
-                hashtag=Hashtag.objects.create(title=hashtag)
+                hashtag=Hashtag.objects.create(title=hashtag, created_by=request.user)
             else :
                 hashtag = Hashtag.objects.filter(title=hashtag).first()
 

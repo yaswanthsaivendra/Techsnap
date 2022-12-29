@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,7 @@
     <title>Create Blog</title>
     <link rel="stylesheet" href="{% static 'assets/contact/edit.css' %}">
 </head>
+
 <body>
     <div class="outer-container">
         <div class="inner-container">
@@ -49,12 +51,14 @@
                                 <h4>Blog title</h4> <br>
                                 <form method="POST" enctype="multipart/form-data" id="mainform">
                                     {% csrf_token %}
-                                    <input name="title" type="text" placeholder="Enter Title" class="p-2 title-input mb-3" required>
+                                    <input name="title" type="text" placeholder="Enter Title"
+                                        class="p-2 title-input mb-3" required>
                             </div> <br>
                             <div class="blog-banner blog-item">
                                 <h4>Banner Image</h4>
                                 <br>
-                    <input name="banner_img" type="file" value="banner img" class="p-2 title-input mb-3" accept="image/png, image/gif, image/jpeg" required>
+                                <input name="banner_img" type="file" value="banner img" class="p-2 title-input mb-3"
+                                    accept="image/png, image/gif, image/jpeg" required>
                             </div> <br>
                             <div class="blog-editor blog-item">
                                 <div class="editor">
@@ -78,7 +82,6 @@
                                 <button class="submit" onclick="submitForReview()">Submit for Review</button>
                             </div>
                         </div>
-                            </form>
 
                         <div class="panel">
                             <div class="category panel-inner">
@@ -87,26 +90,49 @@
                                     <h4>Please select a category</h4>
                                     <p>Selecting atleast one category will help fast-track reviewing process.</p>
                                 </div> <br>
-                                <select name="categories" id="categories">
-                                    <option value="" disabled selected>Select category</option>
-                                    <option value="java">Java</option>
-                                    <option value="php">PHP</option>
-                                    <option value="javascript">JavaScript</option>
-                                </select>
+                                <div class="write">
+                                    <br>
+                                    <div class="flex">
+                                        <input list="browsers" name="browser" id="category_input" autocomplete="off"
+                                            size="50" class="w3-input w3-margin-bottom w3-border w3-round w-50 "
+                                            style="display:inline">
+                                        <datalist id="browsers">
+                                            {% for category in categories %}
+                                            <option value="{{ category.title }}">
+                                                {% endfor %}
+                                        </datalist>
+                                        <button onclick="add_category()"
+                                            class="btn btn-secondary m-0 py-2 px-3 mx-2">Add</button>
+                                    </div>
+                                    <div id="categories"></div>
+                                    <input type="text" name="categories" id="categories_input_dummy">
+                                </div>
                             </div>
                         </div>
                         <div class="panel">
                             <div class="tags panel-inner">
                                 <h3>Tags</h3> <br>
-                                <select name="categories" id="categories">
-                                    <option value="" disabled selected>Add tags</option>
-                                    <option value="java">Java</option>
-                                    <option value="php">PHP</option>
-                                    <option value="javascript">JavaScript</option>
-                                </select> <br> <br>
-                                <button class="add">Add</button>
+                                <div class="write">
+                                    <br>
+                                    <div class="flex">
+                                        <input list="browsers" name="browser" id="hashtag_input" autocomplete="off"
+                                            size="50" class="w3-input w3-margin-bottom w3-border w3-round w-50 "
+                                            style="display:inline">
+                                        <datalist id="browsers">
+                                            {% for hashtag in hashtags %}
+                                            <option value="{{ hashtag.title }}">
+                                                {% endfor %}
+
+                                        </datalist>
+                                        <button onclick="add_hashtag()"
+                                            class="btn btn-secondary m-0 py-2 px-3 mx-2">Add</button>
+                                    </div>
+                                    <div id="hashtags"></div>
+                                    <input type="text" name="hashtags" id="hashtags_input_dummy">
+                                </div>
                             </div>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -115,20 +141,58 @@
     <script>
 
         function submitForReview() {
-            document.getElementById("mainform").action="{% url 'blogs:blogcreate' %}?status=review";
+            document.getElementById("mainform").action = "{% url 'blogs:blogcreate' %}?status=review";
             document.getElementById("submitbutton").click;
         }
 
         function saveDraft() {
-          document.getElementById("mainform").action="{% url 'blogs:blogcreate' %}?status=draft";
-          document.getElementById("submitbutton").click;
+            document.getElementById("mainform").action = "{% url 'blogs:blogcreate' %}?status=draft";
+            document.getElementById("submitbutton").click;
         }
 
         function preview() {
-          document.getElementById("mainform").action="{% url 'blogs:blogcreate' %}?status=preview";
-          document.getElementById("mainform").target="_blank";
-          document.getElementById("submitbutton").click;
+            document.getElementById("mainform").action = "{% url 'blogs:blogcreate' %}?status=preview";
+            document.getElementById("mainform").target = "_blank";
+            document.getElementById("submitbutton").click;
+        }
+    </script>
+
+
+    <script>
+        let categories_arr = []
+        function add_category() {
+            event.preventDefault();
+            const div = document.createElement('span');
+            let hashtag_value = document.getElementById('category_input').value;
+            let hashtag_div = document.getElementById('categories');
+            let hashtags_input_dummy = document.getElementById('categories_input_dummy');
+            categories_arr = [...categories_arr, hashtag_value]
+            console.log(categories_arr);
+            div.innerHTML = `<span class="bg-success badge py-3 px-3 mx-1 my-2">${hashtag_value}</span> `;
+            document.getElementById('category_input').value = ""
+            hashtags_input_dummy.value = categories_arr;
+            hashtag_div.appendChild(div)
+
+        }
+    </script>
+
+    <script>
+        let hashtags_arr = []
+        function add_hashtag() {
+            event.preventDefault();
+            const div = document.createElement('span');
+            let hashtag_value = document.getElementById('hashtag_input').value;
+            let hashtag_div = document.getElementById('hashtags');
+            let hashtags_input_dummy = document.getElementById('hashtags_input_dummy');
+            hashtags_arr = [...hashtags_arr, hashtag_value]
+            console.log(hashtags_arr);
+            div.innerHTML = `<span class="bg-success badge py-3 px-3 mx-1 my-2">${hashtag_value}</span> `;
+            document.getElementById('hashtag_input').value = ""
+            hashtags_input_dummy.value = hashtags_arr;
+            hashtag_div.appendChild(div)
+
         }
     </script>
 </body>
+
 </html>
