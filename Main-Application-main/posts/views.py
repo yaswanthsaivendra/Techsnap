@@ -67,8 +67,9 @@ def add_imgs(request):
 def update_img_post(request, slug):
     if request.method=='POST':
         desc = request.POST.get('desc')
-        hashtags = request.POST.get('hashtags')
-        hashtags = hashtags.split(',')
+        hashtags = request.POST.get('hashtags', '')
+        if hashtags:
+            hashtags = hashtags.split(',')
 
         # Updating
         post = Posts.objects.get(slug=slug)
@@ -89,19 +90,43 @@ def update_img_post(request, slug):
 
         i = 0
         postimages = []
+        imagefilenames=[]
         imgs = request.FILES.getlist('imgs')
         if not imgs:
             return redirect('feed', slug=request.user.profile.slug)
         # Deleting previous post images
         post.get_post_imgs().delete()
+        tempDir=tempfile.gettempdir()
         for img in imgs:
-            req=requests.post("https://api.imgbb.com/1/upload", {'key': imgbbkey, 'image': base64.b64encode(img.read())})
-            content=str(req.content)
-            content=content.replace("true", "True").replace("false", "False").replace("null", "None")
-            content=eval(eval(content))
-            postimages.append(content['data']['url'].replace("\\",''))
-            PostImage.objects.create(post=post, img_url=content['data']['url'].replace("\\",''), position=i)
-            i += 1
+            if not os.path.splitext(img.name)[1] == '.pdf':
+                req=requests.post("https://api.imgbb.com/1/upload", {'key': imgbbkey, 'image': base64.b64encode(img.read())})
+                content=str(req.content)
+                content=content.replace("true", "True").replace("false", "False").replace("null", "None")
+                content=eval(eval(content))
+                postimages.append(content['data']['url'].replace("\\",''))
+                PostImage.objects.create(post=post, img_url=content['data']['url'].replace("\\",''), position=i)
+                i += 1
+            else :
+                for pdf in imgs:
+                    doc=fitz.open("pdf", pdf.read())
+                    for i in range(doc.page_count):
+                        page=doc.load_page(i)
+                        pix=page.get_pixmap()
+                        pix.save(tempDir+'/'+str(slugify(post.title))+str(i)+".png")
+                        imagefilenames.append(tempDir+'/'+str(slugify(post.title))+str(i)+".png")
+                ite = 0
+                for fname in imagefilenames:
+                    i=open(fname, 'rb')
+                    req=requests.post("https://api.imgbb.com/1/upload", {'key': imgbbkey, 'image': base64.b64encode(i.read())})
+                    content=str(req.content)
+                    content=content.replace("true", "True").replace("false", "False").replace("null", "None")
+                    content=eval(eval(content))
+                    postimages.append(content['data']['url'].replace("\\",''))
+                    #os.remove(fname)
+                    PostImage.objects.create(post=post, img_url=content['data']['url'].replace("\\",''), position=ite)
+                    ite += 1
+
+        
         messages.success(request, "successfully updated the post.")
         return redirect('feed', slug=request.user.profile.slug)
     return redirect('feed', slug=request.user.profile.slug)
@@ -110,7 +135,7 @@ def add_pdf(request):
     if request.method=='POST':
         title = request.POST.get('title')
         desc = request.POST.get('desc')
-        hashtags = request.POST.get('hashtags')
+        hashtags = request.POST.get('hashtags', '')
         hashtags = hashtags.split(',')
         post = Posts(profile=request.user.profile,
                      title=title,
@@ -175,7 +200,7 @@ def get_all_posts(request):
     return JsonResponse(ret)
 
 def feeds(request, slug):
-    all_tags= Hashtag.objects.all()
+    all_tags= Hashtag.objects.all().filter(is_active=True)
     posts = Posts.objects.all()
     following = [profile.user.username for profile in Profile.objects.filter(followers=request.user)]
     posts_ = []
