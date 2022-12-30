@@ -8,6 +8,16 @@ import random
 from hashtags.models import *
 
 # Create your models here.
+
+def generate_code_posts():
+    length=10
+    base = string.ascii_lowercase+string.ascii_uppercase+string.digits
+    while True:
+        code = ''.join(random.choices(base, k=length))
+        if Posts.objects.filter(slug=code).count()==0:
+            break
+    return code
+
 class Posts(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
@@ -15,7 +25,7 @@ class Posts(models.Model):
     timestamp = models.DateField(auto_now_add=True)
     likes = models.ManyToManyField(User, blank=True, related_name='likes')
     dislikes = models.ManyToManyField(User, blank=True, related_name='dislikes')
-    slug = models.SlugField(max_length=255)
+    slug = models.SlugField(max_length=255, default=generate_code_posts, editable=False)
     reports = models.IntegerField(default=0, null=True)
     is_archived = models.BooleanField(default=False)
     bookmarks = models.ManyToManyField(User, blank=True, related_name='bookmarks')
