@@ -201,7 +201,7 @@ def get_all_posts(request):
 
 def feeds(request, slug):
     all_tags= Hashtag.objects.all().filter(is_active=True)
-    posts = Posts.objects.all()
+    posts = Posts.objects.all().order_by('-timestamp')
     following = [profile.user.username for profile in Profile.objects.filter(followers=request.user)]
     posts_ = []
     for post in posts:
