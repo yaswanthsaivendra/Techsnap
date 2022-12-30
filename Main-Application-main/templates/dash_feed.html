@@ -31,25 +31,6 @@
 		margin-bottom: initial !important;
 	}
 
-	/* *,
-	*::before,
-	*::after {
-		box-sizing: border-box;
-	}
-
-	body {
-		font-family: sans-serif;
-		font-size: 100%;
-		color: #222;
-		background-color: #fafafe;
-		margin: 1em;
-	}
-
-	label,
-	button {
-		display: block;
-		margin-top: 1em;
-	}
 
 	datalist {
 		position: absolute;
@@ -67,17 +48,21 @@
 	} */
 
 	/* option active styles */
-	/* datalist option:hover,
+	 datalist option:hover,
 	datalist option:focus {
 		color: #fff;
 		background-color: #036;
 		outline: 0 none;
-	} */
+	}
+	.alert{
+		padding:0 !important;
+		width:100% !important;
+	}
 </style>
 
 <body>
-	
-	
+
+
 
 	<header>
 		<div class="sub_header">
@@ -279,7 +264,7 @@
 		</div>
 	</header>
 	<div class="wholeBody">
-       
+
 		<!-- //------------------------sidenav--------------------------- -->
 		<aside class="sideMenu">
 			<div class="myMenu">
@@ -967,10 +952,11 @@
 			<div class="write">
 				<div class="alert alert-danger" role="alert" style="display:none" id="post_alert">
 					Minimum three hashtags required
-				  </div>
+				</div>
 				<input id='title' placeholder='Any title for the post ??' name='title'
-					class='w3-input w3-margin-bottom w3-border w3-round' required/>
-				<textarea rows="5" id="desc" name="desc" placeholder="Write Something here..." autofocus required></textarea>
+					class='w3-input w3-margin-bottom w3-border w3-round' required />
+				<textarea rows="5" id="desc" name="desc" placeholder="Write Something here..." autofocus
+					required></textarea>
 			</div>
 			<div class="write">
 				<label for="browser">Add Hashtags:</label>
@@ -1019,12 +1005,15 @@
 				<form action="{% url 'add_pdf' %}" method="POST" enctype="multipart/form-data" id="pdf_post_form">
 					{% csrf_token %}
 					<h3>Create new PDF Post</h3>
+					<div class="alert alert-danger" role="alert" style="display:none" id="pdf_post_alert">
+						Minimum three hashtags required
+					</div>
 					<input type="text" class='w3-input' name="title" placeholder="Post Title" required><br>
-					<textarea type="text" class='w3-input' rows="4" name="desc"
-						placeholder="Post Description" required></textarea><br>
+					<textarea type="text" class='w3-input' rows="4" name="desc" placeholder="Post Description"
+						required></textarea><br>
 					<div class="w3-row ">
-						<input type="file" class='w3-input w3-border w3-round' name="pdfs" multiple=""
-							accept=".pdf" required><br>
+						<input type="file" class='w3-input w3-border w3-round' name="pdfs" multiple="" accept=".pdf"
+							required><br>
 					</div>
 					<div class="write">
 						<label for="browser">Add Hashtags:</label>
@@ -1508,9 +1497,9 @@
 		document.getElementById('hashtag_input').value = ""
 		hashtags_input_dummy.value = hashtags_arr;
 		hashtag_div.appendChild(div)
-		if(hashtags_arr.length >=3){
+		if (hashtags_arr.length >= 3) {
 			const post_alert = document.getElementById('post_alert');
-			post_alert.style.display='none';
+			post_alert.style.display = 'none';
 		}
 
 	}
@@ -1529,58 +1518,62 @@
 		document.getElementById('pdf_hashtag_input').value = ""
 		hashtags_input_dummy.value = pdf_hashtags_arr;
 		hashtag_div.appendChild(div)
-		
+		if (pdf_hashtags_arr.length >= 3) {
+			const pdf_post_alert = document.getElementById('pdf_post_alert');
+			pdf_post_alert.style.display = 'none';
+		}
+
 
 	}
 </script>
 
 <script>
 
-
+// post submit
 	const form = document.getElementById('post_form');
-
 	form.addEventListener('submit', e => {
 
 		e.preventDefault();
-
-		console.clear();
-		console.log('Submit disabled. Data:');
-
 		const data = new FormData(form);
 		const XHR = new XMLHttpRequest();
-
-
-		// Define what happens on successful data submission
 		XHR.addEventListener("load", (event) => {
-			// alert(event.target.responseText);
 			window.location.reload();
 		});
-
-		// Define what happens in case of error
-		// XHR.addEventListener("error", (event) => {
-		// 	alert('Oops! Something went wrong.');
-		// });
 		console.log(hashtags_arr)
 		if (hashtags_arr.length >= 3) {
-			// Set up our request
 			XHR.open("POST", "{% url 'add_imgs' %}");
-
-			// The data sent is what the user provided in the form
 			XHR.send(data);
-			// console.log(data.entries());
 		}
 		else {
 			const post_alert = document.getElementById('post_alert');
-			post_alert.style.display='block';
-			// alert('mim 3 req');
+			post_alert.style.display = 'block';
+		
 		}
-		// for (let nv of data.entries()) {
-		// 	if(nv[0]=='hashtags'){
-		//         console.log(nv[1]);
-		// 	}
-		// 	console.log(`${nv[0]}: ${nv[1]}`);
-		// }
+		
 
+
+	});
+// pdf submit
+const pdf_form = document.getElementById('pdf_post_form');
+	pdf_form.addEventListener('submit', e => {
+
+		e.preventDefault();
+		const data = new FormData(form);
+		const XHR = new XMLHttpRequest();
+		XHR.addEventListener("load", (event) => {
+			window.location.reload();
+		});
+		console.log(pdf_hashtags_arr)
+		if (hashtags_arr.length >= 3) {
+			XHR.open("POST", "{% url 'add_pdf' %}");
+			XHR.send(data);
+		}
+		else {
+			const post_alert = document.getElementById('pdf_post_alert');
+			post_alert.style.display = 'block';
+		
+		}
+		
 
 
 	});
