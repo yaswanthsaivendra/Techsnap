@@ -45,18 +45,21 @@
 		padding: 0.3em 1em;
 		background-color: #ccc;
 		cursor: pointer;
-	} */
+	}
+
+	*/
 
 	/* option active styles */
-	 datalist option:hover,
+	datalist option:hover,
 	datalist option:focus {
 		color: #fff;
 		background-color: #036;
 		outline: 0 none;
 	}
-	.alert{
-		padding:0 !important;
-		width:100% !important;
+
+	.alert {
+		padding: 0 !important;
+		width: 100% !important;
 	}
 </style>
 
@@ -424,13 +427,32 @@
 					<div class="w3-display-middle w3-padding">
 						<div style="width:500px;" class="w3-container w3-white w3-padding w3-round">
 							<form action="{% url 'update-img-post' feed.slug %}" method="POST"
-								enctype="multipart/form-data">
+								enctype="multipart/form-data" id="{{feed.id}}update_post_form">
 								{% csrf_token %}
 								<h3>Update your Post</h3>
+								<div class="alert alert-danger" role="alert" style="display:none" id="{{feed.id}}post_alert">
+									Minimum three hashtags required
+								</div>
 								<textarea type="text" class='w3-input w3-border w3-round ' rows="4" id="desc"
 									name="desc" placeholder="update your post text ....."></textarea><br>
 								<input class='w3-margin' type="file" name="imgs" multiple="" required>
-								<button style="width:49%;" class='w3-button w3-round-xxlarge w3-green' type="submit">
+								<div class="flex">
+									<input list="{{feed.id}}update_browsers" name="update_browser" id="{{feed.id}}update_hashtag_input"
+										autocomplete="off" size="50"
+										class="w3-input w3-margin-bottom w3-border w3-round w-50 "
+										style="display:inline">
+									<datalist id="{{feed.id}}update_browsers">
+										{% for hashtag in all_tags %}
+										<option value="{{hashtag.title}}">
+											{% endfor %}
+									</datalist>
+									<button onclick="update_add_hashtag()"
+										class="btn btn-secondary m-0 py-2 px-3 mx-2" data-arg1='{{feed.id}}'>Add</button>
+								</div>
+								<div id="{{feed.id}}update_hashtags"></div>
+								<input type="text" name="hashtags" id="{{feed.id}}update_hashtags_input_dummy"
+									style="display: none">
+								<button style="width:49%;" class='w3-button w3-round-xxlarge w3-green' type="submit" >
 									Update </button>
 								<button type="button" style="width:49%;"
 									class='w3-button w3-round-xxlarge w3-right w3-red'
@@ -1505,6 +1527,36 @@
 	}
 </script>
 <script>
+	let update_hashtags_arr={}
+	function update_add_hashtag() {
+		let arg1 = event.target.getAttribute('data-arg1');
+		event.preventDefault();
+		console.log(arg1);
+		const div = document.createElement('span');
+		console.log('hi')
+		if(!update_hashtags_arr.arg1){
+           update_hashtags_arr.arg1 =[]
+		}
+		// console.log(document.getElementsByName(update_browser'))
+		// console.log(document.getElementsByName('update_browser')[0].value)
+		let hashtag_value = document.getElementById(`${arg1}update_hashtag_input`).value;
+		let hashtag_div = document.getElementById(`${arg1}update_hashtags`);
+		let hashtags_input_dummy = document.getElementById(`${arg1}update_hashtags_input_dummy`);
+		update_hashtags_arr.arg1 = [...update_hashtags_arr.arg1, hashtag_value]
+		console.log(update_hashtags_arr.arg1);
+		div.innerHTML = `<span class="bg-success badge py-3 px-3 mx-1 my-2">${hashtag_value}</span> `;
+		document.getElementById(`${arg1}update_hashtag_input`).value = ""
+		hashtags_input_dummy.value = update_hashtags_arr.arg1;
+		hashtag_div.appendChild(div)
+
+		if (update_hashtags_arr.length >= 3) {
+			const post_alert = document.getElementById(`${arg1}post_alert`);
+			post_alert.style.display = 'none';
+		}
+
+	}
+</script>
+<script>
 	let pdf_hashtags_arr = []
 	function pdf_add_hashtag() {
 		event.preventDefault();
@@ -1529,7 +1581,7 @@
 
 <script>
 
-// post submit
+	// post submit
 	const form = document.getElementById('post_form');
 	form.addEventListener('submit', e => {
 
@@ -1547,14 +1599,14 @@
 		else {
 			const post_alert = document.getElementById('post_alert');
 			post_alert.style.display = 'block';
-		
+
 		}
-		
+
 
 
 	});
-// pdf submit
-const pdf_form = document.getElementById('pdf_post_form');
+	// pdf submit
+	const pdf_form = document.getElementById('pdf_post_form');
 	pdf_form.addEventListener('submit', e => {
 
 		e.preventDefault();
@@ -1571,12 +1623,40 @@ const pdf_form = document.getElementById('pdf_post_form');
 		else {
 			const post_alert = document.getElementById('pdf_post_alert');
 			post_alert.style.display = 'block';
-		
+
 		}
-		
+
 
 
 	});
+	//update post
+	
+	// const update_form_submit=()=>{
+	// 	let arg1 = event.target.getAttribute('data-arg1');
+    //      let form = document.getElementById(`${arg1}update_post_form`);
+	// }
+	// pdf_form.addEventListener('submit', e => {
+
+	// 	e.preventDefault();
+	// 	const data = new FormData(form);
+	// 	const XHR = new XMLHttpRequest();
+	// 	XHR.addEventListener("load", (event) => {
+	// 		window.location.reload();
+	// 	});
+	// 	console.log(pdf_hashtags_arr)
+	// 	if (hashtags_arr.length >= 3) {
+	// 		XHR.open("POST", "{% url 'add_pdf' %}");
+	// 		XHR.send(data);
+	// 	}
+	// 	else {
+	// 		const post_alert = document.getElementById('pdf_post_alert');
+	// 		post_alert.style.display = 'block';
+
+	// 	}
+
+
+
+	// });
 
 </script>
 
