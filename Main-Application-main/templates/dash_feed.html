@@ -76,6 +76,8 @@
 </style>
 
 <body>
+	
+	
 
 	<header>
 		<div class="sub_header">
@@ -277,6 +279,7 @@
 		</div>
 	</header>
 	<div class="wholeBody">
+       
 		<!-- //------------------------sidenav--------------------------- -->
 		<aside class="sideMenu">
 			<div class="myMenu">
@@ -386,6 +389,7 @@
 				</div>
 			</div>
 			<div class="feed_container">
+				
 				<div class="post_feed">
 					<div class="header">
 						{% if user.profile.profile_pic %}
@@ -439,7 +443,7 @@
 								<h3>Update your Post</h3>
 								<textarea type="text" class='w3-input w3-border w3-round ' rows="4" id="desc"
 									name="desc" placeholder="update your post text ....."></textarea><br>
-								<input class='w3-margin' type="file" name="imgs" multiple="">
+								<input class='w3-margin' type="file" name="imgs" multiple="" required>
 								<button style="width:49%;" class='w3-button w3-round-xxlarge w3-green' type="submit">
 									Update </button>
 								<button type="button" style="width:49%;"
@@ -942,7 +946,8 @@
 
 
 	<div class="feed_more_section" id="feedmainconaitner">
-		<form action="{% url 'add_imgs' %}" method="POST" class="more_container" enctype="multipart/form-data" id="post_form">
+		<form action="{% url 'add_imgs' %}" method="POST" class="more_container" enctype="multipart/form-data"
+			id="post_form">
 			{% csrf_token %}
 			<div class="title">
 				<h1>Create new Post</h1>
@@ -959,9 +964,12 @@
 				</div>
 			</div>
 			<div class="write">
+				<div class="alert alert-danger" role="alert" style="display:none" id="post_alert">
+					Minimum three hashtags required
+				  </div>
 				<input id='title' placeholder='Any title for the post ??' name='title'
-					class='w3-input w3-margin-bottom w3-border w3-round' />
-				<textarea rows="5" id="desc" name="desc" placeholder="Write Something here..." autofocus></textarea>
+					class='w3-input w3-margin-bottom w3-border w3-round' required/>
+				<textarea rows="5" id="desc" name="desc" placeholder="Write Something here..." autofocus required></textarea>
 			</div>
 			<div class="write">
 				<label for="browser">Add Hashtags:</label>
@@ -1010,12 +1018,12 @@
 				<form action="{% url 'add_pdf' %}" method="POST" enctype="multipart/form-data" id="pdf_post_form">
 					{% csrf_token %}
 					<h3>Create new PDF Post</h3>
-					<input type="text" class='w3-input' name="title" placeholder="Post Title"><br>
+					<input type="text" class='w3-input' name="title" placeholder="Post Title" required><br>
 					<textarea type="text" class='w3-input' rows="4" name="desc"
-						placeholder="Post Description"></textarea><br>
+						placeholder="Post Description" required></textarea><br>
 					<div class="w3-row ">
 						<input type="file" class='w3-input w3-border w3-round' name="pdfs" multiple=""
-							accept=".pdf"><br>
+							accept=".pdf" required><br>
 					</div>
 					<div class="write">
 						<label for="browser">Add Hashtags:</label>
@@ -1499,6 +1507,10 @@
 		document.getElementById('hashtag_input').value = ""
 		hashtags_input_dummy.value = hashtags_arr;
 		hashtag_div.appendChild(div)
+		if(hashtags_arr.length >=3){
+			const post_alert = document.getElementById('post_alert');
+			post_alert.style.display='none';
+		}
 
 	}
 </script>
@@ -1516,29 +1528,61 @@
 		document.getElementById('pdf_hashtag_input').value = ""
 		hashtags_input_dummy.value = pdf_hashtags_arr;
 		hashtag_div.appendChild(div)
+		
 
 	}
 </script>
 
 <script>
-	
 
-		// const form = document.getElementById('post_form');
 
-		// form.addEventListener('submit', e => {
+	const form = document.getElementById('post_form');
 
-		// 	e.preventDefault();
+	form.addEventListener('submit', e => {
 
-		// 	console.clear();
-		// 	console.log('Submit disabled. Data:');
-        
-		// 	const data = new FormData(form);
-        //     console.log(data.entries());
-		// 	for (let nv of data.entries()) {
-		// 		console.log(`${nv[0]}: ${nv[1]}`);
-		// 	}
+		e.preventDefault();
 
+		console.clear();
+		console.log('Submit disabled. Data:');
+
+		const data = new FormData(form);
+		const XHR = new XMLHttpRequest();
+
+
+		// Define what happens on successful data submission
+		XHR.addEventListener("load", (event) => {
+			// alert(event.target.responseText);
+			window.location.reload();
+		});
+
+		// Define what happens in case of error
+		// XHR.addEventListener("error", (event) => {
+		// 	alert('Oops! Something went wrong.');
 		// });
+		console.log(hashtags_arr)
+		if (hashtags_arr.length >= 3) {
+			// Set up our request
+			XHR.open("POST", "{% url 'add_imgs' %}");
+
+			// The data sent is what the user provided in the form
+			XHR.send(data);
+			// console.log(data.entries());
+		}
+		else {
+			const post_alert = document.getElementById('post_alert');
+			post_alert.style.display='block';
+			// alert('mim 3 req');
+		}
+		// for (let nv of data.entries()) {
+		// 	if(nv[0]=='hashtags'){
+		//         console.log(nv[1]);
+		// 	}
+		// 	console.log(`${nv[0]}: ${nv[1]}`);
+		// }
+
+
+
+	});
 
 </script>
 
