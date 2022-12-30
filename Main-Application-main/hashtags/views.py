@@ -7,6 +7,7 @@ from .forms import FeedbackForm
 from posts.models import Posts
 from careerpaths.models import CareerPath
 from blogs.models import Blogs
+from django.contrib import messages
 
 # # Create your views here.
 
@@ -68,6 +69,7 @@ def feedback(request, hashtag):
     hashtag = get_object_or_404(Hashtag, title=hashtag)
     if request.method == "POST":
         Feedback.objects.create(text = request.POST['text'], hashtag=hashtag)
+        messages.success(request, "Feedback Submitted")
         return redirect('hashtags:home' , hashtag)            
 
     
