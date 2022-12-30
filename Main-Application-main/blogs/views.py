@@ -26,8 +26,8 @@ class BlogCreateView(LoginRequiredMixin, CreateView):
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
         # Add in a QuerySet of all the books
-        context['hashtags'] = Hashtag.objects.all()
-        context['categories'] = Hashtag.objects.all()
+        context['hashtags'] = Hashtag.objects.all().filter(is_active=True)
+        context['categories'] = Hashtag.objects.all().filter(is_active=True)
         return context
 
     def post(self, request):
