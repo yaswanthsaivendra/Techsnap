@@ -6,6 +6,7 @@ import tempfile
 from django.http.response import HttpResponse, JsonResponse
 import requests
 from django.shortcuts import render, redirect
+from django.contrib import messages
 
 import posts
 from .models import *
@@ -59,17 +60,32 @@ def add_imgs(request):
             postimages.append(content['data']['url'].replace("\\",''))
             PostImage.objects.create(post=post, img_url=content['data']['url'].replace("\\",''), position=i)
             i += 1
+        messages.success(request, "Successfully Posted!")
         return redirect('feed', slug=request.user.profile.slug)
     return redirect('feed', slug=request.user.profile.slug)
 
 def update_img_post(request, slug):
     if request.method=='POST':
         desc = request.POST.get('desc')
+        hashtags = request.POST.get('hashtags')
+        hashtags = hashtags.split(',')
+
         # Updating
         post = Posts.objects.get(slug=slug)
         if desc:
             post.desc = desc
             post.save(update_fields=['desc'])
+        if hashtags:
+            post.hashtags.clear()
+            for hashtag in hashtags:
+                if not Hashtag.objects.filter(title=hashtag).first():
+                    hashtag=Hashtag.objects.create(title=hashtag, created_by=request.user)
+                else :
+                    hashtag = Hashtag.objects.filter(title=hashtag).first()
+
+            post.hashtags.add(hashtag)
+        post.save(update_fields=['hashtags'])
+
 
         i = 0
         postimages = []
@@ -86,6 +102,7 @@ def update_img_post(request, slug):
             postimages.append(content['data']['url'].replace("\\",''))
             PostImage.objects.create(post=post, img_url=content['data']['url'].replace("\\",''), position=i)
             i += 1
+        messages.success(request, "successfully updated the post.")
         return redirect('feed', slug=request.user.profile.slug)
     return redirect('feed', slug=request.user.profile.slug)
 
@@ -93,10 +110,22 @@ def add_pdf(request):
     if request.method=='POST':
         title = request.POST.get('title')
         desc = request.POST.get('desc')
+        hashtags = request.POST.get('hashtags')
+        hashtags = hashtags.split(',')
         post = Posts(profile=request.user.profile,
                      title=title,
                      desc=desc)
         post.save()
+
+        for hashtag in hashtags:
+            if not Hashtag.objects.filter(title=hashtag).first():
+                hashtag=Hashtag.objects.create(title=hashtag, created_by=request.user)
+            else :
+                hashtag = Hashtag.objects.filter(title=hashtag).first()
+
+            post.hashtags.add(hashtag)
+        post.save()
+
         tempDir=tempfile.gettempdir()
         i = 0
         postimages = []
@@ -120,8 +149,9 @@ def add_pdf(request):
             #os.remove(fname)
             PostImage.objects.create(post=post, img_url=content['data']['url'].replace("\\",''), position=ite)
             ite += 1
-        return HttpResponse('done')
-    return HttpResponse('no')
+        messages.success(request, "Successfully Posted!")
+        return redirect('feed', slug=request.user.profile.slug)
+    return redirect('feed', slug=request.user.profile.slug)
 
 def get_all_posts(request):
     posts = Posts.objects.all()
