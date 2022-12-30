@@ -430,7 +430,7 @@
 								enctype="multipart/form-data" id="{{feed.id}}update_post_form">
 								{% csrf_token %}
 								<h3>Update your Post</h3>
-								<div class="alert alert-danger" role="alert" style="display:none" id="{{feed.id}}post_alert">
+								<div class="alert alert-danger" role="alert" style="display:none" id="{{feed.id}}post_alert" >
 									Minimum three hashtags required
 								</div>
 								<textarea type="text" class='w3-input w3-border w3-round ' rows="4" id="desc"
@@ -440,14 +440,14 @@
 									<input list="{{feed.id}}update_browsers" name="update_browser" id="{{feed.id}}update_hashtag_input"
 										autocomplete="off" size="50"
 										class="w3-input w3-margin-bottom w3-border w3-round w-50 "
-										style="display:inline">
+										style="display:inline" onkeyup="check_update_tag()"  data-arg1='{{feed.id}}'>
 									<datalist id="{{feed.id}}update_browsers">
 										{% for hashtag in all_tags %}
 										<option value="{{hashtag.title}}">
 											{% endfor %}
 									</datalist>
 									<button onclick="update_add_hashtag()"
-										class="btn btn-secondary m-0 py-2 px-3 mx-2" data-arg1='{{feed.id}}'>Add</button>
+										class="btn btn-secondary m-0 py-2 px-3 mx-2" data-arg1='{{feed.id}}' id="{{feed.id}}update_tag_btn">Add</button>
 								</div>
 								
 								<div id="{{feed.id}}update_hashtags"></div>
@@ -1512,6 +1512,7 @@
 		hashtags.push('{{hashtag}}');
 	{% endfor %}
 		console.log(hashtags);
+
 	function check_tag(){
 		let post_add_btn = document.getElementById('post_add_btn');
 		let hashtag_value = document.getElementById('hashtag_input').value;
@@ -1519,17 +1520,30 @@
 			post_add_btn.innerText= "Request tag"
        }
         else{
-	        post_add_btn.innerText= "add tag"
+	        post_add_btn.innerText= "Add"
           }
 	}
 	function check_tag_pdf(){
-		let post_add_btn = document.getElementById('pdf_add_btn');
+		let pdf_add_btn = document.getElementById('pdf_add_btn');
 		let hashtag_value = document.getElementById('pdf_hashtag_input').value;
 		if(!hashtags.includes(hashtag_value)){
 			pdf_add_btn.innerText= "Request tag"
        }
         else{
-	        pdf_add_btn.innerText= "add tag"
+	        pdf_add_btn.innerText= "Add"
+          }
+	}
+	function check_update_tag(){
+		console.log('hi')
+		let arg1 = event.target.getAttribute('data-arg1');
+		console.log(arg1);
+		let post_add_btn = document.getElementById(`${arg1}update_tag_btn`);
+		let hashtag_value = document.getElementById(`${arg1}update_hashtag_input`).value;
+		if(!hashtags.includes(hashtag_value)){
+			post_add_btn.innerText= "Request tag"
+       }
+        else{
+	        post_add_btn.innerText= "Add"
           }
 	}
 	

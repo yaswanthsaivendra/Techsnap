@@ -24,18 +24,20 @@
     .badge_container div {
         margin: 15px 5px;
     }
-    .alert{
+
+    .alert {
         position: relative;
-    padding: 1rem 1rem;
-    margin-bottom: 1rem;
-    border: 1px solid transparent;
-    border-radius: 0.25rem;
+        padding: 1rem 1rem;
+        margin-bottom: 1rem;
+        border: 1px solid transparent;
+        border-radius: 0.25rem;
     }
+
     .alert-danger {
-    color: #842029;
-    background-color: #f8d7da;
-    border-color: #f5c2c7;
-}
+        color: #842029;
+        background-color: #f8d7da;
+        border-color: #f5c2c7;
+    }
 </style>
 
 <body>
@@ -126,14 +128,14 @@
                                     <br>
                                     <div class="badge_container">
                                         <input list="browsers" name="browser" id="category_input" autocomplete="off"
-                                            style="display:inline;width:85%" type="text">
+                                            style="display:inline;width:60%" type="text" onkeyup="check_category()">
                                         <datalist id="browsers">
                                             {% for category in categories %}
                                             <option value="{{ category.title }}">
                                                 {% endfor %}
                                         </datalist>
                                         <button onclick="add_category()" class="btn btn-secondary m-0 py-2 px-3 mx-2"
-                                            style="border:1px solid black;border-left:none;">Add</button>
+                                            style="border:1px solid black;border-left:none;" id="category_add_btn">Add</button>
                                         <br>
                                     </div>
                                     <div id="categories" class="badge_container"></div>
@@ -152,7 +154,7 @@
                                     <br>
                                     <div class="badge_container">
                                         <input list="browsers" name="browser" id="hashtag_input" autocomplete="off"
-                                            size="50" style="display:inline;width:85%" type="text">
+                                            size="50" style="display:inline;width:60%" type="text" onkeyup="check_tag()">
                                         <datalist id="browsers">
                                             {% for hashtag in hashtags %}
                                             <option value="{{ hashtag.title }}">
@@ -160,7 +162,7 @@
 
                                         </datalist>
                                         <button onclick="add_hashtag()"
-                                            style="border:1px solid black;border-left:none;">Add</button>
+                                            style="border:1px solid black;border-left:none;" id="post_add_btn">Add</button>
 
                                     </div>
                                     <br>
@@ -196,6 +198,32 @@
 
 
     <script>
+        let hashtags = [];
+        {% for hashtag in hashtags %}
+        hashtags.push('{{hashtag}}');
+        {% endfor %}
+        console.log(hashtags);
+        function check_tag() {
+            let post_add_btn = document.getElementById('post_add_btn');
+            let hashtag_value = document.getElementById('hashtag_input').value;
+            if (!hashtags.includes(hashtag_value)) {
+                post_add_btn.innerText = "Request tag"
+            }
+            else {
+                post_add_btn.innerText = "Add"
+            }
+        }
+        function check_category() {
+            console.log('jo')
+            let post_add_btn = document.getElementById('category_add_btn');
+            let hashtag_value = document.getElementById('category_input').value;
+            if (!hashtags.includes(hashtag_value)) {
+                post_add_btn.innerText = "Request tag"
+            }
+            else {
+                post_add_btn.innerText = "Add"
+            }
+        }
         let categories_arr = []
         function add_category() {
             event.preventDefault();
@@ -253,13 +281,13 @@
                 // window.location.reload();
             });
             console.log(hashtags_arr)
-            if (hashtags_arr.length >= 3 ) {
-                if(categories_arr.length>0){
+            if (hashtags_arr.length >= 3) {
+                if (categories_arr.length > 0) {
                     console.log('posting')
-                XHR.open("POST", "{% url 'blogs:blogcreate' %}");
-                XHR.send(data);
+                    XHR.open("POST", "{% url 'blogs:blogcreate' %}");
+                    XHR.send(data);
                 }
-               
+
             }
             if (categories_arr.length == 0) {
                 const category_post_alert = document.getElementById('category_post_alert');
