@@ -24,6 +24,18 @@
     .badge_container div {
         margin: 15px 5px;
     }
+    .alert{
+        position: relative;
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    }
+    .alert-danger {
+    color: #842029;
+    background-color: #f8d7da;
+    border-color: #f5c2c7;
+}
 </style>
 
 <body>
@@ -65,7 +77,7 @@
                         <div class="create-blog">
                             <div class="blog-title blog-item">
                                 <h4>Blog title</h4> <br>
-                                <form method="POST" enctype="multipart/form-data" id="mainform">
+                                <form method="POST" enctype="multipart/form-data" id="blog_form">
                                     {% csrf_token %}
                                     <input name="title" type="text" placeholder="Enter Title"
                                         class="p-2 title-input mb-3" required>
@@ -95,7 +107,7 @@
                                 </div>
                                 <br>
                                 <p>Status: <span class="status">{{status}}</span></p><br>
-                                <button class="submit" onclick="submitForReview()">Submit for Review</button>
+                                <button class="submit">Submit for Review</button>
                             </div>
                         </div>
 
@@ -106,6 +118,10 @@
                                     <h4>Please select a category</h4>
                                     <p>Selecting atleast one category will help fast-track reviewing process.</p>
                                 </div> <br>
+                                <div class="alert alert-danger" role="alert" id="category_post_alert"
+                                    style="display: none;">
+                                    Minimum one category required
+                                </div>
                                 <div class="write">
                                     <br>
                                     <div class="badge_container">
@@ -129,6 +145,9 @@
                         <div class="panel">
                             <div class="tags panel-inner">
                                 <h3>Tags</h3> <br>
+                                <div class="alert alert-danger" role="alert" id="post_alert" style="display: none;">
+                                    Minimum three hashtags required
+                                </div>
                                 <div class="write">
                                     <br>
                                     <div class="badge_container">
@@ -146,7 +165,7 @@
                                     </div>
                                     <br>
                                     <div id="hashtags" class="badge_container"></div>
-                                    <input type="text" name="hashtags" id="hashtags_input_dummy" style="display: none" required>
+                                    <input type="text" name="hashtags" id="hashtags_input_dummy" style="display: none">
                                 </div>
                             </div>
                         </div>
@@ -183,16 +202,19 @@
             const div = document.createElement('div');
             let hashtag_value = document.getElementById('category_input').value;
             let hashtag_div = document.getElementById('categories');
-            if(hashtag_value!=""){
-            let hashtags_input_dummy = document.getElementById('categories_input_dummy');
-            categories_arr = [...categories_arr, hashtag_value]
-            console.log(categories_arr);
-            div.innerHTML = `<span class="submit" style="padding:10px 20px;">${hashtag_value}</span> `;
-            document.getElementById('category_input').value = ""
-            hashtags_input_dummy.value = categories_arr;
-            hashtag_div.appendChild(div)
+            if (hashtag_value != "") {
+                let hashtags_input_dummy = document.getElementById('categories_input_dummy');
+                categories_arr = [...categories_arr, hashtag_value]
+                console.log(categories_arr);
+                div.innerHTML = `<span class="submit" style="padding:10px 20px;">${hashtag_value}</span> `;
+                document.getElementById('category_input').value = ""
+                hashtags_input_dummy.value = categories_arr;
+                hashtag_div.appendChild(div)
             }
-
+            if (categories_arr.length > 0) {
+                let post_alert = document.getElementById('category_post_alert');
+                post_alert.style.display = 'none';
+            }
         }
     </script>
 
@@ -203,18 +225,58 @@
             const div = document.createElement('div');
             let hashtag_value = document.getElementById('hashtag_input').value;
             let hashtag_div = document.getElementById('hashtags');
-            if(hashtag_value!=""){
+            if (hashtag_value != "") {
                 let hashtags_input_dummy = document.getElementById('hashtags_input_dummy');
-            hashtags_arr = [...hashtags_arr, hashtag_value]
-            console.log(hashtags_arr);
-            div.innerHTML = `<span class="submit" style="padding:10px 20px;">${hashtag_value}</span> `;
-            document.getElementById('hashtag_input').value = ""
-            hashtags_input_dummy.value = hashtags_arr;
-            hashtag_div.appendChild(div)
+                hashtags_arr = [...hashtags_arr, hashtag_value]
+                console.log(hashtags_arr);
+                div.innerHTML = `<span class="submit" style="padding:10px 20px;">${hashtag_value}</span> `;
+                document.getElementById('hashtag_input').value = ""
+                hashtags_input_dummy.value = hashtags_arr;
+                hashtag_div.appendChild(div)
             }
-           
+            if (hashtags_arr.length > 2) {
+                let post_alert = document.getElementById('post_alert');
+                post_alert.style.display = 'none';
+            }
 
         }
+        //blog send
+        const form = document.getElementById('blog_form');
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            console.log('submit')
+
+            const data = new FormData(form);
+            const XHR = new XMLHttpRequest();
+            XHR.addEventListener("load", (event) => {
+                location.href = `/blogs`;
+                // window.location.reload();
+            });
+            console.log(hashtags_arr)
+            if (hashtags_arr.length >= 3 ) {
+                if(categories_arr.length>0){
+                    console.log('posting')
+                XHR.open("POST", "{% url 'blogs:blogcreate' %}");
+                XHR.send(data);
+                }
+               
+            }
+            if (categories_arr.length == 0) {
+                const category_post_alert = document.getElementById('category_post_alert');
+                category_post_alert.style.display = 'block';
+                console.log('category low')
+
+            }
+            if (hashtags_arr.length < 3) {
+                const post_alert = document.getElementById('post_alert');
+                post_alert.style.display = 'block';
+                console.log('hashtag low')
+
+            }
+
+
+
+        })
     </script>
 </body>
 
