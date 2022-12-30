@@ -986,13 +986,13 @@
 				<br>
 				<div class="flex">
 					<input list="browsers" name="browser" id="hashtag_input" autocomplete="off" size="50"
-						class="w3-input w3-margin-bottom w3-border w3-round w-50 " style="display:inline">
+						class="w3-input w3-margin-bottom w3-border w3-round w-50 " style="display:inline" onkeyup="check_tag()">
 					<datalist id="browsers">
 						{% for hashtag in all_tags %}
 						<option value="{{hashtag.title}}">
 							{% endfor %}
 					</datalist>
-					<button onclick="add_hashtag()" class="btn btn-secondary m-0 py-2 px-3 mx-2">Add</button>
+					<button  onclick="add_hashtag()" class="btn btn-secondary m-0 py-2 px-3 mx-2" id="post_add_btn">Add</button>
 				</div>
 				<div id="hashtags"></div>
 				<input type="text" name="hashtags" id="hashtags_input_dummy" style="display: none">
@@ -1044,14 +1044,14 @@
 						<div class="flex">
 							<input list="pdf_browsers" name="pdf_browser" id="pdf_hashtag_input" autocomplete="off"
 								size="50" class="w3-input w3-margin-bottom w3-border w3-round w-50 "
-								style="display:inline">
+								style="display:inline" onkeyup="check_tag_pdf()">
 							<datalist id="pdf_browsers">
 								{% for hashtag in all_tags %}
 								<option value="{{hashtag.title}}">
 									{% endfor %}
 							</datalist>
 							<button onclick="pdf_add_hashtag()"
-								class="btn btn-secondary m-0 py-2 px-3 mx-2">Add</button>
+								class="btn btn-secondary m-0 py-2 px-3 mx-2" id="pdf_add_btn">Add</button>
 						</div>
 						<div id="pdf_hashtags"></div>
 						<input type="text" name="hashtags" id="pdf_hashtags_input_dummy" style="display: none">
@@ -1507,11 +1507,43 @@
 	<script src="{% static 'assets/dashboard/app.js'%}"></script>
 </body>
 <script>
+	let hashtags=[];
+	{% for hashtag in all_tags %}
+		hashtags.push('{{hashtag}}');
+	{% endfor %}
+		console.log(hashtags);
+	function check_tag(){
+		let post_add_btn = document.getElementById('post_add_btn');
+		let hashtag_value = document.getElementById('hashtag_input').value;
+		if(!hashtags.includes(hashtag_value)){
+			post_add_btn.innerText= "Request tag"
+       }
+        else{
+	        post_add_btn.innerText= "add tag"
+          }
+	}
+	function check_tag_pdf(){
+		let post_add_btn = document.getElementById('pdf_add_btn');
+		let hashtag_value = document.getElementById('pdf_hashtag_input').value;
+		if(!hashtags.includes(hashtag_value)){
+			pdf_add_btn.innerText= "Request tag"
+       }
+        else{
+	        pdf_add_btn.innerText= "add tag"
+          }
+	}
+	
+	
+
 	let hashtags_arr = []
-	function add_hashtag() {
+	function add_hashtag(){
 		event.preventDefault();
+		
+		
 		const div = document.createElement('span');
 		let hashtag_value = document.getElementById('hashtag_input').value;
+		
+		
 		let hashtag_div = document.getElementById('hashtags');
 		let hashtags_input_dummy = document.getElementById('hashtags_input_dummy');
 		hashtags_arr = [...hashtags_arr, hashtag_value]
